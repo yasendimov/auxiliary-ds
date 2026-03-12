@@ -46,6 +46,8 @@ src/
 ├── style.css             ← Tailwind import + token imports
 ├── App.vue
 └── main.js
+docs/                      ← Design docs (not published)
+└── design-philosophy.md
 ```
 
 ## Token Architecture
@@ -218,11 +220,9 @@ Example: `feature/grumpy-tooltip`, `fix/lost-token`
 - License: Apache 2.0
 - Structured for future monorepo split into `@aux/tokens`, `@aux/icons`, `@aux/components`
 
-## Visual Language
+## Gotchas
 
-- Swiss precision — structured layouts, consistent spacing, intentional hierarchy
-- Every visual decision must be justified by function, not decoration
-- Density over whitespace in operational interfaces, breathing room in marketing
-- No gradients, no shadows for decoration — only for functional depth (elevation, overlay)
-- Icons are monochromatic, inherit `currentColor`, never hardcoded fills
+- `scripts/generate-tokens.js` — Auterion defines custom `base` and `blue` scales. If you add `'blue'` back to the `radixChromatics` array, Radix's blue will overwrite Auterion's `#1475ff`. The custom scales must not appear in the Radix import lists.
+- `colors.css` is GENERATED — never edit directly, always modify the generator script
+- Tailwind v4 `@theme` uses a different scope than `:root` — referencing `var(--foo)` inside `@theme` where `--foo` is also defined in `@theme` creates a circular reference. Use literal values or reference variables from `:root` only.
 - Borders and dividers use `--color-line` — never arbitrary opacity hacks
