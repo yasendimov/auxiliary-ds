@@ -24,6 +24,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **pnpm** — package manager, always use pnpm not npm or yarn
 - **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
 - **@radix-ui/colors** — Radix color scales, consumed by `scripts/generate-tokens.js`
+- **@heroicons/vue** — Icon library, import directly from size/variant paths (e.g. `@heroicons/vue/20/outline`)
 
 ## Folder Structure
 ```
@@ -36,6 +37,8 @@ src/
 │   ├── shadows.css
 │   ├── motion.css
 │   └── z-index.css
+├── assets/
+│   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
 ├── components/
 │   ├── foundation/       ← Primitives (future @aux/components)
 │   ├── marketing/        ← Brand and website components
@@ -144,8 +147,22 @@ Quick rules: Inter for language, IBM Plex Mono for data. No shadows or gradients
 
 ## Iconography Rules
 
-- Sizes: 16px (UI), 20px (nav), 24px (feature). Stroke: 1.5px. Outlined, geometric.
-- Always `currentColor` — never hardcoded fills. Never decorative. Must be legible at 16px on both themes.
+- **Library:** Heroicons (`@heroicons/vue`) — outlined, geometric, 1.5px stroke
+- **Usage:** Import icons directly from `@heroicons/vue` — no wrapper component
+  ```vue
+  import { ArrowLeftIcon } from '@heroicons/vue/20/outline'
+  import { CheckIcon } from '@heroicons/vue/16/solid'
+  ```
+- **Directories:**
+  - `16/solid` — 16px micro icons (solid only, no outline variant exists)
+  - `20/outline` — 20px default UI icons
+  - `20/solid` — 20px filled variant
+  - `24/outline` — 24px feature/nav icons
+  - `24/solid` — 24px filled variant
+- **Sizing:** Use Tailwind `size-*` classes: `size-4` (16px), `size-5` (20px), `size-6` (24px)
+- **Color:** Always `currentColor` via parent text color — never hardcoded fills
+- **Accessibility:** Add `aria-label` and `role="img"` for meaningful icons. Decorative icons get `aria-hidden="true"`.
+- Never decorative. Must be legible at 16px on both themes.
 
 ## Data Visualization Rules
 
@@ -198,3 +215,4 @@ Example: `feature/grumpy-tooltip`, `fix/lost-token`
 - `colors.css` is GENERATED — never edit directly, always modify the generator script
 - Tailwind v4 `@theme` uses a different scope than `:root` — referencing `var(--foo)` inside `@theme` where `--foo` is also defined in `@theme` creates a circular reference. Use literal values or reference variables from `:root` only.
 - Borders and dividers use `--color-line` — never arbitrary opacity hacks
+- No `@` path alias configured — always use relative imports (e.g. `../components/foundation/Foo.vue`)

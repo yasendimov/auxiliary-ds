@@ -320,6 +320,7 @@ Icons in AUX are monochromatic and inherit `currentColor`. They never have hardc
 - Style: outlined, geometric, minimal detail — legible at small sizes in dense layouts
 - Never used decoratively — every icon encodes a specific action or object
 - Operational icons (alert indicators, vehicle status) must be unambiguous at 16px on all themes
+- Current library: Heroicons (`@heroicons/vue`), accessed via the `<AuxIcon>` wrapper component
 
 ---
 
