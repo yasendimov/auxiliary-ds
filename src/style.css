@@ -11,9 +11,9 @@
   --color-*: initial;
 
   /* Spacing */
-  --spacing-page-x:  var(--spacing-page-x);
-  --spacing-page-y:  var(--spacing-page-y);
-  --spacing-section: var(--spacing-section);
+  --spacing-page-x:  24px;
+  --spacing-page-y:  24px;
+  --spacing-section: 48px;
 
   /* Surface */
   --color-page: var(--base-1);

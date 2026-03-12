@@ -41,7 +41,7 @@ const radixGrays = ['gray', 'mauve', 'slate', 'sage', 'olive', 'sand']
 
 const radixChromatics = [
   'tomato', 'red', 'ruby', 'crimson', 'pink', 'plum', 'purple', 'violet',
-  'iris', 'indigo', 'blue', 'cyan', 'teal', 'jade', 'green', 'grass',
+  'iris', 'indigo', 'cyan', 'teal', 'jade', 'green', 'grass',
   'brown', 'bronze', 'gold', 'yellow', 'amber', 'orange', 'sky', 'mint',
 ]
 
