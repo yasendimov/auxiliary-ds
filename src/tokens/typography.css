@@ -1,0 +1,70 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   AUX Typography Tokens
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Section A — Raw variables ───────────────────────────────────────────── */
+
+:root {
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-features-sans: 'ss01', 'ss07', 'ss08', 'cv02', 'cv03', 'cv04', 'cv06', 'cv09', 'cv12', 'cv13';
+}
+
+/* ── Section B — Type scale (@theme → Tailwind utilities) ────────────────── */
+
+@theme {
+  --font-family-sans: var(--font-sans);
+  --font-family-mono: var(--font-mono);
+
+  --font-size-xs:   12px;
+  --font-size-sm:   14px;
+  --font-size-base: 16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  24px;
+  --font-size-3xl:  30px;
+  --font-size-4xl:  40px;
+  --font-size-5xl:  48px;
+  --font-size-6xl:  60px;
+  --font-size-7xl:  80px;
+  --font-size-8xl:  96px;
+  --font-size-9xl:  128px;
+}
+
+/* ── Section C — Semantic type roles ─────────────────────────────────────── */
+
+@layer components {
+  .type-hero      { font-size: 80px;  font-weight: 600; letter-spacing: -3.2px;  line-height: 1; }
+  .type-display   { font-size: 60px;  font-weight: 600; letter-spacing: -2.4px;  line-height: 1.1; }
+  .type-page-lg   { font-size: 48px;  font-weight: 600; letter-spacing: -1.92px; line-height: 1.15; }
+  .type-page      { font-size: 40px;  font-weight: 600; letter-spacing: -1.6px;  line-height: 1.15; }
+  .type-heading   { font-size: 30px;  font-weight: 600; letter-spacing: -1.2px;  line-height: 1.25; }
+  .type-section   { font-size: 24px;  font-weight: 600; letter-spacing: -0.72px; line-height: 1.25; }
+  .type-title     { font-size: 20px;  font-weight: 600; letter-spacing: -0.6px;  line-height: 1.4; }
+  .type-body      { font-size: 16px;  font-weight: 400; letter-spacing: -0.32px; line-height: 1.4; }
+  .type-secondary { font-size: 14px;  font-weight: 400; letter-spacing: -0.28px; line-height: 1.4; }
+  .type-label     { font-size: 12px;  font-weight: 500; letter-spacing: -0.24px; line-height: 1.4; }
+  .type-caption   { font-size: 12px;  font-weight: 400; letter-spacing: -0.24px; line-height: 1.4; }
+  .type-overline  { font-size: 11px;  font-weight: 500; letter-spacing: 0.06em;  line-height: 1.4; text-transform: uppercase; }
+}
+
+/* ── Section D — Base styles ─────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-feature-settings: var(--font-features-sans);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: normal;
+    font-variant-numeric: tabular-nums;
+  }
+}

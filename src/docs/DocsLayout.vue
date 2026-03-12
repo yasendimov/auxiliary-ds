@@ -26,24 +26,24 @@ const navSections = [
 </script>
 
 <template>
-  <div class="flex min-h-screen bg-zinc-950 text-zinc-100 font-sans">
-    <aside class="w-64 shrink-0 border-r border-zinc-800 bg-zinc-900 p-6">
+  <div class="flex min-h-screen bg-page text-content-high font-sans">
+    <aside class="w-64 shrink-0 border-r border-line bg-page-subtle p-6">
       <div class="mb-8">
-        <h1 class="text-lg font-semibold tracking-tight text-white">AUX</h1>
-        <p class="text-xs text-zinc-500">Auxiliary Design System</p>
+        <h1 class="text-lg font-semibold tracking-tight text-content-high">AUX</h1>
+        <p class="text-xs text-content-dim">Auxiliary Design System</p>
       </div>
 
       <nav class="space-y-6">
         <div v-for="section in navSections" :key="section.title">
-          <h2 class="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500">
+          <h2 class="mb-2 text-xs font-medium uppercase tracking-wider text-content-dim">
             {{ section.title }}
           </h2>
           <ul class="space-y-1">
             <li v-for="link in section.links" :key="link.path">
               <router-link
                 :to="link.path"
-                class="block rounded-md px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
-                active-class="bg-zinc-800 text-white"
+                class="block rounded-md px-3 py-1.5 text-sm text-content-low transition-colors hover:bg-surface-1 hover:text-content-high"
+                active-class="bg-surface-1 text-content-high"
               >
                 {{ link.name }}
               </router-link>

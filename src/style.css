@@ -1,12 +1,58 @@
 @import "tailwindcss";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
 
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-*: initial;
+
+  /* Surface */
+  --color-page: var(--base-1);
+  --color-page-subtle: var(--base-2);
+  --color-surface-1: var(--base-3);
+  --color-surface-2: var(--base-4);
+  --color-surface-3: var(--base-5);
+
+  /* Text */
+  --color-content-high: var(--base-12);
+  --color-content-low: var(--base-11);
+  --color-content-dim: var(--base-9);
+
+  /* Lines */
+  --color-line: var(--base-6);
+  --color-line-hover: var(--base-7);
+  --color-line-focus: var(--base-8);
+
+  /* Action (primary) */
+  --color-action: var(--blue-9);
+  --color-action-hover: var(--blue-10);
+  --color-action-subtle: var(--blue-3);
+  --color-action-content: var(--blue-11);
+
+  /* Alert — Alarm (red) */
+  --color-alarm: var(--red-9);
+  --color-alarm-subtle: var(--red-3);
+  --color-alarm-content: var(--red-11);
+
+  /* Alert — Warning (orange) */
+  --color-warning: var(--orange-9);
+  --color-warning-subtle: var(--orange-3);
+  --color-warning-content: var(--orange-11);
+
+  /* Alert — Caution (amber) */
+  --color-caution: var(--amber-9);
+  --color-caution-subtle: var(--amber-3);
+  --color-caution-content: var(--amber-11);
+
+  /* Alert — OK (green) */
+  --color-ok: var(--green-9);
+  --color-ok-subtle: var(--green-3);
+  --color-ok-content: var(--green-11);
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  background-color: #09090b;
-  color: #f4f4f5;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
 }
