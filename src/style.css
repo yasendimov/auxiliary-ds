@@ -1,9 +1,15 @@
 @import "tailwindcss";
 @import "./tokens/colors.css";
 @import "./tokens/typography.css";
+@import "./tokens/spacing.css";
 
 @theme {
   --color-*: initial;
+
+  /* Spacing */
+  --spacing-page-x:  var(--spacing-page-x);
+  --spacing-page-y:  var(--spacing-page-y);
+  --spacing-section: var(--spacing-section);
 
   /* Surface */
   --color-page: var(--base-1);
