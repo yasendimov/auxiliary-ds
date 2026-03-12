@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  background-color: #09090b;
+  color: #f4f4f5;
+}
