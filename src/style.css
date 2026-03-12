@@ -2,6 +2,10 @@
 @import "./tokens/colors.css";
 @import "./tokens/typography.css";
 @import "./tokens/spacing.css";
+@import "./tokens/border-radius.css";
+@import "./tokens/shadows.css";
+@import "./tokens/motion.css";
+@import "./tokens/z-index.css";
 
 @theme {
   --color-*: initial;
@@ -53,6 +57,33 @@
   --color-ok: var(--green-9);
   --color-ok-subtle: var(--green-3);
   --color-ok-content: var(--green-11);
+
+  /* Border radius */
+  --radius-instrument: var(--radius-instrument);
+  --radius-panel:      var(--radius-panel);
+  --radius-card:       var(--radius-card);
+  --radius-badge:      var(--radius-badge);
+
+  /* Shadows */
+  --shadow-panel:   var(--shadow-panel);
+  --shadow-overlay: var(--shadow-overlay);
+
+  /* Motion — Tailwind registers these as duration-* and ease-* utilities */
+  --transition-duration-instant: var(--duration-instant);
+  --transition-duration-fast:    var(--duration-fast);
+  --transition-duration-base:    var(--duration-base);
+  --transition-duration-slow:    var(--duration-slow);
+  --ease-snap:  var(--ease-snap);
+  --ease-glide: var(--ease-glide);
+
+  /* Z-index */
+  --z-base:     var(--z-base);
+  --z-sticky:   var(--z-sticky);
+  --z-dropdown: var(--z-dropdown);
+  --z-overlay:  var(--z-overlay);
+  --z-modal:    var(--z-modal);
+  --z-toast:    var(--z-toast);
+  --z-tooltip:  var(--z-tooltip);
 }
 
 html[data-theme="dark"] {
