@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/border-radius.css";
+@import "./tokens/shadows.css";
+@import "./tokens/motion.css";
+@import "./tokens/z-index.css";
+
+@theme {
+  --color-*: initial;
+
+  /* Spacing */
+  --spacing-page-x:  24px;
+  --spacing-page-y:  24px;
+  --spacing-section: 48px;
+
+  /* Surface */
+  --color-page: var(--base-1);
+  --color-page-subtle: var(--base-2);
+  --color-surface-1: var(--base-3);
+  --color-surface-2: var(--base-4);
+  --color-surface-3: var(--base-5);
+
+  /* Text */
+  --color-content-high: var(--base-12);
+  --color-content-low: var(--base-11);
+  --color-content-dim: var(--base-9);
+
+  /* Lines */
+  --color-line: var(--base-6);
+  --color-line-hover: var(--base-7);
+  --color-line-focus: var(--base-8);
+
+  /* Action (primary) */
+  --color-action: var(--blue-9);
+  --color-action-hover: var(--blue-10);
+  --color-action-subtle: var(--blue-3);
+  --color-action-content: var(--blue-11);
+
+  /* Alert — Alarm (red) */
+  --color-alarm: var(--red-9);
+  --color-alarm-subtle: var(--red-3);
+  --color-alarm-content: var(--red-11);
+
+  /* Alert — Warning (orange) */
+  --color-warning: var(--orange-9);
+  --color-warning-subtle: var(--orange-3);
+  --color-warning-content: var(--orange-11);
+
+  /* Alert — Caution (amber) */
+  --color-caution: var(--amber-9);
+  --color-caution-subtle: var(--amber-3);
+  --color-caution-content: var(--amber-11);
+
+  /* Alert — OK (green) */
+  --color-ok: var(--green-9);
+  --color-ok-subtle: var(--green-3);
+  --color-ok-content: var(--green-11);
+
+  /* Border radius */
+  --radius-instrument: var(--radius-instrument);
+  --radius-panel:      var(--radius-panel);
+  --radius-card:       var(--radius-card);
+  --radius-badge:      var(--radius-badge);
+
+  /* Shadows */
+  --shadow-panel:   var(--shadow-panel);
+  --shadow-overlay: var(--shadow-overlay);
+
+  /* Motion — Tailwind registers these as duration-* and ease-* utilities */
+  --transition-duration-instant: var(--duration-instant);
+  --transition-duration-fast:    var(--duration-fast);
+  --transition-duration-base:    var(--duration-base);
+  --transition-duration-slow:    var(--duration-slow);
+  --ease-snap:  var(--ease-snap);
+  --ease-glide: var(--ease-glide);
+
+  /* Z-index */
+  --z-base:     var(--z-base);
+  --z-sticky:   var(--z-sticky);
+  --z-dropdown: var(--z-dropdown);
+  --z-overlay:  var(--z-overlay);
+  --z-modal:    var(--z-modal);
+  --z-toast:    var(--z-toast);
+  --z-tooltip:  var(--z-tooltip);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
