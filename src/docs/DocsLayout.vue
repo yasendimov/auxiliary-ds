@@ -27,23 +27,23 @@ const navSections = [
 
 <template>
   <div class="flex min-h-screen bg-page text-content-high font-sans">
-    <aside class="w-64 shrink-0 border-r border-line bg-page-subtle p-6">
-      <div class="mb-8">
-        <h1 class="text-lg font-semibold tracking-tight text-content-high">AUX</h1>
-        <p class="text-xs text-content-dim">Auxiliary Design System</p>
+    <aside class="w-64 shrink-0 border-r border-line bg-page-subtle px-5 py-6">
+      <div class="mb-8 px-3">
+        <h1 class="type-label font-semibold text-content-high">AUX</h1>
+        <p class="type-caption text-content-dim">Auxiliary Design System</p>
       </div>
 
-      <nav class="space-y-6">
+      <nav class="space-y-5">
         <div v-for="section in navSections" :key="section.title">
-          <h2 class="mb-2 text-xs font-medium uppercase tracking-wider text-content-dim">
+          <h2 class="type-overline text-content-dim mb-2 px-3">
             {{ section.title }}
           </h2>
-          <ul class="space-y-1">
+          <ul class="space-y-0.5">
             <li v-for="link in section.links" :key="link.path">
               <router-link
                 :to="link.path"
-                class="block rounded-md px-3 py-1.5 text-sm text-content-low transition-colors hover:bg-surface-1 hover:text-content-high"
-                active-class="bg-surface-1 text-content-high"
+                class="block border-l-2 border-transparent px-3 py-1.5 type-secondary text-content-low transition-colors hover:text-content-high"
+                active-class="border-action text-content-high"
               >
                 {{ link.name }}
               </router-link>
@@ -53,7 +53,7 @@ const navSections = [
       </nav>
     </aside>
 
-    <main class="flex-1 p-10">
+    <main class="flex-1 bg-page p-10">
       <router-view />
     </main>
   </div>
