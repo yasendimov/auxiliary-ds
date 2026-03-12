@@ -22,8 +22,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Tailwind CSS v4** — CSS-first config via `@tailwindcss/vite`, no `tailwind.config.js`
 - **Vue Router** — docs app navigation, `src/router/index.js`
 - **pnpm** — package manager, always use pnpm not npm or yarn
-- **Fonts** — Inter Variable (UI), JetBrains Mono (data/code) via Google Fonts
+- **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
 - **@radix-ui/colors** — Radix color scales, consumed by `scripts/generate-tokens.js`
+- **@heroicons/vue** — Icon library, import directly from size/variant paths (e.g. `@heroicons/vue/20/outline`)
 
 ## Folder Structure
 ```
@@ -36,6 +37,8 @@ src/
 │   ├── shadows.css
 │   ├── motion.css
 │   └── z-index.css
+├── assets/
+│   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
 ├── components/
 │   ├── foundation/       ← Primitives (future @aux/components)
 │   ├── marketing/        ← Brand and website components
@@ -120,58 +123,52 @@ Status colors are NEVER used decoratively — only for their designated alert le
 ## Typography
 
 - **Inter Variable** — all UI text
-- **JetBrains Mono** — telemetry values, coordinates, data readouts, code, token names
-- 13-step type scale from 12px to 128px
+- **IBM Plex Mono** — telemetry values, coordinates, data readouts, code, token names
+- 13-step type scale from 12px (agate) to 128px (broadsheet)
 - Three weights only: Regular (400), Medium (500), SemiBold (600)
+- Type classes use weight suffixes: `.type-{name}-sb`, `.type-{name}-m`, `.type-{name}-r`
+- Scale names: broadsheet (128) · tabloid (96) · hero (80) · display (60) · title (48) · heading (40) · subheading (30) · section (24) · lead (20) · intro (18) · body (16) · caption (14) · agate (12)
+- `agate` has no `-sb` variant (SemiBold at 12px is too heavy)
+- `.type-overline` (11px) is a special formatting class — no weight suffix, includes `text-transform: uppercase`
+- No bare class names — always use the weight suffix (e.g., `type-body-r` not `type-body`)
 - OpenType features enabled by default: tabular figures, contextual alternates
 - Tracking tightens as size increases: -2% body, -3% heading, -4% display
+- Regular weight gets looser tracking than SemiBold/Medium at large display sizes (optical correction)
 - Never use italic in operational interfaces
 - Uppercase only for labels and overlines — never body text
 
 ## Design Philosophy
 
-See docs/design-philosophy.md for the full rationale.
+See `docs/design-philosophy.md` for full rationale and decision framework.
 
-The AUX visual style is **functional authority** — it needs to look like it controls things that fly. Every visual decision must serve one of these principles:
+Core principle: **functional authority** — looks like it controls things that fly. No decoration. Every element encodes meaning or it's removed.
 
-**When writing any component, ask:**
-- Is this language or data? Language gets Inter. Data gets JetBrains Mono.
-- Is this a heading or body? Headings get SemiBold with tight negative tracking. Body gets Regular.
-- Is this decorative or functional? If decorative, remove it.
-- Is this an operational interface? If yes, fixed sizes only — never fluid or responsive type.
-- Does this color carry signal? alarm/warning/caution/ok colors must mean that alert level — never use them decoratively.
-- Does this need a shadow or gradient? Almost certainly not. Remove it.
-- Does this need rounded corners? Only on interactive elements — never on data displays.
-
-## Design Decision Framework
-
-When a design choice is unclear, apply these questions in order:
-
-1. Which context is this? Operational, application, or marketing? The answer governs density, motion, radius, and shadow.
-2. Does this element encode meaning? If yes, it stays. If purely decorative, remove it.
-3. Does this work across both themes? Test light and dark. If it fails in either, it is not finished.
-4. Does this follow the grid? Every measurement resolves to 4px multiples. If it does not, justify why.
-5. Is the color semantic? Alert colors for alerts only. Blue for interactive only. Everything else from neutral or chromatic palette.
-6. Would this survive in a cockpit? For operational components: if an operator under stress could misread this, it is wrong.
-7. Is this the simplest version? Remove one more thing. If it still works, the removed thing was not needed.
+Quick rules: Inter for language, IBM Plex Mono for data. No shadows or gradients unless justified. 4px grid. Alert colors only for alerts. Blue only for interactive. Test both themes.
 
 ## Iconography Rules
 
-- Optical sizes: 16px for UI, 20px for navigation, 24px for feature callouts
-- Stroke weight: 1.5px consistent across the set
-- Style: outlined, geometric, minimal detail — legible at small sizes in dense layouts
-- Always inherit currentColor — never hardcoded fills or strokes
-- Never used decoratively — every icon encodes a specific action or object
-- Operational icons (alert indicators, vehicle status) must be unambiguous at 16px on both themes
+- **Library:** Heroicons (`@heroicons/vue`) — outlined, geometric, 1.5px stroke
+- **Usage:** Import icons directly from `@heroicons/vue` — no wrapper component
+  ```vue
+  import { ArrowLeftIcon } from '@heroicons/vue/20/outline'
+  import { CheckIcon } from '@heroicons/vue/16/solid'
+  ```
+- **Directories:**
+  - `16/solid` — 16px micro icons (solid only, no outline variant exists)
+  - `20/outline` — 20px default UI icons
+  - `20/solid` — 20px filled variant
+  - `24/outline` — 24px feature/nav icons
+  - `24/solid` — 24px filled variant
+- **Sizing:** Use Tailwind `size-*` classes: `size-4` (16px), `size-5` (20px), `size-6` (24px)
+- **Color:** Always `currentColor` via parent text color — never hardcoded fills
+- **Accessibility:** Add `aria-label` and `role="img"` for meaningful icons. Decorative icons get `aria-hidden="true"`.
+- Never decorative. Must be legible at 16px on both themes.
 
 ## Data Visualization Rules
 
-- Alert colors are reserved for their alert meanings — a red line on a chart means alarm-level data, nothing else
-- Series differentiation uses the chromatic palette (non-blue, non-alert hues)
-- Axes and labels: text-content-dim
-- Data values: monospace
-- Grid lines: --color-line at reduced opacity — never competing with data
-- Every chart must be legible in both light and dark themes
+- Alert colors reserved for alert meanings only. Series use chromatic palette (non-blue, non-alert).
+- Axes/labels: `text-content-dim`. Data values: monospace. Grid: `--color-line` at reduced opacity.
+- Must be legible in both themes.
 
 ## Component Rules
 
@@ -218,3 +215,4 @@ Example: `feature/grumpy-tooltip`, `fix/lost-token`
 - `colors.css` is GENERATED — never edit directly, always modify the generator script
 - Tailwind v4 `@theme` uses a different scope than `:root` — referencing `var(--foo)` inside `@theme` where `--foo` is also defined in `@theme` creates a circular reference. Use literal values or reference variables from `:root` only.
 - Borders and dividers use `--color-line` — never arbitrary opacity hacks
+- No `@` path alias configured — always use relative imports (e.g. `../components/foundation/Foo.vue`)

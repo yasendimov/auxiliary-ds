@@ -64,86 +64,87 @@ const colophon = [
 <template>
   <div class="-mx-page-x -my-page-y">
     <!-- Hero -->
-    <section class="px-8 lg:px-16 pt-24 pb-16 max-w-2xl">
-      <p class="font-mono text-xs tracking-[0.2em] uppercase text-content-dim">
+    <section class="px-8 lg:px-16 pt-24 pb-16">
+      <p class="type-overline text-content-dim">
         AUX Design System — v0.1.0
       </p>
-      <h1 class="type-display font-semibold text-content-high mt-4">
+      <h1 class="type-display-sb text-content-high mt-4">
         Auxiliary
       </h1>
-      <p class="type-page font-normal text-content-low mt-4">
+      <p class="type-heading-sb text-content-low mt-4 max-w-xl">
         The official design system for Auterion products. Built for operators, designed in Zurich.
       </p>
     </section>
 
     <!-- Specs Strip -->
     <section class="px-8 lg:px-16">
-      <div class="grid grid-cols-3 lg:grid-cols-6 gap-y-px gap-x-px bg-surface-3">
+      <div class="grid grid-cols-3 lg:grid-cols-6 border-t border-l border-line">
         <div
           v-for="spec in specs"
           :key="spec.label"
-          class="bg-page p-8"
+          class="border-b border-r border-line p-8"
         >
-          <span class="font-mono text-xs text-content-dim uppercase tracking-[0.06em]">{{ spec.label }}</span>
-          <p class="type-body font-medium text-content-high mt-1">{{ spec.value }}</p>
+          <span class="type-overline text-content-dim">{{ spec.label }}</span>
+          <p class="type-caption-m text-content-high mt-1">{{ spec.value }}</p>
         </div>
       </div>
     </section>
 
     <!-- Foundation -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="font-mono text-xs text-content-dim uppercase tracking-[0.06em] mb-12">Foundation</p>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-px gap-x-px bg-surface-3">
+      <p class="type-overline text-content-dim mb-12"><span class="font-mono">01</span> — Foundation</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 border-t border-l border-line">
         <div
           v-for="card in foundation"
           :key="card.title"
-          class="bg-page p-8"
+          class="border-b border-r border-line p-8"
         >
-          <h3 class="type-heading font-semibold text-content-high">{{ card.title }}</h3>
-          <p class="type-body text-content-low mt-2 max-w-md">{{ card.desc }}</p>
+          <h3 class="type-subheading-sb text-content-high">{{ card.title }}</h3>
+          <p class="type-body-r text-content-low mt-2 max-w-md">{{ card.desc }}</p>
         </div>
       </div>
     </section>
 
     <!-- Visual Language -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="font-mono text-xs text-content-dim uppercase tracking-[0.06em] mb-12">Visual Language</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-px gap-x-px bg-surface-3">
+      <p class="type-overline text-content-dim mb-12"><span class="font-mono">02</span> — Visual Language</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
         <div
           v-for="card in visualLanguage"
           :key="card.title"
-          class="bg-page p-8 flex flex-col justify-between min-h-56"
+          class="border-b border-r border-line p-8 flex flex-col justify-between min-h-56"
         >
-          <h3 class="type-heading font-semibold text-content-high">{{ card.title }}</h3>
-          <p class="type-body text-content-low max-w-xs">{{ card.desc }}</p>
+          <h3 class="type-subheading-sb text-content-high">{{ card.title }}</h3>
+          <p class="type-body-r text-content-low max-w-xs">{{ card.desc }}</p>
         </div>
       </div>
     </section>
 
     <!-- Contexts -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="font-mono text-xs text-content-dim uppercase tracking-[0.06em] mb-12">Contexts</p>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-px gap-x-px bg-surface-3">
+      <p class="type-overline text-content-dim mb-12"><span class="font-mono">03</span> — Contexts</p>
+      <div class="grid grid-cols-1 lg:grid-cols-3 border-t border-l border-line">
         <div
           v-for="card in contexts"
           :key="card.title"
-          class="bg-page p-8 flex flex-col justify-between min-h-52"
+          class="border-b border-r border-line p-8 flex flex-col justify-between min-h-52"
         >
-          <h3 class="type-heading font-semibold text-content-high">{{ card.title }}</h3>
-          <p class="type-body text-content-low">{{ card.desc }}</p>
+          <h3 class="type-subheading-sb text-content-high">{{ card.title }}</h3>
+          <p class="type-body-r text-content-low">{{ card.desc }}</p>
         </div>
       </div>
     </section>
 
     <!-- Colophon -->
-    <section class="px-8 lg:px-16 py-16 mt-24">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <section class="px-8 lg:px-16 mt-24">
+      <div class="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
         <div
           v-for="item in colophon"
           :key="item.label"
+          class="border-b border-r border-line p-8"
         >
-          <span class="font-mono text-xs text-content-dim uppercase tracking-[0.06em]">{{ item.label }}</span>
-          <p :class="[item.mono ? 'font-mono' : '', 'type-body font-medium text-content-high mt-1']">{{ item.value }}</p>
+          <span class="type-overline text-content-dim">{{ item.label }}</span>
+          <p :class="[item.mono ? 'font-mono' : '', 'type-caption-m text-content-high mt-1']">{{ item.value }}</p>
         </div>
       </div>
     </section>
