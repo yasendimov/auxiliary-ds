@@ -1,171 +1,149 @@
 <script setup>
-import { ref } from 'vue'
-
-const isDark = ref(true)
-
-function toggleTheme() {
-  isDark.value = !isDark.value
-  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
-}
-
-const semanticTokens = [
-  { label: 'page', class: 'bg-page' },
-  { label: 'page-subtle', class: 'bg-page-subtle' },
-  { label: 'surface-1', class: 'bg-surface-1' },
-  { label: 'surface-2', class: 'bg-surface-2' },
-  { label: 'surface-3', class: 'bg-surface-3' },
-  { label: 'content-high', class: 'bg-content-high' },
-  { label: 'content-low', class: 'bg-content-low' },
-  { label: 'content-dim', class: 'bg-content-dim' },
-  { label: 'line', class: 'bg-line' },
-  { label: 'line-hover', class: 'bg-line-hover' },
-  { label: 'line-focus', class: 'bg-line-focus' },
-  { label: 'action', class: 'bg-action' },
-  { label: 'action-hover', class: 'bg-action-hover' },
-  { label: 'action-subtle', class: 'bg-action-subtle' },
-  { label: 'action-content', class: 'bg-action-content' },
+const specs = [
+  { label: 'Typeface', value: 'Inter Variable' },
+  { label: 'Weights', value: '600 \u00b7 500 \u00b7 400' },
+  { label: 'Type Steps', value: '13' },
+  { label: 'Color Scales', value: '30+' },
+  { label: 'Contexts', value: '3' },
+  { label: 'Themes', value: '2' },
 ]
 
-const typeRoles = [
-  'type-hero', 'type-display', 'type-page-lg', 'type-page',
-  'type-heading', 'type-section', 'type-title', 'type-body',
-  'type-secondary', 'type-label', 'type-caption', 'type-overline',
+const foundation = [
+  {
+    title: 'Design Philosophy',
+    desc: 'The principles, tensions, and decisions that govern every token and component in the system.',
+  },
+  {
+    title: 'Token Architecture',
+    desc: 'Two-layer color system, typography scale, spacing constants, and how primitives become semantics.',
+  },
 ]
 
-const alerts = [
-  { label: 'Alarm', bg: 'bg-alarm-subtle', text: 'text-alarm-content', dot: 'bg-alarm' },
-  { label: 'Warning', bg: 'bg-warning-subtle', text: 'text-warning-content', dot: 'bg-warning' },
-  { label: 'Caution', bg: 'bg-caution-subtle', text: 'text-caution-content', dot: 'bg-caution' },
-  { label: 'OK', bg: 'bg-ok-subtle', text: 'text-ok-content', dot: 'bg-ok' },
+const visualLanguage = [
+  {
+    title: 'Color',
+    desc: 'Signal not decoration. Alarm, warning, caution, ok. Blue for interactive only.',
+  },
+  {
+    title: 'Typography',
+    desc: 'Swiss precision. Negative tracking. Monospace as truth. Three weights. One typeface.',
+  },
+  {
+    title: 'Spacing',
+    desc: '4px base grid. Context-driven density. Three layout contexts.',
+  },
+  {
+    title: 'Motion',
+    desc: 'Cost not feature. Instant in operational. Purposeful in application. Editorial in marketing.',
+  },
+]
+
+const contexts = [
+  {
+    title: 'Operational',
+    desc: 'Ground control stations, instrument panels, real-time telemetry. Fixed layout. Maximum density. No decoration.',
+  },
+  {
+    title: 'Application',
+    desc: 'Fleet management, mission planning, dashboards. Balanced density. Purposeful motion. Workday tools.',
+  },
+  {
+    title: 'Marketing',
+    desc: 'Landing pages, documentation, public content. Editorial rhythm. Generous space. Read, not operated.',
+  },
+]
+
+const colophon = [
+  { label: 'Primary Typeface', value: 'Inter Variable' },
+  { label: 'Primary Accent', value: '#1475FF', mono: true },
+  { label: 'Neutral Hue', value: 'Base (achromatic)' },
+  { label: 'Base Unit', value: '4px' },
 ]
 </script>
 
 <template>
-  <div class="max-w-3xl space-y-10">
-    <!-- Header + Theme Toggle -->
-    <div class="flex items-center justify-between">
-      <div>
-        <h1 class="type-section text-content-high">Token Verification</h1>
-        <p class="type-secondary text-content-low mt-1">AUX semantic color tokens — dark &amp; light</p>
-      </div>
-      <button
-        class="bg-surface-1 px-4 py-2 type-label text-content-high border border-line hover:bg-surface-2 transition-colors"
-        @click="toggleTheme"
-      >
-        {{ isDark ? 'Switch to Light' : 'Switch to Dark' }}
-      </button>
-    </div>
-
-    <!-- Semantic Token Swatches -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Semantic Tokens</h2>
-      <div class="grid grid-cols-5 gap-3">
-        <div v-for="token in semanticTokens" :key="token.label" class="flex flex-col items-center gap-2">
-          <div
-            :class="[token.class, 'h-10 w-full border border-line']"
-          />
-          <span class="type-caption font-mono text-content-dim">{{ token.label }}</span>
-        </div>
-      </div>
+  <div class="-mx-page-x -my-page-y">
+    <!-- Hero -->
+    <section class="px-8 lg:px-16 pt-24 pb-16 max-w-2xl">
+      <p class="font-mono text-xs tracking-[0.2em] uppercase text-content-dim">
+        AUX Design System — v0.1.0
+      </p>
+      <h1 class="type-display font-semibold text-content-high mt-4">
+        Auxiliary
+      </h1>
+      <p class="type-page font-normal text-content-low mt-4">
+        The official design system for Auterion products. Built for operators, designed in Zurich.
+      </p>
     </section>
 
-    <!-- Sample Card -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Sample Card</h2>
-      <div class="border border-line bg-surface-1 p-6">
-        <h3 class="type-title text-content-high">Card Title</h3>
-        <p class="type-secondary text-content-low mt-2">
-          This card uses <span class="font-mono text-content-dim">bg-surface-1</span>,
-          <span class="font-mono text-content-dim">text-content-high</span>, and
-          <span class="font-mono text-content-dim">border-line</span>.
-        </p>
-        <button
-          class="mt-4 bg-action px-4 py-2 type-label text-white hover:bg-action-hover transition-colors"
-        >
-          Primary Action
-        </button>
-      </div>
-    </section>
-
-    <!-- OpenBridge Alert States -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">OpenBridge Alerts</h2>
-      <div class="flex gap-3">
+    <!-- Specs Strip -->
+    <section class="px-8 lg:px-16">
+      <div class="grid grid-cols-3 lg:grid-cols-6 gap-y-px gap-x-px bg-surface-3">
         <div
-          v-for="alert in alerts"
-          :key="alert.label"
-          :class="[alert.bg, alert.text, 'flex items-center gap-2 px-4 py-2 type-label']"
+          v-for="spec in specs"
+          :key="spec.label"
+          class="bg-page p-8"
         >
-          <span :class="[alert.dot, 'h-2 w-2 rounded-full']" />
-          {{ alert.label }}
+          <span class="font-mono text-xs text-content-dim uppercase tracking-[0.06em]">{{ spec.label }}</span>
+          <p class="type-body font-medium text-content-high mt-1">{{ spec.value }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Text Hierarchy -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Text Hierarchy</h2>
-      <div class="space-y-3 border border-line bg-surface-1 p-6">
-        <div class="flex items-baseline gap-3">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-28">content-high</span>
-          <p class="type-body text-content-high">Primary text — high contrast, used for headings and body copy</p>
-        </div>
-        <div class="flex items-baseline gap-3">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-28">content-low</span>
-          <p class="type-body text-content-low">Secondary text — lower contrast, used for descriptions</p>
-        </div>
-        <div class="flex items-baseline gap-3">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-28">content-dim</span>
-          <p class="type-body text-content-dim">Tertiary text — lowest contrast, used for placeholders</p>
+    <!-- Foundation -->
+    <section class="px-8 lg:px-16 mt-24">
+      <p class="font-mono text-xs text-content-dim uppercase tracking-[0.06em] mb-12">Foundation</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-px gap-x-px bg-surface-3">
+        <div
+          v-for="card in foundation"
+          :key="card.title"
+          class="bg-page p-8"
+        >
+          <h3 class="type-heading font-semibold text-content-high">{{ card.title }}</h3>
+          <p class="type-body text-content-low mt-2 max-w-md">{{ card.desc }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Typography Scale -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Type Scale</h2>
-      <div class="space-y-4 border border-line bg-surface-1 p-6 overflow-hidden">
-        <div v-for="role in typeRoles" :key="role" class="flex items-baseline gap-4">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-32">.{{ role }}</span>
-          <span :class="[role, 'text-content-high truncate']">The quick brown fox 0123456789</span>
+    <!-- Visual Language -->
+    <section class="px-8 lg:px-16 mt-24">
+      <p class="font-mono text-xs text-content-dim uppercase tracking-[0.06em] mb-12">Visual Language</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-px gap-x-px bg-surface-3">
+        <div
+          v-for="card in visualLanguage"
+          :key="card.title"
+          class="bg-page p-8 flex flex-col justify-between min-h-56"
+        >
+          <h3 class="type-heading font-semibold text-content-high">{{ card.title }}</h3>
+          <p class="type-body text-content-low max-w-xs">{{ card.desc }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Monospace Data Row -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Monospace Data</h2>
-      <div class="border border-line bg-surface-1 p-6">
-        <p class="font-mono type-secondary text-content-low">
-          47.3769° N — 1,240 m AGL — 01:23:45 — AUT-2847
-        </p>
+    <!-- Contexts -->
+    <section class="px-8 lg:px-16 mt-24">
+      <p class="font-mono text-xs text-content-dim uppercase tracking-[0.06em] mb-12">Contexts</p>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-px gap-x-px bg-surface-3">
+        <div
+          v-for="card in contexts"
+          :key="card.title"
+          class="bg-page p-8 flex flex-col justify-between min-h-52"
+        >
+          <h3 class="type-heading font-semibold text-content-high">{{ card.title }}</h3>
+          <p class="type-body text-content-low">{{ card.desc }}</p>
+        </div>
       </div>
     </section>
 
-    <!-- Overline + Section Heading -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Overline + Heading</h2>
-      <div class="border border-line bg-surface-1 p-6">
-        <span class="type-overline text-content-dim">Mission Status</span>
-        <h3 class="type-section text-content-high mt-1">Fleet Alpha — Active Deployment</h3>
-      </div>
-    </section>
-
-    <!-- Weight Samples -->
-    <section>
-      <h2 class="type-overline text-content-dim mb-4">Weight Samples</h2>
-      <div class="space-y-3 border border-line bg-surface-1 p-6">
-        <div class="flex items-baseline gap-3">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-10">600</span>
-          <span class="type-body font-semibold text-content-high">SemiBold — The quick brown fox jumps</span>
-        </div>
-        <div class="flex items-baseline gap-3">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-10">500</span>
-          <span class="type-body font-medium text-content-high">Medium — The quick brown fox jumps</span>
-        </div>
-        <div class="flex items-baseline gap-3">
-          <span class="type-caption font-mono text-content-dim shrink-0 w-10">400</span>
-          <span class="type-body font-normal text-content-high">Regular — The quick brown fox jumps</span>
+    <!-- Colophon -->
+    <section class="px-8 lg:px-16 py-16 mt-24">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          v-for="item in colophon"
+          :key="item.label"
+        >
+          <span class="font-mono text-xs text-content-dim uppercase tracking-[0.06em]">{{ item.label }}</span>
+          <p :class="[item.mono ? 'font-mono' : '', 'type-body font-medium text-content-high mt-1']">{{ item.value }}</p>
         </div>
       </div>
     </section>

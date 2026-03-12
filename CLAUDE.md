@@ -31,7 +31,10 @@ src/
 │   ├── colors.css        ← GENERATED — run `pnpm generate-tokens`
 │   ├── typography.css
 │   ├── spacing.css
-│   └── index.css
+│   ├── border-radius.css
+│   ├── shadows.css
+│   ├── motion.css
+│   └── z-index.css
 ├── components/
 │   ├── foundation/       ← Primitives (future @aux/components)
 │   ├── marketing/        ← Brand and website components
@@ -99,7 +102,7 @@ Operational components MUST follow the OpenBridge aviation alert hierarchy stric
 - **Caution** — amber, awareness required
 - **OK** — green, normal state
 
-Every alert level has 7 token variants: `base`, `hover`, `subtle`, `muted`, `border`, `fill`, `text`.
+Every alert level currently has 3 token variants: `base`, `subtle`, `content`. Planned expansion to 7: adding `hover`, `muted`, `border`, `fill`.
 Status colors are NEVER used decoratively — only for their designated alert level.
 
 ## Theming
@@ -145,6 +148,36 @@ The AUX visual style is **functional authority** — it needs to look like it co
 - No gradients, no decorative shadows, no rounded corners on data
 - Blue is interactive only — never use it as a status or alert color
 - Monospace is data only — never use it decoratively
+
+## Design Decision Framework
+
+When a design choice is unclear, apply these questions in order:
+
+1. Which context is this? Operational, application, or marketing? The answer governs density, motion, radius, and shadow.
+2. Does this element encode meaning? If yes, it stays. If purely decorative, remove it.
+3. Does this work across both themes? Test light and dark. If it fails in either, it is not finished.
+4. Does this follow the grid? Every measurement resolves to 4px multiples. If it does not, justify why.
+5. Is the color semantic? Alert colors for alerts only. Blue for interactive only. Everything else from neutral or chromatic palette.
+6. Would this survive in a cockpit? For operational components: if an operator under stress could misread this, it is wrong.
+7. Is this the simplest version? Remove one more thing. If it still works, the removed thing was not needed.
+
+## Iconography Rules
+
+- Optical sizes: 16px for UI, 20px for navigation, 24px for feature callouts
+- Stroke weight: 1.5px consistent across the set
+- Style: outlined, geometric, minimal detail — legible at small sizes in dense layouts
+- Always inherit currentColor — never hardcoded fills or strokes
+- Never used decoratively — every icon encodes a specific action or object
+- Operational icons (alert indicators, vehicle status) must be unambiguous at 16px on both themes
+
+## Data Visualization Rules
+
+- Alert colors are reserved for their alert meanings — a red line on a chart means alarm-level data, nothing else
+- Series differentiation uses the chromatic palette (non-blue, non-alert hues)
+- Axes and labels: text-content-dim
+- Data values: monospace
+- Grid lines: --color-line at reduced opacity — never competing with data
+- Every chart must be legible in both light and dark themes
 
 ## Component Rules
 

@@ -27,7 +27,7 @@ const navSections = [
 
 <template>
   <div class="flex min-h-screen bg-page text-content-high font-sans">
-    <aside class="w-64 shrink-0 border-r border-line bg-page-subtle px-5 py-6">
+    <aside class="w-64 shrink-0 border-r border-line bg-page px-5 py-6">
       <div class="mb-8 px-3">
         <h1 class="type-label font-semibold text-content-high">AUX</h1>
         <p class="type-caption text-content-dim">Auxiliary Design System</p>
