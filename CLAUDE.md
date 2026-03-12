@@ -70,6 +70,18 @@ Intent-based names that reference primitives via `var()`. Defined once, resolve 
 - Never use inline styles for colors
 - Never use Tailwind's default color palette (blue-500, gray-900 etc.) — always use AUX semantic tokens
 
+### Spacing
+
+Three page-level constants in `src/tokens/spacing.css`, registered in `@theme` so Tailwind generates utilities:
+- `--spacing-page-x` (24px) → `px-page-x` — horizontal page padding
+- `--spacing-page-y` (24px) → `py-page-y` — vertical page padding
+- `--spacing-section` (48px) → `gap-section`, `mb-section` — between major sections
+
+Everything else uses Tailwind's built-in spacing scale directly. Layout density varies by context:
+- **Marketing**: `px-6 md:px-8 lg:px-12`, `py-16 md:py-24`
+- **Application**: `px-6 py-6`
+- **Operational**: `px-2 py-2`, instruments `p-1.5`
+
 ## Color System
 
 - **Base scale** — Pure achromatic neutral (custom Auterion, no hue tint)
