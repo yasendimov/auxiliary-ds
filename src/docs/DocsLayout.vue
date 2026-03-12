@@ -53,7 +53,7 @@ const navSections = [
       </nav>
     </aside>
 
-    <main class="flex-1 bg-page p-10">
+    <main class="flex-1 bg-page px-page-x py-page-y">
       <router-view />
     </main>
   </div>
