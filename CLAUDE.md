@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
+- `pnpm install` — Install dependencies
 - `pnpm dev` — Start dev server
 - `pnpm build` — Production build
 - `pnpm preview` — Preview production build locally
@@ -141,15 +142,6 @@ The AUX visual style is **functional authority** — it needs to look like it co
 - Does this color carry signal? alarm/warning/caution/ok colors must mean that alert level — never use them decoratively.
 - Does this need a shadow or gradient? Almost certainly not. Remove it.
 - Does this need rounded corners? Only on interactive elements — never on data displays.
-
-**The rules:**
-- Dark mode is the native state — always design and test dark first
-- Density over whitespace — pack information, make it scannable
-- Three weights only — Regular, Medium, SemiBold. Never a fourth.
-- One typeface — Inter Variable for everything except data
-- No gradients, no decorative shadows, no rounded corners on data
-- Blue is interactive only — never use it as a status or alert color
-- Monospace is data only — never use it decoratively
 
 ## Design Decision Framework
 
