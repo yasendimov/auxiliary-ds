@@ -8,17 +8,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- `npm run dev` — Start dev server
-- `npm run build` — Production build
-- `npm run preview` — Preview production build locally
+- `pnpm dev` — Start dev server
+- `pnpm build` — Production build
+- `pnpm preview` — Preview production build locally
 
 ## Architecture
 
 - **Vue 3** with Composition API only (no Options API, no TypeScript, no JSX)
 - **Vite** for bundling and dev server
 - **Tailwind CSS v4** via `@tailwindcss/vite` plugin (CSS-first config, no `tailwind.config.js`)
+- **Vue Router** for docs app navigation (`src/router/index.js`)
+- **Fonts:** Inter Variable (UI), JetBrains Mono (code/data) via Google Fonts
 - Entry point: `src/main.js` → mounts `App.vue` to `#app` in `index.html`
 - Tailwind imported via `@import "tailwindcss"` in `src/style.css`
+- Dark mode is primary, controlled via `data-theme="dark"` on `<html>`
+- Docs app: `src/docs/DocsLayout.vue` (sidebar + content), pages in `src/docs/pages/`
 - Static assets in `public/` (served at root) and `src/assets/` (processed by Vite)
 
 ## Component Categories
