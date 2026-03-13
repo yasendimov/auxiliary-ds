@@ -1,5 +1,5 @@
 <script setup>
-import AuxInput from '../../components/foundation/AuxInput.vue'
+import AuxInput from '../../components/core/AuxInput.vue'
 import { MagnifyingGlassIcon, EnvelopeIcon, CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/24/outline'
 
 const variants = ['default', 'error', 'success']
@@ -7,7 +7,7 @@ const sizes = ['sm', 'md', 'lg']
 </script>
 
 <template>
-  <div class="-mx-page-x -my-page-y">
+  <div>
     <!-- Header -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
       <p class="type-overline text-content-dim">Foundation</p>

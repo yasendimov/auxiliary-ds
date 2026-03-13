@@ -84,13 +84,13 @@ const sizeClasses = computed(() => {
 
 const variantClasses = computed(() => {
   if (props.disabled) {
-    return 'bg-[--color-action-disabled] text-[--color-action-content-disabled] cursor-not-allowed opacity-50 border border-line'
+    return 'bg-action-disabled text-action-content-disabled cursor-not-allowed opacity-50 border border-line'
   }
 
   const variants = {
-    default: 'bg-surface-1 border border-line text-content-high placeholder:text-content-dim hover:border-line-hover focus:border-action focus:ring-1 focus:ring-[--color-focus-ring]',
-    error: 'bg-surface-1 border border-alarm text-content-high placeholder:text-content-dim focus:border-alarm focus:ring-1 focus:ring-[--color-alarm]',
-    success: 'bg-surface-1 border border-ok text-content-high placeholder:text-content-dim focus:border-ok focus:ring-1 focus:ring-[--color-ok]',
+    default: 'bg-surface-1 border border-line text-content-high placeholder:text-content-dim hover:border-line-hover focus:border-action focus:ring-1 focus:ring-focus-ring',
+    error: 'bg-surface-1 border border-alarm text-content-high placeholder:text-content-dim focus:border-alarm focus:ring-1 focus:ring-alarm',
+    success: 'bg-surface-1 border border-ok text-content-high placeholder:text-content-dim focus:border-ok focus:ring-1 focus:ring-ok',
   }
   return variants[activeVariant.value]
 })

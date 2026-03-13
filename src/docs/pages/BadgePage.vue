@@ -1,12 +1,12 @@
 <script setup>
-import AuxBadge from '../../components/foundation/AuxBadge.vue'
+import AuxBadge from '../../components/core/AuxBadge.vue'
 
 const variants = ['default', 'info', 'success', 'warning', 'danger']
 const sizes = ['sm', 'md']
 </script>
 
 <template>
-  <div class="-mx-page-x -my-page-y">
+  <div>
     <!-- Header -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
       <p class="type-overline text-content-dim">Foundation</p>
