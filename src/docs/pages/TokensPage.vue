@@ -122,6 +122,11 @@ const motionTokens = [
   { utility: 'ease-glide', token: '--ease-glide', value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
 ]
 
+const opacityTokens = [
+  { utility: 'opacity-disabled', token: '--opacity-disabled', value: '0.5' },
+  { utility: 'opacity-hover', token: '--opacity-hover', value: '0.8' },
+]
+
 const zIndexTokens = [
   { utility: 'z-base', token: '--z-base', value: '0' },
   { utility: 'z-sticky', token: '--z-sticky', value: '100' },
@@ -274,8 +279,31 @@ const zIndexTokens = [
 
     <div class="border-b border-line"></div>
 
+    <!-- Opacity -->
+    <Section id="opacity" label="07 — Opacity">
+      <p class="type-caption-m text-content-low mb-8">
+        Named opacity values for disabled and hover states. Applied via <span class="font-mono">opacity-*</span> utilities.
+      </p>
+      <div class="grid gap-px bg-line rounded-card overflow-hidden">
+        <div
+          v-for="token in opacityTokens"
+          :key="token.token"
+          class="bg-page flex items-center gap-4 py-2.5 px-4"
+        >
+          <div
+            class="size-8 bg-action rounded-panel shrink-0"
+            :style="{ opacity: `var(${token.token})` }"
+          ></div>
+          <span class="font-mono type-caption-r text-content-high">{{ token.utility }}</span>
+          <span class="font-mono type-agate-r text-content-dim ml-auto">{{ token.token }} <span class="text-line">|</span> {{ token.value }}</span>
+        </div>
+      </div>
+    </Section>
+
+    <div class="border-b border-line"></div>
+
     <!-- Z-Index -->
-    <Section id="z-index" label="07 — Z-Index">
+    <Section id="z-index" label="08 — Z-Index">
       <div class="grid gap-px bg-line rounded-card overflow-hidden">
         <div
           v-for="token in zIndexTokens"

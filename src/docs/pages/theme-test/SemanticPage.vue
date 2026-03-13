@@ -295,5 +295,38 @@ const durations = [
         </div>
       </div>
     </section>
+
+    <div class="border-b border-line"></div>
+
+    <!-- Opacity -->
+    <section class="py-12 lg:py-16 px-10 lg:px-20">
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">11</span> — Opacity
+      </p>
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-4">
+          <span class="type-agate-m font-mono text-content-dim w-40 shrink-0">disabled (0.5)</span>
+          <div class="flex gap-3">
+            <div class="bg-action rounded-card px-5 py-4 opacity-disabled">
+              <span class="font-mono type-caption-m text-white">opacity-disabled</span>
+            </div>
+            <div class="bg-surface-2 border border-line rounded-card px-5 py-4 opacity-disabled">
+              <span class="font-mono type-caption-m text-content-high">opacity-disabled</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="type-agate-m font-mono text-content-dim w-40 shrink-0">hover (0.8)</span>
+          <div class="flex gap-3">
+            <div class="bg-action rounded-card px-5 py-4 opacity-hover">
+              <span class="font-mono type-caption-m text-white">opacity-hover</span>
+            </div>
+            <div class="bg-surface-2 border border-line rounded-card px-5 py-4 opacity-hover">
+              <span class="font-mono type-caption-m text-content-high">opacity-hover</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
