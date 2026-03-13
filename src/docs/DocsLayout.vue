@@ -134,7 +134,8 @@ const navSections = [
           { name: 'Toggle', to: '/design-system/core/toggle' },
           { name: 'Textarea', to: '/design-system/core/textarea' },
           { name: 'Alert', to: '/design-system/core/alert' },
-          { name: 'Spinner', to: '/design-system/core/spinner' }
+          { name: 'Spinner', to: '/design-system/core/spinner' },
+          { name: 'Avatar', to: '/design-system/core/avatar' }
         ]
       },
       {

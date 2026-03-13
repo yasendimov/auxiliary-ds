@@ -9,6 +9,8 @@ export { default as AuxToggle } from './core/Toggle.vue'
 export { default as AuxTextarea } from './core/Textarea.vue'
 export { default as AuxAlert } from './core/Alert.vue'
 export { default as AuxSpinner } from './core/Spinner.vue'
+export { default as AuxAvatar } from './core/Avatar.vue'
+export { default as AuxAvatarGroup } from './core/AvatarGroup.vue'
 
 // Marketing
 export { default as Hero } from './marketing/Hero.vue'

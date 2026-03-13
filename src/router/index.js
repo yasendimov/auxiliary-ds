@@ -210,6 +210,11 @@ const routes = [
         name: 'core-spinner',
         component: () => import('../docs/pages/SpinnerPage.vue')
       },
+      {
+        path: 'design-system/core/avatar',
+        name: 'core-avatar',
+        component: () => import('../docs/pages/AvatarPage.vue')
+      },
 
       // 11 Marketing
       {
