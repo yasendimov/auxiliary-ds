@@ -1,5 +1,5 @@
 <script setup>
-import { Hero, Section } from '../../components'
+import { AuxSeparator, Hero, Section } from '../../components'
 </script>
 
 <template>
@@ -32,7 +32,7 @@ import { Hero, Section } from '../../components'
       </div>
     </section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Label Only -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
@@ -46,7 +46,7 @@ import { Hero, Section } from '../../components'
       </div>
     </section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Slot Only -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">

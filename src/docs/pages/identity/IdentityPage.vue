@@ -1,5 +1,5 @@
 <script setup>
-import { Hero, Header, Section } from '../../../components'
+import { AuxSeparator, Hero, Header, Section } from '../../../components'
 </script>
 
 <template>
@@ -82,7 +82,7 @@ import { Hero, Header, Section } from '../../../components'
         </p>
       </Section>
 
-      <div class="border-b border-line"></div>
+      <AuxSeparator spacing="none" />
     </div>
 
     <!-- #brand-idea -->
@@ -197,7 +197,7 @@ import { Hero, Header, Section } from '../../../components'
         </div>
       </Section>
 
-      <div class="border-b border-line"></div>
+      <AuxSeparator spacing="none" />
     </div>
 
     <!-- #visual-language -->
@@ -208,7 +208,7 @@ import { Hero, Header, Section } from '../../../components'
         description="Motion, density, and the visual principles behind AUX. Coming soon."
       />
 
-      <div class="border-b border-line"></div>
+      <AuxSeparator spacing="none" />
     </div>
   </div>
 </template>

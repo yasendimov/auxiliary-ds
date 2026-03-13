@@ -1,5 +1,5 @@
 <script setup>
-import { Hero, Header } from '../../components'
+import { AuxSeparator, Hero, Header } from '../../components'
 </script>
 
 <template>
@@ -22,7 +22,7 @@ import { Hero, Header } from '../../components'
       </div>
     </section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Without Description -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
@@ -34,7 +34,7 @@ import { Hero, Header } from '../../components'
       </div>
     </section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Comparison -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">

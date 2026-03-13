@@ -1,5 +1,5 @@
 <script setup>
-import { Header, Section } from '../../components'
+import { AuxSeparator, Header, Section } from '../../components'
 
 const colorTokens = [
   { group: 'Surface', tokens: [
@@ -166,7 +166,7 @@ const zIndexTokens = [
       </div>
     </Section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Typography -->
     <Section id="typography" label="02 — Typography">
@@ -199,7 +199,7 @@ const zIndexTokens = [
       </div>
     </Section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Spacing -->
     <Section id="spacing" label="03 — Spacing">
@@ -218,7 +218,7 @@ const zIndexTokens = [
       </div>
     </Section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Border Radius -->
     <Section id="border-radius" label="04 — Border Radius">
@@ -238,7 +238,7 @@ const zIndexTokens = [
       </div>
     </Section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Shadows -->
     <Section id="shadows" label="05 — Shadows">
@@ -261,7 +261,7 @@ const zIndexTokens = [
       </div>
     </Section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Motion -->
     <Section id="motion" label="06 — Motion">
@@ -277,7 +277,7 @@ const zIndexTokens = [
       </div>
     </Section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Opacity -->
     <Section id="opacity" label="07 — Opacity">

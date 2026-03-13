@@ -215,6 +215,11 @@ const routes = [
         name: 'core-avatar',
         component: () => import('../docs/pages/AvatarPage.vue')
       },
+      {
+        path: 'design-system/core/separator',
+        name: 'core-separator',
+        component: () => import('../docs/pages/SeparatorPage.vue')
+      },
 
       // 11 Marketing
       {

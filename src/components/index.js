@@ -11,6 +11,7 @@ export { default as AuxAlert } from './core/Alert.vue'
 export { default as AuxSpinner } from './core/Spinner.vue'
 export { default as AuxAvatar } from './core/Avatar.vue'
 export { default as AuxAvatarGroup } from './core/AvatarGroup.vue'
+export { default as AuxSeparator } from './core/Separator.vue'
 
 // Marketing
 export { default as Hero } from './marketing/Hero.vue'

@@ -135,7 +135,8 @@ const navSections = [
           { name: 'Textarea', to: '/design-system/core/textarea' },
           { name: 'Alert', to: '/design-system/core/alert' },
           { name: 'Spinner', to: '/design-system/core/spinner' },
-          { name: 'Avatar', to: '/design-system/core/avatar' }
+          { name: 'Avatar', to: '/design-system/core/avatar' },
+          { name: 'Separator', to: '/design-system/core/separator' }
         ]
       },
       {

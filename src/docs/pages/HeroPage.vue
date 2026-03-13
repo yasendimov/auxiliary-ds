@@ -1,5 +1,5 @@
 <script setup>
-import { AuxButton, Hero } from '../../components'
+import { AuxButton, AuxSeparator, Hero } from '../../components'
 </script>
 
 <template>
@@ -22,7 +22,7 @@ import { AuxButton, Hero } from '../../components'
       </div>
     </section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- Without Description -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
@@ -34,7 +34,7 @@ import { AuxButton, Hero } from '../../components'
       </div>
     </section>
 
-    <div class="border-b border-line"></div>
+    <AuxSeparator spacing="none" />
 
     <!-- With Slot Content -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">

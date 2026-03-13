@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
-import { Header, Section } from '../../components'
+import { AuxSeparator, Header, Section } from '../../components'
 
 const route = useRoute()
 
@@ -18,7 +18,7 @@ const sections = computed(() => route.meta.sections || [])
       <Section :label="section.name">
         <p :id="section.id" class="type-body-m text-content-dim">Coming soon</p>
       </Section>
-      <div class="border-b border-line"></div>
+      <AuxSeparator spacing="none" />
     </template>
   </div>
 </template>
