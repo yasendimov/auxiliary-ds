@@ -2,6 +2,8 @@
 import { computed, useId } from 'vue'
 import { CheckIcon, MinusIcon } from '@heroicons/vue/16/solid'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -90,6 +92,7 @@ function onChange(event) {
         <input
           :id="inputId"
           type="checkbox"
+          v-bind="$attrs"
           class="peer absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
           :class="sizeConfig.control"
           :checked="modelValue"

@@ -2,6 +2,8 @@
 import { computed, inject, useId } from 'vue'
 import { radioGroupKey } from './radioGroupKey.js'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps({
   modelValue: {
     type: [String, Number, Boolean],
@@ -112,6 +114,7 @@ function onChange() {
         <input
           :id="inputId"
           type="radio"
+          v-bind="$attrs"
           class="peer absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
           :class="sizeConfig.control"
           :checked="isChecked"
