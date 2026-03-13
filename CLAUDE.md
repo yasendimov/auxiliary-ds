@@ -170,6 +170,21 @@ Quick rules: Inter for language, IBM Plex Mono for data. No shadows or gradients
 - Axes/labels: `text-content-dim`. Data values: monospace. Grid: `--color-line` at reduced opacity.
 - Must be legible in both themes.
 
+## Component Implementation Standard
+
+When building any new component, reference Tailwind Plus Vue components
+for implementation patterns — not design. Specifically follow their
+conventions for:
+
+- Computed class composition (avoid long inline ternary chains)
+- Props and emits definitions
+- Slot structure and naming
+- Accessibility attributes and ARIA patterns
+- State handling (disabled, loading, active, focus)
+
+Do not copy their visual design, spacing, colors, or radius decisions.
+AUX tokens and design philosophy govern all visual decisions.
+
 ## Component Rules
 
 - Every component uses `<script setup>` and Composition API
@@ -204,7 +219,7 @@ Example: `feature/grumpy-tooltip`, `fix/lost-token`
 ## Publishing
 
 - Published as npm package `auxiliary-ds`
-- `src/` is the published package (build/export config not yet set up)
+- `src/` is the published package — build/export config not yet set up (`package.json` is currently `"private": true`)
 - `src/docs/` is the documentation app — not published
 - License: Apache 2.0
 - Structured for future monorepo split into `@aux/tokens`, `@aux/icons`, `@aux/components`
