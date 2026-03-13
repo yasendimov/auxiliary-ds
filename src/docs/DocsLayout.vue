@@ -117,6 +117,7 @@ const navSections = [
           { name: 'Border Radius', hash: '#border-radius' },
           { name: 'Shadows', hash: '#shadows' },
           { name: 'Motion', hash: '#motion' },
+          { name: 'Opacity', hash: '#opacity' },
           { name: 'Z-Index', hash: '#z-index' }
         ]
       },
@@ -131,7 +132,8 @@ const navSections = [
           { name: 'Checkbox', to: '/design-system/core/checkbox' },
           { name: 'Radio', to: '/design-system/core/radio' },
           { name: 'Toggle', to: '/design-system/core/toggle' },
-          { name: 'Textarea', to: '/design-system/core/textarea' }
+          { name: 'Textarea', to: '/design-system/core/textarea' },
+          { name: 'Alert', to: '/design-system/core/alert' }
         ]
       },
       {

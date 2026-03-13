@@ -158,6 +158,7 @@ const routes = [
             { id: 'border-radius', name: 'Border Radius' },
             { id: 'shadows', name: 'Shadows' },
             { id: 'motion', name: 'Motion' },
+            { id: 'opacity', name: 'Opacity' },
             { id: 'z-index', name: 'Z-Index' }
           ]
         }
@@ -198,6 +199,11 @@ const routes = [
         path: 'design-system/core/textarea',
         name: 'core-textarea',
         component: () => import('../docs/pages/TextareaPage.vue')
+      },
+      {
+        path: 'design-system/core/alert',
+        name: 'core-alert',
+        component: () => import('../docs/pages/AlertPage.vue')
       },
 
       // 11 Marketing
