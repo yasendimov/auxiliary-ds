@@ -74,10 +74,9 @@ Intent-based names that reference primitives via `var()`. Defined once, resolve 
 ```
 
 **Rules:**
-- Components ALWAYS use semantic tokens (`--color-action`), NEVER raw scale values (`--blue-9`) or hardcoded hex values
+- Everything must be **on-system** — every color, size, duration, and radius must come from AUX tokens. No arbitrary values (`text-[13px]`, `duration-100`, `tracking-[0.15em]`), no Tailwind defaults (`blue-500`, `gray-900`), no hardcoded hex. If a token doesn't exist for what you need, flag it — don't work around it.
 - Tailwind utilities are generated from `@theme` — use `bg-action`, `text-content-high`, `border-line` etc.
 - Never use inline styles for colors
-- Never use Tailwind's default color palette (blue-500, gray-900 etc.) — always use AUX semantic tokens
 
 ### Spacing
 

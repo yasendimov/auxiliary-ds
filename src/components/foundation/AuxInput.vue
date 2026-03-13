@@ -84,7 +84,7 @@ const sizeClasses = computed(() => {
 
 const variantClasses = computed(() => {
   if (props.disabled) {
-    return 'bg-[--color-action-disabled] text-[--color-action-content-disabled] cursor-not-allowed opacity-50 border border-line'
+    return 'bg-action-disabled text-action-content-disabled cursor-not-allowed opacity-50 border border-line'
   }
 
   const variants = {

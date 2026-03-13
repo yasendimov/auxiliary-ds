@@ -54,7 +54,7 @@ const sizeClasses = computed(() => {
 
 const variantClasses = computed(() => {
   if (isDisabled.value) {
-    return 'bg-[--color-action-disabled] text-[--color-action-content-disabled] opacity-50 cursor-not-allowed pointer-events-none'
+    return 'bg-action-disabled text-action-content-disabled opacity-50 cursor-not-allowed pointer-events-none'
   }
 
   const variants = {
