@@ -183,6 +183,9 @@ AUX tokens and design philosophy govern all visual decisions.
 - Components in `marketing/`, `application/`, `operational/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
 - Operational components must strictly follow OpenBridge conventions
+- Every component must include: keyboard interaction support, focus-visible styles,
+  appropriate ARIA attributes, and sufficient color contrast in both themes.
+  Accessibility is structural — not a post-build checklist.
 
 ## Component Categories
 

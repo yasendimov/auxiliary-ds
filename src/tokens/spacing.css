@@ -11,7 +11,7 @@
 */
 
 :root {
-  --spacing-page-x:  24px;   /* horizontal page padding */
-  --spacing-page-y:  24px;   /* vertical page padding   */
-  --spacing-section: 48px;   /* between major sections  */
+  --spacing-page-x: 24px; /* horizontal page padding */
+  --spacing-page-y: 24px; /* vertical page padding   */
+  --spacing-section: 48px; /* between major sections  */
 }

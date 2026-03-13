@@ -6,62 +6,62 @@ defineOptions({ inheritAttrs: false })
 const props = defineProps({
   modelValue: {
     type: String,
-    default: '',
+    default: ''
   },
   type: {
     type: String,
-    default: 'text',
+    default: 'text'
   },
   variant: {
     type: String,
     default: 'default',
-    validator: (v) => ['default', 'error', 'success'].includes(v),
+    validator: (v) => ['default', 'error', 'success'].includes(v)
   },
   size: {
     type: String,
     default: 'md',
-    validator: (v) => ['sm', 'md', 'lg'].includes(v),
+    validator: (v) => ['sm', 'md', 'lg'].includes(v)
   },
   placeholder: {
     type: String,
-    default: '',
+    default: ''
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: false
   },
   readonly: {
     type: Boolean,
-    default: false,
+    default: false
   },
   label: {
     type: String,
-    default: null,
+    default: null
   },
   hint: {
     type: String,
-    default: null,
+    default: null
   },
   error: {
     type: String,
-    default: null,
+    default: null
   },
   leadingIcon: {
     type: [Object, Function],
-    default: null,
+    default: null
   },
   trailingIcon: {
     type: [Object, Function],
-    default: null,
+    default: null
   },
   prefix: {
     type: String,
-    default: null,
+    default: null
   },
   suffix: {
     type: String,
-    default: null,
-  },
+    default: null
+  }
 })
 
 const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
@@ -77,7 +77,7 @@ const sizeClasses = computed(() => {
   const sizes = {
     sm: 'h-7 px-3 text-xs',
     md: 'h-9 px-4 text-sm',
-    lg: 'h-11 px-5 text-base',
+    lg: 'h-11 px-5 text-base'
   }
   return sizes[props.size]
 })
@@ -88,9 +88,12 @@ const variantClasses = computed(() => {
   }
 
   const variants = {
-    default: 'bg-surface-1 border border-line text-content-high placeholder:text-content-dim hover:border-line-hover focus:border-action focus:ring-1 focus:ring-focus-ring',
-    error: 'bg-surface-1 border border-alarm text-content-high placeholder:text-content-dim focus:border-alarm focus:ring-1 focus:ring-alarm',
-    success: 'bg-surface-1 border border-ok text-content-high placeholder:text-content-dim focus:border-ok focus:ring-1 focus:ring-ok',
+    default:
+      'bg-surface-1 border border-line text-content-high placeholder:text-content-dim hover:border-line-hover focus:border-action focus:ring-1 focus:ring-focus-ring',
+    error:
+      'bg-surface-1 border border-alarm text-content-high placeholder:text-content-dim focus:border-alarm focus:ring-1 focus:ring-alarm',
+    success:
+      'bg-surface-1 border border-ok text-content-high placeholder:text-content-dim focus:border-ok focus:ring-1 focus:ring-ok'
   }
   return variants[activeVariant.value]
 })
@@ -103,14 +106,14 @@ const inputClasses = computed(() => [
   variantClasses.value,
   props.type === 'number' ? 'tabular-nums' : '',
   props.leadingIcon ? 'pl-10' : '',
-  props.trailingIcon ? 'pr-10' : '',
+  props.trailingIcon ? 'pr-10' : ''
 ])
 
 const iconSizeOffset = computed(() => {
   const offsets = {
     sm: 'left-2.5',
     md: 'left-3',
-    lg: 'left-4',
+    lg: 'left-4'
   }
   return offsets[props.size]
 })
@@ -119,7 +122,7 @@ const trailingIconOffset = computed(() => {
   const offsets = {
     sm: 'right-2.5',
     md: 'right-3',
-    lg: 'right-4',
+    lg: 'right-4'
   }
   return offsets[props.size]
 })
@@ -131,11 +134,7 @@ function onInput(event) {
 
 <template>
   <div>
-    <label
-      v-if="label"
-      :for="inputId"
-      class="type-caption-m text-content-high mb-1 block"
-    >
+    <label v-if="label" :for="inputId" class="type-caption-m text-content-high mb-1 block">
       {{ label }}
     </label>
 
@@ -189,18 +188,10 @@ function onInput(event) {
       </span>
     </div>
 
-    <p
-      v-if="error"
-      :id="`${inputId}-error`"
-      class="type-caption-r text-alarm-content mt-1.5"
-    >
+    <p v-if="error" :id="`${inputId}-error`" class="type-caption-r text-alarm-content mt-1.5">
       {{ error }}
     </p>
-    <p
-      v-else-if="hint"
-      :id="`${inputId}-hint`"
-      class="type-caption-r text-content-dim mt-1.5"
-    >
+    <p v-else-if="hint" :id="`${inputId}-hint`" class="type-caption-r text-content-dim mt-1.5">
       {{ hint }}
     </p>
   </div>

@@ -8,23 +8,59 @@ const statCards = [
   { label: 'Active Drones', value: '47', badge: 'success', badgeLabel: 'Online' },
   { label: 'Missions Today', value: '12', badge: 'info', badgeLabel: 'Running' },
   { label: 'Alerts', value: '3', badge: 'warning', badgeLabel: 'Review' },
-  { label: 'Uptime', value: '99.8%', badge: 'success', badgeLabel: 'Healthy' },
+  { label: 'Uptime', value: '99.8%', badge: 'success', badgeLabel: 'Healthy' }
 ]
 
 const tableHeaders = ['Name', 'Status', 'Fleet', 'Duration', 'Progress']
 const tableRows = [
   { name: 'Survey Alpha', status: 'success', fleet: '8', duration: '02:34:11', progress: '78%' },
   { name: 'Perimeter Scan', status: 'warning', fleet: '4', duration: '01:12:45', progress: '45%' },
-  { name: 'Delivery Route 7', status: 'success', fleet: '12', duration: '00:48:22', progress: '92%' },
-  { name: 'Inspection Grid B', status: 'danger', fleet: '3', duration: '03:01:08', progress: '15%' },
-  { name: 'Mapping West', status: 'default', fleet: '6', duration: '—', progress: '0%' },
+  {
+    name: 'Delivery Route 7',
+    status: 'success',
+    fleet: '12',
+    duration: '00:48:22',
+    progress: '92%'
+  },
+  {
+    name: 'Inspection Grid B',
+    status: 'danger',
+    fleet: '3',
+    duration: '03:01:08',
+    progress: '15%'
+  },
+  { name: 'Mapping West', status: 'default', fleet: '6', duration: '—', progress: '0%' }
 ]
 
 const alertExamples = [
-  { level: 'Alarm', bgClass: 'bg-alarm-subtle', textClass: 'text-alarm-content', borderClass: 'border-alarm', msg: 'Drone #14 — communication lost' },
-  { level: 'Warning', bgClass: 'bg-warning-subtle', textClass: 'text-warning-content', borderClass: 'border-warning', msg: 'Battery below 20% on fleet Alpha' },
-  { level: 'Caution', bgClass: 'bg-caution-subtle', textClass: 'text-caution-content', borderClass: 'border-caution', msg: 'Wind speed approaching threshold' },
-  { level: 'OK', bgClass: 'bg-ok-subtle', textClass: 'text-ok-content', borderClass: 'border-ok', msg: 'All systems nominal' },
+  {
+    level: 'Alarm',
+    bgClass: 'bg-alarm-subtle',
+    textClass: 'text-alarm-content',
+    borderClass: 'border-alarm',
+    msg: 'Drone #14 — communication lost'
+  },
+  {
+    level: 'Warning',
+    bgClass: 'bg-warning-subtle',
+    textClass: 'text-warning-content',
+    borderClass: 'border-warning',
+    msg: 'Battery below 20% on fleet Alpha'
+  },
+  {
+    level: 'Caution',
+    bgClass: 'bg-caution-subtle',
+    textClass: 'text-caution-content',
+    borderClass: 'border-caution',
+    msg: 'Wind speed approaching threshold'
+  },
+  {
+    level: 'OK',
+    bgClass: 'bg-ok-subtle',
+    textClass: 'text-ok-content',
+    borderClass: 'border-ok',
+    msg: 'All systems nominal'
+  }
 ]
 
 const sidebarItems = ['Dashboard', 'Missions', 'Fleet', 'Analytics', 'Settings']
@@ -43,7 +79,9 @@ const sidebarItems = ['Dashboard', 'Missions', 'Fleet', 'Analytics', 'Settings']
           :key="item"
           :class="[
             'px-3 py-2 rounded-panel type-caption-m transition-colors duration-instant cursor-default',
-            i === 0 ? 'bg-surface-2 text-content-high' : 'text-content-low hover:text-content-high hover:bg-surface-2'
+            i === 0
+              ? 'bg-surface-2 text-content-high'
+              : 'text-content-low hover:text-content-high hover:bg-surface-2'
           ]"
         >
           {{ item }}
@@ -77,13 +115,17 @@ const sidebarItems = ['Dashboard', 'Missions', 'Fleet', 'Analytics', 'Settings']
               <span class="type-caption-m text-content-dim">{{ card.label }}</span>
               <AuxBadge :variant="card.badge" size="sm" dot>{{ card.badgeLabel }}</AuxBadge>
             </div>
-            <span class="type-heading-sb text-content-high font-mono mt-2 block">{{ card.value }}</span>
+            <span class="type-heading-sb text-content-high font-mono mt-2 block">{{
+              card.value
+            }}</span>
           </div>
         </section>
 
         <!-- Table -->
         <section class="mb-section">
-          <p class="type-overline text-content-dim mb-4"><span class="font-mono">01</span> — Active Missions</p>
+          <p class="type-overline text-content-dim mb-4">
+            <span class="font-mono">01</span> — Active Missions
+          </p>
           <div class="border border-line rounded-card overflow-x-auto">
             <table class="w-full min-w-[480px]">
               <thead>
@@ -107,9 +149,15 @@ const sidebarItems = ['Dashboard', 'Missions', 'Fleet', 'Analytics', 'Settings']
                   <td class="px-4 py-3">
                     <AuxBadge :variant="row.status" size="sm" dot>{{ row.status }}</AuxBadge>
                   </td>
-                  <td class="type-caption-m text-content-low font-mono px-4 py-3">{{ row.fleet }}</td>
-                  <td class="type-caption-m text-content-low font-mono px-4 py-3">{{ row.duration }}</td>
-                  <td class="type-caption-m text-content-low font-mono px-4 py-3">{{ row.progress }}</td>
+                  <td class="type-caption-m text-content-low font-mono px-4 py-3">
+                    {{ row.fleet }}
+                  </td>
+                  <td class="type-caption-m text-content-low font-mono px-4 py-3">
+                    {{ row.duration }}
+                  </td>
+                  <td class="type-caption-m text-content-low font-mono px-4 py-3">
+                    {{ row.progress }}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -118,12 +166,19 @@ const sidebarItems = ['Dashboard', 'Missions', 'Fleet', 'Analytics', 'Settings']
 
         <!-- Alert Banner Examples -->
         <section>
-          <p class="type-overline text-content-dim mb-4"><span class="font-mono">02</span> — Alert Banners</p>
+          <p class="type-overline text-content-dim mb-4">
+            <span class="font-mono">02</span> — Alert Banners
+          </p>
           <div class="flex flex-col gap-3">
             <div
               v-for="alert in alertExamples"
               :key="alert.level"
-              :class="[alert.bgClass, alert.textClass, 'rounded-card px-4 py-3 border-l-4', alert.borderClass]"
+              :class="[
+                alert.bgClass,
+                alert.textClass,
+                'rounded-card px-4 py-3 border-l-4',
+                alert.borderClass
+              ]"
             >
               <span class="type-caption-m">{{ alert.level }}:</span>
               <span class="type-caption-m ml-2">{{ alert.msg }}</span>

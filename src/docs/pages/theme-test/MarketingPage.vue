@@ -3,16 +3,19 @@ import AuxButton from '../../../components/core/AuxButton.vue'
 import AuxInput from '../../../components/core/AuxInput.vue'
 
 const features = [
-  { label: 'Autonomous Navigation', desc: 'AI-powered flight path optimization for complex environments.' },
+  {
+    label: 'Autonomous Navigation',
+    desc: 'AI-powered flight path optimization for complex environments.'
+  },
   { label: 'Fleet Management', desc: 'Real-time coordination of drone swarms across missions.' },
-  { label: 'Mission Planning', desc: 'Advanced mission configuration and waypoint tools.' },
+  { label: 'Mission Planning', desc: 'Advanced mission configuration and waypoint tools.' }
 ]
 
 const stats = [
   { value: '10K+', label: 'Flights completed' },
   { value: '99.9%', label: 'Uptime' },
   { value: '150+', label: 'Enterprise clients' },
-  { value: '<2ms', label: 'Latency' },
+  { value: '<2ms', label: 'Latency' }
 ]
 </script>
 
@@ -38,7 +41,9 @@ const stats = [
 
     <!-- Features Grid -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">01</span> — Features</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">01</span> — Features
+      </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div
           v-for="feature in features"
@@ -92,7 +97,9 @@ const stats = [
     <section class="py-16 lg:py-24 px-10 lg:px-20 text-center">
       <h2 class="type-subheading-sb text-content-high">Stay in the loop</h2>
       <p class="type-body-m text-content-low mt-3">Get updates on autonomous flight technology.</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 max-w-md mx-auto">
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 max-w-md mx-auto"
+      >
         <AuxInput placeholder="you@company.com" class="w-full sm:flex-1" />
         <AuxButton>Subscribe</AuxButton>
       </div>

@@ -27,12 +27,11 @@ import AuxButton from '../../components/core/AuxButton.vue'
 
     <!-- Without Description -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">02</span> — Without Description</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">02</span> — Without Description
+      </p>
       <div class="border border-line rounded-card overflow-hidden">
-        <Hero
-          eyebrow="Product Update"
-          headline="Skynode 3 is here"
-        />
+        <Hero eyebrow="Product Update" headline="Skynode 3 is here" />
       </div>
     </section>
 
@@ -40,9 +39,12 @@ import AuxButton from '../../components/core/AuxButton.vue'
 
     <!-- With Slot Content -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">03</span> — Composition</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">03</span> — Composition
+      </p>
       <p class="type-caption-m text-content-low mb-6">
-        Hero provides the header structure. Pair with buttons and other elements below it for a complete landing section.
+        Hero provides the header structure. Pair with buttons and other elements below it for a
+        complete landing section.
       </p>
       <div class="border border-line rounded-card overflow-hidden">
         <Hero

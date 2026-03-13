@@ -23,14 +23,16 @@ import Section from '../../../components/marketing/Section.vue'
       <Section title="Mission Statement">
         <p class="type-subheading-sb text-content-high mb-6 max-w-3xl">Build swarms, not drones.</p>
         <p class="type-body-m text-content-low max-w-2xl">
-          We transform individual drones into AI-enabled nodes of a larger network —
-          creating resilient, coordinated swarms across air, land, and sea. Our open architecture
-          gives democracies scalable, interoperable autonomy that resists jamming and wins at mass scale.
+          We transform individual drones into AI-enabled nodes of a larger network — creating
+          resilient, coordinated swarms across air, land, and sea. Our open architecture gives
+          democracies scalable, interoperable autonomy that resists jamming and wins at mass scale.
         </p>
       </Section>
 
       <Section title="Vision">
-        <p class="type-subheading-sb text-content-high mb-6 max-w-3xl">The leading platform for autonomous systems.</p>
+        <p class="type-subheading-sb text-content-high mb-6 max-w-3xl">
+          The leading platform for autonomous systems.
+        </p>
         <p class="type-body-m text-content-low max-w-2xl">
           We envision millions of unmanned vehicles connected by one common operating system —
           swarming as a decisive force across defense, industrial, and civil domains, uniting allies
@@ -49,15 +51,15 @@ import Section from '../../../components/marketing/Section.vue'
           <div>
             <h3 class="type-body-sb text-content-high mb-2">Open Architecture</h3>
             <p class="type-caption-m text-content-low">
-              Fosters interoperability and allows customers to integrate multiple manufacturers
-              and payloads — enabling one operator to control many drones.
+              Fosters interoperability and allows customers to integrate multiple manufacturers and
+              payloads — enabling one operator to control many drones.
             </p>
           </div>
           <div>
             <h3 class="type-body-sb text-content-high mb-2">Battle-Proven</h3>
             <p class="type-caption-m text-content-low">
-              Products like Skynode S are resilient against jamming and turn inexpensive FPV
-              drones into networked weapons at unprecedented scale.
+              Products like Skynode S are resilient against jamming and turn inexpensive FPV drones
+              into networked weapons at unprecedented scale.
             </p>
           </div>
           <div>
@@ -73,12 +75,12 @@ import Section from '../../../components/marketing/Section.vue'
       <Section title="Elevator Pitch">
         <p class="type-body-m text-content-low max-w-3xl">
           Auterion delivers the operating system for swarms. AuterionOS provides an open
-          architecture that integrates fleets from multiple manufacturers into a single, interoperable
-          fabric. Skynode avionics add AI-enabled autonomy, secure communications and edge computing
-          so that one operator can control many drones. Our battle-proven technology lets vehicles
-          lock onto targets and complete missions even when GPS and video links are jammed. We give
-          democracies an affordable platform for autonomous mass while ensuring that humans remain
-          in control.
+          architecture that integrates fleets from multiple manufacturers into a single,
+          interoperable fabric. Skynode avionics add AI-enabled autonomy, secure communications and
+          edge computing so that one operator can control many drones. Our battle-proven technology
+          lets vehicles lock onto targets and complete missions even when GPS and video links are
+          jammed. We give democracies an affordable platform for autonomous mass while ensuring that
+          humans remain in control.
         </p>
       </Section>
 
@@ -130,37 +132,39 @@ import Section from '../../../components/marketing/Section.vue'
           <div>
             <h3 class="type-body-sb text-content-high mb-2">Autonomy, AI & Swarm Scale</h3>
             <p class="type-caption-m text-content-low">
-              Edge computing and AI-driven autonomy at the core. Products like Skynode S allow drones
-              to track moving targets autonomously and complete missions when communications are jammed —
-              scaling from a handful to hundreds.
+              Edge computing and AI-driven autonomy at the core. Products like Skynode S allow
+              drones to track moving targets autonomously and complete missions when communications
+              are jammed — scaling from a handful to hundreds.
             </p>
           </div>
           <div>
-            <h3 class="type-body-sb text-content-high mb-2">Interoperability & Open Architecture</h3>
+            <h3 class="type-body-sb text-content-high mb-2">
+              Interoperability & Open Architecture
+            </h3>
             <p class="type-caption-m text-content-low">
-              AuterionOS allows customers to combine different drones and manufacturers into a single
-              architecture, enabling swarming where a single operator controls many drones.
+              AuterionOS allows customers to combine different drones and manufacturers into a
+              single architecture, enabling swarming where a single operator controls many drones.
             </p>
           </div>
           <div>
             <h3 class="type-body-sb text-content-high mb-2">Democratic Responsibility</h3>
             <p class="type-caption-m text-content-low">
-              A moral obligation to support liberal democracies. Auterion does not sell to authoritarian
-              regimes. Human operators always remain in control.
+              A moral obligation to support liberal democracies. Auterion does not sell to
+              authoritarian regimes. Human operators always remain in control.
             </p>
           </div>
           <div>
             <h3 class="type-body-sb text-content-high mb-2">Open-Source Heritage</h3>
             <p class="type-caption-m text-content-low">
-              Roots in open-source development. Making PX4 freely available created the world's largest
-              developer community for autonomous robots.
+              Roots in open-source development. Making PX4 freely available created the world's
+              largest developer community for autonomous robots.
             </p>
           </div>
           <div>
             <h3 class="type-body-sb text-content-high mb-2">Commercial Affordability & Scale</h3>
             <p class="type-caption-m text-content-low">
-              Advanced capabilities should be accessible. Skynode S costs roughly the price of an Android
-              phone. Autonomous mass, produced at scale.
+              Advanced capabilities should be accessible. Skynode S costs roughly the price of an
+              Android phone. Autonomous mass, produced at scale.
             </p>
           </div>
         </div>

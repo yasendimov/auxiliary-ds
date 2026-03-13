@@ -6,21 +6,21 @@ const props = defineProps({
   variant: {
     type: String,
     default: 'default',
-    validator: (v) => ['default', 'info', 'success', 'warning', 'danger'].includes(v),
+    validator: (v) => ['default', 'info', 'success', 'warning', 'danger'].includes(v)
   },
   size: {
     type: String,
     default: 'md',
-    validator: (v) => ['sm', 'md'].includes(v),
+    validator: (v) => ['sm', 'md'].includes(v)
   },
   dot: {
     type: Boolean,
-    default: false,
+    default: false
   },
   dismissible: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 })
 
 defineEmits(['dismiss'])
@@ -31,7 +31,7 @@ const variantClasses = computed(() => {
     info: 'bg-action-subtle text-action-content',
     success: 'bg-ok-subtle text-ok-content',
     warning: 'bg-caution-subtle text-caution-content',
-    danger: 'bg-alarm-subtle text-alarm-content',
+    danger: 'bg-alarm-subtle text-alarm-content'
   }
   return variants[props.variant]
 })
@@ -42,7 +42,7 @@ const dotClasses = computed(() => {
     info: 'bg-action',
     success: 'bg-ok',
     warning: 'bg-caution',
-    danger: 'bg-alarm',
+    danger: 'bg-alarm'
   }
   return dots[props.variant]
 })
@@ -50,7 +50,7 @@ const dotClasses = computed(() => {
 const sizeClasses = computed(() => {
   const sizes = {
     sm: 'text-xs px-1.5 py-0.5',
-    md: 'text-xs px-2 py-1',
+    md: 'text-xs px-2 py-1'
   }
   return sizes[props.size]
 })
@@ -58,15 +58,12 @@ const sizeClasses = computed(() => {
 const badgeClasses = computed(() => [
   'rounded-badge font-medium inline-flex items-center gap-1.5',
   sizeClasses.value,
-  variantClasses.value,
+  variantClasses.value
 ])
 </script>
 
 <template>
-  <span
-    v-bind="$attrs"
-    :class="badgeClasses"
-  >
+  <span v-bind="$attrs" :class="badgeClasses">
     <span v-if="dot" class="w-1.5 h-1.5 rounded-full" :class="dotClasses" />
     <slot />
     <button
