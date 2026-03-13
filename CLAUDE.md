@@ -145,30 +145,34 @@ Core principle: **functional authority** — looks like it controls things that 
 
 Quick rules: Inter for language, IBM Plex Mono for data. No shadows or gradients unless justified. 4px grid. Alert colors only for alerts. Blue only for interactive. Test both themes.
 
-## Iconography Rules
+## Icons
 
-- **Library:** Heroicons (`@heroicons/vue`) — outlined, geometric, 1.5px stroke
-- **Usage:** Import icons directly from `@heroicons/vue` — no wrapper component
-  ```vue
-  import { ArrowLeftIcon } from '@heroicons/vue/20/outline'
-  import { CheckIcon } from '@heroicons/vue/16/solid'
-  ```
-- **Directories:**
-  - `16/solid` — 16px micro icons (solid only, no outline variant exists)
-  - `20/outline` — 20px default UI icons
-  - `20/solid` — 20px filled variant
-  - `24/outline` — 24px feature/nav icons
-  - `24/solid` — 24px filled variant
-- **Sizing:** Use Tailwind `size-*` classes: `size-4` (16px), `size-5` (20px), `size-6` (24px)
-- **Color:** Always `currentColor` via parent text color — never hardcoded fills
-- **Accessibility:** Add `aria-label` and `role="img"` for meaningful icons. Decorative icons get `aria-hidden="true"`.
-- Never decorative. Must be legible at 16px on both themes.
+Heroicons (`@heroicons/vue`). Import directly, size with `size-4`/`size-5`/`size-6`, color via `currentColor`.
+
+- `16/solid` — micro icons (solid only)
+- `20/outline` / `20/solid` — default UI
+- `24/outline` / `24/solid` — feature/nav
 
 ## Data Visualization Rules
 
 - Alert colors reserved for alert meanings only. Series use chromatic palette (non-blue, non-alert).
 - Axes/labels: `text-content-dim`. Data values: monospace. Grid: `--color-line` at reduced opacity.
 - Must be legible in both themes.
+
+## Component Implementation Standard
+
+When building any new component, reference Tailwind Plus Vue components
+for implementation patterns — not design. Specifically follow their
+conventions for:
+
+- Computed class composition (avoid long inline ternary chains)
+- Props and emits definitions
+- Slot structure and naming
+- Accessibility attributes and ARIA patterns
+- State handling (disabled, loading, active, focus)
+
+Do not copy their visual design, spacing, colors, or radius decisions.
+AUX tokens and design philosophy govern all visual decisions.
 
 ## Component Rules
 
@@ -204,7 +208,7 @@ Example: `feature/grumpy-tooltip`, `fix/lost-token`
 ## Publishing
 
 - Published as npm package `auxiliary-ds`
-- `src/` is the published package (build/export config not yet set up)
+- `src/` is the published package — build/export config not yet set up (`package.json` is currently `"private": true`)
 - `src/docs/` is the documentation app — not published
 - License: Apache 2.0
 - Structured for future monorepo split into `@aux/tokens`, `@aux/icons`, `@aux/components`
