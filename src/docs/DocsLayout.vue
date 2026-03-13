@@ -130,7 +130,8 @@ const navSections = [
           { name: 'Input', to: '/design-system/core/input' },
           { name: 'Checkbox', to: '/design-system/core/checkbox' },
           { name: 'Radio', to: '/design-system/core/radio' },
-          { name: 'Toggle', to: '/design-system/core/toggle' }
+          { name: 'Toggle', to: '/design-system/core/toggle' },
+          { name: 'Textarea', to: '/design-system/core/textarea' }
         ]
       },
       {

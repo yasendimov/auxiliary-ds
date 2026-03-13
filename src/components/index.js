@@ -6,6 +6,7 @@ export { default as AuxCheckbox } from './core/Checkbox.vue'
 export { default as AuxRadio } from './core/Radio.vue'
 export { default as AuxRadioGroup } from './core/RadioGroup.vue'
 export { default as AuxToggle } from './core/Toggle.vue'
+export { default as AuxTextarea } from './core/Textarea.vue'
 
 // Marketing
 export { default as Hero } from './marketing/Hero.vue'

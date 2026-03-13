@@ -194,6 +194,11 @@ const routes = [
         name: 'core-toggle',
         component: () => import('../docs/pages/TogglePage.vue')
       },
+      {
+        path: 'design-system/core/textarea',
+        name: 'core-textarea',
+        component: () => import('../docs/pages/TextareaPage.vue')
+      },
 
       // 11 Marketing
       {
