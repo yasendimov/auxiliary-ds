@@ -62,7 +62,7 @@ const colophon = [
 </script>
 
 <template>
-  <div class="-mx-page-x -my-page-y">
+  <div>
     <!-- Hero -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
       <p class="type-overline text-content-dim">

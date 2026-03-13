@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: foundation primitives, marketing/brand, conventional application UI, and aerospace mission-critical operational interfaces.
+**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: core primitives, marketing/brand, conventional application UI, and aerospace mission-critical operational interfaces.
 
 ## Commands
 
@@ -40,7 +40,7 @@ src/
 ├── assets/
 │   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
 ├── components/
-│   ├── foundation/       ← Primitives (future @aux/components)
+│   ├── core/       ← Primitives (future @aux/components)
 │   ├── marketing/        ← Brand and website components
 │   ├── application/      ← Conventional SaaS UI
 │   └── operational/      ← Aerospace mission-critical UI
@@ -179,14 +179,14 @@ AUX tokens and design philosophy govern all visual decisions.
 - Props defined with `defineProps()`, events with `defineEmits()`
 - No inline styles — Tailwind classes only
 - No hardcoded colors, spacing, or font values — always use tokens
-- Components in `foundation/` are the only ones allowed to use raw Tailwind utilities
-- Components in `marketing/`, `application/`, `operational/` must compose from `foundation/` primitives
+- Components in `core/` are the only ones allowed to use raw Tailwind utilities
+- Components in `marketing/`, `application/`, `operational/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
 - Operational components must strictly follow OpenBridge conventions
 
 ## Component Categories
 
-- **Foundation** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
+- **Core** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
 - **Marketing** — Public-facing brand components. Hero, FeatureCard, Nav, Footer, CTA, etc.
 - **Application** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
 - **Operational** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
@@ -218,4 +218,4 @@ Example: `feature/grumpy-tooltip`, `fix/lost-token`
 - `colors.css` is GENERATED — never edit directly, always modify the generator script
 - Tailwind v4 `@theme` uses a different scope than `:root` — referencing `var(--foo)` inside `@theme` where `--foo` is also defined in `@theme` creates a circular reference. Use literal values or reference variables from `:root` only.
 - Borders and dividers use `--color-line` — never arbitrary opacity hacks
-- No `@` path alias configured — always use relative imports (e.g. `../components/foundation/Foo.vue`)
+- No `@` path alias configured — always use relative imports (e.g. `../components/core/Foo.vue`)

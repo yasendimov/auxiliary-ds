@@ -1,5 +1,5 @@
 <script setup>
-import AuxButton from '../../components/foundation/AuxButton.vue'
+import AuxButton from '../../components/core/AuxButton.vue'
 import { PlusIcon, ArrowRightIcon, ArrowDownTrayIcon, TrashIcon } from '@heroicons/vue/24/outline'
 
 const variants = ['primary', 'ghost', 'destructive']
@@ -7,7 +7,7 @@ const sizes = ['sm', 'md', 'lg']
 </script>
 
 <template>
-  <div class="-mx-page-x -my-page-y">
+  <div>
     <!-- Header -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
       <p class="type-overline text-content-dim">Foundation</p>

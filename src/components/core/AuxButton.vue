@@ -58,9 +58,9 @@ const variantClasses = computed(() => {
   }
 
   const variants = {
-    primary: 'bg-action text-white hover:bg-action-hover',
+    primary: 'bg-action text-action-contrast hover:bg-action-hover',
     ghost: 'border border-line text-content-high bg-transparent hover:border-line-hover hover:bg-surface-1',
-    destructive: 'bg-alarm text-white hover:bg-[--color-alarm-hover]',
+    destructive: 'bg-alarm text-alarm-contrast hover:bg-alarm-hover',
   }
   return variants[props.variant]
 })

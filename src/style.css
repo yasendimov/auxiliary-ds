@@ -37,6 +37,7 @@
   --color-action-hover: var(--blue-10);
   --color-action-subtle: var(--blue-3);
   --color-action-content: var(--blue-11);
+  --color-action-contrast: var(--blue-12);
 
   /* Action — disabled state */
   --color-action-disabled: var(--base-6);
@@ -48,7 +49,9 @@
   /* Alert — Alarm (red) */
   --color-alarm: var(--red-9);
   --color-alarm-subtle: var(--red-3);
+  --color-alarm-hover: var(--red-10);
   --color-alarm-content: var(--red-11);
+  --color-alarm-contrast: var(--red-12);
 
   /* Alert — Warning (orange) */
   --color-warning: var(--orange-9);

@@ -15,7 +15,7 @@ const routes = [
       {
         path: 'brand/identity',
         name: 'identity',
-        component: stub,
+        component: () => import('../docs/pages/identity/IdentityPage.vue'),
         meta: {
           number: '01',
           title: 'Identity',
@@ -169,13 +169,21 @@ const routes = [
       { path: 'design-system/core/input', name: 'core-input', component: () => import('../docs/pages/InputPage.vue') },
 
       // 11 Marketing
-      { path: 'design-system/marketing', name: 'ds-marketing', component: stub, meta: { number: '11', title: 'Marketing', sections: [] } },
+      { path: 'design-system/marketing/hero', name: 'marketing-hero', component: () => import('../docs/pages/HeroPage.vue') },
+      { path: 'design-system/marketing/page-header', name: 'marketing-page-header', component: () => import('../docs/pages/PageHeaderPage.vue') },
+      { path: 'design-system/marketing/section', name: 'marketing-section', component: () => import('../docs/pages/SectionPage.vue') },
 
       // 12 Applications
       { path: 'design-system/applications', name: 'ds-applications', component: stub, meta: { number: '12', title: 'Applications', sections: [] } },
 
       // 13 Operations
       { path: 'design-system/operations', name: 'ds-operations', component: stub, meta: { number: '13', title: 'Operations', sections: [] } },
+
+      // 14 Theme Test
+      { path: 'design-system/theme-test/semantic', name: 'theme-semantic', component: () => import('../docs/pages/theme-test/SemanticPage.vue') },
+      { path: 'design-system/theme-test/marketing', name: 'theme-marketing', component: () => import('../docs/pages/theme-test/MarketingPage.vue') },
+      { path: 'design-system/theme-test/app-dashboard', name: 'theme-app', component: () => import('../docs/pages/theme-test/AppDashboardPage.vue') },
+      { path: 'design-system/theme-test/ops-swarm', name: 'theme-ops', component: () => import('../docs/pages/theme-test/OpsSwarmPage.vue') },
     ],
   },
 ]
