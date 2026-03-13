@@ -28,7 +28,7 @@ defineEmits(['dismiss'])
 const variantClasses = computed(() => {
   const variants = {
     default: 'bg-surface-2 text-content-low',
-    info: 'bg-action-subtle text-action-content',
+    info: 'bg-info-subtle text-info-content',
     success: 'bg-ok-subtle text-ok-content',
     warning: 'bg-caution-subtle text-caution-content',
     danger: 'bg-alarm-subtle text-alarm-content'
@@ -39,7 +39,7 @@ const variantClasses = computed(() => {
 const dotClasses = computed(() => {
   const dots = {
     default: 'bg-content-dim',
-    info: 'bg-action',
+    info: 'bg-info',
     success: 'bg-ok',
     warning: 'bg-caution',
     danger: 'bg-alarm'
@@ -49,14 +49,14 @@ const dotClasses = computed(() => {
 
 const sizeClasses = computed(() => {
   const sizes = {
-    sm: 'text-xs px-1.5 py-0.5',
-    md: 'text-xs px-2 py-1'
+    sm: 'type-agate-m px-1.5 py-0.5',
+    md: 'type-agate-m px-2 py-1'
   }
   return sizes[props.size]
 })
 
 const badgeClasses = computed(() => [
-  'rounded-badge font-medium inline-flex items-center gap-1.5',
+  'rounded-badge inline-flex items-center gap-1.5',
   sizeClasses.value,
   variantClasses.value
 ])

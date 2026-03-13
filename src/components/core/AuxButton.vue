@@ -45,9 +45,9 @@ const isDisabled = computed(() => props.disabled || props.loading)
 
 const sizeClasses = computed(() => {
   const sizes = {
-    sm: 'h-7 px-3 text-xs gap-1.5',
-    md: 'h-9 px-4 text-sm gap-2',
-    lg: 'h-11 px-5 text-base gap-2'
+    sm: 'h-7 px-3 type-agate-m gap-1.5',
+    md: 'h-9 px-4 type-caption-sb gap-2',
+    lg: 'h-11 px-5 type-body-sb gap-2'
   }
   return sizes[props.size]
 })
@@ -67,7 +67,7 @@ const variantClasses = computed(() => {
 })
 
 const buttonClasses = computed(() => [
-  'rounded-panel font-medium inline-flex items-center justify-center transition-colors duration-fast ease-snap',
+  'rounded-panel inline-flex items-center justify-center transition-colors duration-fast ease-snap',
   sizeClasses.value,
   variantClasses.value,
   props.block ? 'w-full' : ''

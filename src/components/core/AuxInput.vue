@@ -75,9 +75,9 @@ const activeVariant = computed(() => {
 
 const sizeClasses = computed(() => {
   const sizes = {
-    sm: 'h-7 px-3 text-xs',
-    md: 'h-9 px-4 text-sm',
-    lg: 'h-11 px-5 text-base'
+    sm: 'h-7 px-3 type-agate-r',
+    md: 'h-9 px-4 type-caption-r',
+    lg: 'h-11 px-5 type-body-r'
   }
   return sizes[props.size]
 })
@@ -89,11 +89,11 @@ const variantClasses = computed(() => {
 
   const variants = {
     default:
-      'bg-surface-1 border border-line text-content-high placeholder:text-content-dim hover:border-line-hover focus:border-action focus:ring-1 focus:ring-focus-ring',
+      'bg-surface-1 border border-line text-content-high placeholder:text-content-dim hover:border-line-hover focus-visible:border-action focus-visible:ring-1 focus-visible:ring-focus-ring',
     error:
-      'bg-surface-1 border border-alarm text-content-high placeholder:text-content-dim focus:border-alarm focus:ring-1 focus:ring-alarm',
+      'bg-surface-1 border border-alarm text-content-high placeholder:text-content-dim focus-visible:border-alarm focus-visible:ring-1 focus-visible:ring-focus-ring-alarm',
     success:
-      'bg-surface-1 border border-ok text-content-high placeholder:text-content-dim focus:border-ok focus:ring-1 focus:ring-ok'
+      'bg-surface-1 border border-ok text-content-high placeholder:text-content-dim focus-visible:border-ok focus-visible:ring-1 focus-visible:ring-focus-ring-ok'
   }
   return variants[activeVariant.value]
 })
@@ -141,7 +141,7 @@ function onInput(event) {
     <div class="flex">
       <span
         v-if="prefix"
-        class="inline-flex items-center rounded-l-panel border border-r-0 border-line bg-surface-2 px-3 text-sm text-content-dim"
+        class="inline-flex items-center rounded-l-panel border border-r-0 border-line bg-surface-2 px-3 type-caption-r text-content-dim"
       >
         {{ prefix }}
       </span>
@@ -182,7 +182,7 @@ function onInput(event) {
 
       <span
         v-if="suffix"
-        class="inline-flex items-center rounded-r-panel border border-l-0 border-line bg-surface-2 px-3 text-sm text-content-dim"
+        class="inline-flex items-center rounded-r-panel border border-l-0 border-line bg-surface-2 px-3 type-caption-r text-content-dim"
       >
         {{ suffix }}
       </span>

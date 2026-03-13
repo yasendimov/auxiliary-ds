@@ -45,6 +45,15 @@
 
   /* Focus ring */
   --color-focus-ring: var(--blue-8);
+  --color-focus-ring-alarm: var(--red-8);
+  --color-focus-ring-ok: var(--green-8);
+
+  /* Info (indigo) — non-interactive informational; distinct from action blue */
+  --color-info: var(--indigo-9);
+  --color-info-subtle: var(--indigo-3);
+  --color-info-hover: var(--indigo-10);
+  --color-info-content: var(--indigo-11);
+  --color-info-contrast: var(--indigo-12);
 
   /* Alert — Alarm (red) */
   --color-alarm: var(--red-9);
@@ -56,17 +65,23 @@
   /* Alert — Warning (orange) */
   --color-warning: var(--orange-9);
   --color-warning-subtle: var(--orange-3);
+  --color-warning-hover: var(--orange-10);
   --color-warning-content: var(--orange-11);
+  --color-warning-contrast: var(--orange-12);
 
   /* Alert — Caution (amber) */
   --color-caution: var(--amber-9);
   --color-caution-subtle: var(--amber-3);
+  --color-caution-hover: var(--amber-10);
   --color-caution-content: var(--amber-11);
+  --color-caution-contrast: var(--amber-12);
 
   /* Alert — OK (green) */
   --color-ok: var(--green-9);
   --color-ok-subtle: var(--green-3);
+  --color-ok-hover: var(--green-10);
   --color-ok-content: var(--green-11);
+  --color-ok-contrast: var(--green-12);
 
   /* Border radius */
   --radius-instrument: var(--radius-instrument);
