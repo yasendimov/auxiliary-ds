@@ -169,7 +169,8 @@ const navSections = [
           { name: 'Semantic', to: '/design-system/theme-test/semantic' },
           { name: 'Marketing', to: '/design-system/theme-test/marketing' },
           { name: 'App Dashboard', to: '/design-system/theme-test/app-dashboard' },
-          { name: 'Ops Swarm', to: '/design-system/theme-test/ops-swarm' }
+          { name: 'Ops Swarm', to: '/design-system/theme-test/ops-swarm' },
+          { name: 'Maven C2', to: '/design-system/theme-test/maven' }
         ]
       }
     ]

@@ -274,6 +274,11 @@ const routes = [
         path: 'design-system/theme-test/ops-swarm',
         name: 'theme-ops',
         component: () => import('../docs/pages/theme-test/OpsSwarmPage.vue')
+      },
+      {
+        path: 'design-system/theme-test/maven',
+        name: 'theme-maven',
+        component: () => import('../docs/pages/theme-test/MavenC2Page.vue')
       }
     ]
   }
