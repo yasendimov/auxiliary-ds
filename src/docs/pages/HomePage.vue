@@ -34,13 +34,13 @@ const visualLanguage = [
   },
   {
     title: 'Motion',
-    desc: 'Cost not feature. Instant in operational. Purposeful in application. Editorial in marketing.',
+    desc: 'Cost not feature. Instant in operations. Purposeful in applications. Editorial in marketing.',
   },
 ]
 
 const contexts = [
   {
-    title: 'Operational',
+    title: 'Operations',
     desc: 'Ground control stations, instrument panels, real-time telemetry. Fixed layout. Maximum density. No decoration.',
   },
   {

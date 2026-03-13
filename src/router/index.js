@@ -136,8 +136,8 @@ const routes = [
           title: 'Gallery',
           sections: [
             { id: 'marketing', name: 'Marketing' },
-            { id: 'application', name: 'Application' },
-            { id: 'operational', name: 'Operational' },
+            { id: 'application', name: 'Applications' },
+            { id: 'operations', name: 'Operations' },
             { id: 'website', name: 'Website' },
           ],
         },
@@ -163,16 +163,19 @@ const routes = [
         },
       },
 
-      // 10 Components
-      { path: 'system/components/foundation', name: 'components-foundation', component: stub, meta: { number: '10', title: 'Foundation', sections: [] } },
-      { path: 'system/components/marketing', name: 'components-marketing', component: stub, meta: { number: '10', title: 'Marketing', sections: [] } },
-      { path: 'system/components/application', name: 'components-application', component: stub, meta: { number: '10', title: 'Application', sections: [] } },
-      { path: 'system/components/operational', name: 'components-operational', component: stub, meta: { number: '10', title: 'Operational', sections: [] } },
+      // 10 Core
+      { path: 'design-system/core/button', name: 'core-button', component: () => import('../docs/pages/ButtonPage.vue') },
+      { path: 'design-system/core/badge', name: 'core-badge', component: () => import('../docs/pages/BadgePage.vue') },
+      { path: 'design-system/core/input', name: 'core-input', component: () => import('../docs/pages/InputPage.vue') },
 
-      // Real component pages
-      { path: 'components/button', name: 'components-button', component: () => import('../docs/pages/ButtonPage.vue') },
-      { path: 'components/input', name: 'components-input', component: () => import('../docs/pages/InputPage.vue') },
-      { path: 'components/badge', name: 'components-badge', component: () => import('../docs/pages/BadgePage.vue') },
+      // 11 Marketing
+      { path: 'design-system/marketing', name: 'ds-marketing', component: stub, meta: { number: '11', title: 'Marketing', sections: [] } },
+
+      // 12 Applications
+      { path: 'design-system/applications', name: 'ds-applications', component: stub, meta: { number: '12', title: 'Applications', sections: [] } },
+
+      // 13 Operations
+      { path: 'design-system/operations', name: 'ds-operations', component: stub, meta: { number: '13', title: 'Operations', sections: [] } },
     ],
   },
 ]

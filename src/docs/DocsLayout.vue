@@ -96,8 +96,8 @@ const navSections = [
         to: '/brand/gallery',
         children: [
           { name: 'Marketing', hash: '#marketing' },
-          { name: 'Application', hash: '#application' },
-          { name: 'Operational', hash: '#operational' },
+          { name: 'Applications', hash: '#application' },
+          { name: 'Operations', hash: '#operations' },
           { name: 'Website', hash: '#website' },
         ],
       },
@@ -122,14 +122,31 @@ const navSections = [
       },
       {
         number: '10',
-        title: 'Components',
-        to: '/system/components/foundation',
+        title: 'Core',
+        to: '/design-system/core/button',
         children: [
-          { name: 'Foundation', to: '/system/components/foundation' },
-          { name: 'Marketing', to: '/system/components/marketing' },
-          { name: 'Application', to: '/system/components/application' },
-          { name: 'Operational', to: '/system/components/operational' },
+          { name: 'Button', to: '/design-system/core/button' },
+          { name: 'Badge', to: '/design-system/core/badge' },
+          { name: 'Input', to: '/design-system/core/input' },
         ],
+      },
+      {
+        number: '11',
+        title: 'Marketing',
+        to: '/design-system/marketing',
+        children: [],
+      },
+      {
+        number: '12',
+        title: 'Applications',
+        to: '/design-system/applications',
+        children: [],
+      },
+      {
+        number: '13',
+        title: 'Operations',
+        to: '/design-system/operations',
+        children: [],
       },
     ],
   },
@@ -139,7 +156,6 @@ const openItem = ref(null)
 
 function isItemActive(item) {
   if (route.path === item.to) return true
-  // For items with route-based children (Tokens, Components)
   return item.children.some(child => child.to && route.path === child.to)
 }
 
@@ -184,7 +200,7 @@ watch(
 
 <template>
   <div class="flex min-h-screen bg-page text-content-high">
-    <aside class="flex w-64 shrink-0 flex-col border-r border-line bg-page">
+    <aside class="sticky top-0 h-screen flex w-64 shrink-0 flex-col border-r border-line bg-page">
       <!-- Header -->
       <div class="h-14 flex items-center justify-between px-5 border-b border-line">
         <router-link to="/" class="text-content-high">
@@ -251,7 +267,7 @@ watch(
       </div>
     </aside>
 
-    <main class="flex-1 bg-page px-page-x py-page-y overflow-y-auto">
+    <main class="flex-1 bg-page px-page-x py-page-y min-h-screen">
       <router-view />
     </main>
   </div>
