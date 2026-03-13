@@ -133,8 +133,12 @@ const navSections = [
       {
         number: '11',
         title: 'Marketing',
-        to: '/design-system/marketing',
-        children: [],
+        to: '/design-system/marketing/hero',
+        children: [
+          { name: 'Hero', to: '/design-system/marketing/hero' },
+          { name: 'Page Header', to: '/design-system/marketing/page-header' },
+          { name: 'Section', to: '/design-system/marketing/section' },
+        ],
       },
       {
         number: '12',
@@ -147,6 +151,17 @@ const navSections = [
         title: 'Operations',
         to: '/design-system/operations',
         children: [],
+      },
+      {
+        number: '14',
+        title: 'Theme Test',
+        to: '/design-system/theme-test/semantic',
+        children: [
+          { name: 'Semantic', to: '/design-system/theme-test/semantic' },
+          { name: 'Marketing', to: '/design-system/theme-test/marketing' },
+          { name: 'App Dashboard', to: '/design-system/theme-test/app-dashboard' },
+          { name: 'Ops Swarm', to: '/design-system/theme-test/ops-swarm' },
+        ],
       },
     ],
   },
@@ -267,7 +282,7 @@ watch(
       </div>
     </aside>
 
-    <main class="flex-1 bg-page px-page-x py-page-y min-h-screen">
+    <main class="flex-1 bg-page min-h-screen">
       <router-view />
     </main>
   </div>
