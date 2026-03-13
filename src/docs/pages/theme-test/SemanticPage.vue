@@ -1,22 +1,14 @@
 <script setup>
-const surfaces = [
-  { name: 'bg-page', class: 'bg-page' },
-  { name: 'bg-page-subtle', class: 'bg-page-subtle' },
-  { name: 'bg-surface-1', class: 'bg-surface-1' },
-  { name: 'bg-surface-2', class: 'bg-surface-2' },
-  { name: 'bg-surface-3', class: 'bg-surface-3' },
-]
-
 const textLevels = [
   { name: 'text-content-high', class: 'text-content-high' },
   { name: 'text-content-low', class: 'text-content-low' },
-  { name: 'text-content-dim', class: 'text-content-dim' },
+  { name: 'text-content-dim', class: 'text-content-dim' }
 ]
 
 const lines = [
   { name: 'border-line', class: 'border-line' },
   { name: 'border-line-hover', class: 'border-line-hover' },
-  { name: 'border-line-focus', class: 'border-line-focus' },
+  { name: 'border-line-focus', class: 'border-line-focus' }
 ]
 
 const actionTokens = [
@@ -24,7 +16,7 @@ const actionTokens = [
   { name: 'bg-action-hover', class: 'bg-action-hover text-action-contrast' },
   { name: 'bg-action-subtle', class: 'bg-action-subtle text-action-content' },
   { name: 'text-action-content', class: 'bg-page text-action-content border border-line' },
-  { name: 'text-action-contrast', class: 'bg-page text-action-contrast border border-line' },
+  { name: 'text-action-contrast', class: 'bg-page text-action-contrast border border-line' }
 ]
 
 const alerts = [
@@ -34,33 +26,33 @@ const alerts = [
       { name: 'bg-alarm', class: 'bg-alarm' },
       { name: 'bg-alarm-subtle', class: 'bg-alarm-subtle text-alarm-content' },
       { name: 'text-alarm-content', class: 'bg-page text-alarm-content border border-line' },
-      { name: 'text-alarm-contrast', class: 'bg-page text-alarm-contrast border border-line' },
-    ],
+      { name: 'text-alarm-contrast', class: 'bg-page text-alarm-contrast border border-line' }
+    ]
   },
   {
     name: 'Warning',
     tokens: [
       { name: 'bg-warning', class: 'bg-warning' },
       { name: 'bg-warning-subtle', class: 'bg-warning-subtle text-warning-content' },
-      { name: 'text-warning-content', class: 'bg-page text-warning-content border border-line' },
-    ],
+      { name: 'text-warning-content', class: 'bg-page text-warning-content border border-line' }
+    ]
   },
   {
     name: 'Caution',
     tokens: [
       { name: 'bg-caution', class: 'bg-caution' },
       { name: 'bg-caution-subtle', class: 'bg-caution-subtle text-caution-content' },
-      { name: 'text-caution-content', class: 'bg-page text-caution-content border border-line' },
-    ],
+      { name: 'text-caution-content', class: 'bg-page text-caution-content border border-line' }
+    ]
   },
   {
     name: 'OK',
     tokens: [
       { name: 'bg-ok', class: 'bg-ok' },
       { name: 'bg-ok-subtle', class: 'bg-ok-subtle text-ok-content' },
-      { name: 'text-ok-content', class: 'bg-page text-ok-content border border-line' },
-    ],
-  },
+      { name: 'text-ok-content', class: 'bg-page text-ok-content border border-line' }
+    ]
+  }
 ]
 
 const typeScale = [
@@ -77,21 +69,21 @@ const typeScale = [
   { name: 'body', size: '16px', class: 'type-body-sb' },
   { name: 'caption', size: '14px', class: 'type-caption-sb' },
   { name: 'agate', size: '12px', class: 'type-agate-m' },
-  { name: 'overline', size: '11px', class: 'type-overline' },
+  { name: 'overline', size: '11px', class: 'type-overline' }
 ]
 
 const radii = [
   { name: 'rounded-instrument', class: 'rounded-instrument' },
   { name: 'rounded-panel', class: 'rounded-panel' },
   { name: 'rounded-card', class: 'rounded-card' },
-  { name: 'rounded-badge', class: 'rounded-badge' },
+  { name: 'rounded-badge', class: 'rounded-badge' }
 ]
 
 const durations = [
   { name: 'instant', value: '80ms', class: 'duration-instant' },
   { name: 'fast', value: '150ms', class: 'duration-fast' },
   { name: 'base', value: '220ms', class: 'duration-base' },
-  { name: 'slow', value: '350ms', class: 'duration-slow' },
+  { name: 'slow', value: '350ms', class: 'duration-slow' }
 ]
 </script>
 
@@ -110,7 +102,9 @@ const durations = [
 
     <!-- Surfaces -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">01</span> — Surfaces</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">01</span> — Surfaces
+      </p>
       <div class="bg-page border border-line rounded-card p-4">
         <span class="type-agate-m font-mono text-content-dim">bg-page</span>
         <div class="bg-page-subtle rounded-card p-4 mt-3">
@@ -134,7 +128,11 @@ const durations = [
     <section class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8"><span class="font-mono">02</span> — Text</p>
       <div class="flex flex-col gap-3">
-        <div v-for="t in textLevels" :key="t.name" class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+        <div
+          v-for="t in textLevels"
+          :key="t.name"
+          class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4"
+        >
           <span class="type-agate-m font-mono text-content-dim w-40 shrink-0">{{ t.name }}</span>
           <span :class="[t.class, 'type-lead-m']">The quick brown fox jumps over the lazy dog</span>
         </div>
@@ -147,7 +145,11 @@ const durations = [
     <section class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8"><span class="font-mono">03</span> — Lines</p>
       <div class="flex flex-col gap-4">
-        <div v-for="l in lines" :key="l.name" class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+        <div
+          v-for="l in lines"
+          :key="l.name"
+          class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4"
+        >
           <span class="type-agate-m font-mono text-content-dim w-40 shrink-0">{{ l.name }}</span>
           <div :class="['flex-1 h-0 border-t-2', l.class]"></div>
         </div>
@@ -158,7 +160,9 @@ const durations = [
 
     <!-- Action Palette -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">04</span> — Action Palette</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">04</span> — Action Palette
+      </p>
       <div class="flex flex-wrap gap-3">
         <div
           v-for="a in actionTokens"
@@ -174,7 +178,9 @@ const durations = [
 
     <!-- Alert Hierarchy -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">05</span> — Alert Hierarchy</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">05</span> — Alert Hierarchy
+      </p>
       <div class="flex flex-col gap-6">
         <div v-for="alert in alerts" :key="alert.name">
           <span class="type-caption-m text-content-low mb-2 block">{{ alert.name }}</span>
@@ -195,10 +201,18 @@ const durations = [
 
     <!-- Typography Scale -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">06</span> — Typography Scale</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">06</span> — Typography Scale
+      </p>
       <div class="flex flex-col gap-4 overflow-x-hidden">
-        <div v-for="t in typeScale" :key="t.name" class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-          <span class="type-agate-m font-mono text-content-dim w-32 shrink-0">{{ t.size }} {{ t.name }}</span>
+        <div
+          v-for="t in typeScale"
+          :key="t.name"
+          class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4"
+        >
+          <span class="type-agate-m font-mono text-content-dim w-32 shrink-0"
+            >{{ t.size }} {{ t.name }}</span
+          >
           <span :class="[t.class, 'text-content-high truncate']">Auterion</span>
         </div>
       </div>
@@ -229,14 +243,21 @@ const durations = [
 
     <!-- Radius -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">08</span> — Border Radius</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">08</span> — Border Radius
+      </p>
       <div class="flex flex-wrap gap-4">
         <div
           v-for="r in radii"
           :key="r.name"
-          :class="[r.class, 'bg-surface-2 border border-line size-24 flex items-center justify-center']"
+          :class="[
+            r.class,
+            'bg-surface-2 border border-line size-24 flex items-center justify-center'
+          ]"
         >
-          <span class="type-agate-m font-mono text-content-dim text-center">{{ r.name.replace('rounded-', '') }}</span>
+          <span class="type-agate-m font-mono text-content-dim text-center">{{
+            r.name.replace('rounded-', '')
+          }}</span>
         </div>
       </div>
     </section>
@@ -260,10 +281,14 @@ const durations = [
 
     <!-- Motion -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">10</span> — Motion Durations</p>
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">10</span> — Motion Durations
+      </p>
       <div class="flex flex-col gap-3">
         <div v-for="d in durations" :key="d.name" class="flex items-center gap-4">
-          <span class="type-agate-m font-mono text-content-dim w-32 shrink-0">{{ d.name }} ({{ d.value }})</span>
+          <span class="type-agate-m font-mono text-content-dim w-32 shrink-0"
+            >{{ d.name }} ({{ d.value }})</span
+          >
           <div
             :class="['h-6 w-12 bg-action rounded-panel transition-all hover:w-48', d.class]"
           ></div>

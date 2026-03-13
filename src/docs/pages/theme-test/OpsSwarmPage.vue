@@ -9,22 +9,64 @@ const telemetry = [
   { label: 'Heading', value: '274°', unit: 'MAG' },
   { label: 'Battery', value: '78%', unit: 'SOC' },
   { label: 'Signal', value: '-62dBm', unit: 'RSSI' },
-  { label: 'GPS', value: '18 sat', unit: 'FIX' },
+  { label: 'GPS', value: '18 sat', unit: 'FIX' }
 ]
 
 const fleet = [
   { id: 'AX-001', status: 'success', statusLabel: 'OK', alt: '120m', batt: '78%', task: 'Survey' },
   { id: 'AX-002', status: 'success', statusLabel: 'OK', alt: '115m', batt: '82%', task: 'Survey' },
-  { id: 'AX-003', status: 'warning', statusLabel: 'CAUTION', alt: '118m', batt: '23%', task: 'RTB' },
+  {
+    id: 'AX-003',
+    status: 'warning',
+    statusLabel: 'CAUTION',
+    alt: '118m',
+    batt: '23%',
+    task: 'RTB'
+  },
   { id: 'AX-004', status: 'danger', statusLabel: 'ALARM', alt: '0m', batt: '—', task: 'LOST' },
-  { id: 'AX-005', status: 'success', statusLabel: 'OK', alt: '122m', batt: '91%', task: 'Perimeter' },
+  {
+    id: 'AX-005',
+    status: 'success',
+    statusLabel: 'OK',
+    alt: '122m',
+    batt: '91%',
+    task: 'Perimeter'
+  }
 ]
 
 const alertFeed = [
-  { time: '14:32:08', level: 'Alarm', bg: 'bg-alarm-subtle', text: 'text-alarm-content', border: 'border-alarm', msg: 'AX-004 communication lost — last position 47.3812°N 8.5421°E' },
-  { time: '14:31:45', level: 'Warning', bg: 'bg-warning-subtle', text: 'text-warning-content', border: 'border-warning', msg: 'AX-003 battery critical — initiating RTB' },
-  { time: '14:30:12', level: 'Caution', bg: 'bg-caution-subtle', text: 'text-caution-content', border: 'border-caution', msg: 'Wind gust 22kt detected — monitoring' },
-  { time: '14:28:00', level: 'OK', bg: 'bg-ok-subtle', text: 'text-ok-content', border: 'border-ok', msg: 'Swarm formation stable — all waypoints on track' },
+  {
+    time: '14:32:08',
+    level: 'Alarm',
+    bg: 'bg-alarm-subtle',
+    text: 'text-alarm-content',
+    border: 'border-alarm',
+    msg: 'AX-004 communication lost — last position 47.3812°N 8.5421°E'
+  },
+  {
+    time: '14:31:45',
+    level: 'Warning',
+    bg: 'bg-warning-subtle',
+    text: 'text-warning-content',
+    border: 'border-warning',
+    msg: 'AX-003 battery critical — initiating RTB'
+  },
+  {
+    time: '14:30:12',
+    level: 'Caution',
+    bg: 'bg-caution-subtle',
+    text: 'text-caution-content',
+    border: 'border-caution',
+    msg: 'Wind gust 22kt detected — monitoring'
+  },
+  {
+    time: '14:28:00',
+    level: 'OK',
+    bg: 'bg-ok-subtle',
+    text: 'text-ok-content',
+    border: 'border-ok',
+    msg: 'Swarm formation stable — all waypoints on track'
+  }
 ]
 </script>
 
@@ -55,7 +97,9 @@ const alertFeed = [
               class="rounded-instrument border border-line p-1.5"
             >
               <span class="type-overline text-content-dim block">{{ t.label }}</span>
-              <span class="type-section-sb text-content-high font-mono block mt-0.5">{{ t.value }}</span>
+              <span class="type-section-sb text-content-high font-mono block mt-0.5">{{
+                t.value
+              }}</span>
               <span class="type-agate-m text-content-dim font-mono">{{ t.unit }}</span>
             </div>
           </div>
@@ -63,14 +107,18 @@ const alertFeed = [
 
         <!-- Map Placeholder -->
         <section class="flex-1 min-h-48">
-          <div class="rounded-instrument border border-line h-full flex items-center justify-center">
+          <div
+            class="rounded-instrument border border-line h-full flex items-center justify-center"
+          >
             <span class="type-overline text-content-dim">Map Overlay</span>
           </div>
         </section>
       </div>
 
       <!-- Right panel -->
-      <div class="w-full lg:w-80 shrink-0 border-t lg:border-t-0 lg:border-l border-line flex flex-col p-2 gap-2">
+      <div
+        class="w-full lg:w-80 shrink-0 border-t lg:border-t-0 lg:border-l border-line flex flex-col p-2 gap-2"
+      >
         <!-- Fleet List -->
         <section>
           <p class="type-overline text-content-dim px-1 mb-1">Fleet Status</p>
@@ -86,17 +134,17 @@ const alertFeed = [
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="drone in fleet"
-                  :key="drone.id"
-                  class="border-t border-line"
-                >
+                <tr v-for="drone in fleet" :key="drone.id" class="border-t border-line">
                   <td class="type-agate-m text-content-high font-mono px-2 py-1">{{ drone.id }}</td>
                   <td class="px-2 py-1">
-                    <AuxBadge :variant="drone.status" size="sm" dot>{{ drone.statusLabel }}</AuxBadge>
+                    <AuxBadge :variant="drone.status" size="sm" dot>{{
+                      drone.statusLabel
+                    }}</AuxBadge>
                   </td>
                   <td class="type-agate-m text-content-low font-mono px-2 py-1">{{ drone.alt }}</td>
-                  <td class="type-agate-m text-content-low font-mono px-2 py-1">{{ drone.batt }}</td>
+                  <td class="type-agate-m text-content-low font-mono px-2 py-1">
+                    {{ drone.batt }}
+                  </td>
                   <td class="type-agate-m text-content-low px-2 py-1">{{ drone.task }}</td>
                 </tr>
               </tbody>
@@ -111,7 +159,12 @@ const alertFeed = [
             <div
               v-for="alert in alertFeed"
               :key="alert.time"
-              :class="[alert.bg, alert.text, alert.border, 'rounded-instrument px-2 py-1.5 border-l-2']"
+              :class="[
+                alert.bg,
+                alert.text,
+                alert.border,
+                'rounded-instrument px-2 py-1.5 border-l-2'
+              ]"
             >
               <div class="flex items-center gap-2">
                 <span class="type-agate-m font-mono">{{ alert.time }}</span>
@@ -125,7 +178,9 @@ const alertFeed = [
     </div>
 
     <!-- Command Bar -->
-    <footer class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 px-4 py-2 border-t border-line shrink-0">
+    <footer
+      class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 px-4 py-2 border-t border-line shrink-0"
+    >
       <AuxInput placeholder="Command..." size="sm" class="flex-1" />
       <div class="flex gap-2">
         <AuxButton variant="destructive" size="sm">Abort Mission</AuxButton>

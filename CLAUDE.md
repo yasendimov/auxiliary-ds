@@ -183,6 +183,13 @@ AUX tokens and design philosophy govern all visual decisions.
 - Components in `marketing/`, `application/`, `operational/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
 - Operational components must strictly follow OpenBridge conventions
+- Every component must include: keyboard interaction support, focus-visible styles,
+  appropriate ARIA attributes, and sufficient color contrast in both themes.
+  Accessibility is structural — not a post-build checklist.
+- **Focus convention:** Buttons and standalone controls use the global `focus-visible` outline
+  (2px solid, 2px offset). Form inputs use `focus-visible:ring-1` (inset box-shadow) + border
+  color change — the inset ring avoids double-border with the input's existing border. Both
+  approaches use `focus-visible` (keyboard only), never bare `focus`.
 
 ## Component Categories
 

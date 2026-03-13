@@ -22,9 +22,9 @@ const routes = [
           sections: [
             { id: 'mission', name: 'Mission' },
             { id: 'brand-idea', name: 'Brand Idea' },
-            { id: 'visual-language', name: 'Visual Language' },
-          ],
-        },
+            { id: 'visual-language', name: 'Visual Language' }
+          ]
+        }
       },
 
       // 02 Logo
@@ -39,9 +39,9 @@ const routes = [
             { id: 'intro', name: 'Intro' },
             { id: 'construction', name: 'Construction' },
             { id: 'usage', name: 'Usage' },
-            { id: 'color', name: 'Color' },
-          ],
-        },
+            { id: 'color', name: 'Color' }
+          ]
+        }
       },
 
       // 03 Typography
@@ -55,9 +55,9 @@ const routes = [
           sections: [
             { id: 'type-scale', name: 'Type Scale' },
             { id: 'using-type', name: 'Using Type' },
-            { id: 'formatting', name: 'Formatting' },
-          ],
-        },
+            { id: 'formatting', name: 'Formatting' }
+          ]
+        }
       },
 
       // 04 Color
@@ -72,9 +72,9 @@ const routes = [
             { id: 'introduction', name: 'Introduction' },
             { id: 'primitives', name: 'Primitives' },
             { id: 'semantic-tokens', name: 'Semantic Tokens' },
-            { id: 'themes', name: 'Themes' },
-          ],
-        },
+            { id: 'themes', name: 'Themes' }
+          ]
+        }
       },
 
       // 05 Iconography
@@ -88,9 +88,9 @@ const routes = [
           sections: [
             { id: 'overview', name: 'Overview' },
             { id: 'product-symbols', name: 'Product Symbols' },
-            { id: 'functional-icons', name: 'Functional Icons' },
-          ],
-        },
+            { id: 'functional-icons', name: 'Functional Icons' }
+          ]
+        }
       },
 
       // 06 Photography
@@ -105,9 +105,9 @@ const routes = [
             { id: 'style', name: 'Style' },
             { id: 'product', name: 'Product' },
             { id: 'people', name: 'People' },
-            { id: 'places', name: 'Places' },
-          ],
-        },
+            { id: 'places', name: 'Places' }
+          ]
+        }
       },
 
       // 07 Language
@@ -121,9 +121,9 @@ const routes = [
           sections: [
             { id: 'voice-and-tone', name: 'Voice & Tone' },
             { id: 'writing-style', name: 'Writing Style' },
-            { id: 'product-names', name: 'Product Names' },
-          ],
-        },
+            { id: 'product-names', name: 'Product Names' }
+          ]
+        }
       },
 
       // 08 Gallery
@@ -138,9 +138,9 @@ const routes = [
             { id: 'marketing', name: 'Marketing' },
             { id: 'application', name: 'Applications' },
             { id: 'operations', name: 'Operations' },
-            { id: 'website', name: 'Website' },
-          ],
-        },
+            { id: 'website', name: 'Website' }
+          ]
+        }
       },
 
       // 09 Tokens
@@ -158,34 +158,84 @@ const routes = [
             { id: 'border-radius', name: 'Border Radius' },
             { id: 'shadows', name: 'Shadows' },
             { id: 'motion', name: 'Motion' },
-            { id: 'z-index', name: 'Z-Index' },
-          ],
-        },
+            { id: 'z-index', name: 'Z-Index' }
+          ]
+        }
       },
 
       // 10 Core
-      { path: 'design-system/core/button', name: 'core-button', component: () => import('../docs/pages/ButtonPage.vue') },
-      { path: 'design-system/core/badge', name: 'core-badge', component: () => import('../docs/pages/BadgePage.vue') },
-      { path: 'design-system/core/input', name: 'core-input', component: () => import('../docs/pages/InputPage.vue') },
+      {
+        path: 'design-system/core/button',
+        name: 'core-button',
+        component: () => import('../docs/pages/ButtonPage.vue')
+      },
+      {
+        path: 'design-system/core/badge',
+        name: 'core-badge',
+        component: () => import('../docs/pages/BadgePage.vue')
+      },
+      {
+        path: 'design-system/core/input',
+        name: 'core-input',
+        component: () => import('../docs/pages/InputPage.vue')
+      },
 
       // 11 Marketing
-      { path: 'design-system/marketing/hero', name: 'marketing-hero', component: () => import('../docs/pages/HeroPage.vue') },
-      { path: 'design-system/marketing/page-header', name: 'marketing-page-header', component: () => import('../docs/pages/PageHeaderPage.vue') },
-      { path: 'design-system/marketing/section', name: 'marketing-section', component: () => import('../docs/pages/SectionPage.vue') },
+      {
+        path: 'design-system/marketing/hero',
+        name: 'marketing-hero',
+        component: () => import('../docs/pages/HeroPage.vue')
+      },
+      {
+        path: 'design-system/marketing/page-header',
+        name: 'marketing-page-header',
+        component: () => import('../docs/pages/PageHeaderPage.vue')
+      },
+      {
+        path: 'design-system/marketing/section',
+        name: 'marketing-section',
+        component: () => import('../docs/pages/SectionPage.vue')
+      },
 
       // 12 Applications
-      { path: 'design-system/applications', name: 'ds-applications', component: stub, meta: { number: '12', title: 'Applications', sections: [] } },
+      {
+        path: 'design-system/applications',
+        name: 'ds-applications',
+        component: stub,
+        meta: { number: '12', title: 'Applications', sections: [] }
+      },
 
       // 13 Operations
-      { path: 'design-system/operations', name: 'ds-operations', component: stub, meta: { number: '13', title: 'Operations', sections: [] } },
+      {
+        path: 'design-system/operations',
+        name: 'ds-operations',
+        component: stub,
+        meta: { number: '13', title: 'Operations', sections: [] }
+      },
 
       // 14 Theme Test
-      { path: 'design-system/theme-test/semantic', name: 'theme-semantic', component: () => import('../docs/pages/theme-test/SemanticPage.vue') },
-      { path: 'design-system/theme-test/marketing', name: 'theme-marketing', component: () => import('../docs/pages/theme-test/MarketingPage.vue') },
-      { path: 'design-system/theme-test/app-dashboard', name: 'theme-app', component: () => import('../docs/pages/theme-test/AppDashboardPage.vue') },
-      { path: 'design-system/theme-test/ops-swarm', name: 'theme-ops', component: () => import('../docs/pages/theme-test/OpsSwarmPage.vue') },
-    ],
-  },
+      {
+        path: 'design-system/theme-test/semantic',
+        name: 'theme-semantic',
+        component: () => import('../docs/pages/theme-test/SemanticPage.vue')
+      },
+      {
+        path: 'design-system/theme-test/marketing',
+        name: 'theme-marketing',
+        component: () => import('../docs/pages/theme-test/MarketingPage.vue')
+      },
+      {
+        path: 'design-system/theme-test/app-dashboard',
+        name: 'theme-app',
+        component: () => import('../docs/pages/theme-test/AppDashboardPage.vue')
+      },
+      {
+        path: 'design-system/theme-test/ops-swarm',
+        name: 'theme-ops',
+        component: () => import('../docs/pages/theme-test/OpsSwarmPage.vue')
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
@@ -196,7 +246,7 @@ const router = createRouter({
       return { el: to.hash, behavior: 'smooth' }
     }
     return { top: 0 }
-  },
+  }
 })
 
 export default router

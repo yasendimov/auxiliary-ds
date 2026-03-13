@@ -10,7 +10,8 @@
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
-  --font-features-sans: 'ss01', 'ss07', 'ss08', 'cv02', 'cv03', 'cv04', 'cv06', 'cv09', 'cv12', 'cv13';
+  --font-features-sans:
+    'ss01', 'ss07', 'ss08', 'cv02', 'cv03', 'cv04', 'cv06', 'cv09', 'cv12', 'cv13';
 }
 
 /* ── Section B — Type scale (@theme → Tailwind utilities) ────────────────── */
@@ -19,90 +20,286 @@
   --font-family-sans: var(--font-sans);
   --font-family-mono: var(--font-mono);
 
-  --font-size-xs:   12px;
-  --font-size-sm:   14px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
   --font-size-base: 16px;
-  --font-size-lg:   18px;
-  --font-size-xl:   20px;
-  --font-size-2xl:  24px;
-  --font-size-3xl:  30px;
-  --font-size-4xl:  40px;
-  --font-size-5xl:  48px;
-  --font-size-6xl:  60px;
-  --font-size-7xl:  80px;
-  --font-size-8xl:  96px;
-  --font-size-9xl:  128px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 40px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 60px;
+  --font-size-7xl: 80px;
+  --font-size-8xl: 96px;
+  --font-size-9xl: 128px;
 }
 
 /* ── Section C — Type classes (13 sizes × 3 weights) ────────────────────── */
 
 @layer components {
   /* broadsheet — 128px */
-  .type-broadsheet-sb { font-size: 128px; font-weight: 600; letter-spacing: -5.12px; line-height: 1; }
-  .type-broadsheet-m  { font-size: 128px; font-weight: 500; letter-spacing: -5.12px; line-height: 1; }
-  .type-broadsheet-r  { font-size: 128px; font-weight: 400; letter-spacing: -6.4px;  line-height: 1; }
+  .type-broadsheet-sb {
+    font-size: 128px;
+    font-weight: 600;
+    letter-spacing: -5.12px;
+    line-height: 1;
+  }
+  .type-broadsheet-m {
+    font-size: 128px;
+    font-weight: 500;
+    letter-spacing: -5.12px;
+    line-height: 1;
+  }
+  .type-broadsheet-r {
+    font-size: 128px;
+    font-weight: 400;
+    letter-spacing: -6.4px;
+    line-height: 1;
+  }
 
   /* tabloid — 96px */
-  .type-tabloid-sb { font-size: 96px; font-weight: 600; letter-spacing: -3.84px; line-height: 1; }
-  .type-tabloid-m  { font-size: 96px; font-weight: 500; letter-spacing: -3.84px; line-height: 1; }
-  .type-tabloid-r  { font-size: 96px; font-weight: 400; letter-spacing: -4.8px;  line-height: 1; }
+  .type-tabloid-sb {
+    font-size: 96px;
+    font-weight: 600;
+    letter-spacing: -3.84px;
+    line-height: 1;
+  }
+  .type-tabloid-m {
+    font-size: 96px;
+    font-weight: 500;
+    letter-spacing: -3.84px;
+    line-height: 1;
+  }
+  .type-tabloid-r {
+    font-size: 96px;
+    font-weight: 400;
+    letter-spacing: -4.8px;
+    line-height: 1;
+  }
 
   /* hero — 80px */
-  .type-hero-sb { font-size: 80px; font-weight: 600; letter-spacing: -3.2px; line-height: 1; }
-  .type-hero-m  { font-size: 80px; font-weight: 500; letter-spacing: -3.2px; line-height: 1; }
-  .type-hero-r  { font-size: 80px; font-weight: 400; letter-spacing: -4px;   line-height: 1; }
+  .type-hero-sb {
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: -3.2px;
+    line-height: 1;
+  }
+  .type-hero-m {
+    font-size: 80px;
+    font-weight: 500;
+    letter-spacing: -3.2px;
+    line-height: 1;
+  }
+  .type-hero-r {
+    font-size: 80px;
+    font-weight: 400;
+    letter-spacing: -4px;
+    line-height: 1;
+  }
 
   /* display — 60px */
-  .type-display-sb { font-size: 60px; font-weight: 600; letter-spacing: -2.4px; line-height: 1.1; }
-  .type-display-m  { font-size: 60px; font-weight: 500; letter-spacing: -2.4px; line-height: 1.1; }
-  .type-display-r  { font-size: 60px; font-weight: 400; letter-spacing: -2.4px; line-height: 1.1; }
+  .type-display-sb {
+    font-size: 60px;
+    font-weight: 600;
+    letter-spacing: -2.4px;
+    line-height: 1.1;
+  }
+  .type-display-m {
+    font-size: 60px;
+    font-weight: 500;
+    letter-spacing: -2.4px;
+    line-height: 1.1;
+  }
+  .type-display-r {
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: -2.4px;
+    line-height: 1.1;
+  }
 
   /* title — 48px */
-  .type-title-sb { font-size: 48px; font-weight: 600; letter-spacing: -1.92px; line-height: 1.15; }
-  .type-title-m  { font-size: 48px; font-weight: 500; letter-spacing: -1.92px; line-height: 1.15; }
-  .type-title-r  { font-size: 48px; font-weight: 400; letter-spacing: -1.92px; line-height: 1.1; }
+  .type-title-sb {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -1.92px;
+    line-height: 1.15;
+  }
+  .type-title-m {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: -1.92px;
+    line-height: 1.15;
+  }
+  .type-title-r {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -1.92px;
+    line-height: 1.1;
+  }
 
   /* heading — 40px */
-  .type-heading-sb { font-size: 40px; font-weight: 600; letter-spacing: -1.6px; line-height: 1.15; }
-  .type-heading-m  { font-size: 40px; font-weight: 500; letter-spacing: -1.6px; line-height: 1.15; }
-  .type-heading-r  { font-size: 40px; font-weight: 400; letter-spacing: -2px;   line-height: 1.15; }
+  .type-heading-sb {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -1.6px;
+    line-height: 1.15;
+  }
+  .type-heading-m {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -1.6px;
+    line-height: 1.15;
+  }
+  .type-heading-r {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 1.15;
+  }
 
   /* subheading — 30px */
-  .type-subheading-sb { font-size: 30px; font-weight: 600; letter-spacing: -1.2px; line-height: 1.25; }
-  .type-subheading-m  { font-size: 30px; font-weight: 500; letter-spacing: -1.2px; line-height: 1.25; }
-  .type-subheading-r  { font-size: 30px; font-weight: 400; letter-spacing: -1.5px; line-height: 1.25; }
+  .type-subheading-sb {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    line-height: 1.25;
+  }
+  .type-subheading-m {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -1.2px;
+    line-height: 1.25;
+  }
+  .type-subheading-r {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    line-height: 1.25;
+  }
 
   /* section — 24px */
-  .type-section-sb { font-size: 24px; font-weight: 600; letter-spacing: -0.72px; line-height: 1.25; }
-  .type-section-m  { font-size: 24px; font-weight: 500; letter-spacing: -0.72px; line-height: 1.25; }
-  .type-section-r  { font-size: 24px; font-weight: 400; letter-spacing: -0.72px; line-height: 1.25; }
+  .type-section-sb {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.72px;
+    line-height: 1.25;
+  }
+  .type-section-m {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.72px;
+    line-height: 1.25;
+  }
+  .type-section-r {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.72px;
+    line-height: 1.25;
+  }
 
   /* lead — 20px */
-  .type-lead-sb { font-size: 20px; font-weight: 600; letter-spacing: -0.6px; line-height: 1.4; }
-  .type-lead-m  { font-size: 20px; font-weight: 500; letter-spacing: -0.6px; line-height: 1.4; }
-  .type-lead-r  { font-size: 20px; font-weight: 400; letter-spacing: -0.6px; line-height: 1.4; }
+  .type-lead-sb {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    line-height: 1.4;
+  }
+  .type-lead-m {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    line-height: 1.4;
+  }
+  .type-lead-r {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.6px;
+    line-height: 1.4;
+  }
 
   /* intro — 18px */
-  .type-intro-sb { font-size: 18px; font-weight: 600; letter-spacing: -0.36px; line-height: 1.4; }
-  .type-intro-m  { font-size: 18px; font-weight: 500; letter-spacing: -0.36px; line-height: 1.4; }
-  .type-intro-r  { font-size: 18px; font-weight: 400; letter-spacing: -0.36px; line-height: 1.4; }
+  .type-intro-sb {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    line-height: 1.4;
+  }
+  .type-intro-m {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.36px;
+    line-height: 1.4;
+  }
+  .type-intro-r {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.36px;
+    line-height: 1.4;
+  }
 
   /* body — 16px */
-  .type-body-sb { font-size: 16px; font-weight: 600; letter-spacing: -0.32px; line-height: 1.4; }
-  .type-body-m  { font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 1.4; }
-  .type-body-r  { font-size: 16px; font-weight: 400; letter-spacing: -0.32px; line-height: 1.4; }
+  .type-body-sb {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.32px;
+    line-height: 1.4;
+  }
+  .type-body-m {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.32px;
+    line-height: 1.4;
+  }
+  .type-body-r {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 1.4;
+  }
 
   /* caption — 14px */
-  .type-caption-sb { font-size: 14px; font-weight: 600; letter-spacing: -0.28px; line-height: 1.4; }
-  .type-caption-m  { font-size: 14px; font-weight: 500; letter-spacing: -0.28px; line-height: 1.4; }
-  .type-caption-r  { font-size: 14px; font-weight: 400; letter-spacing: -0.28px; line-height: 1.4; }
+  .type-caption-sb {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.28px;
+    line-height: 1.4;
+  }
+  .type-caption-m {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.28px;
+    line-height: 1.4;
+  }
+  .type-caption-r {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+    line-height: 1.4;
+  }
 
   /* agate — 12px (no -sb variant) */
-  .type-agate-m { font-size: 12px; font-weight: 500; letter-spacing: -0.24px; line-height: 1.4; }
-  .type-agate-r { font-size: 12px; font-weight: 400; letter-spacing: -0.24px; line-height: 1.4; }
+  .type-agate-m {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.24px;
+    line-height: 1.4;
+  }
+  .type-agate-r {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.24px;
+    line-height: 1.4;
+  }
 
   /* overline — special formatting class */
-  .type-overline { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; line-height: 1.4; text-transform: uppercase; }
+  .type-overline {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
 }
 
 /* ── Section D — Base styles ─────────────────────────────────────────────── */
@@ -116,7 +313,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  code, kbd, samp, pre, .font-mono {
+  code,
+  kbd,
+  samp,
+  pre,
+  .font-mono {
     font-family: var(--font-mono);
     font-feature-settings: normal;
     font-variant-numeric: tabular-nums;

@@ -5,59 +5,59 @@ const specs = [
   { label: 'Type Steps', value: '13' },
   { label: 'Color Scales', value: '30+' },
   { label: 'Contexts', value: '3' },
-  { label: 'Themes', value: '2' },
+  { label: 'Themes', value: '2' }
 ]
 
 const foundation = [
   {
     title: 'Design Philosophy',
-    desc: 'The principles, tensions, and decisions that govern every token and component in the system.',
+    desc: 'The principles, tensions, and decisions that govern every token and component in the system.'
   },
   {
     title: 'Token Architecture',
-    desc: 'Two-layer color system, typography scale, spacing constants, and how primitives become semantics.',
-  },
+    desc: 'Two-layer color system, typography scale, spacing constants, and how primitives become semantics.'
+  }
 ]
 
 const visualLanguage = [
   {
     title: 'Color',
-    desc: 'Signal not decoration. Alarm, warning, caution, ok. Blue for interactive only.',
+    desc: 'Signal not decoration. Alarm, warning, caution, ok. Blue for interactive only.'
   },
   {
     title: 'Typography',
-    desc: 'Swiss precision. Negative tracking. Monospace as truth. Three weights. One typeface.',
+    desc: 'Swiss precision. Negative tracking. Monospace as truth. Three weights. One typeface.'
   },
   {
     title: 'Spacing',
-    desc: '4px base grid. Context-driven density. Three layout contexts.',
+    desc: '4px base grid. Context-driven density. Three layout contexts.'
   },
   {
     title: 'Motion',
-    desc: 'Cost not feature. Instant in operations. Purposeful in applications. Editorial in marketing.',
-  },
+    desc: 'Cost not feature. Instant in operations. Purposeful in applications. Editorial in marketing.'
+  }
 ]
 
 const contexts = [
   {
     title: 'Operations',
-    desc: 'Ground control stations, instrument panels, real-time telemetry. Fixed layout. Maximum density. No decoration.',
+    desc: 'Ground control stations, instrument panels, real-time telemetry. Fixed layout. Maximum density. No decoration.'
   },
   {
     title: 'Application',
-    desc: 'Fleet management, mission planning, dashboards. Balanced density. Purposeful motion. Workday tools.',
+    desc: 'Fleet management, mission planning, dashboards. Balanced density. Purposeful motion. Workday tools.'
   },
   {
     title: 'Marketing',
-    desc: 'Landing pages, documentation, public content. Editorial rhythm. Generous space. Read, not operated.',
-  },
+    desc: 'Landing pages, documentation, public content. Editorial rhythm. Generous space. Read, not operated.'
+  }
 ]
 
 const colophon = [
   { label: 'Primary Typeface', value: 'Inter Variable' },
   { label: 'Primary Accent', value: '#1475FF', mono: true },
   { label: 'Neutral Hue', value: 'Base (achromatic)' },
-  { label: 'Base Unit', value: '4px' },
+  { label: 'Base Unit', value: '4px' }
 ]
 </script>
 
@@ -65,12 +65,8 @@ const colophon = [
   <div>
     <!-- Hero -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
-      <p class="type-overline text-content-dim">
-        AUX Design System — v0.1.0
-      </p>
-      <h1 class="type-display-sb text-content-high mt-4">
-        Auxiliary
-      </h1>
+      <p class="type-overline text-content-dim">AUX Design System — v0.1.0</p>
+      <h1 class="type-display-sb text-content-high mt-4">Auxiliary</h1>
       <p class="type-heading-sb text-content-low mt-4 max-w-xl">
         The official design system for Auterion products. Built for operators, designed in Zurich.
       </p>
@@ -79,11 +75,7 @@ const colophon = [
     <!-- Specs Strip -->
     <section class="px-8 lg:px-16">
       <div class="grid grid-cols-3 lg:grid-cols-6 border-t border-l border-line">
-        <div
-          v-for="spec in specs"
-          :key="spec.label"
-          class="border-b border-r border-line p-8"
-        >
+        <div v-for="spec in specs" :key="spec.label" class="border-b border-r border-line p-8">
           <span class="type-overline text-content-dim">{{ spec.label }}</span>
           <p class="type-caption-m text-content-high mt-1">{{ spec.value }}</p>
         </div>
@@ -92,13 +84,11 @@ const colophon = [
 
     <!-- Foundation -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">01</span> — Foundation</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">01</span> — Foundation
+      </p>
       <div class="grid grid-cols-1 lg:grid-cols-2 border-t border-l border-line">
-        <div
-          v-for="card in foundation"
-          :key="card.title"
-          class="border-b border-r border-line p-8"
-        >
+        <div v-for="card in foundation" :key="card.title" class="border-b border-r border-line p-8">
           <h3 class="type-subheading-sb text-content-high">{{ card.title }}</h3>
           <p class="type-body-r text-content-low mt-2 max-w-md">{{ card.desc }}</p>
         </div>
@@ -107,7 +97,9 @@ const colophon = [
 
     <!-- Visual Language -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">02</span> — Visual Language</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">02</span> — Visual Language
+      </p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
         <div
           v-for="card in visualLanguage"
@@ -122,7 +114,9 @@ const colophon = [
 
     <!-- Contexts -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">03</span> — Contexts</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">03</span> — Contexts
+      </p>
       <div class="grid grid-cols-1 lg:grid-cols-3 border-t border-l border-line">
         <div
           v-for="card in contexts"
@@ -138,13 +132,11 @@ const colophon = [
     <!-- Colophon -->
     <section class="px-8 lg:px-16 mt-24">
       <div class="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
-        <div
-          v-for="item in colophon"
-          :key="item.label"
-          class="border-b border-r border-line p-8"
-        >
+        <div v-for="item in colophon" :key="item.label" class="border-b border-r border-line p-8">
           <span class="type-overline text-content-dim">{{ item.label }}</span>
-          <p :class="[item.mono ? 'font-mono' : '', 'type-caption-m text-content-high mt-1']">{{ item.value }}</p>
+          <p :class="[item.mono ? 'font-mono' : '', 'type-caption-m text-content-high mt-1']">
+            {{ item.value }}
+          </p>
         </div>
       </div>
     </section>

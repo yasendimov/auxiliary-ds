@@ -12,13 +12,16 @@ const sizes = ['sm', 'md']
       <p class="type-overline text-content-dim">Foundation</p>
       <h1 class="type-display-sb text-content-high mt-4">Badge</h1>
       <p class="type-lead-r text-content-low mt-4 max-w-xl">
-        Status labels, categories, and dismissible tags. Five semantic variants mapped to the alert hierarchy.
+        Status labels, categories, and dismissible tags. Five semantic variants mapped to the alert
+        hierarchy.
       </p>
     </section>
 
     <!-- Variants × Sizes -->
     <section class="px-8 lg:px-16">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">01</span> — Variants &times; Sizes</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">01</span> — Variants &times; Sizes
+      </p>
       <div class="grid grid-cols-5 border-t border-l border-line">
         <template v-for="variant in variants" :key="variant">
           <div
@@ -54,7 +57,9 @@ const sizes = ['sm', 'md']
 
     <!-- Dismissible -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">03</span> — Dismissible</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">03</span> — Dismissible
+      </p>
       <div class="grid grid-cols-5 border-t border-l border-line">
         <div
           v-for="variant in variants"
@@ -63,7 +68,9 @@ const sizes = ['sm', 'md']
         >
           <span class="type-overline text-content-dim">{{ variant }}</span>
           <div>
-            <AuxBadge :variant="variant" dismissible @dismiss="() => console.log('dismissed')">Label</AuxBadge>
+            <AuxBadge :variant="variant" dismissible @dismiss="() => console.log('dismissed')"
+              >Label</AuxBadge
+            >
           </div>
         </div>
       </div>
