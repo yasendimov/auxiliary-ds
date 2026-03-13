@@ -114,7 +114,7 @@ const navSections = [
           { name: 'Colors', hash: '#colors' },
           { name: 'Typography', hash: '#typography' },
           { name: 'Spacing', hash: '#spacing' },
-          { name: 'Border Radius', hash: '#border-radius' },
+          { name: 'Border Radius', hash: '#radius' },
           { name: 'Shadows', hash: '#shadows' },
           { name: 'Motion', hash: '#motion' },
           { name: 'Opacity', hash: '#opacity' },

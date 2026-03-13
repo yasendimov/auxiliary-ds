@@ -147,7 +147,7 @@ const routes = [
       {
         path: 'system/tokens',
         name: 'tokens',
-        component: () => import('../docs/pages/TokensPage.vue'),
+        component: () => import('../docs/pages/theme-test/SemanticPage.vue'),
         meta: {
           number: '09',
           title: 'Tokens',
@@ -155,7 +155,7 @@ const routes = [
             { id: 'colors', name: 'Colors' },
             { id: 'typography', name: 'Typography' },
             { id: 'spacing', name: 'Spacing' },
-            { id: 'border-radius', name: 'Border Radius' },
+            { id: 'radius', name: 'Border Radius' },
             { id: 'shadows', name: 'Shadows' },
             { id: 'motion', name: 'Motion' },
             { id: 'opacity', name: 'Opacity' },
@@ -258,7 +258,7 @@ const routes = [
       {
         path: 'design-system/theme-test/semantic',
         name: 'theme-semantic',
-        component: () => import('../docs/pages/theme-test/SemanticPage.vue')
+        component: () => import('../docs/pages/TokensPage.vue')
       },
       {
         path: 'design-system/theme-test/marketing',

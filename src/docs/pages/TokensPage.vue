@@ -140,7 +140,7 @@ const zIndexTokens = [
 
 <template>
   <div>
-    <Header eyebrow="09" headline="Tokens" description="All design tokens used across AUX. Two-layer system: primitives define raw values, semantic aliases give them meaning." />
+    <Header eyebrow="Theme Test" headline="Token Reference" description="All design tokens used across AUX. Two-layer system: primitives define raw values, semantic aliases give them meaning." />
 
     <!-- Colors -->
     <Section id="colors" label="01 — Colors">

@@ -16,7 +16,23 @@ const actionTokens = [
   { name: 'bg-action-hover', class: 'bg-action-hover text-action-contrast' },
   { name: 'bg-action-subtle', class: 'bg-action-subtle text-action-content' },
   { name: 'text-action-content', class: 'bg-page text-action-content border border-line' },
-  { name: 'text-action-contrast', class: 'bg-page text-action-contrast border border-line' }
+  { name: 'text-action-contrast', class: 'bg-page text-action-contrast border border-line' },
+  { name: 'bg-action-disabled', class: 'bg-action-disabled text-action-content-disabled' },
+  { name: 'text-action-content-disabled', class: 'bg-page text-action-content-disabled border border-line' }
+]
+
+const focusTokens = [
+  { name: 'outline-focus-ring', class: 'bg-page border-2 border-focus-ring' },
+  { name: 'outline-focus-ring-alarm', class: 'bg-page border-2 border-focus-ring-alarm' },
+  { name: 'outline-focus-ring-ok', class: 'bg-page border-2 border-focus-ring-ok' }
+]
+
+const infoTokens = [
+  { name: 'bg-info', class: 'bg-info' },
+  { name: 'bg-info-subtle', class: 'bg-info-subtle text-info-content' },
+  { name: 'bg-info-hover', class: 'bg-info-hover' },
+  { name: 'text-info-content', class: 'bg-page text-info-content border border-line' },
+  { name: 'text-info-contrast', class: 'bg-page text-info-contrast border border-line' }
 ]
 
 const alerts = [
@@ -25,6 +41,7 @@ const alerts = [
     tokens: [
       { name: 'bg-alarm', class: 'bg-alarm' },
       { name: 'bg-alarm-subtle', class: 'bg-alarm-subtle text-alarm-content' },
+      { name: 'bg-alarm-hover', class: 'bg-alarm-hover' },
       { name: 'text-alarm-content', class: 'bg-page text-alarm-content border border-line' },
       { name: 'text-alarm-contrast', class: 'bg-page text-alarm-contrast border border-line' }
     ]
@@ -34,7 +51,9 @@ const alerts = [
     tokens: [
       { name: 'bg-warning', class: 'bg-warning' },
       { name: 'bg-warning-subtle', class: 'bg-warning-subtle text-warning-content' },
-      { name: 'text-warning-content', class: 'bg-page text-warning-content border border-line' }
+      { name: 'bg-warning-hover', class: 'bg-warning-hover' },
+      { name: 'text-warning-content', class: 'bg-page text-warning-content border border-line' },
+      { name: 'text-warning-contrast', class: 'bg-page text-warning-contrast border border-line' }
     ]
   },
   {
@@ -42,7 +61,9 @@ const alerts = [
     tokens: [
       { name: 'bg-caution', class: 'bg-caution' },
       { name: 'bg-caution-subtle', class: 'bg-caution-subtle text-caution-content' },
-      { name: 'text-caution-content', class: 'bg-page text-caution-content border border-line' }
+      { name: 'bg-caution-hover', class: 'bg-caution-hover' },
+      { name: 'text-caution-content', class: 'bg-page text-caution-content border border-line' },
+      { name: 'text-caution-contrast', class: 'bg-page text-caution-contrast border border-line' }
     ]
   },
   {
@@ -50,7 +71,9 @@ const alerts = [
     tokens: [
       { name: 'bg-ok', class: 'bg-ok' },
       { name: 'bg-ok-subtle', class: 'bg-ok-subtle text-ok-content' },
-      { name: 'text-ok-content', class: 'bg-page text-ok-content border border-line' }
+      { name: 'bg-ok-hover', class: 'bg-ok-hover' },
+      { name: 'text-ok-content', class: 'bg-page text-ok-content border border-line' },
+      { name: 'text-ok-contrast', class: 'bg-page text-ok-contrast border border-line' }
     ]
   }
 ]
@@ -85,14 +108,29 @@ const durations = [
   { name: 'base', value: '220ms', class: 'duration-base' },
   { name: 'slow', value: '350ms', class: 'duration-slow' }
 ]
+
+const easings = [
+  { name: 'ease-snap', value: 'cubic-bezier(0.2, 0, 0, 1)' },
+  { name: 'ease-glide', value: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+]
+
+const zIndexLayers = [
+  { name: 'z-base', value: '0' },
+  { name: 'z-sticky', value: '100' },
+  { name: 'z-dropdown', value: '200' },
+  { name: 'z-overlay', value: '300' },
+  { name: 'z-modal', value: '400' },
+  { name: 'z-toast', value: '500' },
+  { name: 'z-tooltip', value: '600' }
+]
 </script>
 
 <template>
   <div>
     <!-- Header -->
     <header class="pt-24 pb-16 lg:pt-32 lg:pb-20 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-5">Theme Test</p>
-      <h1 class="type-title-m text-content-high">Semantic Tokens</h1>
+      <p class="type-overline text-content-dim mb-5">09</p>
+      <h1 class="type-title-m text-content-high">Tokens</h1>
       <p class="type-body-m text-content-low mt-6 max-w-xl">
         Every token layer rendered on a single page. Toggle dark/light to verify resolution.
       </p>
@@ -100,12 +138,15 @@ const durations = [
 
     <div class="border-b border-line"></div>
 
-    <!-- Surfaces -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
+    <!-- Colors -->
+    <section id="colors" class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">01</span> — Surfaces
+        <span class="font-mono">01</span> — Colors
       </p>
-      <div class="bg-page border border-line rounded-card p-4">
+
+      <!-- Surfaces -->
+      <p class="type-caption-sb text-content-high mb-3">Surfaces</p>
+      <div class="bg-page border border-line rounded-card p-4 mb-8">
         <span class="type-agate-m font-mono text-content-dim">bg-page</span>
         <div class="bg-page-subtle rounded-card p-4 mt-3">
           <span class="type-agate-m font-mono text-content-dim">bg-page-subtle</span>
@@ -120,14 +161,10 @@ const durations = [
           </div>
         </div>
       </div>
-    </section>
 
-    <div class="border-b border-line"></div>
-
-    <!-- Text -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">02</span> — Text</p>
-      <div class="flex flex-col gap-3">
+      <!-- Text -->
+      <p class="type-caption-sb text-content-high mb-3">Text</p>
+      <div class="flex flex-col gap-3 mb-8">
         <div
           v-for="t in textLevels"
           :key="t.name"
@@ -137,14 +174,10 @@ const durations = [
           <span :class="[t.class, 'type-lead-m']">The quick brown fox jumps over the lazy dog</span>
         </div>
       </div>
-    </section>
 
-    <div class="border-b border-line"></div>
-
-    <!-- Lines -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">03</span> — Lines</p>
-      <div class="flex flex-col gap-4">
+      <!-- Lines -->
+      <p class="type-caption-sb text-content-high mb-3">Lines</p>
+      <div class="flex flex-col gap-4 mb-8">
         <div
           v-for="l in lines"
           :key="l.name"
@@ -154,16 +187,10 @@ const durations = [
           <div :class="['flex-1 h-0 border-t-2', l.class]"></div>
         </div>
       </div>
-    </section>
 
-    <div class="border-b border-line"></div>
-
-    <!-- Action Palette -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">04</span> — Action Palette
-      </p>
-      <div class="flex flex-wrap gap-3">
+      <!-- Action -->
+      <p class="type-caption-sb text-content-high mb-3">Action</p>
+      <div class="flex flex-wrap gap-3 mb-8">
         <div
           v-for="a in actionTokens"
           :key="a.name"
@@ -172,15 +199,33 @@ const durations = [
           <span class="font-mono">{{ a.name }}</span>
         </div>
       </div>
-    </section>
 
-    <div class="border-b border-line"></div>
+      <!-- Focus -->
+      <p class="type-caption-sb text-content-high mb-3">Focus</p>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <div
+          v-for="f in focusTokens"
+          :key="f.name"
+          :class="[f.class, 'rounded-card px-5 py-4 type-caption-m']"
+        >
+          <span class="font-mono text-content-high">{{ f.name }}</span>
+        </div>
+      </div>
 
-    <!-- Alert Hierarchy -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">05</span> — Alert Hierarchy
-      </p>
+      <!-- Info -->
+      <p class="type-caption-sb text-content-high mb-3">Info</p>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <div
+          v-for="token in infoTokens"
+          :key="token.name"
+          :class="[token.class, 'rounded-card px-5 py-4 type-caption-m']"
+        >
+          <span class="font-mono">{{ token.name }}</span>
+        </div>
+      </div>
+
+      <!-- Alert Hierarchy -->
+      <p class="type-caption-sb text-content-high mb-3">Alert Hierarchy</p>
       <div class="flex flex-col gap-6">
         <div v-for="alert in alerts" :key="alert.name">
           <span class="type-caption-m text-content-low mb-2 block">{{ alert.name }}</span>
@@ -200,9 +245,9 @@ const durations = [
     <div class="border-b border-line"></div>
 
     <!-- Typography Scale -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
+    <section id="typography" class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">06</span> — Typography Scale
+        <span class="font-mono">02</span> — Typography Scale
       </p>
       <div class="flex flex-col gap-4 overflow-x-hidden">
         <div
@@ -221,8 +266,8 @@ const durations = [
     <div class="border-b border-line"></div>
 
     <!-- Spacing -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">07</span> — Spacing</p>
+    <section id="spacing" class="py-12 lg:py-16 px-10 lg:px-20">
+      <p class="type-overline text-content-dim mb-8"><span class="font-mono">03</span> — Spacing</p>
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-4">
           <span class="type-agate-m font-mono text-content-dim w-32 shrink-0">page-x (24px)</span>
@@ -242,9 +287,9 @@ const durations = [
     <div class="border-b border-line"></div>
 
     <!-- Radius -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
+    <section id="radius" class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">08</span> — Border Radius
+        <span class="font-mono">04</span> — Border Radius
       </p>
       <div class="flex flex-wrap gap-4">
         <div
@@ -265,8 +310,8 @@ const durations = [
     <div class="border-b border-line"></div>
 
     <!-- Shadows -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-content-dim mb-8"><span class="font-mono">09</span> — Shadows</p>
+    <section id="shadows" class="py-12 lg:py-16 px-10 lg:px-20">
+      <p class="type-overline text-content-dim mb-8"><span class="font-mono">05</span> — Shadows</p>
       <div class="flex flex-wrap gap-6">
         <div class="bg-page rounded-card p-6 shadow-panel border border-line">
           <span class="type-agate-m font-mono text-content-dim">shadow-panel</span>
@@ -280,9 +325,9 @@ const durations = [
     <div class="border-b border-line"></div>
 
     <!-- Motion -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
+    <section id="motion" class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">10</span> — Motion Durations
+        <span class="font-mono">06</span> — Motion
       </p>
       <div class="flex flex-col gap-3">
         <div v-for="d in durations" :key="d.name" class="flex items-center gap-4">
@@ -294,14 +339,20 @@ const durations = [
           ></div>
         </div>
       </div>
+      <div class="flex flex-col gap-3 mt-8">
+        <div v-for="e in easings" :key="e.name" class="flex items-baseline gap-4">
+          <span class="type-agate-m font-mono text-content-dim w-32 shrink-0">{{ e.name }}</span>
+          <span class="type-agate-r font-mono text-content-low">{{ e.value }}</span>
+        </div>
+      </div>
     </section>
 
     <div class="border-b border-line"></div>
 
     <!-- Opacity -->
-    <section class="py-12 lg:py-16 px-10 lg:px-20">
+    <section id="opacity" class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">11</span> — Opacity
+        <span class="font-mono">07</span> — Opacity
       </p>
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-4">
@@ -324,6 +375,30 @@ const durations = [
             <div class="bg-surface-2 border border-line rounded-card px-5 py-4 opacity-hover">
               <span class="font-mono type-caption-m text-content-high">opacity-hover</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="border-b border-line"></div>
+
+    <!-- Z-Index -->
+    <section id="z-index" class="py-12 lg:py-16 px-10 lg:px-20">
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">08</span> — Z-Index
+      </p>
+      <div class="flex flex-col gap-2">
+        <div
+          v-for="(z, i) in zIndexLayers"
+          :key="z.name"
+          class="flex items-center gap-4"
+        >
+          <span class="type-agate-m font-mono text-content-dim w-32 shrink-0">{{ z.name }}</span>
+          <div
+            class="bg-surface-2 border border-line rounded-panel px-4 py-2 type-agate-m font-mono text-content-high"
+            :style="{ width: `${60 + i * 40}px` }"
+          >
+            {{ z.value }}
           </div>
         </div>
       </div>
