@@ -179,6 +179,11 @@ const routes = [
         name: 'core-input',
         component: () => import('../docs/pages/InputPage.vue')
       },
+      {
+        path: 'design-system/core/checkbox',
+        name: 'core-checkbox',
+        component: () => import('../docs/pages/CheckboxPage.vue')
+      },
 
       // 11 Marketing
       {

@@ -127,7 +127,8 @@ const navSections = [
         children: [
           { name: 'Button', to: '/design-system/core/button' },
           { name: 'Badge', to: '/design-system/core/badge' },
-          { name: 'Input', to: '/design-system/core/input' }
+          { name: 'Input', to: '/design-system/core/input' },
+          { name: 'Checkbox', to: '/design-system/core/checkbox' }
         ]
       },
       {
