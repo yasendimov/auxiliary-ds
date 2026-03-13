@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { UserIcon } from '@heroicons/vue/20/solid'
+import Identicon from './Identicon.vue'
 
 const props = defineProps({
   src: {
@@ -38,15 +39,15 @@ const sizeClass = computed(() => ({
   xl: 'size-16'
 }[props.size]))
 
-const shapeClass = computed(() => props.shape === 'circle' ? 'rounded-full' : 'rounded')
-
-const initialsFontClass = computed(() => ({
-  xs: 'text-[10px]',
-  sm: 'text-xs',
-  md: 'text-sm',
-  lg: 'text-base',
-  xl: 'text-lg'
+const sizePx = computed(() => ({
+  xs: 24,
+  sm: 32,
+  md: 40,
+  lg: 48,
+  xl: 64
 }[props.size]))
+
+const shapeClass = computed(() => props.shape === 'circle' ? 'rounded-full' : 'rounded-card')
 
 const iconSizeClass = computed(() => ({
   xs: 'size-3',
@@ -56,19 +57,8 @@ const iconSizeClass = computed(() => ({
   xl: 'size-8'
 }[props.size]))
 
-const initials = computed(() => {
-  if (!props.alt) return ''
-  return props.alt
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join('')
-    .toUpperCase()
-})
-
 const showImage = computed(() => props.src && !imgError.value)
-const showInitials = computed(() => !showImage.value && initials.value)
+const showIdenticon = computed(() => !showImage.value && props.alt)
 
 const statusColorClass = computed(() => ({
   online: 'bg-ok',
@@ -100,13 +90,13 @@ const statusLabel = computed(() => props.status ? `Status: ${props.status}` : ''
       :class="shapeClass"
       @error="imgError = true"
     />
-    <!-- Initials -->
+    <!-- Identicon -->
     <span
-      v-else-if="showInitials"
-      class="w-full h-full flex items-center justify-center bg-surface-2 text-content-high font-medium select-none"
-      :class="[shapeClass, initialsFontClass]"
+      v-else-if="showIdenticon"
+      class="w-full h-full flex items-center justify-center bg-surface-2 overflow-hidden"
+      :class="shapeClass"
     >
-      {{ initials }}
+      <Identicon :seed="alt" :size="sizePx" />
     </span>
     <!-- Fallback icon -->
     <span

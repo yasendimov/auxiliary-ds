@@ -53,7 +53,8 @@ const overflowFontClass = computed(() => ({
     <div
       v-for="(avatar, i) in visibleAvatars"
       :key="i"
-      class="ring-2 ring-page rounded-full"
+      class="ring-2 ring-page"
+      :class="avatar.shape === 'square' ? 'rounded-card' : 'rounded-full'"
     >
       <Avatar v-bind="avatar" :size="size" />
     </div>
