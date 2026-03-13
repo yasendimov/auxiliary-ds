@@ -6,7 +6,7 @@
 
 :root {
   --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -34,21 +34,75 @@
   --font-size-9xl:  128px;
 }
 
-/* ── Section C — Semantic type roles ─────────────────────────────────────── */
+/* ── Section C — Type classes (13 sizes × 3 weights) ────────────────────── */
 
 @layer components {
-  .type-hero      { font-size: 80px;  font-weight: 600; letter-spacing: -3.2px;  line-height: 1; }
-  .type-display   { font-size: 60px;  font-weight: 600; letter-spacing: -2.4px;  line-height: 1.1; }
-  .type-page-lg   { font-size: 48px;  font-weight: 600; letter-spacing: -1.92px; line-height: 1.15; }
-  .type-page      { font-size: 40px;  font-weight: 600; letter-spacing: -1.6px;  line-height: 1.15; }
-  .type-heading   { font-size: 30px;  font-weight: 600; letter-spacing: -1.2px;  line-height: 1.25; }
-  .type-section   { font-size: 24px;  font-weight: 600; letter-spacing: -0.72px; line-height: 1.25; }
-  .type-title     { font-size: 20px;  font-weight: 600; letter-spacing: -0.6px;  line-height: 1.4; }
-  .type-body      { font-size: 16px;  font-weight: 400; letter-spacing: -0.32px; line-height: 1.4; }
-  .type-secondary { font-size: 14px;  font-weight: 400; letter-spacing: -0.28px; line-height: 1.4; }
-  .type-label     { font-size: 12px;  font-weight: 500; letter-spacing: -0.24px; line-height: 1.4; }
-  .type-caption   { font-size: 12px;  font-weight: 400; letter-spacing: -0.24px; line-height: 1.4; }
-  .type-overline  { font-size: 11px;  font-weight: 500; letter-spacing: 0.06em;  line-height: 1.4; text-transform: uppercase; }
+  /* broadsheet — 128px */
+  .type-broadsheet-sb { font-size: 128px; font-weight: 600; letter-spacing: -5.12px; line-height: 1; }
+  .type-broadsheet-m  { font-size: 128px; font-weight: 500; letter-spacing: -5.12px; line-height: 1; }
+  .type-broadsheet-r  { font-size: 128px; font-weight: 400; letter-spacing: -6.4px;  line-height: 1; }
+
+  /* tabloid — 96px */
+  .type-tabloid-sb { font-size: 96px; font-weight: 600; letter-spacing: -3.84px; line-height: 1; }
+  .type-tabloid-m  { font-size: 96px; font-weight: 500; letter-spacing: -3.84px; line-height: 1; }
+  .type-tabloid-r  { font-size: 96px; font-weight: 400; letter-spacing: -4.8px;  line-height: 1; }
+
+  /* hero — 80px */
+  .type-hero-sb { font-size: 80px; font-weight: 600; letter-spacing: -3.2px; line-height: 1; }
+  .type-hero-m  { font-size: 80px; font-weight: 500; letter-spacing: -3.2px; line-height: 1; }
+  .type-hero-r  { font-size: 80px; font-weight: 400; letter-spacing: -4px;   line-height: 1; }
+
+  /* display — 60px */
+  .type-display-sb { font-size: 60px; font-weight: 600; letter-spacing: -2.4px; line-height: 1.1; }
+  .type-display-m  { font-size: 60px; font-weight: 500; letter-spacing: -2.4px; line-height: 1.1; }
+  .type-display-r  { font-size: 60px; font-weight: 400; letter-spacing: -2.4px; line-height: 1.1; }
+
+  /* title — 48px */
+  .type-title-sb { font-size: 48px; font-weight: 600; letter-spacing: -1.92px; line-height: 1.15; }
+  .type-title-m  { font-size: 48px; font-weight: 500; letter-spacing: -1.92px; line-height: 1.15; }
+  .type-title-r  { font-size: 48px; font-weight: 400; letter-spacing: -1.92px; line-height: 1.1; }
+
+  /* heading — 40px */
+  .type-heading-sb { font-size: 40px; font-weight: 600; letter-spacing: -1.6px; line-height: 1.15; }
+  .type-heading-m  { font-size: 40px; font-weight: 500; letter-spacing: -1.6px; line-height: 1.15; }
+  .type-heading-r  { font-size: 40px; font-weight: 400; letter-spacing: -2px;   line-height: 1.15; }
+
+  /* subheading — 30px */
+  .type-subheading-sb { font-size: 30px; font-weight: 600; letter-spacing: -1.2px; line-height: 1.25; }
+  .type-subheading-m  { font-size: 30px; font-weight: 500; letter-spacing: -1.2px; line-height: 1.25; }
+  .type-subheading-r  { font-size: 30px; font-weight: 400; letter-spacing: -1.5px; line-height: 1.25; }
+
+  /* section — 24px */
+  .type-section-sb { font-size: 24px; font-weight: 600; letter-spacing: -0.72px; line-height: 1.25; }
+  .type-section-m  { font-size: 24px; font-weight: 500; letter-spacing: -0.72px; line-height: 1.25; }
+  .type-section-r  { font-size: 24px; font-weight: 400; letter-spacing: -0.72px; line-height: 1.25; }
+
+  /* lead — 20px */
+  .type-lead-sb { font-size: 20px; font-weight: 600; letter-spacing: -0.6px; line-height: 1.4; }
+  .type-lead-m  { font-size: 20px; font-weight: 500; letter-spacing: -0.6px; line-height: 1.4; }
+  .type-lead-r  { font-size: 20px; font-weight: 400; letter-spacing: -0.6px; line-height: 1.4; }
+
+  /* intro — 18px */
+  .type-intro-sb { font-size: 18px; font-weight: 600; letter-spacing: -0.36px; line-height: 1.4; }
+  .type-intro-m  { font-size: 18px; font-weight: 500; letter-spacing: -0.36px; line-height: 1.4; }
+  .type-intro-r  { font-size: 18px; font-weight: 400; letter-spacing: -0.36px; line-height: 1.4; }
+
+  /* body — 16px */
+  .type-body-sb { font-size: 16px; font-weight: 600; letter-spacing: -0.32px; line-height: 1.4; }
+  .type-body-m  { font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 1.4; }
+  .type-body-r  { font-size: 16px; font-weight: 400; letter-spacing: -0.32px; line-height: 1.4; }
+
+  /* caption — 14px */
+  .type-caption-sb { font-size: 14px; font-weight: 600; letter-spacing: -0.28px; line-height: 1.4; }
+  .type-caption-m  { font-size: 14px; font-weight: 500; letter-spacing: -0.28px; line-height: 1.4; }
+  .type-caption-r  { font-size: 14px; font-weight: 400; letter-spacing: -0.28px; line-height: 1.4; }
+
+  /* agate — 12px (no -sb variant) */
+  .type-agate-m { font-size: 12px; font-weight: 500; letter-spacing: -0.24px; line-height: 1.4; }
+  .type-agate-r { font-size: 12px; font-weight: 400; letter-spacing: -0.24px; line-height: 1.4; }
+
+  /* overline — special formatting class */
+  .type-overline { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; line-height: 1.4; text-transform: uppercase; }
 }
 
 /* ── Section D — Base styles ─────────────────────────────────────────────── */

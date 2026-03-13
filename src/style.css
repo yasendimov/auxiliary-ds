@@ -38,6 +38,13 @@
   --color-action-subtle: var(--blue-3);
   --color-action-content: var(--blue-11);
 
+  /* Action — disabled state */
+  --color-action-disabled: var(--base-6);
+  --color-action-content-disabled: var(--base-9);
+
+  /* Focus ring */
+  --color-focus-ring: var(--blue-8);
+
   /* Alert — Alarm (red) */
   --color-alarm: var(--red-9);
   --color-alarm-subtle: var(--red-3);
@@ -84,6 +91,13 @@
   --z-modal:    var(--z-modal);
   --z-toast:    var(--z-toast);
   --z-tooltip:  var(--z-tooltip);
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
 }
 
 html[data-theme="dark"] {
