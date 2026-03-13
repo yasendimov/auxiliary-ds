@@ -1,7 +1,5 @@
 <script setup>
-import Hero from '../../../components/marketing/Hero.vue'
-import PageHeader from '../../../components/marketing/PageHeader.vue'
-import Section from '../../../components/marketing/Section.vue'
+import { Hero, Header, Section } from '../../../components'
 </script>
 
 <template>
@@ -14,7 +12,7 @@ import Section from '../../../components/marketing/Section.vue'
 
     <!-- #mission -->
     <div id="mission">
-      <PageHeader
+      <Header
         eyebrow="Mission"
         headline="Mission"
         description="The mission, vision, and positioning that define Auterion."
@@ -89,7 +87,7 @@ import Section from '../../../components/marketing/Section.vue'
 
     <!-- #brand-idea -->
     <div id="brand-idea">
-      <PageHeader
+      <Header
         eyebrow="Brand Idea"
         headline="Brand Idea"
         description="The platform for autonomous mass — transforming individual drones into coordinated swarms across air, land, and sea."
@@ -204,7 +202,7 @@ import Section from '../../../components/marketing/Section.vue'
 
     <!-- #visual-language -->
     <div id="visual-language">
-      <PageHeader
+      <Header
         eyebrow="Visual Language"
         headline="Visual Language"
         description="Motion, density, and the visual principles behind AUX. Coming soon."

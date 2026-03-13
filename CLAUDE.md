@@ -211,6 +211,16 @@ Prefixes:
 
 Example: `feature/grumpy-tooltip`, `fix/lost-token`
 
+## Commit Messages
+
+Conventional Commits. Format: `type: short description`
+
+Types: `feat` (new component/feature/page), `fix` (bug fix), `chore` (config/tooling/refactor), `docs` (documentation)
+
+Rules: lowercase after colon, no period, present tense imperative, name the component/file, one concern per commit.
+
+Examples: `feat: add Checkbox component and docs page`, `chore: rename PageHeader to Header`
+
 ## Publishing
 
 - Published as npm package `auxiliary-ds`

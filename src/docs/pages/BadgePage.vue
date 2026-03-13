@@ -1,5 +1,5 @@
 <script setup>
-import AuxBadge from '../../components/core/AuxBadge.vue'
+import { AuxBadge } from '../../components'
 
 const variants = ['default', 'info', 'success', 'warning', 'danger']
 const sizes = ['sm', 'md']

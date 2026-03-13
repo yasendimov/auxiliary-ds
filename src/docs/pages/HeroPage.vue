@@ -1,6 +1,5 @@
 <script setup>
-import Hero from '../../components/marketing/Hero.vue'
-import AuxButton from '../../components/core/AuxButton.vue'
+import { AuxButton, Hero } from '../../components'
 </script>
 
 <template>

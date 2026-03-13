@@ -1,7 +1,5 @@
 <script setup>
-import AuxButton from '../../../components/core/AuxButton.vue'
-import AuxBadge from '../../../components/core/AuxBadge.vue'
-import AuxInput from '../../../components/core/AuxInput.vue'
+import { AuxButton, AuxBadge, AuxInput } from '../../../components'
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 
 const statCards = [

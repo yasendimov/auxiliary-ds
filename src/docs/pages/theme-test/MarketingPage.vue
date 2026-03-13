@@ -1,6 +1,5 @@
 <script setup>
-import AuxButton from '../../../components/core/AuxButton.vue'
-import AuxInput from '../../../components/core/AuxInput.vue'
+import { AuxButton, AuxInput } from '../../../components'
 
 const features = [
   {

@@ -1,6 +1,5 @@
 <script setup>
-import PageHeader from '../../components/marketing/PageHeader.vue'
-import Section from '../../components/marketing/Section.vue'
+import { Header, Section } from '../../components'
 
 const colorTokens = [
   { group: 'Surface', tokens: [
@@ -136,7 +135,7 @@ const zIndexTokens = [
 
 <template>
   <div>
-    <PageHeader eyebrow="09" headline="Tokens" description="All design tokens used across AUX. Two-layer system: primitives define raw values, semantic aliases give them meaning." />
+    <Header eyebrow="09" headline="Tokens" description="All design tokens used across AUX. Two-layer system: primitives define raw values, semantic aliases give them meaning." />
 
     <!-- Colors -->
     <Section id="colors" label="01 — Colors">

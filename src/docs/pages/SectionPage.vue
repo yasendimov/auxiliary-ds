@@ -1,6 +1,5 @@
 <script setup>
-import Hero from '../../components/marketing/Hero.vue'
-import Section from '../../components/marketing/Section.vue'
+import { Hero, Section } from '../../components'
 </script>
 
 <template>

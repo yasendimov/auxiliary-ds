@@ -1,7 +1,5 @@
 <script setup>
-import AuxButton from '../../../components/core/AuxButton.vue'
-import AuxBadge from '../../../components/core/AuxBadge.vue'
-import AuxInput from '../../../components/core/AuxInput.vue'
+import { AuxButton, AuxBadge, AuxInput } from '../../../components'
 
 const telemetry = [
   { label: 'Altitude', value: '120.4m', unit: 'MSL' },

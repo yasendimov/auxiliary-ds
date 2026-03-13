@@ -1,5 +1,5 @@
 <script setup>
-import AuxInput from '../../components/core/AuxInput.vue'
+import { AuxInput } from '../../components'
 import {
   MagnifyingGlassIcon,
   EnvelopeIcon,

@@ -1,0 +1,13 @@
+// Core
+export { default as AuxButton } from './core/Button.vue'
+export { default as AuxBadge } from './core/Badge.vue'
+export { default as AuxInput } from './core/Input.vue'
+export { default as AuxCheckbox } from './core/Checkbox.vue'
+export { default as AuxRadio } from './core/Radio.vue'
+export { default as AuxRadioGroup } from './core/RadioGroup.vue'
+export { default as AuxToggle } from './core/Toggle.vue'
+
+// Marketing
+export { default as Hero } from './marketing/Hero.vue'
+export { default as Header } from './marketing/Header.vue'
+export { default as Section } from './marketing/Section.vue'

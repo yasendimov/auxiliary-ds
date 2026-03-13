@@ -184,6 +184,16 @@ const routes = [
         name: 'core-checkbox',
         component: () => import('../docs/pages/CheckboxPage.vue')
       },
+      {
+        path: 'design-system/core/radio',
+        name: 'core-radio',
+        component: () => import('../docs/pages/RadioPage.vue')
+      },
+      {
+        path: 'design-system/core/toggle',
+        name: 'core-toggle',
+        component: () => import('../docs/pages/TogglePage.vue')
+      },
 
       // 11 Marketing
       {
@@ -192,9 +202,9 @@ const routes = [
         component: () => import('../docs/pages/HeroPage.vue')
       },
       {
-        path: 'design-system/marketing/page-header',
-        name: 'marketing-page-header',
-        component: () => import('../docs/pages/PageHeaderPage.vue')
+        path: 'design-system/marketing/header',
+        name: 'marketing-header',
+        component: () => import('../docs/pages/HeaderPage.vue')
       },
       {
         path: 'design-system/marketing/section',

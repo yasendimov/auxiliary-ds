@@ -128,7 +128,9 @@ const navSections = [
           { name: 'Button', to: '/design-system/core/button' },
           { name: 'Badge', to: '/design-system/core/badge' },
           { name: 'Input', to: '/design-system/core/input' },
-          { name: 'Checkbox', to: '/design-system/core/checkbox' }
+          { name: 'Checkbox', to: '/design-system/core/checkbox' },
+          { name: 'Radio', to: '/design-system/core/radio' },
+          { name: 'Toggle', to: '/design-system/core/toggle' }
         ]
       },
       {
@@ -137,7 +139,7 @@ const navSections = [
         to: '/design-system/marketing/hero',
         children: [
           { name: 'Hero', to: '/design-system/marketing/hero' },
-          { name: 'Page Header', to: '/design-system/marketing/page-header' },
+          { name: 'Header', to: '/design-system/marketing/header' },
           { name: 'Section', to: '/design-system/marketing/section' }
         ]
       },

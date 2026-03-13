@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import AuxCheckbox from '../../components/core/AuxCheckbox.vue'
+import { AuxCheckbox } from '../../components'
 
 const defaultUnchecked = ref(false)
 const defaultChecked = ref(true)

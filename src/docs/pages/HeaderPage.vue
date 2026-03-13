@@ -1,13 +1,12 @@
 <script setup>
-import Hero from '../../components/marketing/Hero.vue'
-import PageHeader from '../../components/marketing/PageHeader.vue'
+import { Hero, Header } from '../../components'
 </script>
 
 <template>
   <div>
     <Hero
       eyebrow="Marketing"
-      headline="Page Header"
+      headline="Header"
       description="Interior page header with eyebrow, title, and optional description. Lighter weight than Hero — used for secondary and content pages."
     />
 
@@ -15,7 +14,7 @@ import PageHeader from '../../components/marketing/PageHeader.vue'
     <section class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8"><span class="font-mono">01</span> — Default</p>
       <div class="border border-line rounded-card overflow-hidden">
-        <PageHeader
+        <Header
           eyebrow="Documentation"
           headline="Getting Started"
           description="Everything you need to integrate Auterion's autonomous flight platform."
@@ -31,7 +30,7 @@ import PageHeader from '../../components/marketing/PageHeader.vue'
         <span class="font-mono">02</span> — Without Description
       </p>
       <div class="border border-line rounded-card overflow-hidden">
-        <PageHeader eyebrow="Release Notes" headline="v4.2.0" />
+        <Header eyebrow="Release Notes" headline="v4.2.0" />
       </div>
     </section>
 
@@ -40,10 +39,10 @@ import PageHeader from '../../components/marketing/PageHeader.vue'
     <!-- Comparison -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
       <p class="type-overline text-content-dim mb-8">
-        <span class="font-mono">03</span> — Hero vs PageHeader
+        <span class="font-mono">03</span> — Hero vs Header
       </p>
       <p class="type-caption-m text-content-low mb-6">
-        Hero uses <span class="font-mono">type-display-m</span> for landing pages. PageHeader uses
+        Hero uses <span class="font-mono">type-display-m</span> for landing pages. Header uses
         <span class="font-mono">type-title-m</span> for interior pages.
       </p>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -51,8 +50,8 @@ import PageHeader from '../../components/marketing/PageHeader.vue'
           <Hero eyebrow="Hero" headline="Display scale" description="For landing pages." />
         </div>
         <div class="border border-line rounded-card overflow-hidden">
-          <PageHeader
-            eyebrow="PageHeader"
+          <Header
+            eyebrow="Header"
             headline="Title scale"
             description="For interior pages."
           />

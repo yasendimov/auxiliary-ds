@@ -1,5 +1,5 @@
 <script setup>
-import AuxButton from '../../components/core/AuxButton.vue'
+import { AuxButton } from '../../components'
 import { PlusIcon, ArrowRightIcon, ArrowDownTrayIcon, TrashIcon } from '@heroicons/vue/24/outline'
 
 const variants = ['primary', 'ghost', 'destructive']

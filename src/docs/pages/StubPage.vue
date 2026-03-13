@@ -1,8 +1,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
-import PageHeader from '../../components/marketing/PageHeader.vue'
-import Section from '../../components/marketing/Section.vue'
+import { Header, Section } from '../../components'
 
 const route = useRoute()
 
@@ -13,7 +12,7 @@ const sections = computed(() => route.meta.sections || [])
 
 <template>
   <div>
-    <PageHeader :eyebrow="number" :headline="title" />
+    <Header :eyebrow="number" :headline="title" />
 
     <template v-for="section in sections" :key="section.id">
       <Section :label="section.name">
