@@ -147,7 +147,7 @@ const routes = [
       {
         path: 'system/tokens',
         name: 'tokens',
-        component: stub,
+        component: () => import('../docs/pages/TokensPage.vue'),
         meta: {
           number: '09',
           title: 'Tokens',
