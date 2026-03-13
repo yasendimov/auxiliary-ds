@@ -13,10 +13,7 @@ const sections = computed(() => route.meta.sections || [])
 
 <template>
   <div>
-    <PageHeader
-      :eyebrow="number"
-      :headline="title"
-    />
+    <PageHeader :eyebrow="number" :headline="title" />
 
     <template v-for="section in sections" :key="section.id">
       <Section :label="section.name">

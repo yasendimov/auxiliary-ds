@@ -1,6 +1,11 @@
 <script setup>
 import AuxInput from '../../components/core/AuxInput.vue'
-import { MagnifyingGlassIcon, EnvelopeIcon, CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/24/outline'
+import {
+  MagnifyingGlassIcon,
+  EnvelopeIcon,
+  CheckCircleIcon,
+  ExclamationCircleIcon
+} from '@heroicons/vue/24/outline'
 
 const variants = ['default', 'error', 'success']
 const sizes = ['sm', 'md', 'lg']
@@ -19,7 +24,9 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Variants × Sizes -->
     <section class="px-8 lg:px-16">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">01</span> — Variants &times; Sizes</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">01</span> — Variants &times; Sizes
+      </p>
       <div class="grid grid-cols-3 border-t border-l border-line">
         <template v-for="variant in variants" :key="variant">
           <div
@@ -38,7 +45,9 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Label & Hint -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">02</span> — Label &amp; Hint</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">02</span> — Label &amp; Hint
+      </p>
       <div class="grid grid-cols-2 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">with label</span>
@@ -49,7 +58,11 @@ const sizes = ['sm', 'md', 'lg']
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">with label + hint</span>
           <div>
-            <AuxInput label="Callsign" placeholder="ALPHA-01" hint="Unique identifier for fleet operations." />
+            <AuxInput
+              label="Callsign"
+              placeholder="ALPHA-01"
+              hint="Unique identifier for fleet operations."
+            />
           </div>
         </div>
       </div>
@@ -57,18 +70,29 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Error Message -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">03</span> — Error Message</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">03</span> — Error Message
+      </p>
       <div class="grid grid-cols-2 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">error via prop</span>
           <div>
-            <AuxInput label="Altitude" model-value="not a number" error="Must be a numeric value." />
+            <AuxInput
+              label="Altitude"
+              model-value="not a number"
+              error="Must be a numeric value."
+            />
           </div>
         </div>
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">success variant</span>
           <div>
-            <AuxInput label="Waypoint" model-value="WP-042" variant="success" hint="Waypoint validated." />
+            <AuxInput
+              label="Waypoint"
+              model-value="WP-042"
+              variant="success"
+              hint="Waypoint validated."
+            />
           </div>
         </div>
       </div>
@@ -99,7 +123,11 @@ const sizes = ['sm', 'md', 'lg']
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">trailing + error</span>
           <div>
-            <AuxInput :trailing-icon="ExclamationCircleIcon" error="Invalid coordinate." model-value="99.999" />
+            <AuxInput
+              :trailing-icon="ExclamationCircleIcon"
+              error="Invalid coordinate."
+              model-value="99.999"
+            />
           </div>
         </div>
       </div>
@@ -107,7 +135,9 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Prefix & Suffix -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">05</span> — Prefix &amp; Suffix</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">05</span> — Prefix &amp; Suffix
+      </p>
       <div class="grid grid-cols-3 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">prefix</span>
@@ -132,7 +162,9 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Disabled & Readonly -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12"><span class="font-mono">06</span> — Disabled &amp; Readonly</p>
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">06</span> — Disabled &amp; Readonly
+      </p>
       <div class="grid grid-cols-2 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">disabled</span>

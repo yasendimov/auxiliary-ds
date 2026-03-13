@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "generate-tokens": "node scripts/generate-tokens.js"
+    "generate-tokens": "node scripts/generate-tokens.js",
+    "lint": "eslint . --ext .vue,.js",
+    "lint:fix": "eslint . --ext .vue,.js --fix",
+    "format": "prettier --write \"src/**/*.{vue,js,css}\"",
+    "format:check": "prettier --check \"src/**/*.{vue,js,css}\""
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -19,6 +23,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.2",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.8.0",
+    "prettier": "^3.8.1",
     "vite": "^7.3.1"
   },
   "pnpm": {

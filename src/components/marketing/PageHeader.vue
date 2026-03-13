@@ -2,16 +2,16 @@
 defineProps({
   eyebrow: {
     type: String,
-    required: true,
+    required: true
   },
   headline: {
     type: String,
-    required: true,
+    required: true
   },
   description: {
     type: String,
-    default: null,
-  },
+    default: null
+  }
 })
 </script>
 
