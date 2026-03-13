@@ -13,7 +13,7 @@ const routes = [
       { path: 'foundation/spacing', name: 'foundation-spacing', component: () => import('../docs/pages/HomePage.vue') },
       { path: 'components/button', name: 'components-button', component: () => import('../docs/pages/ButtonPage.vue') },
       { path: 'components/input', name: 'components-input', component: () => import('../docs/pages/HomePage.vue') },
-      { path: 'components/badge', name: 'components-badge', component: () => import('../docs/pages/HomePage.vue') },
+      { path: 'components/badge', name: 'components-badge', component: () => import('../docs/pages/BadgePage.vue') },
     ],
   },
 ]
