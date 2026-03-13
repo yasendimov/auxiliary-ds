@@ -133,7 +133,8 @@ const navSections = [
           { name: 'Radio', to: '/design-system/core/radio' },
           { name: 'Toggle', to: '/design-system/core/toggle' },
           { name: 'Textarea', to: '/design-system/core/textarea' },
-          { name: 'Alert', to: '/design-system/core/alert' }
+          { name: 'Alert', to: '/design-system/core/alert' },
+          { name: 'Spinner', to: '/design-system/core/spinner' }
         ]
       },
       {

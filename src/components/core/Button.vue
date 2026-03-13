@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { ArrowPathIcon } from '@heroicons/vue/24/outline'
+import Spinner from './Spinner.vue'
 
 const props = defineProps({
   variant: {
@@ -90,7 +90,7 @@ function onClick(event) {
     :disabled="isDisabled"
     @click="onClick"
   >
-    <ArrowPathIcon v-if="loading" class="size-4 animate-spin" aria-hidden="true" />
+    <Spinner v-if="loading" size="sm" variant="current" />
     <component
       :is="leadingIcon"
       v-if="leadingIcon && !loading"

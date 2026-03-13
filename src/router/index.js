@@ -205,6 +205,11 @@ const routes = [
         name: 'core-alert',
         component: () => import('../docs/pages/AlertPage.vue')
       },
+      {
+        path: 'design-system/core/spinner',
+        name: 'core-spinner',
+        component: () => import('../docs/pages/SpinnerPage.vue')
+      },
 
       // 11 Marketing
       {
