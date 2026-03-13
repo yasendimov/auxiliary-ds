@@ -31,6 +31,11 @@ const props = defineProps({
     type: String,
     default: 'vertical',
     validator: (v) => ['vertical', 'horizontal'].includes(v)
+  },
+  size: {
+    type: String,
+    default: 'md',
+    validator: (v) => ['sm', 'md', 'lg'].includes(v)
   }
 })
 
@@ -49,6 +54,7 @@ provide(radioGroupKey, {
   name: props.name,
   error: toRef(props, 'error'),
   disabled: toRef(props, 'disabled'),
+  size: toRef(props, 'size'),
   updateValue(val) {
     emit('update:modelValue', val)
   }

@@ -64,16 +64,16 @@ const badgeClasses = computed(() => [
 
 <template>
   <span v-bind="$attrs" :class="badgeClasses">
-    <span v-if="dot" class="w-1.5 h-1.5 rounded-full" :class="dotClasses" />
+    <span v-if="dot" class="size-1.5 rounded-full" :class="dotClasses" />
     <slot />
     <button
       v-if="dismissible"
       type="button"
-      class="hover:opacity-80 transition-opacity duration-fast ease-snap"
+      class="hover:opacity-hover transition-opacity duration-fast ease-snap"
       aria-label="Dismiss"
       @click="$emit('dismiss')"
     >
-      <XMarkIcon class="w-3 h-3" aria-hidden="true" />
+      <XMarkIcon class="size-3" aria-hidden="true" />
     </button>
   </span>
 </template>

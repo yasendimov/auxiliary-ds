@@ -26,6 +26,11 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false
+  },
+  size: {
+    type: String,
+    default: 'md',
+    validator: (v) => ['sm', 'md', 'lg'].includes(v)
   }
 })
 
@@ -35,15 +40,24 @@ const inputId = useId()
 
 const isCheckedOrIndeterminate = computed(() => props.indeterminate || props.modelValue)
 
+const sizeConfig = computed(() => {
+  const map = {
+    sm: { control: 'size-3.5', icon: 'size-2.5', gap: 'gap-2', mt: 'mt-px', label: 'type-caption-r', hint: 'type-agate-r' },
+    md: { control: 'size-4', icon: 'size-3', gap: 'gap-2.5', mt: 'mt-0.5', label: 'type-body-r', hint: 'type-caption-r' },
+    lg: { control: 'size-5', icon: 'size-3.5', gap: 'gap-3', mt: 'mt-0.5', label: 'type-intro-r', hint: 'type-caption-r' }
+  }
+  return map[props.size]
+})
+
 const controlClasses = computed(() => {
   const base =
-    'size-4 rounded-instrument border flex items-center justify-center transition-colors duration-fast ease-snap'
+    `${sizeConfig.value.control} rounded-instrument border flex items-center justify-center transition-colors duration-fast ease-snap`
 
   if (props.disabled) {
     if (isCheckedOrIndeterminate.value) {
-      return [base, 'bg-action border-action opacity-40 cursor-not-allowed']
+      return [base, 'bg-action border-action opacity-disabled cursor-not-allowed']
     }
-    return [base, 'bg-surface-1 border-line opacity-40 cursor-not-allowed']
+    return [base, 'bg-surface-1 border-line opacity-disabled cursor-not-allowed']
   }
 
   if (props.error) {
@@ -68,15 +82,16 @@ function onChange(event) {
 <template>
   <div class="flex flex-col">
     <div
-      class="flex items-start gap-2.5"
-      :class="disabled ? 'cursor-not-allowed' : 'cursor-pointer'"
+      class="flex items-start"
+      :class="[sizeConfig.gap, disabled ? 'cursor-not-allowed' : 'cursor-pointer']"
     >
       <!-- Control wrapper -->
-      <div class="relative mt-0.5 flex-shrink-0 size-4">
+      <div class="relative flex-shrink-0" :class="[sizeConfig.control, sizeConfig.mt]">
         <input
           :id="inputId"
           type="checkbox"
-          class="peer absolute inset-0 size-4 opacity-0 cursor-pointer disabled:cursor-not-allowed"
+          class="peer absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
+          :class="sizeConfig.control"
           :checked="modelValue"
           :indeterminate="indeterminate"
           :disabled="disabled"
@@ -94,11 +109,13 @@ function onChange(event) {
         >
           <CheckIcon
             v-if="!indeterminate && modelValue"
-            class="size-3 text-white"
+            class="text-white"
+            :class="sizeConfig.icon"
           />
           <MinusIcon
             v-else-if="indeterminate"
-            class="size-3 text-white"
+            class="text-white"
+            :class="sizeConfig.icon"
           />
         </span>
       </div>
@@ -107,22 +124,24 @@ function onChange(event) {
       <div v-if="label || hint || error" class="flex flex-col">
         <label
           :for="inputId"
-          class="type-body-r text-content-high"
-          :class="disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'"
+          class="text-content-high"
+          :class="[sizeConfig.label, disabled ? 'opacity-disabled cursor-not-allowed' : 'cursor-pointer']"
         >
           {{ label }}
         </label>
         <p
           v-if="error"
           :id="`${inputId}-error`"
-          class="type-caption-r text-alarm-content mt-0.5"
+          class="text-alarm-content mt-0.5"
+          :class="sizeConfig.hint"
         >
           {{ error }}
         </p>
         <p
           v-else-if="hint"
           :id="`${inputId}-hint`"
-          class="type-caption-r text-content-dim mt-0.5"
+          class="text-content-dim mt-0.5"
+          :class="sizeConfig.hint"
         >
           {{ hint }}
         </p>

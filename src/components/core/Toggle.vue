@@ -44,9 +44,9 @@ const trackClasses = computed(() => {
 
   if (props.disabled) {
     if (props.modelValue) {
-      return [base, 'bg-action opacity-40']
+      return [base, 'bg-action opacity-disabled']
     }
-    return [base, 'bg-surface-3 ring-1 ring-inset ring-line opacity-40']
+    return [base, 'bg-surface-3 ring-1 ring-inset ring-line opacity-disabled']
   }
 
   if (props.error) {
@@ -118,7 +118,7 @@ function onChange(event) {
         <label
           :for="inputId"
           class="type-body-r text-content-high"
-          :class="disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'"
+          :class="disabled ? 'opacity-disabled cursor-not-allowed' : 'cursor-pointer'"
         >
           {{ label }}
         </label>

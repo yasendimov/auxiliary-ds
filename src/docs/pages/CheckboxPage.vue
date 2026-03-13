@@ -19,6 +19,10 @@ const notifEmail = ref(true)
 const notifSms = ref(false)
 const notifPush = ref(true)
 const notifSlack = ref(false)
+
+const sizeSm = ref(true)
+const sizeMd = ref(true)
+const sizeLg = ref(true)
 </script>
 
 <template>
@@ -29,7 +33,7 @@ const notifSlack = ref(false)
       <h1 class="type-display-sb text-content-high mt-4">Checkbox</h1>
       <p class="type-lead-r text-content-low mt-4 max-w-xl">
         Binary and indeterminate selection control with label, hint, and error support.
-        16px fixed size.
+        Three sizes: sm, md, lg.
       </p>
     </section>
 
@@ -160,19 +164,29 @@ const notifSlack = ref(false)
       </div>
     </section>
 
-    <!-- 06 Size Note -->
+    <!-- 06 Sizes -->
     <section class="px-8 lg:px-16 mt-24 pb-24">
       <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">06</span> — Size
+        <span class="font-mono">06</span> — Sizes
       </p>
-      <div class="grid grid-cols-1 border-t border-l border-line">
-        <div class="border-b border-r border-line p-8">
-          <p class="type-body-r text-content-low max-w-lg">
-            Checkbox uses a single 16&times;16px control size. Non-standard checkbox sizes create
-            accessibility issues with touch targets and visual inconsistency across form elements.
-            The 16px size aligns with the 4px grid and provides a reliable click target across all
-            contexts.
-          </p>
+      <div class="grid grid-cols-3 border-t border-l border-line">
+        <div class="border-b border-r border-line p-8 flex flex-col gap-3">
+          <span class="type-overline text-content-dim">sm</span>
+          <div>
+            <AuxCheckbox v-model="sizeSm" label="Enable telemetry" size="sm" />
+          </div>
+        </div>
+        <div class="border-b border-r border-line p-8 flex flex-col gap-3">
+          <span class="type-overline text-content-dim">md (default)</span>
+          <div>
+            <AuxCheckbox v-model="sizeMd" label="Enable telemetry" size="md" />
+          </div>
+        </div>
+        <div class="border-b border-r border-line p-8 flex flex-col gap-3">
+          <span class="type-overline text-content-dim">lg</span>
+          <div>
+            <AuxCheckbox v-model="sizeLg" label="Enable telemetry" size="lg" />
+          </div>
         </div>
       </div>
     </section>

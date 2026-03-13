@@ -30,6 +30,11 @@ const props = defineProps({
   name: {
     type: String,
     default: ''
+  },
+  size: {
+    type: String,
+    default: null,
+    validator: (v) => ['sm', 'md', 'lg'].includes(v)
   }
 })
 
@@ -45,15 +50,26 @@ const isDisabled = computed(() => props.disabled || (group ? group.disabled.valu
 const activeError = computed(() => props.error || (group ? group.error.value : null))
 const isChecked = computed(() => currentValue.value === props.value)
 
+const resolvedSize = computed(() => props.size || (group ? group.size?.value : null) || 'md')
+
+const sizeConfig = computed(() => {
+  const map = {
+    sm: { control: 'size-3.5', dot: 'size-1.5', gap: 'gap-2', mt: 'mt-px', label: 'type-caption-r', hint: 'type-agate-r' },
+    md: { control: 'size-4', dot: 'size-2', gap: 'gap-2.5', mt: 'mt-0.5', label: 'type-body-r', hint: 'type-caption-r' },
+    lg: { control: 'size-5', dot: 'size-2.5', gap: 'gap-3', mt: 'mt-0.5', label: 'type-intro-r', hint: 'type-caption-r' }
+  }
+  return map[resolvedSize.value]
+})
+
 const controlClasses = computed(() => {
   const base =
-    'size-4 rounded-full border flex items-center justify-center transition-colors duration-fast ease-snap'
+    `${sizeConfig.value.control} rounded-full border flex items-center justify-center transition-colors duration-fast ease-snap`
 
   if (isDisabled.value) {
     if (isChecked.value) {
-      return [base, 'border-action bg-surface-1 opacity-40 cursor-not-allowed']
+      return [base, 'border-action bg-surface-1 opacity-disabled cursor-not-allowed']
     }
-    return [base, 'bg-surface-1 border-line opacity-40 cursor-not-allowed']
+    return [base, 'bg-surface-1 border-line opacity-disabled cursor-not-allowed']
   }
 
   if (activeError.value) {
@@ -71,8 +87,9 @@ const controlClasses = computed(() => {
 })
 
 const dotClasses = computed(() => {
-  if (activeError.value) return 'size-2 rounded-full bg-alarm'
-  return 'size-2 rounded-full bg-action'
+  const dot = sizeConfig.value.dot
+  if (activeError.value) return `${dot} rounded-full bg-alarm`
+  return `${dot} rounded-full bg-action`
 })
 
 function onChange() {
@@ -87,15 +104,16 @@ function onChange() {
 <template>
   <div class="flex flex-col">
     <div
-      class="flex items-start gap-2.5"
-      :class="isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'"
+      class="flex items-start"
+      :class="[sizeConfig.gap, isDisabled ? 'cursor-not-allowed' : 'cursor-pointer']"
     >
       <!-- Control wrapper -->
-      <div class="relative mt-0.5 flex-shrink-0 size-4">
+      <div class="relative flex-shrink-0" :class="[sizeConfig.control, sizeConfig.mt]">
         <input
           :id="inputId"
           type="radio"
-          class="peer absolute inset-0 size-4 opacity-0 cursor-pointer disabled:cursor-not-allowed"
+          class="peer absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
+          :class="sizeConfig.control"
           :checked="isChecked"
           :value="value"
           :name="currentName"
@@ -119,22 +137,24 @@ function onChange() {
       <div v-if="label || hint || activeError" class="flex flex-col">
         <label
           :for="inputId"
-          class="type-body-r text-content-high"
-          :class="isDisabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'"
+          class="text-content-high"
+          :class="[sizeConfig.label, isDisabled ? 'opacity-disabled cursor-not-allowed' : 'cursor-pointer']"
         >
           {{ label }}
         </label>
         <p
           v-if="activeError && !group"
           :id="`${inputId}-error`"
-          class="type-caption-r text-alarm-content mt-0.5"
+          class="text-alarm-content mt-0.5"
+          :class="sizeConfig.hint"
         >
           {{ activeError }}
         </p>
         <p
           v-else-if="hint"
           :id="`${inputId}-hint`"
-          class="type-caption-r text-content-dim mt-0.5"
+          class="text-content-dim mt-0.5"
+          :class="sizeConfig.hint"
         >
           {{ hint }}
         </p>

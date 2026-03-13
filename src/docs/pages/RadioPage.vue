@@ -2,7 +2,11 @@
 import { ref } from 'vue'
 import { AuxRadio, AuxRadioGroup } from '../../components'
 
-const defaultSize = ref('medium')
+const defaultPriority = ref('medium')
+
+const sizeSmall = ref('low')
+const sizeMedium = ref('medium')
+const sizeLarge = ref('low')
 
 const stateUnselected = ref(null)
 const stateSelected = ref('on')
@@ -10,7 +14,7 @@ const stateDisabledUnselected = ref(null)
 const stateDisabledSelected = ref('on')
 const stateError = ref(null)
 
-const horizontalSize = ref('medium')
+const horizontalPriority = ref('medium')
 
 const hintFrequency = ref('daily')
 
@@ -40,20 +44,59 @@ const realWorldFrequency = ref('daily')
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">vertical group</span>
           <div>
-            <AuxRadioGroup v-model="defaultSize" name="default-size" label="Size">
-              <AuxRadio value="small" label="Small" />
+            <AuxRadioGroup v-model="defaultPriority" name="default-priority" label="Priority">
+              <AuxRadio value="low" label="Low" />
               <AuxRadio value="medium" label="Medium" />
-              <AuxRadio value="large" label="Large" />
+              <AuxRadio value="high" label="High" />
             </AuxRadioGroup>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 02 States -->
+    <!-- 02 Sizes -->
     <section class="px-8 lg:px-16 mt-24">
       <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">02</span> — States
+        <span class="font-mono">02</span> — Sizes
+      </p>
+      <div class="grid grid-cols-3 border-t border-l border-line">
+        <div class="border-b border-r border-line p-8 flex flex-col gap-3">
+          <span class="type-overline text-content-dim">sm</span>
+          <div>
+            <AuxRadioGroup v-model="sizeSmall" name="size-sm" label="Priority" size="sm">
+              <AuxRadio value="low" label="Low" />
+              <AuxRadio value="medium" label="Medium" />
+              <AuxRadio value="high" label="High" />
+            </AuxRadioGroup>
+          </div>
+        </div>
+        <div class="border-b border-r border-line p-8 flex flex-col gap-3">
+          <span class="type-overline text-content-dim">md (default)</span>
+          <div>
+            <AuxRadioGroup v-model="sizeMedium" name="size-md" label="Priority" size="md">
+              <AuxRadio value="low" label="Low" />
+              <AuxRadio value="medium" label="Medium" />
+              <AuxRadio value="high" label="High" />
+            </AuxRadioGroup>
+          </div>
+        </div>
+        <div class="border-b border-r border-line p-8 flex flex-col gap-3">
+          <span class="type-overline text-content-dim">lg</span>
+          <div>
+            <AuxRadioGroup v-model="sizeLarge" name="size-lg" label="Priority" size="lg">
+              <AuxRadio value="low" label="Low" />
+              <AuxRadio value="medium" label="Medium" />
+              <AuxRadio value="high" label="High" />
+            </AuxRadioGroup>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 States -->
+    <section class="px-8 lg:px-16 mt-24">
+      <p class="type-overline text-content-dim mb-12">
+        <span class="font-mono">03</span> — States
       </p>
       <div class="grid grid-cols-3 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
@@ -107,34 +150,34 @@ const realWorldFrequency = ref('daily')
       </div>
     </section>
 
-    <!-- 03 Horizontal Group -->
+    <!-- 04 Horizontal Group -->
     <section class="px-8 lg:px-16 mt-24">
       <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">03</span> — Horizontal Group
+        <span class="font-mono">04</span> — Horizontal Group
       </p>
       <div class="grid grid-cols-1 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
           <span class="type-overline text-content-dim">orientation horizontal</span>
           <div>
             <AuxRadioGroup
-              v-model="horizontalSize"
-              name="horizontal-size"
-              label="Size"
+              v-model="horizontalPriority"
+              name="horizontal-priority"
+              label="Priority"
               orientation="horizontal"
             >
-              <AuxRadio value="small" label="Small" />
+              <AuxRadio value="low" label="Low" />
               <AuxRadio value="medium" label="Medium" />
-              <AuxRadio value="large" label="Large" />
+              <AuxRadio value="high" label="High" />
             </AuxRadioGroup>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 04 With Hint -->
+    <!-- 05 With Hint -->
     <section class="px-8 lg:px-16 mt-24">
       <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">04</span> — With Hint
+        <span class="font-mono">05</span> — With Hint
       </p>
       <div class="grid grid-cols-1 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
@@ -155,10 +198,10 @@ const realWorldFrequency = ref('daily')
       </div>
     </section>
 
-    <!-- 05 With Error -->
+    <!-- 06 With Error -->
     <section class="px-8 lg:px-16 mt-24">
       <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">05</span> — With Error
+        <span class="font-mono">06</span> — With Error
       </p>
       <div class="grid grid-cols-1 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">
@@ -179,10 +222,10 @@ const realWorldFrequency = ref('daily')
       </div>
     </section>
 
-    <!-- 06 Real-World Example -->
+    <!-- 07 Real-World Example -->
     <section class="px-8 lg:px-16 mt-24 pb-24">
       <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">06</span> — Real-World Example
+        <span class="font-mono">07</span> — Real-World Example
       </p>
       <div class="grid grid-cols-1 border-t border-l border-line">
         <div class="border-b border-r border-line p-8 flex flex-col gap-3">

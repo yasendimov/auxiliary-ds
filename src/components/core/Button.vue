@@ -54,7 +54,7 @@ const sizeClasses = computed(() => {
 
 const variantClasses = computed(() => {
   if (isDisabled.value) {
-    return 'bg-action-disabled text-action-content-disabled opacity-50 cursor-not-allowed pointer-events-none'
+    return 'bg-action-disabled text-action-content-disabled opacity-disabled cursor-not-allowed pointer-events-none'
   }
 
   const variants = {
@@ -90,14 +90,14 @@ function onClick(event) {
     :disabled="isDisabled"
     @click="onClick"
   >
-    <ArrowPathIcon v-if="loading" class="w-4 h-4 animate-spin" aria-hidden="true" />
+    <ArrowPathIcon v-if="loading" class="size-4 animate-spin" aria-hidden="true" />
     <component
       :is="leadingIcon"
       v-if="leadingIcon && !loading"
-      class="w-4 h-4"
+      class="size-4"
       aria-hidden="true"
     />
     <slot />
-    <component :is="trailingIcon" v-if="trailingIcon" class="w-4 h-4" aria-hidden="true" />
+    <component :is="trailingIcon" v-if="trailingIcon" class="size-4" aria-hidden="true" />
   </button>
 </template>
