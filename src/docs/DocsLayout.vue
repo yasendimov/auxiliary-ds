@@ -105,7 +105,7 @@ const navSections = [
     ]
   },
   {
-    label: 'DESIGN SYSTEM',
+    label: 'SYSTEM',
     items: [
       {
         number: '09',
@@ -125,45 +125,52 @@ const navSections = [
       {
         number: '10',
         title: 'Core',
-        to: '/design-system/core/button',
+        to: '/system/core/button',
         children: [
-          { name: 'Button', to: '/design-system/core/button' },
-          { name: 'Badge', to: '/design-system/core/badge' },
-          { name: 'Input', to: '/design-system/core/input' },
-          { name: 'Checkbox', to: '/design-system/core/checkbox' },
-          { name: 'Radio', to: '/design-system/core/radio' },
-          { name: 'Toggle', to: '/design-system/core/toggle' },
-          { name: 'Textarea', to: '/design-system/core/textarea' },
-          { name: 'Alert', to: '/design-system/core/alert' },
-          { name: 'Spinner', to: '/design-system/core/spinner' },
-          { name: 'Avatar', to: '/design-system/core/avatar' },
-          { name: 'Separator', to: '/design-system/core/separator' },
-          { name: 'Identicon', to: '/design-system/core/identicon' },
-          { name: 'Select', to: '/design-system/core/select' },
-          { name: 'Tabs', to: '/design-system/core/tabs' },
-          { name: 'Dialog', to: '/design-system/core/dialog' }
+          { name: 'Button', to: '/system/core/button' },
+          { name: 'Link', to: '/system/core/link' },
+          { name: 'Checkbox', to: '/system/core/checkbox' },
+          { name: 'Combobox', to: '/system/core/combobox' },
+          { name: 'FormField', to: '/system/core/form-field' },
+          { name: 'Input', to: '/system/core/input' },
+          { name: 'Radio', to: '/system/core/radio' },
+          { name: 'Select', to: '/system/core/select' },
+          { name: 'Textarea', to: '/system/core/textarea' },
+          { name: 'Toggle', to: '/system/core/toggle' },
+          { name: 'Alert', to: '/system/core/alert' },
+          { name: 'Spinner', to: '/system/core/spinner' },
+          { name: 'Toast', to: '/system/core/toast' },
+          { name: 'Dialog', to: '/system/core/dialog' },
+          { name: 'Dropdown', to: '/system/core/dropdown' },
+          { name: 'Popover', to: '/system/core/popover' },
+          { name: 'Tooltip', to: '/system/core/tooltip' },
+          { name: 'Avatar', to: '/system/core/avatar' },
+          { name: 'Badge', to: '/system/core/badge' },
+          { name: 'Identicon', to: '/system/core/identicon' },
+          { name: 'Separator', to: '/system/core/separator' },
+          { name: 'Tabs', to: '/system/core/tabs' }
         ]
       },
       {
         number: '11',
         title: 'Marketing',
-        to: '/design-system/marketing/hero',
+        to: '/system/marketing/hero',
         children: [
-          { name: 'Hero', to: '/design-system/marketing/hero' },
-          { name: 'Header', to: '/design-system/marketing/header' },
-          { name: 'Section', to: '/design-system/marketing/section' }
+          { name: 'Hero', to: '/system/marketing/hero' },
+          { name: 'Header', to: '/system/marketing/header' },
+          { name: 'Section', to: '/system/marketing/section' }
         ]
       },
       {
         number: '12',
         title: 'Applications',
-        to: '/design-system/applications',
+        to: '/system/applications',
         children: []
       },
       {
         number: '13',
         title: 'Operations',
-        to: '/design-system/operations',
+        to: '/system/operations',
         children: []
       }
     ]
@@ -223,7 +230,7 @@ watch(
     >
       <!-- Header -->
       <div class="h-14 flex items-center justify-between px-5 border-b border-base-dim">
-        <router-link to="/" class="text-base-normal">
+        <router-link to="/" class="text-base-normal" @click="openItem = null">
           <svg class="h-4" viewBox="0 0 780 148" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fill-rule="evenodd"
@@ -244,6 +251,21 @@ watch(
 
       <!-- Navigation -->
       <nav class="flex-1 overflow-y-auto">
+        <!-- Welcome -->
+        <div class="pt-5">
+          <router-link
+            to="/"
+            class="flex w-full items-center gap-2 px-5 py-1.5 type-caption-m transition-colors duration-instant"
+            :class="
+              route.path === '/' ? 'text-base-normal' : 'text-base-dim hover:text-base-normal'
+            "
+            @click="openItem = null"
+          >
+            <span class="type-overline font-mono tabular-nums w-4 shrink-0">00</span>
+            <span>Welcome</span>
+          </router-link>
+        </div>
+
         <template v-for="section in navSections" :key="section.label">
           <!-- Section label -->
           <div class="type-overline font-mono text-base-dim px-5 pt-5 pb-2">
@@ -296,7 +318,7 @@ watch(
 
       <!-- Footer -->
       <div class="border-t border-base-dim px-5 py-3">
-        <span class="type-overline font-mono text-base-dim">v0.1.0</span>
+        <span class="type-overline font-mono text-base-dim">v0.2.0</span>
       </div>
     </aside>
 

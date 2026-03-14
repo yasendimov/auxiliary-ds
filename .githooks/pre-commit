@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Pre-commit hook: auto-format and lint-fix staged files before committing.
+# Runs pnpm format + lint:fix, re-stages changes, then verifies lint passes.
+
+# Exit on error
+set -e
+
+echo "pre-commit: formatting and linting..."
+
+# Auto-fix formatting
+pnpm format 2>/dev/null
+
+# Auto-fix lint issues
+pnpm lint:fix 2>/dev/null
+
+# Re-stage any files that were modified by formatting/linting
+git add -u
+
+# Final lint check — if auto-fix couldn't resolve everything, block the commit
+if ! pnpm lint --quiet 2>/dev/null; then
+  echo ""
+  echo "pre-commit: lint errors remain after auto-fix. Please fix manually."
+  exit 1
+fi
+
+echo "pre-commit: all clean."
