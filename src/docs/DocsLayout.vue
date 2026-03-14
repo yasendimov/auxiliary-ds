@@ -136,7 +136,8 @@ const navSections = [
           { name: 'Alert', to: '/design-system/core/alert' },
           { name: 'Spinner', to: '/design-system/core/spinner' },
           { name: 'Avatar', to: '/design-system/core/avatar' },
-          { name: 'Separator', to: '/design-system/core/separator' }
+          { name: 'Separator', to: '/design-system/core/separator' },
+          { name: 'Insignia', to: '/design-system/core/insignia' }
         ]
       },
       {

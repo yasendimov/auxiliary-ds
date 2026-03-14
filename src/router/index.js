@@ -220,6 +220,11 @@ const routes = [
         name: 'core-separator',
         component: () => import('../docs/pages/SeparatorPage.vue')
       },
+      {
+        path: 'design-system/core/insignia',
+        name: 'core-insignia',
+        component: () => import('../docs/pages/InsigniaPage.vue')
+      },
 
       // 11 Marketing
       {
