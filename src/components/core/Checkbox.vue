@@ -1,6 +1,7 @@
 <script setup>
-import { computed, useId } from 'vue'
+import { computed, inject, useId } from 'vue'
 import { CheckIcon, MinusIcon } from '@heroicons/vue/16/solid'
+import { checkboxGroupKey } from './checkboxGroupKey.js'
 
 defineOptions({ inheritAttrs: false })
 
@@ -8,6 +9,10 @@ const props = defineProps({
   modelValue: {
     type: Boolean,
     default: false
+  },
+  value: {
+    type: [String, Number, Boolean],
+    default: undefined
   },
   indeterminate: {
     type: Boolean,
@@ -31,7 +36,7 @@ const props = defineProps({
   },
   size: {
     type: String,
-    default: 'md',
+    default: null,
     validator: (v) => ['sm', 'md', 'lg'].includes(v)
   }
 })
@@ -40,7 +45,16 @@ const emit = defineEmits(['update:modelValue'])
 
 const inputId = useId()
 
-const isCheckedOrIndeterminate = computed(() => props.indeterminate || props.modelValue)
+const group = inject(checkboxGroupKey, null)
+
+const isDisabled = computed(() => props.disabled || (group ? group.disabled.value : false))
+const activeError = computed(() => props.error || (group ? group.error.value : null))
+const isChecked = computed(() =>
+  group ? group.groupModelValue.value.includes(props.value) : props.modelValue
+)
+const isCheckedOrIndeterminate = computed(() => props.indeterminate || isChecked.value)
+
+const resolvedSize = computed(() => props.size || (group ? group.size?.value : null) || 'md')
 
 const sizeConfig = computed(() => {
   const map = {
@@ -69,13 +83,13 @@ const sizeConfig = computed(() => {
       hint: 'type-caption-r'
     }
   }
-  return map[props.size]
+  return map[resolvedSize.value]
 })
 
 const controlClasses = computed(() => {
   const base = `${sizeConfig.value.control} rounded-instrument border flex items-center justify-center transition-colors duration-fast ease-snap`
 
-  if (props.disabled) {
+  if (isDisabled.value) {
     if (isCheckedOrIndeterminate.value) {
       return [
         base,
@@ -85,7 +99,7 @@ const controlClasses = computed(() => {
     return [base, 'bg-base-ui border-base-dim opacity-disabled cursor-not-allowed']
   }
 
-  if (props.error) {
+  if (activeError.value) {
     if (isCheckedOrIndeterminate.value) {
       return [base, 'bg-red-solid border-red-9 dark:border-reddark-9']
     }
@@ -100,7 +114,11 @@ const controlClasses = computed(() => {
 })
 
 function onChange(event) {
-  emit('update:modelValue', event.target.checked)
+  if (group) {
+    group.toggleValue(props.value)
+  } else {
+    emit('update:modelValue', event.target.checked)
+  }
 }
 </script>
 
@@ -108,7 +126,7 @@ function onChange(event) {
   <div class="flex flex-col">
     <div
       class="flex items-start"
-      :class="[sizeConfig.gap, disabled ? 'cursor-not-allowed' : 'cursor-pointer']"
+      :class="[sizeConfig.gap, isDisabled ? 'cursor-not-allowed' : 'cursor-pointer']"
     >
       <!-- Control wrapper -->
       <div class="relative flex-shrink-0" :class="[sizeConfig.control, sizeConfig.mt]">
@@ -118,12 +136,14 @@ function onChange(event) {
           v-bind="$attrs"
           class="peer absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
           :class="sizeConfig.control"
-          :checked="modelValue"
+          :checked="isChecked"
           :indeterminate="indeterminate"
-          :disabled="disabled"
+          :disabled="isDisabled"
           :aria-checked="indeterminate ? 'mixed' : undefined"
-          :aria-invalid="error ? true : undefined"
-          :aria-describedby="error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined"
+          :aria-invalid="activeError ? true : undefined"
+          :aria-describedby="
+            activeError ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined
+          "
           @change="onChange"
         />
         <span
@@ -132,7 +152,7 @@ function onChange(event) {
           aria-hidden="true"
         >
           <CheckIcon
-            v-if="!indeterminate && modelValue"
+            v-if="!indeterminate && isChecked"
             class="text-white"
             :class="sizeConfig.icon"
           />
@@ -141,24 +161,24 @@ function onChange(event) {
       </div>
 
       <!-- Label / hint / error -->
-      <div v-if="label || hint || error" class="flex flex-col">
+      <div v-if="label || hint || activeError" class="flex flex-col">
         <label
           :for="inputId"
           class="text-base-normal"
           :class="[
             sizeConfig.label,
-            disabled ? 'opacity-disabled cursor-not-allowed' : 'cursor-pointer'
+            isDisabled ? 'opacity-disabled cursor-not-allowed' : 'cursor-pointer'
           ]"
         >
           {{ label }}
         </label>
         <p
-          v-if="error"
+          v-if="activeError && !group"
           :id="`${inputId}-error`"
           class="text-red-dim mt-0.5"
           :class="sizeConfig.hint"
         >
-          {{ error }}
+          {{ activeError }}
         </p>
         <p
           v-else-if="hint"
