@@ -1,0 +1,74 @@
+@theme {
+  --color-gray-1: #fcfcfc;
+  --color-gray-2: #f9f9f9;
+  --color-gray-3: #f0f0f0;
+  --color-gray-4: #e8e8e8;
+  --color-gray-5: #e0e0e0;
+  --color-gray-6: #d9d9d9;
+  --color-gray-7: #cecece;
+  --color-gray-8: #bbbbbb;
+  --color-gray-9: #8d8d8d;
+  --color-gray-10: #838383;
+  --color-gray-11: #646464;
+  --color-gray-12: #202020;
+  --color-graydark-1: #111111;
+  --color-graydark-2: #191919;
+  --color-graydark-3: #222222;
+  --color-graydark-4: #2a2a2a;
+  --color-graydark-5: #313131;
+  --color-graydark-6: #3a3a3a;
+  --color-graydark-7: #484848;
+  --color-graydark-8: #606060;
+  --color-graydark-9: #6e6e6e;
+  --color-graydark-10: #7b7b7b;
+  --color-graydark-11: #b4b4b4;
+  --color-graydark-12: #eeeeee;
+}
+
+@utility bg-gray-app {
+  @apply bg-gray-1 dark:bg-graydark-1;
+}
+
+@utility bg-gray-subtle {
+  @apply bg-gray-2 dark:bg-graydark-2;
+}
+
+@utility bg-gray-ui {
+  @apply bg-gray-3 dark:bg-graydark-3 hover:bg-gray-4 dark:hover:bg-graydark-4 active:bg-gray-5 dark:active:bg-graydark-5;
+}
+
+@utility bg-gray-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-gray-3 dark:hover:bg-graydark-3 active:bg-gray-4 dark:active:bg-graydark-4;
+}
+
+@utility bg-gray-action {
+  @apply bg-gray-4 dark:bg-graydark-4 hover:bg-gray-5 dark:hover:bg-graydark-5 active:bg-gray-6 dark:active:bg-graydark-6;
+}
+
+@utility bg-gray-solid {
+  @apply bg-gray-9 dark:bg-graydark-9 hover:bg-gray-10 dark:hover:bg-graydark-10;
+}
+
+@utility border-gray-dim {
+  @apply border-gray-6 dark:border-graydark-6;
+}
+
+@utility border-gray-normal {
+  @apply border-gray-7 dark:border-graydark-7 hover:border-gray-8 dark:hover:border-graydark-8;
+}
+
+@utility divide-gray-dim {
+  @apply divide-gray-6 dark:divide-graydark-6;
+}
+
+@utility divide-gray-normal {
+  @apply divide-gray-7 dark:divide-graydark-7 hover:divide-gray-8 dark:hover:divide-graydark-8;
+}
+
+@utility text-gray-dim {
+  @apply text-gray-11 dark:text-graydark-11;
+}
+
+@utility text-gray-normal {
+  @apply text-gray-12 dark:text-graydark-12;
+}

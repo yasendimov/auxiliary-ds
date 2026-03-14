@@ -1,0 +1,74 @@
+@theme {
+  --color-base-1: #fcfcfc;
+  --color-base-2: #f9f9f9;
+  --color-base-3: #f0f0f0;
+  --color-base-4: #e8e8e8;
+  --color-base-5: #e1e1e1;
+  --color-base-6: #d9d9d9;
+  --color-base-7: #cecece;
+  --color-base-8: #bbbbbb;
+  --color-base-9: #8c8c8c;
+  --color-base-10: #818181;
+  --color-base-11: #636363;
+  --color-base-12: #1f1f1f;
+  --color-basedark-1: #000000;
+  --color-basedark-2: #121212;
+  --color-basedark-3: #1f1f1f;
+  --color-basedark-4: #282828;
+  --color-basedark-5: #303030;
+  --color-basedark-6: #3a3a3a;
+  --color-basedark-7: #474747;
+  --color-basedark-8: #606060;
+  --color-basedark-9: #6d6d6d;
+  --color-basedark-10: #7a7a7a;
+  --color-basedark-11: #b3b3b3;
+  --color-basedark-12: #ffffff;
+}
+
+@utility bg-base-app {
+  @apply bg-base-1 dark:bg-basedark-1;
+}
+
+@utility bg-base-subtle {
+  @apply bg-base-2 dark:bg-basedark-2;
+}
+
+@utility bg-base-ui {
+  @apply bg-base-3 dark:bg-basedark-3 hover:bg-base-4 dark:hover:bg-basedark-4 active:bg-base-5 dark:active:bg-basedark-5;
+}
+
+@utility bg-base-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-base-3 dark:hover:bg-basedark-3 active:bg-base-4 dark:active:bg-basedark-4;
+}
+
+@utility bg-base-action {
+  @apply bg-base-4 dark:bg-basedark-4 hover:bg-base-5 dark:hover:bg-basedark-5 active:bg-base-6 dark:active:bg-basedark-6;
+}
+
+@utility bg-base-solid {
+  @apply bg-base-9 dark:bg-basedark-9 hover:bg-base-10 dark:hover:bg-basedark-10;
+}
+
+@utility border-base-dim {
+  @apply border-base-6 dark:border-basedark-6;
+}
+
+@utility border-base-normal {
+  @apply border-base-7 dark:border-basedark-7 hover:border-base-8 dark:hover:border-basedark-8;
+}
+
+@utility divide-base-dim {
+  @apply divide-base-6 dark:divide-basedark-6;
+}
+
+@utility divide-base-normal {
+  @apply divide-base-7 dark:divide-basedark-7 hover:divide-base-8 dark:hover:divide-basedark-8;
+}
+
+@utility text-base-dim {
+  @apply text-base-11 dark:text-basedark-11;
+}
+
+@utility text-base-normal {
+  @apply text-base-12 dark:text-basedark-12;
+}

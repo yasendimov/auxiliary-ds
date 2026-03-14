@@ -1,0 +1,74 @@
+@theme {
+  --color-orange-1: #fefcfb;
+  --color-orange-2: #fff7ed;
+  --color-orange-3: #ffefd6;
+  --color-orange-4: #ffdfb5;
+  --color-orange-5: #ffd19a;
+  --color-orange-6: #ffc182;
+  --color-orange-7: #f5ae73;
+  --color-orange-8: #ec9455;
+  --color-orange-9: #f76b15;
+  --color-orange-10: #ef5f00;
+  --color-orange-11: #cc4e00;
+  --color-orange-12: #582d1d;
+  --color-orangedark-1: #17120e;
+  --color-orangedark-2: #1e160f;
+  --color-orangedark-3: #331e0b;
+  --color-orangedark-4: #462100;
+  --color-orangedark-5: #562800;
+  --color-orangedark-6: #66350c;
+  --color-orangedark-7: #7e451d;
+  --color-orangedark-8: #a35829;
+  --color-orangedark-9: #f76b15;
+  --color-orangedark-10: #ff801f;
+  --color-orangedark-11: #ffa057;
+  --color-orangedark-12: #ffe0c2;
+}
+
+@utility bg-orange-app {
+  @apply bg-orange-1 dark:bg-orangedark-1;
+}
+
+@utility bg-orange-subtle {
+  @apply bg-orange-2 dark:bg-orangedark-2;
+}
+
+@utility bg-orange-ui {
+  @apply bg-orange-3 dark:bg-orangedark-3 hover:bg-orange-4 dark:hover:bg-orangedark-4 active:bg-orange-5 dark:active:bg-orangedark-5;
+}
+
+@utility bg-orange-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-orange-3 dark:hover:bg-orangedark-3 active:bg-orange-4 dark:active:bg-orangedark-4;
+}
+
+@utility bg-orange-action {
+  @apply bg-orange-4 dark:bg-orangedark-4 hover:bg-orange-5 dark:hover:bg-orangedark-5 active:bg-orange-6 dark:active:bg-orangedark-6;
+}
+
+@utility bg-orange-solid {
+  @apply bg-orange-9 dark:bg-orangedark-9 hover:bg-orange-10 dark:hover:bg-orangedark-10;
+}
+
+@utility border-orange-dim {
+  @apply border-orange-6 dark:border-orangedark-6;
+}
+
+@utility border-orange-normal {
+  @apply border-orange-7 dark:border-orangedark-7 hover:border-orange-8 dark:hover:border-orangedark-8;
+}
+
+@utility divide-orange-dim {
+  @apply divide-orange-6 dark:divide-orangedark-6;
+}
+
+@utility divide-orange-normal {
+  @apply divide-orange-7 dark:divide-orangedark-7 hover:divide-orange-8 dark:hover:divide-orangedark-8;
+}
+
+@utility text-orange-dim {
+  @apply text-orange-11 dark:text-orangedark-11;
+}
+
+@utility text-orange-normal {
+  @apply text-orange-12 dark:text-orangedark-12;
+}

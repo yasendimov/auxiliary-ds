@@ -1,6 +1,7 @@
 :root {
   --radius-instrument: 2px;
-  --radius-panel:      4px;
-  --radius-card:       6px;
-  --radius-badge:      3px;
+  --radius-badge: 3px;
+  --radius-panel: 4px;
+  --radius-card: 6px;
+  --radius-full: 9999px;
 }

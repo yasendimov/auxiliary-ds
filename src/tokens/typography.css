@@ -6,49 +6,325 @@
 
 :root {
   --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
-  --font-features-sans: 'ss01', 'ss07', 'ss08', 'cv02', 'cv03', 'cv04', 'cv06', 'cv09', 'cv12', 'cv13';
+  --font-features-sans:
+    'ss01', 'ss07', 'ss08', 'cv02', 'cv03', 'cv04', 'cv06', 'cv09', 'cv12', 'cv13';
 }
 
-/* ── Section B — Type scale (@theme → Tailwind utilities) ────────────────── */
+/* ── Section B — Type scale (@theme → Tailwind utilities) ────────────────
+   Uses --text-* namespace (Tailwind v4 standard).
+   Associated --line-height properties auto-apply when using text-* utilities.
+   Steps 4xl and 7xl override Tailwind defaults to match AUX scale.
+   ─────────────────────────────────────────────────────────────────────────── */
 
 @theme {
   --font-family-sans: var(--font-sans);
   --font-family-mono: var(--font-mono);
 
-  --font-size-xs:   12px;
-  --font-size-sm:   14px;
-  --font-size-base: 16px;
-  --font-size-lg:   18px;
-  --font-size-xl:   20px;
-  --font-size-2xl:  24px;
-  --font-size-3xl:  30px;
-  --font-size-4xl:  40px;
-  --font-size-5xl:  48px;
-  --font-size-6xl:  60px;
-  --font-size-7xl:  80px;
-  --font-size-8xl:  96px;
-  --font-size-9xl:  128px;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.4;
+  --text-base: 1rem;
+  --text-base--line-height: 1.4;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.4;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.25;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.25;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 1.15;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.15;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.1;
+  --text-7xl: 5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+  --text-overline: 0.6875rem;
+  --text-overline--line-height: 1.4;
+
+  --tracking-body: -0.02em;
+  --tracking-section: -0.03em;
+  --tracking-display: -0.04em;
+  --tracking-display-loose: -0.05em;
+  --tracking-overline: 0.06em;
 }
 
-/* ── Section C — Semantic type roles ─────────────────────────────────────── */
+/* ── Section C — Type classes (13 sizes × 3 weights) ────────────────────── */
 
 @layer components {
-  .type-hero      { font-size: 80px;  font-weight: 600; letter-spacing: -3.2px;  line-height: 1; }
-  .type-display   { font-size: 60px;  font-weight: 600; letter-spacing: -2.4px;  line-height: 1.1; }
-  .type-page-lg   { font-size: 48px;  font-weight: 600; letter-spacing: -1.92px; line-height: 1.15; }
-  .type-page      { font-size: 40px;  font-weight: 600; letter-spacing: -1.6px;  line-height: 1.15; }
-  .type-heading   { font-size: 30px;  font-weight: 600; letter-spacing: -1.2px;  line-height: 1.25; }
-  .type-section   { font-size: 24px;  font-weight: 600; letter-spacing: -0.72px; line-height: 1.25; }
-  .type-title     { font-size: 20px;  font-weight: 600; letter-spacing: -0.6px;  line-height: 1.4; }
-  .type-body      { font-size: 16px;  font-weight: 400; letter-spacing: -0.32px; line-height: 1.4; }
-  .type-secondary { font-size: 14px;  font-weight: 400; letter-spacing: -0.28px; line-height: 1.4; }
-  .type-label     { font-size: 12px;  font-weight: 500; letter-spacing: -0.24px; line-height: 1.4; }
-  .type-caption   { font-size: 12px;  font-weight: 400; letter-spacing: -0.24px; line-height: 1.4; }
-  .type-overline  { font-size: 11px;  font-weight: 500; letter-spacing: 0.06em;  line-height: 1.4; text-transform: uppercase; }
+  /* broadsheet — 8rem (128px) → text-9xl */
+  .type-broadsheet-sb {
+    font-size: var(--text-9xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-9xl--line-height);
+  }
+  .type-broadsheet-m {
+    font-size: var(--text-9xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-9xl--line-height);
+  }
+  .type-broadsheet-r {
+    font-size: var(--text-9xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-9xl--line-height);
+  }
+
+  /* tabloid — 6rem (96px) → text-8xl */
+  .type-tabloid-sb {
+    font-size: var(--text-8xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-8xl--line-height);
+  }
+  .type-tabloid-m {
+    font-size: var(--text-8xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-8xl--line-height);
+  }
+  .type-tabloid-r {
+    font-size: var(--text-8xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-8xl--line-height);
+  }
+
+  /* hero — 5rem (80px) → text-7xl */
+  .type-hero-sb {
+    font-size: var(--text-7xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-7xl--line-height);
+  }
+  .type-hero-m {
+    font-size: var(--text-7xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-7xl--line-height);
+  }
+  .type-hero-r {
+    font-size: var(--text-7xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-7xl--line-height);
+  }
+
+  /* display — 3.75rem (60px) → text-6xl */
+  .type-display-sb {
+    font-size: var(--text-6xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-6xl--line-height);
+  }
+  .type-display-m {
+    font-size: var(--text-6xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-6xl--line-height);
+  }
+  .type-display-r {
+    font-size: var(--text-6xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-6xl--line-height);
+  }
+
+  /* title — 3rem (48px) → text-5xl */
+  .type-title-sb {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-5xl--line-height);
+  }
+  .type-title-m {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-5xl--line-height);
+  }
+  .type-title-r {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-5xl--line-height);
+  }
+
+  /* heading — 2.5rem (40px) → text-4xl */
+  .type-heading-sb {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-4xl--line-height);
+  }
+  .type-heading-m {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-4xl--line-height);
+  }
+  .type-heading-r {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-4xl--line-height);
+  }
+
+  /* subheading — 1.875rem (30px) → text-3xl */
+  .type-subheading-sb {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-3xl--line-height);
+  }
+  .type-subheading-m {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--text-3xl--line-height);
+  }
+  .type-subheading-r {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-display-loose);
+    line-height: var(--text-3xl--line-height);
+  }
+
+  /* section — 1.5rem (24px) → text-2xl */
+  .type-section-sb {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--text-2xl--line-height);
+  }
+  .type-section-m {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--text-2xl--line-height);
+  }
+  .type-section-r {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--text-2xl--line-height);
+  }
+
+  /* lead — 1.25rem (20px) → text-xl */
+  .type-lead-sb {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--text-xl--line-height);
+  }
+  .type-lead-m {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--text-xl--line-height);
+  }
+  .type-lead-r {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--text-xl--line-height);
+  }
+
+  /* intro — 1.125rem (18px) → text-lg */
+  .type-intro-sb {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-lg--line-height);
+  }
+  .type-intro-m {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-lg--line-height);
+  }
+  .type-intro-r {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-lg--line-height);
+  }
+
+  /* body — 1rem (16px) → text-base */
+  .type-body-sb {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-base--line-height);
+  }
+  .type-body-m {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-base--line-height);
+  }
+  .type-body-r {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-base--line-height);
+  }
+
+  /* caption — 0.875rem (14px) → text-sm */
+  .type-caption-sb {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-sm--line-height);
+  }
+  .type-caption-m {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-sm--line-height);
+  }
+  .type-caption-r {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-sm--line-height);
+  }
+
+  /* agate — 0.75rem (12px) → text-xs (no -sb variant) */
+  .type-agate-m {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-xs--line-height);
+  }
+  .type-agate-r {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--text-xs--line-height);
+  }
+
+  /* overline — special formatting class */
+  .type-overline {
+    font-size: var(--text-overline);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-overline);
+    line-height: var(--text-overline--line-height);
+    text-transform: uppercase;
+  }
 }
 
 /* ── Section D — Base styles ─────────────────────────────────────────────── */
@@ -62,7 +338,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  code, kbd, samp, pre, .font-mono {
+  code,
+  kbd,
+  samp,
+  pre,
+  .font-mono {
     font-family: var(--font-mono);
     font-feature-settings: normal;
     font-variant-numeric: tabular-nums;

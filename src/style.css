@@ -1,95 +1,120 @@
-@import "tailwindcss";
-@import "./tokens/colors.css";
-@import "./tokens/typography.css";
-@import "./tokens/spacing.css";
-@import "./tokens/border-radius.css";
-@import "./tokens/shadows.css";
-@import "./tokens/motion.css";
-@import "./tokens/z-index.css";
+@import 'tailwindcss';
 
+/* Clear Tailwind default palette before color scales load */
 @theme {
   --color-*: initial;
+}
 
+/* ── Color scales (32 scales) ────────────────────────────────────────────── */
+@import './tokens/colors/base.css';
+@import './tokens/colors/blue.css';
+@import './tokens/colors/amber.css';
+@import './tokens/colors/bronze.css';
+@import './tokens/colors/brown.css';
+@import './tokens/colors/crimson.css';
+@import './tokens/colors/cyan.css';
+@import './tokens/colors/gold.css';
+@import './tokens/colors/grass.css';
+@import './tokens/colors/gray.css';
+@import './tokens/colors/green.css';
+@import './tokens/colors/indigo.css';
+@import './tokens/colors/iris.css';
+@import './tokens/colors/jade.css';
+@import './tokens/colors/lime.css';
+@import './tokens/colors/mauve.css';
+@import './tokens/colors/mint.css';
+@import './tokens/colors/olive.css';
+@import './tokens/colors/orange.css';
+@import './tokens/colors/pink.css';
+@import './tokens/colors/plum.css';
+@import './tokens/colors/purple.css';
+@import './tokens/colors/red.css';
+@import './tokens/colors/ruby.css';
+@import './tokens/colors/sage.css';
+@import './tokens/colors/sand.css';
+@import './tokens/colors/sky.css';
+@import './tokens/colors/slate.css';
+@import './tokens/colors/teal.css';
+@import './tokens/colors/tomato.css';
+@import './tokens/colors/violet.css';
+@import './tokens/colors/yellow.css';
+
+/* ── Non-color tokens ───────────────────────────────────────────────────── */
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/border-radius.css';
+@import './tokens/shadows.css';
+@import './tokens/motion.css';
+@import './tokens/z-index.css';
+@import './tokens/opacity.css';
+
+/* Dark mode: map Tailwind's dark: variant to AUX's data-theme attribute */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
   /* Spacing */
-  --spacing-page-x:  24px;
-  --spacing-page-y:  24px;
+  --spacing-page-x: 24px;
+  --spacing-page-y: 24px;
   --spacing-section: 48px;
 
-  /* Surface */
-  --color-page: var(--base-1);
-  --color-page-subtle: var(--base-2);
-  --color-surface-1: var(--base-3);
-  --color-surface-2: var(--base-4);
-  --color-surface-3: var(--base-5);
+  /* Contrast text for solid fills (cleared by --color-*: initial) */
+  --color-white: #ffffff;
+  --color-black: #000000;
 
-  /* Text */
-  --color-content-high: var(--base-12);
-  --color-content-low: var(--base-11);
-  --color-content-dim: var(--base-9);
+  /* Focus ring */
+  --color-focus-ring: var(--color-blue-8);
+  --color-focus-ring-alarm: var(--color-red-8);
+  --color-focus-ring-ok: var(--color-green-8);
 
-  /* Lines */
-  --color-line: var(--base-6);
-  --color-line-hover: var(--base-7);
-  --color-line-focus: var(--base-8);
-
-  /* Action (primary) */
-  --color-action: var(--blue-9);
-  --color-action-hover: var(--blue-10);
-  --color-action-subtle: var(--blue-3);
-  --color-action-content: var(--blue-11);
-
-  /* Alert — Alarm (red) */
-  --color-alarm: var(--red-9);
-  --color-alarm-subtle: var(--red-3);
-  --color-alarm-content: var(--red-11);
-
-  /* Alert — Warning (orange) */
-  --color-warning: var(--orange-9);
-  --color-warning-subtle: var(--orange-3);
-  --color-warning-content: var(--orange-11);
-
-  /* Alert — Caution (amber) */
-  --color-caution: var(--amber-9);
-  --color-caution-subtle: var(--amber-3);
-  --color-caution-content: var(--amber-11);
-
-  /* Alert — OK (green) */
-  --color-ok: var(--green-9);
-  --color-ok-subtle: var(--green-3);
-  --color-ok-content: var(--green-11);
+  /* Action disabled */
+  --color-action-disabled: var(--color-base-6);
+  --color-action-content-disabled: var(--color-base-9);
 
   /* Border radius */
   --radius-instrument: var(--radius-instrument);
-  --radius-panel:      var(--radius-panel);
-  --radius-card:       var(--radius-card);
-  --radius-badge:      var(--radius-badge);
+  --radius-panel: var(--radius-panel);
+  --radius-card: var(--radius-card);
+  --radius-badge: var(--radius-badge);
+  --radius-full: var(--radius-full);
 
   /* Shadows */
-  --shadow-panel:   var(--shadow-panel);
+  --shadow-panel: var(--shadow-panel);
   --shadow-overlay: var(--shadow-overlay);
 
-  /* Motion — Tailwind registers these as duration-* and ease-* utilities */
+  /* Motion */
   --transition-duration-instant: var(--duration-instant);
-  --transition-duration-fast:    var(--duration-fast);
-  --transition-duration-base:    var(--duration-base);
-  --transition-duration-slow:    var(--duration-slow);
-  --ease-snap:  var(--ease-snap);
+  --transition-duration-fast: var(--duration-fast);
+  --transition-duration-base: var(--duration-base);
+  --transition-duration-slow: var(--duration-slow);
+  --ease-snap: var(--ease-snap);
   --ease-glide: var(--ease-glide);
 
+  /* Opacity */
+  --opacity-disabled: var(--opacity-disabled);
+  --opacity-hover: var(--opacity-hover);
+
   /* Z-index */
-  --z-base:     var(--z-base);
-  --z-sticky:   var(--z-sticky);
+  --z-base: var(--z-base);
+  --z-sticky: var(--z-sticky);
   --z-dropdown: var(--z-dropdown);
-  --z-overlay:  var(--z-overlay);
-  --z-modal:    var(--z-modal);
-  --z-toast:    var(--z-toast);
-  --z-tooltip:  var(--z-tooltip);
+  --z-overlay: var(--z-overlay);
+  --z-modal: var(--z-modal);
+  --z-toast: var(--z-toast);
+  --z-tooltip: var(--z-tooltip);
+  --z-alert: var(--z-alert);
 }
 
-html[data-theme="dark"] {
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+html[data-theme='dark'] {
   color-scheme: dark;
 }
 
-html[data-theme="light"] {
+html[data-theme='light'] {
   color-scheme: light;
 }
