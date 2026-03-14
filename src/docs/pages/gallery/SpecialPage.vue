@@ -1,14 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import {
-  Button,
-  Badge,
-  Input,
-  Toggle,
-  Spinner,
-  Separator,
-  Checkbox
-} from '../../../components'
+import { Button, Badge, Input, Toggle, Spinner, Separator, Checkbox } from '../../../components'
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 
 const filterQuery = ref('')
@@ -196,7 +188,9 @@ const filteredTracks = computed(() => {
 <template>
   <div class="bg-base-app h-[100vh] flex flex-col overflow-hidden">
     <!-- Top Status Bar -->
-    <header class="flex items-center gap-2 px-3 py-1.5 border-b border-base-dim shrink-0 bg-base-ui">
+    <header
+      class="flex items-center gap-2 px-3 py-1.5 border-b border-base-dim shrink-0 bg-base-ui"
+    >
       <Badge variant="warning" size="sm">SECRET // NOFORN</Badge>
       <Separator orientation="vertical" spacing="sm" />
       <span class="type-caption-m text-base-normal">OP CONVERGENT AEGIS</span>
@@ -369,9 +363,7 @@ const filteredTracks = computed(() => {
                 selectedEntity.classification
               }}</Badge>
             </div>
-            <span class="type-caption-m text-base-dim mt-0.5 block">{{
-              selectedEntity.type
-            }}</span>
+            <span class="type-caption-m text-base-dim mt-0.5 block">{{ selectedEntity.type }}</span>
           </div>
 
           <!-- Track Data -->
@@ -450,7 +442,9 @@ const filteredTracks = computed(() => {
       </div>
 
       <!-- Comms -->
-      <div class="w-full md:w-48 shrink-0 px-3 py-2 border-b md:border-b-0 md:border-r border-base-dim">
+      <div
+        class="w-full md:w-48 shrink-0 px-3 py-2 border-b md:border-b-0 md:border-r border-base-dim"
+      >
         <span class="type-overline text-base-dim block mb-1">COMMS</span>
         <div class="flex flex-col gap-0.5">
           <div
@@ -473,12 +467,7 @@ const filteredTracks = computed(() => {
       <div class="w-full md:w-72 shrink-0 px-3 py-2">
         <span class="type-overline text-base-dim block mb-1">COMMAND</span>
         <div class="flex items-center gap-1.5">
-          <Input
-            v-model="commandText"
-            placeholder="Query Maven AI..."
-            size="sm"
-            class="flex-1"
-          />
+          <Input v-model="commandText" placeholder="Query Maven AI..." size="sm" class="flex-1" />
           <Button size="sm">Send</Button>
         </div>
         <div class="flex items-center gap-2 mt-1">

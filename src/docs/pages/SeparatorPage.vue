@@ -50,9 +50,7 @@ import { Separator } from '../../components'
 
     <!-- 03 Vertical -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">03</span> — Vertical
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">03</span> — Vertical</p>
       <div class="grid grid-cols-1 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8">
           <div class="flex items-center h-8">

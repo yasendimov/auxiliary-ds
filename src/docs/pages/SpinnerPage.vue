@@ -34,9 +34,7 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- 02 Variants -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">02</span> — Variants
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">02</span> — Variants</p>
       <div class="grid grid-cols-3 border-t border-l border-base-dim">
         <div
           class="border-b border-r border-base-dim p-8 flex flex-col items-center gap-3 bg-base-ui text-base-normal"

@@ -162,7 +162,7 @@ const navSections = [
         title: 'Operations',
         to: '/design-system/operations',
         children: []
-      },
+      }
     ]
   }
 ]
@@ -215,7 +215,9 @@ watch(
 
 <template>
   <div class="flex min-h-screen bg-base-app text-base-normal">
-    <aside class="sticky top-0 h-screen flex w-64 shrink-0 flex-col border-r border-base-dim bg-base-app">
+    <aside
+      class="sticky top-0 h-screen flex w-64 shrink-0 flex-col border-r border-base-dim bg-base-app"
+    >
       <!-- Header -->
       <div class="h-14 flex items-center justify-between px-5 border-b border-base-dim">
         <router-link to="/" class="text-base-normal">
@@ -252,9 +254,7 @@ watch(
               :to="item.to"
               class="flex w-full items-center gap-2 px-5 py-1.5 type-caption-m transition-colors duration-instant"
               :class="
-                isItemActive(item)
-                  ? 'text-base-normal'
-                  : 'text-base-dim hover:text-base-normal'
+                isItemActive(item) ? 'text-base-normal' : 'text-base-dim hover:text-base-normal'
               "
               @click="toggleItem(item)"
             >

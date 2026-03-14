@@ -36,9 +36,7 @@ import { Separator, Hero, Section } from '../../components'
 
     <!-- Label Only -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-base-dim mb-8">
-        <span class="font-mono">02</span> — Label Only
-      </p>
+      <p class="type-overline text-base-dim mb-8"><span class="font-mono">02</span> — Label Only</p>
       <div class="border border-base-dim rounded-card overflow-hidden">
         <Section label="02 — Specifications">
           <div class="bg-base-ui rounded-panel h-24 animate-pulse"></div>
@@ -50,9 +48,7 @@ import { Separator, Hero, Section } from '../../components'
 
     <!-- Slot Only -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-base-dim mb-8">
-        <span class="font-mono">03</span> — Slot Only
-      </p>
+      <p class="type-overline text-base-dim mb-8"><span class="font-mono">03</span> — Slot Only</p>
       <p class="type-caption-m text-base-dim mb-6">
         Both label and title are optional. Section can wrap any content with consistent spacing.
       </p>

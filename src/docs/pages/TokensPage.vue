@@ -2,16 +2,89 @@
 // ── 01 Colors ──────────────────────────────────────────────────────────────
 
 const semanticUtilities = [
-  { utility: 'bg-{color}-app', steps: '1', use: 'Page background', expands: 'bg-red-1 dark:bg-reddark-1', swatch: '--color-blue-1', type: 'fill' },
-  { utility: 'bg-{color}-subtle', steps: '2', use: 'Subtle/striped background', expands: 'bg-red-2 dark:bg-reddark-2', swatch: '--color-blue-2', type: 'fill' },
-  { utility: 'bg-{color}-ui', steps: '3 → 4 → 5', use: 'Interactive surface (hover + active)', expands: 'bg-red-3 dark:bg-reddark-3\nhover:bg-red-4 dark:hover:bg-reddark-4\nactive:bg-red-5 dark:active:bg-reddark-5', swatch: '--color-blue-3', type: 'fill' },
-  { utility: 'bg-{color}-ghost', steps: 'transparent → 3 → 4', use: 'Ghost button pattern', expands: 'bg-transparent dark:bg-transparent\nhover:bg-red-4 dark:hover:bg-reddark-4\nactive:bg-red-5 dark:active:bg-reddark-5', swatch: null, type: 'ghost' },
-  { utility: 'bg-{color}-action', steps: '4 → 5 → 6', use: 'Selected/active surface', expands: 'bg-red-4 dark:bg-reddark-4\nhover:bg-red-5 dark:hover:bg-reddark-5\nactive:bg-red-6 dark:active:bg-reddark-6', swatch: '--color-blue-4', type: 'fill' },
-  { utility: 'border-{color}-dim', steps: '6', use: 'Subtle border', expands: 'border-red-6 dark:border-reddark-6', swatch: '--color-blue-6', type: 'ring' },
-  { utility: 'border-{color}-normal', steps: '7 → 8', use: 'UI border with hover', expands: 'border-red-7 dark:border-reddark-7\nhover:border-red-8 dark:hover:border-reddark-8', swatch: '--color-blue-7', type: 'ring' },
-  { utility: 'bg-{color}-solid', steps: '9 → 10', use: 'Solid fill with hover', expands: 'bg-red-9 dark:bg-reddark-9\nhover:bg-red-10 dark:hover:bg-reddark-10', swatch: '--color-blue-9', type: 'fill' },
-  { utility: 'text-{color}-dim', steps: '11', use: 'Secondary text', expands: 'text-red-11 dark:text-reddark-11', swatch: '--color-blue-11', type: 'fill' },
-  { utility: 'text-{color}-normal', steps: '12', use: 'Primary text', expands: 'text-red-12 dark:text-reddark-12', swatch: '--color-blue-12', type: 'fill' }
+  {
+    utility: 'bg-{color}-app',
+    steps: '1',
+    use: 'Page background',
+    expands: 'bg-red-1 dark:bg-reddark-1',
+    swatch: '--color-blue-1',
+    type: 'fill'
+  },
+  {
+    utility: 'bg-{color}-subtle',
+    steps: '2',
+    use: 'Subtle/striped background',
+    expands: 'bg-red-2 dark:bg-reddark-2',
+    swatch: '--color-blue-2',
+    type: 'fill'
+  },
+  {
+    utility: 'bg-{color}-ui',
+    steps: '3 → 4 → 5',
+    use: 'Interactive surface (hover + active)',
+    expands:
+      'bg-red-3 dark:bg-reddark-3\nhover:bg-red-4 dark:hover:bg-reddark-4\nactive:bg-red-5 dark:active:bg-reddark-5',
+    swatch: '--color-blue-3',
+    type: 'fill'
+  },
+  {
+    utility: 'bg-{color}-ghost',
+    steps: 'transparent → 3 → 4',
+    use: 'Ghost button pattern',
+    expands:
+      'bg-transparent dark:bg-transparent\nhover:bg-red-4 dark:hover:bg-reddark-4\nactive:bg-red-5 dark:active:bg-reddark-5',
+    swatch: null,
+    type: 'ghost'
+  },
+  {
+    utility: 'bg-{color}-action',
+    steps: '4 → 5 → 6',
+    use: 'Selected/active surface',
+    expands:
+      'bg-red-4 dark:bg-reddark-4\nhover:bg-red-5 dark:hover:bg-reddark-5\nactive:bg-red-6 dark:active:bg-reddark-6',
+    swatch: '--color-blue-4',
+    type: 'fill'
+  },
+  {
+    utility: 'border-{color}-dim',
+    steps: '6',
+    use: 'Subtle border',
+    expands: 'border-red-6 dark:border-reddark-6',
+    swatch: '--color-blue-6',
+    type: 'ring'
+  },
+  {
+    utility: 'border-{color}-normal',
+    steps: '7 → 8',
+    use: 'UI border with hover',
+    expands: 'border-red-7 dark:border-reddark-7\nhover:border-red-8 dark:hover:border-reddark-8',
+    swatch: '--color-blue-7',
+    type: 'ring'
+  },
+  {
+    utility: 'bg-{color}-solid',
+    steps: '9 → 10',
+    use: 'Solid fill with hover',
+    expands: 'bg-red-9 dark:bg-reddark-9\nhover:bg-red-10 dark:hover:bg-reddark-10',
+    swatch: '--color-blue-9',
+    type: 'fill'
+  },
+  {
+    utility: 'text-{color}-dim',
+    steps: '11',
+    use: 'Secondary text',
+    expands: 'text-red-11 dark:text-reddark-11',
+    swatch: '--color-blue-11',
+    type: 'fill'
+  },
+  {
+    utility: 'text-{color}-normal',
+    steps: '12',
+    use: 'Primary text',
+    expands: 'text-red-12 dark:text-reddark-12',
+    swatch: '--color-blue-12',
+    type: 'fill'
+  }
 ]
 
 const scaleGroups = [
@@ -26,7 +99,12 @@ const scaleGroups = [
     label: 'Alert',
     scales: [
       { key: 'red', name: 'Red', role: 'Alarm — immediate action', swatch: '--color-red-9' },
-      { key: 'orange', name: 'Orange', role: 'Warning — urgent attention', swatch: '--color-orange-9' },
+      {
+        key: 'orange',
+        name: 'Orange',
+        role: 'Warning — urgent attention',
+        swatch: '--color-orange-9'
+      },
       { key: 'amber', name: 'Amber', role: 'Caution — awareness', swatch: '--color-amber-9' },
       { key: 'green', name: 'Green', role: 'OK — nominal state', swatch: '--color-green-9' },
       { key: 'indigo', name: 'Indigo', role: 'Info', swatch: '--color-indigo-9' }
@@ -70,11 +148,36 @@ const scaleGroups = [
 ]
 
 const specialTokens = [
-  { token: '--color-focus-ring', value: 'var(--color-blue-8)', use: 'Action focus ring', swatch: '--color-focus-ring' },
-  { token: '--color-focus-ring-alarm', value: 'var(--color-red-8)', use: 'Alarm focus ring', swatch: '--color-focus-ring-alarm' },
-  { token: '--color-focus-ring-ok', value: 'var(--color-green-8)', use: 'OK focus ring', swatch: '--color-focus-ring-ok' },
-  { token: '--color-action-disabled', value: 'var(--color-base-6)', use: 'Disabled background', swatch: '--color-action-disabled' },
-  { token: '--color-action-content-disabled', value: 'var(--color-base-9)', use: 'Disabled text', swatch: '--color-action-content-disabled' }
+  {
+    token: '--color-focus-ring',
+    value: 'var(--color-blue-8)',
+    use: 'Action focus ring',
+    swatch: '--color-focus-ring'
+  },
+  {
+    token: '--color-focus-ring-alarm',
+    value: 'var(--color-red-8)',
+    use: 'Alarm focus ring',
+    swatch: '--color-focus-ring-alarm'
+  },
+  {
+    token: '--color-focus-ring-ok',
+    value: 'var(--color-green-8)',
+    use: 'OK focus ring',
+    swatch: '--color-focus-ring-ok'
+  },
+  {
+    token: '--color-action-disabled',
+    value: 'var(--color-base-6)',
+    use: 'Disabled background',
+    swatch: '--color-action-disabled'
+  },
+  {
+    token: '--color-action-content-disabled',
+    value: 'var(--color-base-9)',
+    use: 'Disabled text',
+    swatch: '--color-action-content-disabled'
+  }
 ]
 
 // ── 02 Typography ──────────────────────────────────────────────────────────
@@ -121,7 +224,12 @@ const trackingTokens = [
 // ── 03 Spacing ─────────────────────────────────────────────────────────────
 
 const spacingTokens = [
-  { utility: 'px-page-x', token: '--spacing-page-x', value: '24px', use: 'Horizontal page padding' },
+  {
+    utility: 'px-page-x',
+    token: '--spacing-page-x',
+    value: '24px',
+    use: 'Horizontal page padding'
+  },
   { utility: 'py-page-y', token: '--spacing-page-y', value: '24px', use: 'Vertical page padding' },
   {
     utility: 'gap-section / mb-section',
@@ -134,11 +242,26 @@ const spacingTokens = [
 // ── 04 Border Radius ───────────────────────────────────────────────────────
 
 const radiusTokens = [
-  { utility: 'rounded-instrument', token: '--radius-instrument', value: '2px', use: 'Operational instruments' },
+  {
+    utility: 'rounded-instrument',
+    token: '--radius-instrument',
+    value: '2px',
+    use: 'Operational instruments'
+  },
   { utility: 'rounded-badge', token: '--radius-badge', value: '3px', use: 'Badges and tags' },
-  { utility: 'rounded-panel', token: '--radius-panel', value: '4px', use: 'Panels, inputs, buttons' },
+  {
+    utility: 'rounded-panel',
+    token: '--radius-panel',
+    value: '4px',
+    use: 'Panels, inputs, buttons'
+  },
   { utility: 'rounded-card', token: '--radius-card', value: '6px', use: 'Cards and containers' },
-  { utility: 'rounded-full', token: '--radius-full', value: '9999px', use: 'Circles, pills, avatars' }
+  {
+    utility: 'rounded-full',
+    token: '--radius-full',
+    value: '9999px',
+    use: 'Circles, pills, avatars'
+  }
 ]
 
 // ── 05 Shadows ─────────────────────────────────────────────────────────────
@@ -163,22 +286,62 @@ const shadowTokens = [
 // ── 06 Motion ──────────────────────────────────────────────────────────────
 
 const durationTokens = [
-  { utility: 'duration-instant', token: '--duration-instant', value: '80ms', use: 'Toggles, checkboxes, micro-interactions' },
-  { utility: 'duration-fast', token: '--duration-fast', value: '150ms', use: 'Hover states, button feedback' },
-  { utility: 'duration-base', token: '--duration-base', value: '220ms', use: 'Default transitions, panel reveals' },
-  { utility: 'duration-slow', token: '--duration-slow', value: '350ms', use: 'Page transitions, scroll reveals' }
+  {
+    utility: 'duration-instant',
+    token: '--duration-instant',
+    value: '80ms',
+    use: 'Toggles, checkboxes, micro-interactions'
+  },
+  {
+    utility: 'duration-fast',
+    token: '--duration-fast',
+    value: '150ms',
+    use: 'Hover states, button feedback'
+  },
+  {
+    utility: 'duration-base',
+    token: '--duration-base',
+    value: '220ms',
+    use: 'Default transitions, panel reveals'
+  },
+  {
+    utility: 'duration-slow',
+    token: '--duration-slow',
+    value: '350ms',
+    use: 'Page transitions, scroll reveals'
+  }
 ]
 
 const easingTokens = [
-  { utility: 'ease-snap', token: '--ease-snap', value: 'cubic-bezier(0.2, 0, 0, 1)', use: 'Snappy deceleration — UI controls' },
-  { utility: 'ease-glide', token: '--ease-glide', value: 'cubic-bezier(0.4, 0, 0.2, 1)', use: 'Smooth deceleration — content transitions' }
+  {
+    utility: 'ease-snap',
+    token: '--ease-snap',
+    value: 'cubic-bezier(0.2, 0, 0, 1)',
+    use: 'Snappy deceleration — UI controls'
+  },
+  {
+    utility: 'ease-glide',
+    token: '--ease-glide',
+    value: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    use: 'Smooth deceleration — content transitions'
+  }
 ]
 
 // ── 07 Opacity ─────────────────────────────────────────────────────────────
 
 const opacityTokens = [
-  { utility: 'opacity-disabled', token: '--opacity-disabled', value: '0.5', use: 'Disabled controls and inactive content' },
-  { utility: 'opacity-hover', token: '--opacity-hover', value: '0.8', use: 'Icon-only button hover state' }
+  {
+    utility: 'opacity-disabled',
+    token: '--opacity-disabled',
+    value: '0.5',
+    use: 'Disabled controls and inactive content'
+  },
+  {
+    utility: 'opacity-hover',
+    token: '--opacity-hover',
+    value: '0.8',
+    use: 'Icon-only button hover state'
+  }
 ]
 
 // ── 08 Z-Index ─────────────────────────────────────────────────────────────
@@ -186,12 +349,22 @@ const opacityTokens = [
 const zIndexTokens = [
   { utility: 'z-base', token: '--z-base', value: '0', use: 'Default document flow' },
   { utility: 'z-sticky', token: '--z-sticky', value: '100', use: 'Sticky headers and toolbars' },
-  { utility: 'z-dropdown', token: '--z-dropdown', value: '200', use: 'Dropdown menus and popovers' },
+  {
+    utility: 'z-dropdown',
+    token: '--z-dropdown',
+    value: '200',
+    use: 'Dropdown menus and popovers'
+  },
   { utility: 'z-overlay', token: '--z-overlay', value: '300', use: 'Overlay backdrops' },
   { utility: 'z-modal', token: '--z-modal', value: '400', use: 'Modal dialogs' },
   { utility: 'z-toast', token: '--z-toast', value: '500', use: 'Toast notifications' },
   { utility: 'z-tooltip', token: '--z-tooltip', value: '600', use: 'Tooltips' },
-  { utility: 'z-alert', token: '--z-alert', value: '700', use: 'Operational alerts — highest layer' }
+  {
+    utility: 'z-alert',
+    token: '--z-alert',
+    value: '700',
+    use: 'Operational alerts — highest layer'
+  }
 ]
 </script>
 
@@ -207,13 +380,10 @@ const zIndexTokens = [
       </p>
     </section>
 
-
     <!-- ── 01 Colors ──────────────────────────────────────────────────────── -->
 
     <section id="colors" class="px-8 lg:px-16">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">01</span> — Colors
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">01</span> — Colors</p>
 
       <!-- Semantic utilities -->
       <p class="type-overline text-base-dim mb-6">Semantic Utilities</p>
@@ -228,7 +398,9 @@ const zIndexTokens = [
           <span class="type-caption-m text-base-dim w-48 shrink-0">Utility</span>
           <span class="type-caption-m text-base-dim w-40 shrink-0">Steps</span>
           <span class="type-caption-m text-base-dim flex-1">Use case</span>
-          <span class="type-caption-m text-base-dim w-80 shrink-0 text-right">Expands to (red)</span>
+          <span class="type-caption-m text-base-dim w-80 shrink-0 text-right"
+            >Expands to (red)</span
+          >
         </div>
         <div
           v-for="row in semanticUtilities"
@@ -283,9 +455,9 @@ const zIndexTokens = [
                 scale.key
               }}</span>
               <span class="type-agate-r text-base-dim flex-1">{{ scale.role || '—' }}</span>
-              <span class="font-mono type-agate-r text-base-dim shrink-0 text-right">{{
-                scale.key
-              }}.css</span>
+              <span class="font-mono type-agate-r text-base-dim shrink-0 text-right"
+                >{{ scale.key }}.css</span
+              >
             </div>
           </div>
         </template>
@@ -333,8 +505,8 @@ const zIndexTokens = [
         13 steps from agate (12px) to broadsheet (128px). Classes use weight suffixes:
         <span class="font-mono text-base-normal">.type-{name}-sb</span>,
         <span class="font-mono text-base-normal">-m</span>,
-        <span class="font-mono text-base-normal">-r</span>.
-        Overline is a special formatting class with no weight suffix.
+        <span class="font-mono text-base-normal">-r</span>. Overline is a special formatting class
+        with no weight suffix.
       </p>
       <div class="grid gap-px bg-base-dim rounded-card overflow-hidden">
         <div class="bg-base-subtle flex items-center py-2 px-4">
@@ -349,9 +521,7 @@ const zIndexTokens = [
           :key="step.name"
           class="bg-base-app flex items-baseline gap-3 py-2.5 px-4"
         >
-          <span
-            class="flex-1 text-base-normal whitespace-nowrap"
-            :class="`type-${step.name}-m`"
+          <span class="flex-1 text-base-normal whitespace-nowrap" :class="`type-${step.name}-m`"
             >Ag</span
           >
           <span class="font-mono type-caption-r text-base-normal w-32 shrink-0">{{
@@ -359,7 +529,9 @@ const zIndexTokens = [
           }}</span>
           <span class="type-agate-r text-base-dim w-40 shrink-0">{{ step.size }}</span>
           <span class="type-agate-r text-base-dim w-24 shrink-0">{{ step.lh }}</span>
-          <span class="type-agate-r text-base-dim w-32 shrink-0 text-right">{{ step.weights }}</span>
+          <span class="type-agate-r text-base-dim w-32 shrink-0 text-right">{{
+            step.weights
+          }}</span>
         </div>
         <div class="bg-base-app flex items-baseline gap-3 py-2.5 px-4">
           <span class="flex-1 type-overline text-base-normal">AG</span>
@@ -467,9 +639,7 @@ const zIndexTokens = [
     <!-- ── 03 Spacing ─────────────────────────────────────────────────────── -->
 
     <section id="spacing" class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">03</span> — Spacing
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">03</span> — Spacing</p>
       <p class="type-agate-r text-base-dim mb-4">
         Three page-level constants. All other spacing uses Tailwind's built-in scale directly.
       </p>
@@ -487,10 +657,7 @@ const zIndexTokens = [
           class="bg-base-app flex items-center gap-3 py-2.5 px-4"
         >
           <div class="w-14 shrink-0 flex items-center">
-            <div
-              class="h-3 rounded-full bg-blue-solid"
-              :style="{ width: t.value }"
-            ></div>
+            <div class="h-3 rounded-full bg-blue-solid" :style="{ width: t.value }"></div>
           </div>
           <span class="font-mono type-caption-r text-base-normal w-48 shrink-0">{{
             t.utility
@@ -544,9 +711,7 @@ const zIndexTokens = [
     <!-- ── 05 Shadows ─────────────────────────────────────────────────────── -->
 
     <section id="shadows" class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">05</span> — Shadows
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">05</span> — Shadows</p>
       <p class="type-agate-r text-base-dim mb-4">
         Theme-aware shadows. Subtle in light mode, pronounced in dark.
       </p>
@@ -580,9 +745,7 @@ const zIndexTokens = [
     <!-- ── 06 Motion ──────────────────────────────────────────────────────── -->
 
     <section id="motion" class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">06</span> — Motion
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">06</span> — Motion</p>
 
       <!-- Durations -->
       <p class="type-overline text-base-dim mb-6">Durations</p>
@@ -654,9 +817,7 @@ const zIndexTokens = [
     <!-- ── 07 Opacity ─────────────────────────────────────────────────────── -->
 
     <section id="opacity" class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">07</span> — Opacity
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">07</span> — Opacity</p>
       <p class="type-agate-r text-base-dim mb-4">
         Named opacity values for disabled and hover states.
       </p>
@@ -674,10 +835,7 @@ const zIndexTokens = [
           class="bg-base-app flex items-center gap-3 py-2.5 px-4"
         >
           <div class="w-14 shrink-0 flex items-center">
-            <span
-              class="size-4 rounded-full bg-blue-solid"
-              :style="{ opacity: t.value }"
-            ></span>
+            <span class="size-4 rounded-full bg-blue-solid" :style="{ opacity: t.value }"></span>
           </div>
           <span class="font-mono type-caption-r text-base-normal w-44 shrink-0">{{
             t.utility
@@ -692,9 +850,7 @@ const zIndexTokens = [
     <!-- ── 08 Z-Index ─────────────────────────────────────────────────────── -->
 
     <section id="z-index" class="px-8 lg:px-16 mt-24 pb-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">08</span> — Z-Index
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">08</span> — Z-Index</p>
       <p class="type-agate-r text-base-dim mb-4">
         Stacking order for layered UI. Each level reserves a 100-unit gap for intermediate values.
       </p>
@@ -715,7 +871,7 @@ const zIndexTokens = [
           <div class="w-14 shrink-0 flex items-center">
             <div class="relative h-5 w-10">
               <span
-                v-for="j in (i + 1)"
+                v-for="j in i + 1"
                 :key="j"
                 class="absolute rounded-full border border-base-dim"
                 :class="j === i + 1 ? 'bg-blue-solid border-transparent' : 'bg-base-ui'"
@@ -742,8 +898,13 @@ const zIndexTokens = [
 
 <style scoped>
 @keyframes token-slide {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(24px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(24px);
+  }
 }
 .token-slide {
   animation: token-slide 1.5s infinite;

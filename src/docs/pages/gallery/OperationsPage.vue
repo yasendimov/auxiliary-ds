@@ -135,9 +135,7 @@ const alertFeed = [
                 <tr v-for="drone in fleet" :key="drone.id" class="border-t border-base-dim">
                   <td class="type-agate-m text-base-normal font-mono px-2 py-1">{{ drone.id }}</td>
                   <td class="px-2 py-1">
-                    <Badge :variant="drone.status" size="sm" dot>{{
-                      drone.statusLabel
-                    }}</Badge>
+                    <Badge :variant="drone.status" size="sm" dot>{{ drone.statusLabel }}</Badge>
                   </td>
                   <td class="type-agate-m text-base-dim font-mono px-2 py-1">{{ drone.alt }}</td>
                   <td class="type-agate-m text-base-dim font-mono px-2 py-1">

@@ -136,9 +136,7 @@ import { Separator, Hero, Header, Section } from '../../../components'
             </p>
           </div>
           <div>
-            <h3 class="type-body-sb text-base-normal mb-2">
-              Interoperability & Open Architecture
-            </h3>
+            <h3 class="type-body-sb text-base-normal mb-2">Interoperability & Open Architecture</h3>
             <p class="type-caption-m text-base-dim">
               AuterionOS allows customers to combine different drones and manufacturers into a
               single architecture, enabling swarming where a single operator controls many drones.

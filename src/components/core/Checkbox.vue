@@ -77,7 +77,10 @@ const controlClasses = computed(() => {
 
   if (props.disabled) {
     if (isCheckedOrIndeterminate.value) {
-      return [base, 'bg-blue-solid border-blue-9 dark:border-bluedark-9 opacity-disabled cursor-not-allowed']
+      return [
+        base,
+        'bg-blue-solid border-blue-9 dark:border-bluedark-9 opacity-disabled cursor-not-allowed'
+      ]
     }
     return [base, 'bg-base-ui border-base-dim opacity-disabled cursor-not-allowed']
   }
@@ -133,11 +136,7 @@ function onChange(event) {
             class="text-white"
             :class="sizeConfig.icon"
           />
-          <MinusIcon
-            v-else-if="indeterminate"
-            class="text-white"
-            :class="sizeConfig.icon"
-          />
+          <MinusIcon v-else-if="indeterminate" class="text-white" :class="sizeConfig.icon" />
         </span>
       </div>
 

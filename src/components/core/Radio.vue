@@ -89,7 +89,10 @@ const controlClasses = computed(() => {
 
   if (isDisabled.value) {
     if (isChecked.value) {
-      return [base, 'border-blue-9 dark:border-bluedark-9 bg-base-ui opacity-disabled cursor-not-allowed']
+      return [
+        base,
+        'border-blue-9 dark:border-bluedark-9 bg-base-ui opacity-disabled cursor-not-allowed'
+      ]
     }
     return [base, 'bg-base-ui border-base-dim opacity-disabled cursor-not-allowed']
   }

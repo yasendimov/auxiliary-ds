@@ -88,7 +88,11 @@ const colophon = [
         <span class="font-mono">01</span> — Foundation
       </p>
       <div class="grid grid-cols-1 lg:grid-cols-2 border-t border-l border-base-dim">
-        <div v-for="card in foundation" :key="card.title" class="border-b border-r border-base-dim p-8">
+        <div
+          v-for="card in foundation"
+          :key="card.title"
+          class="border-b border-r border-base-dim p-8"
+        >
           <h3 class="type-subheading-sb text-base-normal">{{ card.title }}</h3>
           <p class="type-body-r text-base-dim mt-2 max-w-md">{{ card.desc }}</p>
         </div>
@@ -114,9 +118,7 @@ const colophon = [
 
     <!-- Contexts -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">03</span> — Contexts
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">03</span> — Contexts</p>
       <div class="grid grid-cols-1 lg:grid-cols-3 border-t border-l border-base-dim">
         <div
           v-for="card in contexts"
@@ -132,7 +134,11 @@ const colophon = [
     <!-- Colophon -->
     <section class="px-8 lg:px-16 mt-24">
       <div class="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-base-dim">
-        <div v-for="item in colophon" :key="item.label" class="border-b border-r border-base-dim p-8">
+        <div
+          v-for="item in colophon"
+          :key="item.label"
+          class="border-b border-r border-base-dim p-8"
+        >
           <span class="type-overline text-base-dim">{{ item.label }}</span>
           <p :class="[item.mono ? 'font-mono' : '', 'type-caption-m text-base-normal mt-1']">
             {{ item.value }}

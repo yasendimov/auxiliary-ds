@@ -77,9 +77,7 @@ const sidebarItems = ['Dashboard', 'Missions', 'Fleet', 'Analytics', 'Settings']
           :key="item"
           :class="[
             'px-3 py-2 rounded-panel type-caption-m transition-colors duration-instant cursor-default',
-            i === 0
-              ? 'bg-base-ui text-base-normal'
-              : 'text-base-dim hover:text-base-normal'
+            i === 0 ? 'bg-base-ui text-base-normal' : 'text-base-dim hover:text-base-normal'
           ]"
         >
           {{ item }}

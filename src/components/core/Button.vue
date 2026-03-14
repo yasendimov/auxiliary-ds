@@ -59,8 +59,7 @@ const variantClasses = computed(() => {
 
   const variants = {
     primary: 'bg-blue-solid text-white',
-    ghost:
-      'border border-base-normal text-base-normal bg-transparent hover:bg-base-ui',
+    ghost: 'border border-base-normal text-base-normal bg-transparent hover:bg-base-ui',
     destructive: 'bg-red-solid text-white'
   }
   return variants[props.variant]
