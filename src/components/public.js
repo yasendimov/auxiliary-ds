@@ -19,6 +19,7 @@ export {
   Select as AuxSelect,
   Tabs as AuxTabs,
   Tab as AuxTab,
+  Dialog as AuxDialog,
   Hero as AuxHero,
   Header as AuxHeader,
   Section as AuxSection

@@ -245,6 +245,11 @@ const routes = [
         name: 'core-tabs',
         component: () => import('../docs/pages/TabsPage.vue')
       },
+      {
+        path: 'design-system/core/dialog',
+        name: 'core-dialog',
+        component: () => import('../docs/pages/DialogPage.vue')
+      },
 
       // 11 Marketing
       {
