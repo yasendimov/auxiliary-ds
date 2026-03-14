@@ -140,7 +140,8 @@ const navSections = [
           { name: 'Separator', to: '/design-system/core/separator' },
           { name: 'Identicon', to: '/design-system/core/identicon' },
           { name: 'Select', to: '/design-system/core/select' },
-          { name: 'Tabs', to: '/design-system/core/tabs' }
+          { name: 'Tabs', to: '/design-system/core/tabs' },
+          { name: 'Dialog', to: '/design-system/core/dialog' }
         ]
       },
       {
