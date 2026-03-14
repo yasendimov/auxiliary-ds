@@ -17,6 +17,8 @@ export {
   Separator as AuxSeparator,
   Identicon as AuxIdenticon,
   Select as AuxSelect,
+  Tabs as AuxTabs,
+  Tab as AuxTab,
   Hero as AuxHero,
   Header as AuxHeader,
   Section as AuxSection
