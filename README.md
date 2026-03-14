@@ -31,8 +31,8 @@ pnpm dev        # http://localhost:4747
 | `pnpm format` | Format source files with Prettier |
 | `pnpm format:check` | Check formatting without writing |
 
-## Design Philosophy
+## Design Decisions
 
 Functional authority — looks like it controls things that fly. Two typefaces, three weights, no decoration. Every visual element encodes meaning or it's removed.
 
-See [docs/design-philosophy.md](docs/design-philosophy.md) for the full rationale.
+See [docs/design-decisions.md](docs/design-decisions.md) for the full rationale.

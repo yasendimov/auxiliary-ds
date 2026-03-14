@@ -30,11 +30,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 src/
 ├── tokens/               ← CSS custom properties (future @aux/tokens)
+│   ├── colors/           ← 32 color scale files
 │   ├── typography.css
 │   ├── spacing.css
 │   ├── border-radius.css
 │   ├── shadows.css
 │   ├── motion.css
+│   ├── opacity.css
 │   └── z-index.css
 ├── assets/
 │   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
@@ -45,12 +47,14 @@ src/
 │   └── operational/      ← Aerospace mission-critical UI
 ├── docs/                 ← Documentation app (not published)
 │   ├── pages/
+│   │   ├── gallery/      ← Multi-component showcase pages
+│   │   └── identity/     ← Brand identity pages
 │   └── DocsLayout.vue
 ├── style.css             ← Tailwind import + token imports
 ├── App.vue
 └── main.js
 docs/                      ← Design docs (not published)
-└── design-philosophy.md
+└── design-decisions.md
 ```
 
 ## Token Architecture
@@ -147,7 +151,7 @@ Status colors are NEVER used decoratively — only for their designated alert le
 - Theme controlled via `data-theme` attribute on `<html>` element
 - `data-theme="dark"` — default
 - `data-theme="light"` — secondary
-- Additional themes planned: OpenBridge, high-contrast
+- Additional themes planned: Light Contrast, Dark Vision
 - Theme switching swaps Layer 1 primitives only — semantic aliases resolve automatically
 
 ## Typography
@@ -167,9 +171,9 @@ Status colors are NEVER used decoratively — only for their designated alert le
 - Never use italic in operational interfaces
 - Uppercase only for labels and overlines — never body text
 
-## Design Philosophy
+## Design Decisions
 
-See `docs/design-philosophy.md` for full rationale and decision framework.
+See `docs/design-decisions.md` for full rationale and decision framework.
 
 Core principle: **functional authority** — looks like it controls things that fly. No decoration. Every element encodes meaning or it's removed.
 
@@ -221,6 +225,8 @@ AUX tokens and design philosophy govern all visual decisions.
   (2px solid, 2px offset). Form inputs use `focus-visible:ring-1` (inset box-shadow) + border
   color change — the inset ring avoids double-border with the input's existing border. Both
   approaches use `focus-visible` (keyboard only), never bare `focus`.
+- **Docs page demos:** Interactive demos must use semantic interactive elements (`button`, `input`),
+  not pointer-only containers (`div` with `cursor-pointer`). Every demo must be keyboard-reachable.
 
 ## Component Categories
 
@@ -252,6 +258,22 @@ Types: `feat` (new component/feature/page), `fix` (bug fix), `chore` (config/too
 Rules: lowercase after colon, no period, present tense imperative, name the component/file, one concern per commit.
 
 Examples: `feat: add Checkbox component and docs page`, `chore: rename PageHeader to Header`
+
+## Governance
+
+### Versioning
+
+- Semver `0.x.y` while pre-1.0 — no stability guarantees yet
+- **Patch** (`0.1.x`) — bug fixes, token corrections, doc typos
+- **Minor** (`0.x.0`) — new components, new token scales, new docs pages
+- Bump version in `package.json` on main after merge, as a standalone `chore: bump version to 0.x.y` commit
+
+### What We Skip Until First Consumer
+
+- No CHANGELOG, release notes, or release tooling
+- No release branches — ship from main
+- No library build mode or package exports — `private: true` stays
+- These arrive when the first app consumes auxiliary-ds
 
 ## Publishing
 
