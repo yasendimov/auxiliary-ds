@@ -8,6 +8,7 @@ export {
   Checkbox as AuxCheckbox,
   Radio as AuxRadio,
   RadioGroup as AuxRadioGroup,
+  CheckboxGroup as AuxCheckboxGroup,
   Toggle as AuxToggle,
   Textarea as AuxTextarea,
   Alert as AuxAlert,
@@ -33,7 +34,9 @@ export {
   DropdownSeparator as AuxDropdownSeparator,
   Combobox as AuxCombobox,
   FormField as AuxFormField,
-  Link as AuxLink
+  Link as AuxLink,
+  VisuallyHidden as AuxVisuallyHidden
 } from './index.js'
 
 export { useToast } from './core/useToast.js'
+export { useTheme } from './core/useTheme.js'

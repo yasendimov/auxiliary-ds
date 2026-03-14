@@ -159,6 +159,11 @@ export const navConfig = [
             component: () => import('./pages/CheckboxPage.vue')
           },
           {
+            name: 'CheckboxGroup',
+            path: 'checkbox-group',
+            component: () => import('./pages/CheckboxGroupPage.vue')
+          },
+          {
             name: 'Combobox',
             path: 'combobox',
             component: () => import('./pages/ComboboxPage.vue')
@@ -255,6 +260,11 @@ export const navConfig = [
             name: 'Separator',
             path: 'separator',
             component: () => import('./pages/SeparatorPage.vue')
+          },
+          {
+            name: 'VisuallyHidden',
+            path: 'visually-hidden',
+            component: () => import('./pages/VisuallyHiddenPage.vue')
           },
           {
             name: 'Tabs',

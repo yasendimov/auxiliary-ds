@@ -3,16 +3,11 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { MoonIcon } from '@heroicons/vue/16/solid'
 import { SunIcon } from '@heroicons/vue/16/solid'
+import { useTheme } from '../components/core/useTheme.js'
 import { navConfig } from './nav.js'
 
 const route = useRoute()
-const theme = ref(document.documentElement.dataset.theme || 'dark')
-
-function toggleTheme() {
-  theme.value = theme.value === 'dark' ? 'light' : 'dark'
-  document.documentElement.dataset.theme = theme.value
-  localStorage.setItem('aux-theme', theme.value)
-}
+const { isDark, toggleTheme } = useTheme()
 
 const openItem = ref(null)
 
@@ -94,7 +89,7 @@ watch(
           class="text-base-dim transition-colors duration-instant hover:text-base-normal"
           @click="toggleTheme"
         >
-          <MoonIcon v-if="theme === 'dark'" class="size-4" />
+          <MoonIcon v-if="isDark" class="size-4" />
           <SunIcon v-else class="size-4" />
         </button>
       </div>
