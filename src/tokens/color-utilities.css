@@ -4,7 +4,7 @@
 
    Every scale generates 12 semantic utilities:
      bg-{s}-app        step 1        Page background
-     bg-{s}-subtle     step 2        Subtle/striped background
+     bg-{s}-subtle     step 2        Subtle / striped background
      bg-{s}-ui         steps 3→4→5   Interactive surface (hover + active)
      bg-{s}-ghost      ∅→3→4         Ghost pattern (transparent → hover → active)
      bg-{s}-action     steps 4→5→6   Selected/active surface (hover + active)

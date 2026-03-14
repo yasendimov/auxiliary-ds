@@ -98,7 +98,7 @@ const semanticPattern = [
 // Step → semantic label mapping (for swatch annotations)
 const stepLabels = {
   1: 'app', 2: 'subtle', 3: 'ui', 4: 'action',
-  6: 'border-dim', 7: 'border', 9: 'solid', 11: 'text-dim', 12: 'text'
+  6: 'dim', 7: 'border', 9: 'solid', 11: 'text-dim', 12: 'text'
 }
 
 const colorScales = [
@@ -327,10 +327,7 @@ const zIndexLayers = [
                 class="w-full h-8 rounded-panel"
                 :style="{ backgroundColor: `var(--${scale}-${step})` }"
               ></div>
-              <span
-                class="font-mono text-content-dim"
-                style="font-size: 9px; line-height: 1.2"
-              >{{ step }}</span>
+              <span class="type-agate-r font-mono text-content-dim text-center truncate w-full">{{ step }}</span>
             </div>
           </div>
 
@@ -343,8 +340,7 @@ const zIndexLayers = [
             >
               <span
                 v-if="stepLabels[step]"
-                class="font-mono text-content-dim text-center"
-                style="font-size: 8px; line-height: 1.3"
+                class="type-agate-r font-mono text-content-dim text-center truncate w-full"
               >{{ stepLabels[step] }}</span>
             </div>
           </div>
