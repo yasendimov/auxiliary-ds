@@ -65,7 +65,7 @@ const colophon = [
   <div>
     <!-- Hero -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
-      <p class="type-overline text-base-dim">AUX Design System — v0.1.0</p>
+      <p class="type-overline text-base-dim">AUX Design System — v0.2.0</p>
       <h1 class="type-display-sb text-base-normal mt-4">Auxiliary</h1>
       <p class="type-heading-sb text-base-dim mt-4 max-w-xl">
         The official design system for Auterion products. Built for operators, designed in Zurich.

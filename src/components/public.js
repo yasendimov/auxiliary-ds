@@ -20,7 +20,20 @@ export {
   Tabs as AuxTabs,
   Tab as AuxTab,
   Dialog as AuxDialog,
+  Toast as AuxToast,
+  ToastContainer as AuxToastContainer,
   Hero as AuxHero,
   Header as AuxHeader,
-  Section as AuxSection
+  Section as AuxSection,
+  Popover as AuxPopover,
+  Tooltip as AuxTooltip,
+  Dropdown as AuxDropdown,
+  DropdownItem as AuxDropdownItem,
+  DropdownGroup as AuxDropdownGroup,
+  DropdownSeparator as AuxDropdownSeparator,
+  Combobox as AuxCombobox,
+  FormField as AuxFormField,
+  Link as AuxLink
 } from './index.js'
+
+export { useToast } from './core/useToast.js'

@@ -8,11 +8,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- `pnpm install` — Install dependencies
+- `pnpm install` — Install dependencies (also configures git hooks via `postinstall`)
 - `pnpm dev` — Start dev server
 - `pnpm build` — Production build
 - `pnpm preview` — Preview production build locally
+- `pnpm format` — Auto-format all source files with Prettier
+- `pnpm lint` / `pnpm lint:fix` — Run ESLint / auto-fix
 - Dev server runs on **port 4747** (configured in vite.config.js)
+
+### Pre-commit Hook
+
+A git pre-commit hook in `.githooks/pre-commit` auto-formats and lint-fixes on every commit:
+
+1. Runs `pnpm format` + `pnpm lint:fix`
+2. Re-stages modified files
+3. Blocks the commit only if lint errors remain after auto-fix
+
+The hook is activated by `git config core.hooksPath .githooks`, which runs automatically via `postinstall` after `pnpm install`. If you cloned without running install, run `git config core.hooksPath .githooks` manually.
 
 ## Stack
 
@@ -92,6 +104,22 @@ Everything else uses Tailwind's built-in spacing scale directly. Layout density 
 - **Marketing**: `px-6 md:px-8 lg:px-12`, `py-16 md:py-24`
 - **Application**: `px-6 py-6`
 - **Operational**: `px-2 py-2`, instruments `p-1.5`
+
+### Breakpoints
+
+Tailwind v4 default breakpoints — no custom overrides:
+
+| Prefix | Min-width | Usage |
+| ------ | --------- | ----- |
+| `sm`   | 640px     | Marketing only |
+| `md`   | 768px     | Marketing + Application |
+| `lg`   | 1024px    | Marketing + Application |
+| `xl`   | 1280px    | Marketing only |
+| `2xl`  | 1536px    | Marketing only |
+
+- **Marketing** — full responsive range (`sm` through `2xl`)
+- **Application** — `md`+ (assumes tablet-minimum viewport)
+- **Operational** — typically fixed-viewport (no breakpoints, instruments sized by container)
 
 ## Color System
 
@@ -187,6 +215,23 @@ Heroicons (`@heroicons/vue`). Import directly, size with `size-4`/`size-5`/`size
 - `20/outline` / `20/solid` — default UI
 - `24/outline` / `24/solid` — feature/nav
 
+## Motion Budget
+
+Motion tokens are defined in `src/tokens/motion.css`:
+
+- `--duration-instant` (80ms) — micro-interactions (toggles, checkboxes)
+- `--duration-fast` (150ms) — UI feedback (hover, focus, state changes)
+- `--duration-base` (220ms) — standard transitions (panels, dropdowns)
+- `--duration-slow` (350ms) — entrances, overlays, page transitions
+
+Easing: `--ease-snap` (snappy, exit-feel) and `--ease-glide` (smooth, enter-feel).
+
+### Context budgets
+
+- **Operational** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operational UI is a distraction.
+- **Application** — subtle, functional transitions. `--duration-fast` to `--duration-base`. No entrance animations.
+- **Marketing** — expressive transitions allowed. `--duration-base` to `--duration-slow`. Entrance animations and scroll-triggered motion OK.
+
 ## Data Visualization Rules
 
 - Alert colors reserved for alert meanings only. Series use chromatic palette (non-blue, non-alert).
@@ -227,6 +272,28 @@ AUX tokens and design philosophy govern all visual decisions.
   approaches use `focus-visible` (keyboard only), never bare `focus`.
 - **Docs page demos:** Interactive demos must use semantic interactive elements (`button`, `input`),
   not pointer-only containers (`div` with `cursor-pointer`). Every demo must be keyboard-reachable.
+
+### Form Composition Patterns
+
+Form components use Vue's `provide`/`inject` for context propagation — no prop drilling:
+
+- **FormField** wraps any input with label, error message, and hint text. It `provide`s via `formFieldKey` (a Symbol): `fieldId`, `errorId`, `hintId`, `hasError`, `describedBy`. Child inputs `inject` this to connect `id`, `aria-describedby`, and error styling automatically.
+- **RadioGroup** wraps Radio components. It `provide`s via `radioGroupKey`: shared `name`, `modelValue`, and `update` handler. Individual Radio components inject this to participate in the group.
+- **Tabs** wraps Tab components via `tabsKey`: shared active tab state and selection handler.
+
+Pattern: parent component calls `provide(symbolKey, reactiveContext)`, child calls `inject(symbolKey)`. Symbol keys live in `*Key.js` files alongside the parent component.
+
+### Component Delivery Checklist
+
+A component is not done until all of these are complete:
+
+1. Component `.vue` file in the correct category folder (`core/`, `marketing/`, `application/`, `operational/`)
+2. Export added to `src/components/index.js` (clean name) and `src/components/public.js` (`Aux`-prefixed)
+3. Docs page created in `src/docs/pages/{Name}Page.vue`
+4. Route added to `src/router/index.js` in the correct numbered section
+5. Works in both light and dark themes — tested visually
+6. Keyboard accessible with `focus-visible` styles and appropriate ARIA
+7. Formatted and lint-clean (`pnpm format && pnpm lint`)
 
 ## Component Categories
 

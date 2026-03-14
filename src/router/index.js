@@ -174,103 +174,147 @@ const routes = [
         }
       },
 
-      // 10 Core
+      // 10 Core — Actions
       {
-        path: 'design-system/core/button',
+        path: 'system/core/button',
         name: 'core-button',
         component: () => import('../docs/pages/ButtonPage.vue')
       },
       {
-        path: 'design-system/core/badge',
-        name: 'core-badge',
-        component: () => import('../docs/pages/BadgePage.vue')
+        path: 'system/core/link',
+        name: 'core-link',
+        component: () => import('../docs/pages/LinkPage.vue')
       },
+
+      // 10 Core — Forms
       {
-        path: 'design-system/core/input',
-        name: 'core-input',
-        component: () => import('../docs/pages/InputPage.vue')
-      },
-      {
-        path: 'design-system/core/checkbox',
+        path: 'system/core/checkbox',
         name: 'core-checkbox',
         component: () => import('../docs/pages/CheckboxPage.vue')
       },
       {
-        path: 'design-system/core/radio',
+        path: 'system/core/combobox',
+        name: 'core-combobox',
+        component: () => import('../docs/pages/ComboboxPage.vue')
+      },
+      {
+        path: 'system/core/form-field',
+        name: 'core-form-field',
+        component: () => import('../docs/pages/FormFieldPage.vue')
+      },
+      {
+        path: 'system/core/input',
+        name: 'core-input',
+        component: () => import('../docs/pages/InputPage.vue')
+      },
+      {
+        path: 'system/core/radio',
         name: 'core-radio',
         component: () => import('../docs/pages/RadioPage.vue')
       },
       {
-        path: 'design-system/core/toggle',
-        name: 'core-toggle',
-        component: () => import('../docs/pages/TogglePage.vue')
-      },
-      {
-        path: 'design-system/core/textarea',
-        name: 'core-textarea',
-        component: () => import('../docs/pages/TextareaPage.vue')
-      },
-      {
-        path: 'design-system/core/alert',
-        name: 'core-alert',
-        component: () => import('../docs/pages/AlertPage.vue')
-      },
-      {
-        path: 'design-system/core/spinner',
-        name: 'core-spinner',
-        component: () => import('../docs/pages/SpinnerPage.vue')
-      },
-      {
-        path: 'design-system/core/avatar',
-        name: 'core-avatar',
-        component: () => import('../docs/pages/AvatarPage.vue')
-      },
-      {
-        path: 'design-system/core/separator',
-        name: 'core-separator',
-        component: () => import('../docs/pages/SeparatorPage.vue')
-      },
-      {
-        path: 'design-system/core/identicon',
-        name: 'core-identicon',
-        component: () => import('../docs/pages/IdenticonPage.vue')
-      },
-      {
-        path: 'design-system/core/select',
+        path: 'system/core/select',
         name: 'core-select',
         component: () => import('../docs/pages/SelectPage.vue')
       },
       {
-        path: 'design-system/core/tabs',
-        name: 'core-tabs',
-        component: () => import('../docs/pages/TabsPage.vue')
+        path: 'system/core/textarea',
+        name: 'core-textarea',
+        component: () => import('../docs/pages/TextareaPage.vue')
       },
       {
-        path: 'design-system/core/dialog',
+        path: 'system/core/toggle',
+        name: 'core-toggle',
+        component: () => import('../docs/pages/TogglePage.vue')
+      },
+
+      // 10 Core — Feedback
+      {
+        path: 'system/core/alert',
+        name: 'core-alert',
+        component: () => import('../docs/pages/AlertPage.vue')
+      },
+      {
+        path: 'system/core/spinner',
+        name: 'core-spinner',
+        component: () => import('../docs/pages/SpinnerPage.vue')
+      },
+      {
+        path: 'system/core/toast',
+        name: 'core-toast',
+        component: () => import('../docs/pages/ToastPage.vue')
+      },
+
+      // 10 Core — Overlays
+      {
+        path: 'system/core/dialog',
         name: 'core-dialog',
         component: () => import('../docs/pages/DialogPage.vue')
       },
+      {
+        path: 'system/core/dropdown',
+        name: 'core-dropdown',
+        component: () => import('../docs/pages/DropdownPage.vue')
+      },
+      {
+        path: 'system/core/popover',
+        name: 'core-popover',
+        component: () => import('../docs/pages/PopoverPage.vue')
+      },
+      {
+        path: 'system/core/tooltip',
+        name: 'core-tooltip',
+        component: () => import('../docs/pages/TooltipPage.vue')
+      },
 
+      // 10 Core — Data Display
+      {
+        path: 'system/core/avatar',
+        name: 'core-avatar',
+        component: () => import('../docs/pages/AvatarPage.vue')
+      },
+      {
+        path: 'system/core/badge',
+        name: 'core-badge',
+        component: () => import('../docs/pages/BadgePage.vue')
+      },
+      {
+        path: 'system/core/identicon',
+        name: 'core-identicon',
+        component: () => import('../docs/pages/IdenticonPage.vue')
+      },
+
+      // 10 Core — Layout
+      {
+        path: 'system/core/separator',
+        name: 'core-separator',
+        component: () => import('../docs/pages/SeparatorPage.vue')
+      },
+      {
+        path: 'system/core/tabs',
+        name: 'core-tabs',
+        component: () => import('../docs/pages/TabsPage.vue')
+      },
       // 11 Marketing
       {
-        path: 'design-system/marketing/hero',
+        path: 'system/marketing/hero',
         name: 'marketing-hero',
         component: () => import('../docs/pages/HeroPage.vue')
       },
       {
-        path: 'design-system/marketing/header',
+        path: 'system/marketing/header',
         name: 'marketing-header',
         component: () => import('../docs/pages/HeaderPage.vue')
       },
       {
-        path: 'design-system/marketing/section',
+        path: 'system/marketing/section',
         name: 'marketing-section',
         component: () => import('../docs/pages/SectionPage.vue')
       },
 
       // 12 Applications
       {
-        path: 'design-system/applications',
+        path: 'system/applications',
         name: 'ds-applications',
         component: stub,
         meta: { number: '12', title: 'Applications', sections: [] }
@@ -278,7 +322,7 @@ const routes = [
 
       // 13 Operations
       {
-        path: 'design-system/operations',
+        path: 'system/operations',
         name: 'ds-operations',
         component: stub,
         meta: { number: '13', title: 'Operations', sections: [] }

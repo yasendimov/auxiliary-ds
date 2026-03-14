@@ -9,6 +9,15 @@
             "command": "file_path=$(echo \"$TOOL_INPUT\" | python3 -c \"import sys,json; print(json.load(sys.stdin).get('file_path',''))\" 2>/dev/null) && case \"$file_path\" in */src/tokens/colors.css) echo 'BLOCKED: colors.css is a generated file. Do not edit it directly.' && echo 'To regenerate: pnpm generate-tokens' && echo 'To modify the token values: edit scripts/generate-tokens.js' && exit 1 ;; esac"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command=$(echo \"$TOOL_INPUT\" | python3 -c \"import sys,json; print(json.load(sys.stdin).get('command',''))\" 2>/dev/null) && case \"$command\" in *'git commit'*) cd \"$(git rev-parse --show-toplevel)\" && pnpm format 2>/dev/null && pnpm lint:fix 2>/dev/null && git add -u ;; esac"
+          }
+        ]
       }
     ],
     "PostToolUse": [
