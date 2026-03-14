@@ -1,5 +1,5 @@
 <script setup>
-import { AuxIdenticon } from '../../components'
+import { Identicon } from '../../components'
 
 const gallerySeeds = [
   'Alpha Squadron', 'Bravo Team', 'Charlie Unit', 'Delta Force',
@@ -43,7 +43,7 @@ const taskForces = [
           :key="seed"
           class="border-b border-r border-line p-6 flex flex-col items-center gap-3"
         >
-          <AuxIdenticon :seed="seed" :size="48" />
+          <Identicon :seed="seed" :size="48" />
           <span class="type-agate-r text-content-dim font-mono text-center leading-tight">{{ seed }}</span>
         </div>
       </div>
@@ -60,7 +60,7 @@ const taskForces = [
           :key="variant"
           class="border-b border-r border-line p-8 flex flex-col items-center gap-3"
         >
-          <AuxIdenticon seed="Alpha Squadron" :variant="variant" :size="64" />
+          <Identicon seed="Alpha Squadron" :variant="variant" :size="64" />
           <span class="type-overline text-content-dim">{{ variant }}</span>
         </div>
       </div>
@@ -77,7 +77,7 @@ const taskForces = [
           :key="s"
           class="flex flex-col items-center gap-3"
         >
-          <AuxIdenticon seed="Bravo Team" :size="s" />
+          <Identicon seed="Bravo Team" :size="s" />
           <span class="type-overline text-content-dim font-mono">{{ s }}px</span>
         </div>
       </div>
@@ -92,9 +92,9 @@ const taskForces = [
         Same seed always produces the same identicon. Three identical renders below.
       </p>
       <div class="flex items-center gap-6">
-        <AuxIdenticon seed="Echo Base" :size="80" />
-        <AuxIdenticon seed="Echo Base" :size="80" />
-        <AuxIdenticon seed="Echo Base" :size="80" />
+        <Identicon seed="Echo Base" :size="80" />
+        <Identicon seed="Echo Base" :size="80" />
+        <Identicon seed="Echo Base" :size="80" />
       </div>
     </section>
 
@@ -109,7 +109,7 @@ const taskForces = [
           :key="tf.seed"
           class="rounded-card bg-surface-1 p-5 flex items-center gap-4"
         >
-          <AuxIdenticon :seed="tf.seed" :size="48" />
+          <Identicon :seed="tf.seed" :size="48" />
           <div class="flex-1 min-w-0">
             <p class="type-body-m text-content-high">{{ tf.name }}</p>
             <p class="type-caption-r text-content-dim">
