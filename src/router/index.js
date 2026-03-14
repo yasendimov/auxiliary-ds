@@ -153,6 +153,7 @@ const routes = [
           title: 'Tokens',
           sections: [
             { id: 'colors', name: 'Colors' },
+            { id: 'semantic-colors', name: 'Semantic Colors' },
             { id: 'typography', name: 'Typography' },
             { id: 'spacing', name: 'Spacing' },
             { id: 'radius', name: 'Border Radius' },

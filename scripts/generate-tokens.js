@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const radixDir = resolve(__dirname, '../node_modules/@radix-ui/colors')
 const outFile = resolve(__dirname, '../src/tokens/colors.css')
+const utilitiesOutFile = resolve(__dirname, '../src/tokens/color-utilities.css')
 
 // ── Custom Auterion scales ──────────────────────────────────────────────────
 
@@ -113,3 +114,72 @@ ${darkVars.trimEnd()}
 
 writeFileSync(outFile, output)
 console.log('Generated', outFile)
+
+// ── Semantic utility generation ──────────────────────────────────────────────
+
+const allScales = [...Object.keys(auterion), ...radixGrays, ...radixChromatics]
+
+function buildUtilities(name) {
+  return `/* ${name} */
+@utility bg-${name}-app { background-color: var(--${name}-1); }
+@utility bg-${name}-subtle { background-color: var(--${name}-2); }
+@utility bg-${name}-ui {
+  background-color: var(--${name}-3);
+  &:hover { background-color: var(--${name}-4); }
+  &:active { background-color: var(--${name}-5); }
+}
+@utility bg-${name}-ghost {
+  background-color: transparent;
+  &:hover { background-color: var(--${name}-3); }
+  &:active { background-color: var(--${name}-4); }
+}
+@utility bg-${name}-action {
+  background-color: var(--${name}-4);
+  &:hover { background-color: var(--${name}-5); }
+  &:active { background-color: var(--${name}-6); }
+}
+@utility bg-${name}-solid {
+  background-color: var(--${name}-9);
+  &:hover { background-color: var(--${name}-10); }
+}
+@utility border-${name}-dim { border-color: var(--${name}-6); }
+@utility border-${name}-normal {
+  border-color: var(--${name}-7);
+  &:hover { border-color: var(--${name}-8); }
+}
+@utility divide-${name}-dim { & > * + * { border-color: var(--${name}-6); } }
+@utility divide-${name}-normal {
+  & > * + * { border-color: var(--${name}-7); }
+  &:hover > * + * { border-color: var(--${name}-8); }
+}
+@utility text-${name}-dim { color: var(--${name}-11); }
+@utility text-${name}-normal { color: var(--${name}-12); }`
+}
+
+let utilitiesOutput = `/* ═══════════════════════════════════════════════════════════════════════════
+   AUX Color Utilities — GENERATED FILE, DO NOT EDIT
+   Run "pnpm generate-tokens" to regenerate from Radix + Auterion sources
+
+   Every scale generates 12 semantic utilities:
+     bg-{s}-app        step 1        Page background
+     bg-{s}-subtle     step 2        Subtle/striped background
+     bg-{s}-ui         steps 3→4→5   Interactive surface (hover + active)
+     bg-{s}-ghost      ∅→3→4         Ghost pattern (transparent → hover → active)
+     bg-{s}-action     steps 4→5→6   Selected/active surface (hover + active)
+     bg-{s}-solid      steps 9→10    Solid fill with hover
+     border-{s}-dim    step 6        Subtle border
+     border-{s}-normal steps 7→8     UI border with hover
+     divide-{s}-dim    step 6        Subtle divider
+     divide-{s}-normal steps 7→8     UI divider with hover
+     text-{s}-dim      step 11       Secondary text
+     text-{s}-normal   step 12       Primary text
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+`
+
+for (const name of allScales) {
+  utilitiesOutput += buildUtilities(name) + '\n\n'
+}
+
+writeFileSync(utilitiesOutFile, utilitiesOutput.trimEnd() + '\n')
+console.log('Generated', utilitiesOutFile)

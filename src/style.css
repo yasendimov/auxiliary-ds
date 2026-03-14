@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './tokens/colors.css';
+@import './tokens/color-utilities.css';
 @import './tokens/typography.css';
 @import './tokens/spacing.css';
 @import './tokens/border-radius.css';

@@ -112,6 +112,7 @@ const navSections = [
         to: '/system/tokens',
         children: [
           { name: 'Colors', hash: '#colors' },
+          { name: 'Semantic Colors', hash: '#semantic-colors' },
           { name: 'Typography', hash: '#typography' },
           { name: 'Spacing', hash: '#spacing' },
           { name: 'Border Radius', hash: '#radius' },

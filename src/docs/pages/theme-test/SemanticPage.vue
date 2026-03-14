@@ -78,6 +78,40 @@ const alerts = [
   }
 ]
 
+// ── Semantic color pattern ───────────────────────────────────────────────────
+
+const semanticPattern = [
+  { utility: 'bg-{s}-app',        steps: '1',       description: 'Page background' },
+  { utility: 'bg-{s}-subtle',     steps: '2',       description: 'Subtle / striped background' },
+  { utility: 'bg-{s}-ui',         steps: '3→4→5',   description: 'Interactive surface (hover + active)' },
+  { utility: 'bg-{s}-ghost',      steps: '∅→3→4',   description: 'Ghost pattern (transparent → hover → active)' },
+  { utility: 'bg-{s}-action',     steps: '4→5→6',   description: 'Selected / active surface (hover + active)' },
+  { utility: 'bg-{s}-solid',      steps: '9→10',    description: 'Solid fill with hover' },
+  { utility: 'border-{s}-dim',    steps: '6',       description: 'Subtle border' },
+  { utility: 'border-{s}-normal', steps: '7→8',     description: 'UI border with hover' },
+  { utility: 'divide-{s}-dim',    steps: '6',       description: 'Subtle divider' },
+  { utility: 'divide-{s}-normal', steps: '7→8',     description: 'UI divider with hover' },
+  { utility: 'text-{s}-dim',      steps: '11',      description: 'Secondary text' },
+  { utility: 'text-{s}-normal',   steps: '12',      description: 'Primary text' },
+]
+
+// Step → semantic label mapping (for swatch annotations)
+const stepLabels = {
+  1: 'app', 2: 'subtle', 3: 'ui', 4: 'action',
+  6: 'border-dim', 7: 'border', 9: 'solid', 11: 'text-dim', 12: 'text'
+}
+
+const colorScales = [
+  // Auterion custom
+  'base', 'blue',
+  // Radix grays
+  'gray', 'mauve', 'slate', 'sage', 'olive', 'sand',
+  // Radix chromatics
+  'tomato', 'red', 'ruby', 'crimson', 'pink', 'plum', 'purple', 'violet',
+  'iris', 'indigo', 'cyan', 'teal', 'jade', 'green', 'grass',
+  'brown', 'bronze', 'gold', 'yellow', 'amber', 'orange', 'sky', 'mint',
+]
+
 const typeScale = [
   { name: 'broadsheet', size: '128px', class: 'type-broadsheet-sb' },
   { name: 'tabloid', size: '96px', class: 'type-tabloid-sb' },
@@ -236,6 +270,82 @@ const zIndexLayers = [
               :class="[token.class, 'rounded-card px-5 py-4 type-caption-m']"
             >
               <span class="font-mono">{{ token.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="border-b border-line"></div>
+
+    <!-- Semantic Colors -->
+    <section id="semantic-colors" class="py-12 lg:py-16 px-10 lg:px-20">
+      <p class="type-overline text-content-dim mb-8">
+        <span class="font-mono">09</span> — Semantic Colors
+      </p>
+
+      <!-- Pattern description -->
+      <p class="type-caption-m text-content-low mb-6 max-w-2xl">
+        Every color scale generates 12 semantic utilities. Replace
+        <span class="font-mono bg-surface-1 px-1 rounded-panel">{s}</span> with the scale name.
+        Hover and active states are built into interactive utilities — no extra classes needed.
+      </p>
+
+      <!-- Pattern table -->
+      <div class="grid gap-px bg-line rounded-card overflow-hidden mb-12">
+        <div class="bg-surface-1 grid grid-cols-[14rem_5rem_1fr] gap-4 py-2 px-4">
+          <span class="type-overline text-content-dim">Utility</span>
+          <span class="type-overline text-content-dim">Steps</span>
+          <span class="type-overline text-content-dim">Description</span>
+        </div>
+        <div
+          v-for="p in semanticPattern"
+          :key="p.utility"
+          class="bg-page grid grid-cols-[14rem_5rem_1fr] gap-4 items-center py-2.5 px-4"
+        >
+          <span class="font-mono type-caption-r text-content-high">{{ p.utility }}</span>
+          <span class="font-mono type-agate-r text-content-dim">{{ p.steps }}</span>
+          <span class="type-agate-r text-content-low">{{ p.description }}</span>
+        </div>
+      </div>
+
+      <!-- All color scales -->
+      <p class="type-caption-sb text-content-high mb-5">All Scales</p>
+      <div class="flex flex-col gap-8">
+        <div v-for="scale in colorScales" :key="scale">
+          <!-- Scale name -->
+          <p class="type-agate-m font-mono text-content-dim mb-2">{{ scale }}</p>
+
+          <!-- 12-step swatch strip -->
+          <div class="flex gap-0.5 mb-1">
+            <div
+              v-for="step in 12"
+              :key="step"
+              class="flex-1 flex flex-col items-center gap-1"
+            >
+              <div
+                class="w-full h-8 rounded-panel"
+                :style="{ backgroundColor: `var(--${scale}-${step})` }"
+              ></div>
+              <span
+                class="font-mono text-content-dim"
+                style="font-size: 9px; line-height: 1.2"
+              >{{ step }}</span>
+            </div>
+          </div>
+
+          <!-- Semantic label row aligned under each step -->
+          <div class="flex gap-0.5">
+            <div
+              v-for="step in 12"
+              :key="step"
+              class="flex-1 flex items-start justify-center"
+            >
+              <span
+                v-if="stepLabels[step]"
+                class="font-mono text-content-dim text-center"
+                style="font-size: 8px; line-height: 1.3"
+              >{{ stepLabels[step] }}</span>
             </div>
           </div>
         </div>
