@@ -55,8 +55,8 @@ src/
 ├── components/
 │   ├── core/       ← Primitives (future @aux/components)
 │   ├── marketing/        ← Brand and website components
-│   ├── application/      ← Conventional SaaS UI
-│   └── operational/      ← Aerospace mission-critical UI
+│   ├── applications/     ← Conventional SaaS UI
+│   └── operations/       ← Aerospace mission-critical UI
 ├── docs/                 ← Documentation app (not published)
 │   ├── nav.js            ← Single source of truth for nav + routes
 │   ├── pages/
@@ -261,7 +261,7 @@ AUX tokens and design philosophy govern all visual decisions.
 - No inline styles — Tailwind classes only
 - No hardcoded colors, spacing, or font values — always use tokens
 - Components in `core/` are the only ones allowed to use raw Tailwind utilities
-- Components in `marketing/`, `application/`, `operational/` must compose from `core/` primitives
+- Components in `marketing/`, `applications/`, `operations/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
 - Operational components must strictly follow OpenBridge conventions
 - Every component must include: keyboard interaction support, focus-visible styles,
@@ -288,7 +288,7 @@ Pattern: parent component calls `provide(symbolKey, reactiveContext)`, child cal
 
 A component is not done until all of these are complete:
 
-1. Component `.vue` file in the correct category folder (`core/`, `marketing/`, `application/`, `operational/`)
+1. Component `.vue` file in the correct category folder (`core/`, `marketing/`, `applications/`, `operations/`)
 2. Export added to `src/components/index.js` (clean name) and `src/components/public.js` (`Aux`-prefixed)
 3. Docs page created in `src/docs/pages/{Name}Page.vue`
 4. Entry added to `src/docs/nav.js` in the correct category (route + nav link are generated automatically)

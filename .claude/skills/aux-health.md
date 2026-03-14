@@ -56,7 +56,7 @@ Allowed exceptions:
 
 ### Check 5: Export Completeness (warning)
 
-1. List all `.vue` files in `src/components/core/`, `src/components/marketing/`, `src/components/application/`, `src/components/operational/`
+1. List all `.vue` files in `src/components/core/`, `src/components/marketing/`, `src/components/applications/`, `src/components/operations/`
 2. For each, verify it has an export in `src/components/index.js`
 3. For each, verify it has an `Aux`-prefixed export in `src/components/public.js`
 4. Composables (`use*.js`) should be exported from both files without `Aux` prefix
