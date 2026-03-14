@@ -147,6 +147,16 @@ export const navConfig = [
             component: () => import('./pages/ButtonPage.vue')
           },
           {
+            name: 'ButtonGroup',
+            path: 'button-group',
+            component: () => import('./pages/ButtonGroupPage.vue')
+          },
+          {
+            name: 'IconButton',
+            path: 'icon-button',
+            component: () => import('./pages/IconButtonPage.vue')
+          },
+          {
             name: 'Link',
             path: 'link',
             component: () => import('./pages/LinkPage.vue')

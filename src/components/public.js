@@ -35,7 +35,9 @@ export {
   Combobox as AuxCombobox,
   FormField as AuxFormField,
   Link as AuxLink,
-  VisuallyHidden as AuxVisuallyHidden
+  VisuallyHidden as AuxVisuallyHidden,
+  ButtonGroup as AuxButtonGroup,
+  IconButton as AuxIconButton
 } from './index.js'
 
 export { useToast } from './core/useToast.js'

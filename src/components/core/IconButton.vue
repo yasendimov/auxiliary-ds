@@ -28,10 +28,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  block: {
-    type: Boolean,
-    default: false
-  },
   type: {
     type: String,
     default: 'button'
@@ -51,10 +47,10 @@ const { variantClasses } = useButtonVariants(props, { isDisabled })
 const sizeClasses = computed(
   () =>
     ({
-      1: 'h-7 px-2.5 type-agate-m gap-1',
-      2: 'h-8 px-3 type-caption-sb gap-1.5',
-      3: 'h-9 px-4 type-caption-sb gap-2',
-      4: 'h-11 px-5 type-body-sb gap-2'
+      1: 'size-7',
+      2: 'size-8',
+      3: 'size-9',
+      4: 'size-11'
     })[resolvedSize.value]
 )
 
@@ -62,8 +58,7 @@ const buttonClasses = computed(() => [
   'rounded-panel inline-flex items-center justify-center transition-colors duration-fast ease-snap',
   '[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0',
   sizeClasses.value,
-  variantClasses.value,
-  props.block ? 'w-full' : ''
+  variantClasses.value
 ])
 
 function onClick(event) {
