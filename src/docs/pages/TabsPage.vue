@@ -19,16 +19,14 @@ const activeMany = ref('missions')
       <p class="type-overline text-base-dim">Foundation</p>
       <h1 class="type-display-sb text-base-normal mt-4">Tabs</h1>
       <p class="type-lead-r text-base-dim mt-4 max-w-xl">
-        Tab navigation with active underline indicator, three sizes, and keyboard support.
-        Composed from Tabs (container) and Tab (individual item).
+        Tab navigation with active underline indicator, three sizes, and keyboard support. Composed
+        from Tabs (container) and Tab (individual item).
       </p>
     </section>
 
     <!-- Basic -->
     <section class="px-8 lg:px-16">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">01</span> — Basic
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">01</span> — Basic</p>
       <div class="border border-base-dim rounded-card p-8">
         <Tabs v-model="activeBasic">
           <Tab value="overview">Overview</Tab>
@@ -44,9 +42,7 @@ const activeMany = ref('missions')
 
     <!-- Sizes -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">02</span> — Sizes
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">02</span> — Sizes</p>
       <div class="grid grid-cols-3 border-t border-l border-base-dim">
         <div
           v-for="size in ['sm', 'md', 'lg']"
@@ -67,9 +63,7 @@ const activeMany = ref('missions')
 
     <!-- Disabled -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">03</span> — Disabled
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">03</span> — Disabled</p>
       <div class="grid grid-cols-2 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">individual tab disabled</span>
@@ -96,9 +90,7 @@ const activeMany = ref('missions')
 
     <!-- Many tabs -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">04</span> — Many Tabs
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">04</span> — Many Tabs</p>
       <div class="border border-base-dim rounded-card p-8">
         <Tabs v-model="activeMany">
           <Tab value="missions">Missions</Tab>

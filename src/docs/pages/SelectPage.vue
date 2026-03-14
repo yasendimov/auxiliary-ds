@@ -163,9 +163,7 @@ import { GlobeAltIcon } from '@heroicons/vue/24/outline'
 
     <!-- Disabled -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">06</span> — Disabled
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">06</span> — Disabled</p>
       <div class="grid grid-cols-2 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">disabled</span>

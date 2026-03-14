@@ -131,9 +131,7 @@ function onChange(event) {
         :disabled="disabled"
         :class="selectClasses"
         :aria-invalid="activeVariant === 'error' || undefined"
-        :aria-describedby="
-          error ? `${selectId}-error` : hint ? `${selectId}-hint` : undefined
-        "
+        :aria-describedby="error ? `${selectId}-error` : hint ? `${selectId}-hint` : undefined"
         @change="onChange"
         @focus="emit('focus', $event)"
         @blur="emit('blur', $event)"

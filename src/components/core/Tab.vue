@@ -32,7 +32,11 @@ const tabClasses = computed(() => {
     'relative cursor-pointer border-b-2 -mb-px transition-colors duration-fast ease-snap outline-none'
 
   if (isDisabled.value) {
-    return [base, sizeClasses.value, 'text-action-content-disabled border-transparent cursor-not-allowed']
+    return [
+      base,
+      sizeClasses.value,
+      'text-action-content-disabled border-transparent cursor-not-allowed'
+    ]
   }
 
   if (isActive.value) {

@@ -23,9 +23,7 @@ const showSlotOnly = ref(false)
 
     <!-- Basic -->
     <section class="px-8 lg:px-16">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">01</span> — Basic
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">01</span> — Basic</p>
       <div class="border border-base-dim rounded-card p-8">
         <Button @click="showBasic = true">Open dialog</Button>
         <Dialog
@@ -46,9 +44,7 @@ const showSlotOnly = ref(false)
 
     <!-- Sizes -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">02</span> — Sizes
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">02</span> — Sizes</p>
       <div class="grid grid-cols-3 border-t border-l border-base-dim">
         <div
           v-for="size in ['sm', 'md', 'lg']"
