@@ -40,9 +40,7 @@ const stats = [
 
     <!-- Features Grid -->
     <section class="py-12 lg:py-16 px-10 lg:px-20">
-      <p class="type-overline text-base-dim mb-8">
-        <span class="font-mono">01</span> — Features
-      </p>
+      <p class="type-overline text-base-dim mb-8"><span class="font-mono">01</span> — Features</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div
           v-for="feature in features"

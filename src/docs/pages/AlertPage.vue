@@ -27,9 +27,7 @@ function resetDismissible() {
 
     <!-- 01 Variants -->
     <section class="px-8 lg:px-16">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">01</span> — Variants
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">01</span> — Variants</p>
       <div class="grid grid-cols-1 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-4">
           <div class="max-w-lg flex flex-col gap-3">

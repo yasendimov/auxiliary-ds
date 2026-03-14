@@ -18,16 +18,16 @@ const props = defineProps({
 })
 
 const colorScales = [
-  { name: 'cyan',    step9: 'var(--cyan-9)',    step3: 'var(--cyan-3)' },
-  { name: 'teal',    step9: 'var(--teal-9)',    step3: 'var(--teal-3)' },
-  { name: 'indigo',  step9: 'var(--indigo-9)',  step3: 'var(--indigo-3)' },
-  { name: 'violet',  step9: 'var(--violet-9)',  step3: 'var(--violet-3)' },
-  { name: 'iris',    step9: 'var(--iris-9)',    step3: 'var(--iris-3)' },
-  { name: 'purple',  step9: 'var(--purple-9)',  step3: 'var(--purple-3)' },
+  { name: 'cyan', step9: 'var(--cyan-9)', step3: 'var(--cyan-3)' },
+  { name: 'teal', step9: 'var(--teal-9)', step3: 'var(--teal-3)' },
+  { name: 'indigo', step9: 'var(--indigo-9)', step3: 'var(--indigo-3)' },
+  { name: 'violet', step9: 'var(--violet-9)', step3: 'var(--violet-3)' },
+  { name: 'iris', step9: 'var(--iris-9)', step3: 'var(--iris-3)' },
+  { name: 'purple', step9: 'var(--purple-9)', step3: 'var(--purple-3)' },
   { name: 'crimson', step9: 'var(--crimson-9)', step3: 'var(--crimson-3)' },
-  { name: 'plum',    step9: 'var(--plum-9)',    step3: 'var(--plum-3)' },
-  { name: 'jade',    step9: 'var(--jade-9)',    step3: 'var(--jade-3)' },
-  { name: 'blue',    step9: 'var(--blue-9)',    step3: 'var(--blue-3)' }
+  { name: 'plum', step9: 'var(--plum-9)', step3: 'var(--plum-3)' },
+  { name: 'jade', step9: 'var(--jade-9)', step3: 'var(--jade-3)' },
+  { name: 'blue', step9: 'var(--blue-9)', step3: 'var(--blue-3)' }
 ]
 
 const frameNames = ['shield', 'circle', 'diamond', 'pentagon', 'chevron']
@@ -75,7 +75,7 @@ const identicon = computed(() => {
   const framePathD = isCircle ? null : framePaths[frameName]
 
   // Color
-  const colorIndex = ((h1 >>> 3) & 0xF) % colorScales.length
+  const colorIndex = ((h1 >>> 3) & 0xf) % colorScales.length
   const color = colorScales[colorIndex]
 
   // Central device (0-6)
@@ -83,7 +83,7 @@ const identicon = computed(() => {
 
   // Decorative elements
   const decoIndex1 = (h3 & 0x7) % 6
-  const decoIndex2 = ((h3 >>> 3) & 0x3)
+  const decoIndex2 = (h3 >>> 3) & 0x3
 
   // Stars, fill, border
   const starCount = (h4 & 0x3) + 1
@@ -101,7 +101,7 @@ const identicon = computed(() => {
   const decorations = buildDecorations(decoIndex1, decoIndex2, starCount, starArc)
 
   // ClipPath ID unique per component instance
-  const clipId = `clip-${djb2(props.seed + 'clip') & 0xFFFF}`
+  const clipId = `clip-${djb2(props.seed + 'clip') & 0xffff}`
 
   return {
     framePathD,
@@ -145,9 +145,7 @@ function buildDevice(index) {
       { type: 'circle', cx: 32, cy: 32, r: 2.5, filled: true }
     ],
     // 4: Star (5-pointed)
-    [
-      { type: 'path', d: starPath(32, 32, 12, 5, 5), filled: true }
-    ],
+    [{ type: 'path', d: starPath(32, 32, 12, 5, 5), filled: true }],
     // 5: Anchor
     [
       { type: 'line', x1: 32, y1: 20, x2: 32, y2: 44, sw: 2 },
@@ -156,9 +154,7 @@ function buildDevice(index) {
       { type: 'line', x1: 26, y1: 24, x2: 38, y2: 24, sw: 2 }
     ],
     // 6: Lightning bolt
-    [
-      { type: 'path', d: 'M 34,16 L 26,34 L 32,34 L 28,48 L 40,30 L 34,30 Z', filled: true }
-    ]
+    [{ type: 'path', d: 'M 34,16 L 26,34 L 32,34 L 28,48 L 40,30 L 34,30 Z', filled: true }]
   ]
   return devices[index]
 }
@@ -199,7 +195,12 @@ function buildDecorations(decoIndex1, decoIndex2, starCount, starArc) {
   if (decoIndex2 === 0 || decoIndex2 === 1) {
     const positions = getStarPositions(starCount, starArc)
     for (const pos of positions) {
-      elements.push({ type: 'path', d: starPath(pos.cx, pos.cy, 2.5, 1, 5), filled: true, opacity: 0.7 })
+      elements.push({
+        type: 'path',
+        d: starPath(pos.cx, pos.cy, 2.5, 1, 5),
+        filled: true,
+        opacity: 0.7
+      })
     }
   }
 
@@ -330,7 +331,13 @@ function getStarPositions(count, arc) {
       </template>
 
       <!-- Central device -->
-      <g :transform="identicon.deviceScale !== 1 ? `translate(32,32) scale(${identicon.deviceScale}) translate(-32,-32)` : undefined">
+      <g
+        :transform="
+          identicon.deviceScale !== 1
+            ? `translate(32,32) scale(${identicon.deviceScale}) translate(-32,-32)`
+            : undefined
+        "
+      >
         <template v-for="(el, i) in identicon.device" :key="'e' + i">
           <line
             v-if="el.type === 'line'"

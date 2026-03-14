@@ -60,7 +60,10 @@ const trackClasses = computed(() => {
     return [base, 'bg-blue-solid']
   }
 
-  return [base, 'bg-base-ui ring-1 ring-inset ring-base-6 dark:ring-basedark-6 hover:ring-base-7 hover:dark:ring-basedark-7']
+  return [
+    base,
+    'bg-base-ui ring-1 ring-inset ring-base-6 dark:ring-basedark-6 hover:ring-base-7 hover:dark:ring-basedark-7'
+  ]
 })
 
 const thumbClasses = computed(() => {

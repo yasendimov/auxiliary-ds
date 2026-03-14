@@ -548,11 +548,7 @@ const fleetRows = [
             />
             <Checkbox :model-value="false" label="Maintenance mode" disabled />
             <Toggle v-model="toggleOn" label="Telemetry streaming" />
-            <Toggle
-              v-model="toggleOff"
-              label="Auto-return"
-              hint="Return to home on signal loss"
-            />
+            <Toggle v-model="toggleOff" label="Auto-return" hint="Return to home on signal loss" />
             <Toggle
               v-model="toggleError"
               label="Geofence override"

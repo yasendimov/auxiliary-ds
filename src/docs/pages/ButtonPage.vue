@@ -40,9 +40,7 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Disabled -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">02</span> — Disabled
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">02</span> — Disabled</p>
       <div class="grid grid-cols-3 border-t border-l border-base-dim">
         <div
           v-for="variant in variants"
@@ -59,9 +57,7 @@ const sizes = ['sm', 'md', 'lg']
 
     <!-- Loading -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">03</span> — Loading
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">03</span> — Loading</p>
       <div class="grid grid-cols-1 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">primary / loading</span>

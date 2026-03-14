@@ -189,8 +189,8 @@ const identiconSeeds = [
       </p>
       <p class="type-body-r text-base-dim mb-6 max-w-2xl">
         The Identicon component generates a deterministic 5x5 symmetric pattern from any string
-        seed. Same string always produces the same pattern. Colors are drawn from chromatic
-        step-9 values that remain stable across light and dark themes.
+        seed. Same string always produces the same pattern. Colors are drawn from chromatic step-9
+        values that remain stable across light and dark themes.
       </p>
       <div class="flex items-end gap-6">
         <div v-for="seed in identiconSeeds" :key="seed" class="flex flex-col items-center gap-2">

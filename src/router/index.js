@@ -267,8 +267,7 @@ const routes = [
         name: 'ds-operations',
         component: stub,
         meta: { number: '13', title: 'Operations', sections: [] }
-      },
-
+      }
     ]
   }
 ]

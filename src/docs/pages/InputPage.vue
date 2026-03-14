@@ -77,11 +77,7 @@ const sizes = ['sm', 'md', 'lg']
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">error via prop</span>
           <div>
-            <Input
-              label="Altitude"
-              model-value="not a number"
-              error="Must be a numeric value."
-            />
+            <Input label="Altitude" model-value="not a number" error="Must be a numeric value." />
           </div>
         </div>
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">

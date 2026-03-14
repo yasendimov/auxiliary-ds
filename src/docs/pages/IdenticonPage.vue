@@ -2,10 +2,22 @@
 import { Identicon } from '../../components'
 
 const gallerySeeds = [
-  'Alpha Squadron', 'Bravo Team', 'Charlie Unit', 'Delta Force',
-  'Echo Base', 'Foxtrot', 'Golf Company', 'Hotel Platoon',
-  'India Wing', 'Juliet Division', 'Kilo Battery', 'Lima Recon',
-  'Mike Patrol', 'November Guard', 'Oscar Fleet', 'Papa Strike'
+  'Alpha Squadron',
+  'Bravo Team',
+  'Charlie Unit',
+  'Delta Force',
+  'Echo Base',
+  'Foxtrot',
+  'Golf Company',
+  'Hotel Platoon',
+  'India Wing',
+  'Juliet Division',
+  'Kilo Battery',
+  'Lima Recon',
+  'Mike Patrol',
+  'November Guard',
+  'Oscar Fleet',
+  'Papa Strike'
 ]
 
 const frameVariants = ['shield', 'circle', 'diamond', 'pentagon', 'chevron']
@@ -27,8 +39,8 @@ const taskForces = [
       <p class="type-overline text-content-dim">Foundation</p>
       <h1 class="type-display-sb text-content-high mt-4">Identicon</h1>
       <p class="type-lead-r text-content-low mt-4 max-w-xl">
-        Procedural military-style badge generator. Deterministic visual from any
-        string seed. Five frame shapes, seven devices, decorative elements.
+        Procedural military-style badge generator. Deterministic visual from any string seed. Five
+        frame shapes, seven devices, decorative elements.
       </p>
     </section>
 
@@ -44,7 +56,9 @@ const taskForces = [
           class="border-b border-r border-line p-6 flex flex-col items-center gap-3"
         >
           <Identicon :seed="seed" :size="48" />
-          <span class="type-agate-r text-content-dim font-mono text-center leading-tight">{{ seed }}</span>
+          <span class="type-agate-r text-content-dim font-mono text-center leading-tight">{{
+            seed
+          }}</span>
         </div>
       </div>
     </section>
@@ -68,15 +82,9 @@ const taskForces = [
 
     <!-- 03 Sizes -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-content-dim mb-12">
-        <span class="font-mono">03</span> — Sizes
-      </p>
+      <p class="type-overline text-content-dim mb-12"><span class="font-mono">03</span> — Sizes</p>
       <div class="flex items-end gap-8">
-        <div
-          v-for="s in sizes"
-          :key="s"
-          class="flex flex-col items-center gap-3"
-        >
+        <div v-for="s in sizes" :key="s" class="flex flex-col items-center gap-3">
           <Identicon seed="Bravo Team" :size="s" />
           <span class="type-overline text-content-dim font-mono">{{ s }}px</span>
         </div>
@@ -112,9 +120,7 @@ const taskForces = [
           <Identicon :seed="tf.seed" :size="48" />
           <div class="flex-1 min-w-0">
             <p class="type-body-m text-content-high">{{ tf.name }}</p>
-            <p class="type-caption-r text-content-dim">
-              {{ tf.members }} units · {{ tf.status }}
-            </p>
+            <p class="type-caption-r text-content-dim">{{ tf.members }} units · {{ tf.status }}</p>
           </div>
         </div>
       </div>

@@ -37,9 +37,7 @@ const realWorldFrequency = ref('daily')
 
     <!-- 01 Default -->
     <section class="px-8 lg:px-16">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">01</span> — Default
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">01</span> — Default</p>
       <div class="grid grid-cols-1 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">vertical group</span>
@@ -98,12 +96,7 @@ const realWorldFrequency = ref('daily')
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">unselected</span>
           <div>
-            <Radio
-              v-model="stateUnselected"
-              value="off"
-              name="state-unselected"
-              label="Option"
-            />
+            <Radio v-model="stateUnselected" value="off" name="state-unselected" label="Option" />
           </div>
         </div>
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
@@ -177,9 +170,7 @@ const realWorldFrequency = ref('daily')
 
     <!-- 05 With Hint -->
     <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">05</span> — With Hint
-      </p>
+      <p class="type-overline text-base-dim mb-12"><span class="font-mono">05</span> — With Hint</p>
       <div class="grid grid-cols-1 border-t border-l border-base-dim">
         <div class="border-b border-r border-base-dim p-8 flex flex-col gap-3">
           <span class="type-overline text-base-dim">group + option hints</span>
@@ -190,11 +181,7 @@ const realWorldFrequency = ref('daily')
               label="Update frequency"
               hint="Controls how often the system checks for changes."
             >
-              <Radio
-                value="realtime"
-                label="Real-time"
-                hint="Immediate updates as they occur."
-              />
+              <Radio value="realtime" label="Real-time" hint="Immediate updates as they occur." />
               <Radio value="daily" label="Daily" hint="Aggregated once per day." />
               <Radio value="weekly" label="Weekly" hint="Summary delivered each Monday." />
             </RadioGroup>
