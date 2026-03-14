@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: foundation primitives, marketing/brand, conventional application UI, and aerospace mission-critical operational interfaces.
+**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: core primitives, marketing/brand, conventional application UI, and aerospace mission-critical operational interfaces.
 
 ## Commands
 
+- `pnpm install` — Install dependencies
 - `pnpm dev` — Start dev server
 - `pnpm build` — Production build
 - `pnpm preview` — Preview production build locally
-- `pnpm generate-tokens` — Regenerate `src/tokens/colors.css` from Radix + Auterion sources
 - Dev server runs on **port 4747** (configured in vite.config.js)
 
 ## Stack
@@ -21,22 +21,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Tailwind CSS v4** — CSS-first config via `@tailwindcss/vite`, no `tailwind.config.js`
 - **Vue Router** — docs app navigation, `src/router/index.js`
 - **pnpm** — package manager, always use pnpm not npm or yarn
-- **Fonts** — Inter Variable (UI), JetBrains Mono (data/code) via Google Fonts
-- **@radix-ui/colors** — Radix color scales, consumed by `scripts/generate-tokens.js`
+- **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
+- **Color scales** — 32 scales in `src/tokens/colors/*.css`, CSS-first `@theme` + `@utility`, no JS plugin
+- **@heroicons/vue** — Icon library, import directly from size/variant paths (e.g. `@heroicons/vue/20/outline`)
 
 ## Folder Structure
+
 ```
 src/
 ├── tokens/               ← CSS custom properties (future @aux/tokens)
-│   ├── colors.css        ← GENERATED — run `pnpm generate-tokens`
 │   ├── typography.css
 │   ├── spacing.css
 │   ├── border-radius.css
 │   ├── shadows.css
 │   ├── motion.css
 │   └── z-index.css
+├── assets/
+│   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
 ├── components/
-│   ├── foundation/       ← Primitives (future @aux/components)
+│   ├── core/       ← Primitives (future @aux/components)
 │   ├── marketing/        ← Brand and website components
 │   ├── application/      ← Conventional SaaS UI
 │   └── operational/      ← Aerospace mission-critical UI
@@ -52,37 +55,36 @@ docs/                      ← Design docs (not published)
 
 ## Token Architecture
 
-Colors follow a strict two-layer system:
+Colors are defined CSS-first in `src/tokens/colors/`. Each of the 32 scale files uses native Tailwind v4 `@theme` to register raw CSS custom properties (`--color-{scale}-{step}`) and native `@utility` directives to define the 12 semantic classes. No JS plugin is involved.
 
-**Layer 1 — Primitives** (in `src/tokens/colors.css`)
-Raw 12-step scales defined as CSS custom properties on `:root` (light) and `[data-theme="dark"]` (dark). These are never used directly in components.
-```css
-:root               { --blue-9: #1475ff; }
-[data-theme="dark"] { --blue-9: #1475ff; }
-```
+**How it works:**
 
-**Layer 2 — Semantic Aliases** (in Tailwind `@theme`)
-Intent-based names that reference primitives via `var()`. Defined once, resolve automatically when theme changes.
-```css
-@theme {
-  --color-action: var(--blue-9);
-}
-```
+1. Each scale file defines 12-step light + dark variables in `@theme`
+2. Each scale file defines 12 semantic `@utility` classes that bundle dark mode + interaction states via `@apply`
+3. `style.css` resets Tailwind defaults with `--color-*: initial`, then imports all 32 scale files plus non-color tokens
 
 **Rules:**
-- Components ALWAYS use semantic tokens (`--color-action`), NEVER raw scale values (`--blue-9`) or hardcoded hex values
-- Tailwind utilities are generated from `@theme` — use `bg-action`, `text-content-high`, `border-line` etc.
+
+- Everything must be **on-system** — every color, size, duration, and radius must come from AUX tokens. No arbitrary values (`text-[13px]`, `duration-100`, `tracking-[0.15em]`), no Tailwind defaults, no hardcoded hex. If a token doesn't exist for what you need, flag it — don't work around it.
+- Use semantic classes when possible: `bg-red-ui`, `border-base-dim`, `text-base-normal`
+- Use raw step classes for edge cases: `border-red-9 dark:border-reddark-9`
 - Never use inline styles for colors
-- Never use Tailwind's default color palette (blue-500, gray-900 etc.) — always use AUX semantic tokens
+- Semantic classes handle dark mode + interaction states automatically — always prefer them over raw steps
+- Raw step classes require manual dark mode pairing: `bg-red-9 dark:bg-reddark-9` (note: `{scale}dark` suffix, no hyphen)
+- Never use Tailwind's built-in color palette (`bg-gray-500`, `text-slate-400`) — only AUX scale classes
+- Never use arbitrary color values (`bg-[#1475ff]`, `text-[rgb(0,0,0)]`)
+- `text-white` and `text-black` are the only non-scale color classes allowed (for contrast on solid fills)
 
 ### Spacing
 
 Three page-level constants in `src/tokens/spacing.css`, registered in `@theme` so Tailwind generates utilities:
+
 - `--spacing-page-x` (24px) → `px-page-x` — horizontal page padding
 - `--spacing-page-y` (24px) → `py-page-y` — vertical page padding
 - `--spacing-section` (48px) → `gap-section`, `mb-section` — between major sections
 
 Everything else uses Tailwind's built-in spacing scale directly. Layout density varies by context:
+
 - **Marketing**: `px-6 md:px-8 lg:px-12`, `py-16 md:py-24`
 - **Application**: `px-6 py-6`
 - **Operational**: `px-2 py-2`, instruments `p-1.5`
@@ -91,21 +93,53 @@ Everything else uses Tailwind's built-in spacing scale directly. Layout density 
 
 - **Base scale** — Pure achromatic neutral (custom Auterion, no hue tint)
 - **Blue scale** — Primary accent, #1475ff at step 9 (stable across themes)
-- **Radix chromatic scales** — Full set for status and data visualization
+- **Chromatic scales** — Full set for status and data visualization
 - **Step 9 rule** — The accent fill (step 9) is always the same hex in both light and dark mode
 - **Scale inversion** — In dark mode, step 1 is darkest, step 12 is lightest (opposite of light mode)
 
-## Alert Hierarchy (OpenBridge Standard)
+### Color rules
 
-Operational components MUST follow the OpenBridge aviation alert hierarchy strictly:
+- **Blue is interactive-only** — blue means "you can act on this." Never use blue decoratively or for status
+- **Alert colors are signal-only** — red/orange/amber/green carry operational meaning (alarm/warning/caution/OK). Never use them decoratively or for generic success/error outside the alert hierarchy
+- **Semantic classes first** — always use `bg-{s}-ui`, `border-{s}-dim`, `text-{s}-normal` etc. over raw steps
+- **Raw steps are edge cases** — accent borders (`border-red-9 dark:border-reddark-9`), checked-state fills, focus ring colors. Always pair with `dark:` variant
+- **Dark mode naming** — dark variants use `{scale}dark` suffix with no hyphen: `--color-reddark-9`, `bg-reddark-3`
+- **No inline color styles** — all colors via Tailwind classes. Only exception: docs pages rendering dynamic token previews
+- **Every component must work in both themes** — if you only tested dark, it is not done
 
-- **Alarm** — red, immediate action required
-- **Warning** — orange, urgent attention needed
-- **Caution** — amber, awareness required
-- **OK** — green, normal state
+### Semantic utility classes
 
-Every alert level currently has 3 token variants: `base`, `subtle`, `content`. Planned expansion to 7: adding `hover`, `muted`, `border`, `fill`.
-Status colors are NEVER used decoratively — only for their designated alert level.
+Each scale's `.css` file defines semantic classes via `@utility`. These bundle dark mode and interaction states automatically:
+
+| Class                   | Steps           | Behavior                     |
+| ----------------------- | --------------- | ---------------------------- |
+| `bg-{color}-app`        | 1               | Page background              |
+| `bg-{color}-subtle`     | 2               | Subtle/striped background    |
+| `bg-{color}-ui`         | 3→4→5           | UI surface with hover+active |
+| `bg-{color}-ghost`      | transparent→3→4 | Ghost button pattern         |
+| `bg-{color}-action`     | 4→5→6           | Selected/active surface      |
+| `bg-{color}-solid`      | 9→10            | Solid fill with hover        |
+| `border-{color}-dim`    | 6               | Subtle border                |
+| `border-{color}-normal` | 7→8             | UI border with hover         |
+| `divide-{color}-dim`    | 6               | Subtle divider               |
+| `divide-{color}-normal` | 7→8             | UI divider with hover        |
+| `text-{color}-dim`      | 11              | Secondary text               |
+| `text-{color}-normal`   | 12              | Primary text                 |
+
+Available scales: `base` (neutral), `blue` (action/accent), `red`, `orange`, `amber`, `green`, `indigo`, and 20+ additional chromatic and neutral scales.
+
+Usage: `bg-base-app`, `bg-red-ui`, `border-base-dim`, `text-base-normal`, `bg-blue-solid`, etc.
+
+For edge cases (accent borders, checked-state fills), use raw step classes: `border-red-9 dark:border-reddark-9`.
+
+### Alert hierarchy colors (OpenBridge)
+
+Status colors are NEVER used decoratively — only for their designated alert level:
+
+- **Alarm** — `red` scale, immediate action required
+- **Warning** — `orange` scale, urgent attention needed
+- **Caution** — `amber` scale, awareness required
+- **OK** — `green` scale, normal state
 
 ## Theming
 
@@ -119,67 +153,56 @@ Status colors are NEVER used decoratively — only for their designated alert le
 ## Typography
 
 - **Inter Variable** — all UI text
-- **JetBrains Mono** — telemetry values, coordinates, data readouts, code, token names
-- 13-step type scale from 12px to 128px
+- **IBM Plex Mono** — telemetry values, coordinates, data readouts, code, token names
+- 13-step type scale from 12px (agate) to 128px (broadsheet)
 - Three weights only: Regular (400), Medium (500), SemiBold (600)
+- Type classes use weight suffixes: `.type-{name}-sb`, `.type-{name}-m`, `.type-{name}-r`
+- Scale names: broadsheet (128) · tabloid (96) · hero (80) · display (60) · title (48) · heading (40) · subheading (30) · section (24) · lead (20) · intro (18) · body (16) · caption (14) · agate (12)
+- `agate` has no `-sb` variant (SemiBold at 12px is too heavy)
+- `.type-overline` (11px) is a special formatting class — no weight suffix, includes `text-transform: uppercase`
+- No bare class names — always use the weight suffix (e.g., `type-body-r` not `type-body`)
 - OpenType features enabled by default: tabular figures, contextual alternates
 - Tracking tightens as size increases: -2% body, -3% heading, -4% display
+- Regular weight gets looser tracking than SemiBold/Medium at large display sizes (optical correction)
 - Never use italic in operational interfaces
 - Uppercase only for labels and overlines — never body text
 
 ## Design Philosophy
 
-See docs/design-philosophy.md for the full rationale.
+See `docs/design-philosophy.md` for full rationale and decision framework.
 
-The AUX visual style is **functional authority** — it needs to look like it controls things that fly. Every visual decision must serve one of these principles:
+Core principle: **functional authority** — looks like it controls things that fly. No decoration. Every element encodes meaning or it's removed.
 
-**When writing any component, ask:**
-- Is this language or data? Language gets Inter. Data gets JetBrains Mono.
-- Is this a heading or body? Headings get SemiBold with tight negative tracking. Body gets Regular.
-- Is this decorative or functional? If decorative, remove it.
-- Is this an operational interface? If yes, fixed sizes only — never fluid or responsive type.
-- Does this color carry signal? alarm/warning/caution/ok colors must mean that alert level — never use them decoratively.
-- Does this need a shadow or gradient? Almost certainly not. Remove it.
-- Does this need rounded corners? Only on interactive elements — never on data displays.
+Quick rules: Inter for language, IBM Plex Mono for data. No shadows or gradients unless justified. 4px grid. Alert colors only for alerts. Blue only for interactive. Test both themes.
 
-**The rules:**
-- Dark mode is the native state — always design and test dark first
-- Density over whitespace — pack information, make it scannable
-- Three weights only — Regular, Medium, SemiBold. Never a fourth.
-- One typeface — Inter Variable for everything except data
-- No gradients, no decorative shadows, no rounded corners on data
-- Blue is interactive only — never use it as a status or alert color
-- Monospace is data only — never use it decoratively
+## Icons
 
-## Design Decision Framework
+Heroicons (`@heroicons/vue`). Import directly, size with `size-4`/`size-5`/`size-6`, color via `currentColor`.
 
-When a design choice is unclear, apply these questions in order:
-
-1. Which context is this? Operational, application, or marketing? The answer governs density, motion, radius, and shadow.
-2. Does this element encode meaning? If yes, it stays. If purely decorative, remove it.
-3. Does this work across both themes? Test light and dark. If it fails in either, it is not finished.
-4. Does this follow the grid? Every measurement resolves to 4px multiples. If it does not, justify why.
-5. Is the color semantic? Alert colors for alerts only. Blue for interactive only. Everything else from neutral or chromatic palette.
-6. Would this survive in a cockpit? For operational components: if an operator under stress could misread this, it is wrong.
-7. Is this the simplest version? Remove one more thing. If it still works, the removed thing was not needed.
-
-## Iconography Rules
-
-- Optical sizes: 16px for UI, 20px for navigation, 24px for feature callouts
-- Stroke weight: 1.5px consistent across the set
-- Style: outlined, geometric, minimal detail — legible at small sizes in dense layouts
-- Always inherit currentColor — never hardcoded fills or strokes
-- Never used decoratively — every icon encodes a specific action or object
-- Operational icons (alert indicators, vehicle status) must be unambiguous at 16px on both themes
+- `16/solid` — micro icons (solid only)
+- `20/outline` / `20/solid` — default UI
+- `24/outline` / `24/solid` — feature/nav
 
 ## Data Visualization Rules
 
-- Alert colors are reserved for their alert meanings — a red line on a chart means alarm-level data, nothing else
-- Series differentiation uses the chromatic palette (non-blue, non-alert hues)
-- Axes and labels: text-content-dim
-- Data values: monospace
-- Grid lines: --color-line at reduced opacity — never competing with data
-- Every chart must be legible in both light and dark themes
+- Alert colors reserved for alert meanings only. Series use chromatic palette (non-blue, non-alert).
+- Axes/labels: `text-base-dim`. Data values: monospace. Grid: `--color-base-6` at reduced opacity.
+- Must be legible in both themes.
+
+## Component Implementation Standard
+
+When building any new component, reference Tailwind Plus Vue components
+for implementation patterns — not design. Specifically follow their
+conventions for:
+
+- Computed class composition (avoid long inline ternary chains)
+- Props and emits definitions
+- Slot structure and naming
+- Accessibility attributes and ARIA patterns
+- State handling (disabled, loading, active, focus)
+
+Do not copy their visual design, spacing, colors, or radius decisions.
+AUX tokens and design philosophy govern all visual decisions.
 
 ## Component Rules
 
@@ -187,14 +210,21 @@ When a design choice is unclear, apply these questions in order:
 - Props defined with `defineProps()`, events with `defineEmits()`
 - No inline styles — Tailwind classes only
 - No hardcoded colors, spacing, or font values — always use tokens
-- Components in `foundation/` are the only ones allowed to use raw Tailwind utilities
-- Components in `marketing/`, `application/`, `operational/` must compose from `foundation/` primitives
+- Components in `core/` are the only ones allowed to use raw Tailwind utilities
+- Components in `marketing/`, `application/`, `operational/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
 - Operational components must strictly follow OpenBridge conventions
+- Every component must include: keyboard interaction support, focus-visible styles,
+  appropriate ARIA attributes, and sufficient color contrast in both themes.
+  Accessibility is structural — not a post-build checklist.
+- **Focus convention:** Buttons and standalone controls use the global `focus-visible` outline
+  (2px solid, 2px offset). Form inputs use `focus-visible:ring-1` (inset box-shadow) + border
+  color change — the inset ring avoids double-border with the input's existing border. Both
+  approaches use `focus-visible` (keyboard only), never bare `focus`.
 
 ## Component Categories
 
-- **Foundation** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
+- **Core** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
 - **Marketing** — Public-facing brand components. Hero, FeatureCard, Nav, Footer, CTA, etc.
 - **Application** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
 - **Operational** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
@@ -204,6 +234,7 @@ When a design choice is unclear, apply these questions in order:
 Format: `prefix/weird-name`
 
 Prefixes:
+
 - `feature/` — new components or features
 - `fix/` — bug fixes
 - `chore/` — maintenance, config, tooling
@@ -212,17 +243,29 @@ Prefixes:
 
 Example: `feature/grumpy-tooltip`, `fix/lost-token`
 
+## Commit Messages
+
+Conventional Commits. Format: `type: short description`
+
+Types: `feat` (new component/feature/page), `fix` (bug fix), `chore` (config/tooling/refactor), `docs` (documentation)
+
+Rules: lowercase after colon, no period, present tense imperative, name the component/file, one concern per commit.
+
+Examples: `feat: add Checkbox component and docs page`, `chore: rename PageHeader to Header`
+
 ## Publishing
 
 - Published as npm package `auxiliary-ds`
-- `src/` is the published package (build/export config not yet set up)
+- `src/` is the published package — build/export config not yet set up (`package.json` is currently `"private": true`)
 - `src/docs/` is the documentation app — not published
 - License: Apache 2.0
 - Structured for future monorepo split into `@aux/tokens`, `@aux/icons`, `@aux/components`
 
 ## Gotchas
 
-- `scripts/generate-tokens.js` — Auterion defines custom `base` and `blue` scales. If you add `'blue'` back to the `radixChromatics` array, Radix's blue will overwrite Auterion's `#1475ff`. The custom scales must not appear in the Radix import lists.
-- `colors.css` is GENERATED — never edit directly, always modify the generator script
+- Custom `base` and `blue` scales live in `src/tokens/colors/base.css` and `src/tokens/colors/blue.css`. They are custom Auterion scales — do not confuse them with Tailwind's built-in `blue`. The reset `--color-*: initial` in `style.css` wipes Tailwind's defaults before the scale files load.
+- `style.css` must reset `--color-*: initial` in a `@theme` block BEFORE importing the color scale files, otherwise the reset wipes the scale variables.
+- Dark mode uses `@custom-variant dark` mapped to `[data-theme="dark"]`. All `dark:` classes in the `@utility` definitions resolve via this selector.
 - Tailwind v4 `@theme` uses a different scope than `:root` — referencing `var(--foo)` inside `@theme` where `--foo` is also defined in `@theme` creates a circular reference. Use literal values or reference variables from `:root` only.
-- Borders and dividers use `--color-line` — never arbitrary opacity hacks
+- Borders and dividers use `border-base-dim` — never arbitrary opacity hacks
+- No `@` path alias configured — always use relative imports (e.g. `../components/core/Foo.vue`)
