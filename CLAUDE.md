@@ -9,12 +9,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 - `pnpm install` — Install dependencies (also configures git hooks via `postinstall`)
-- `pnpm dev` — Start dev server
+- `pnpm dev` — Start library dev server (port 4747, configured in vite.config.js)
 - `pnpm build` — Production build
 - `pnpm preview` — Preview production build locally
+- `pnpm docs:dev` — Start VitePress documentation dev server
+- `pnpm docs:build` — Build VitePress documentation for production
+- `pnpm docs:preview` — Preview VitePress documentation build locally
 - `pnpm format` — Auto-format all source files with Prettier
 - `pnpm lint` / `pnpm lint:fix` — Run ESLint / auto-fix
-- Dev server runs on **port 4747** (configured in vite.config.js)
 
 ### Pre-commit Hook
 
@@ -31,7 +33,8 @@ The hook is activated by `git config core.hooksPath .githooks`, which runs autom
 - **Vue 3** — Composition API only, `<script setup>` syntax, no Options API, no TypeScript, no JSX
 - **Vite 7** — bundler and dev server
 - **Tailwind CSS v4** — CSS-first config via `@tailwindcss/vite`, no `tailwind.config.js`
-- **Vue Router** — docs app navigation, config in `src/docs/nav.js`, router in `src/router/index.js`
+- **VitePress** — documentation site with fully custom theme using AUX components and tokens
+- **Vue Router** — docs app navigation (legacy, in `src/docs/nav.js` and `src/router/index.js`)
 - **pnpm** — package manager, always use pnpm not npm or yarn
 - **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
 - **Color scales** — 32 scales in `src/tokens/colors/*.css`, CSS-first `@theme` + `@utility`, no JS plugin
@@ -57,8 +60,8 @@ src/
 │   ├── marketing/        ← Brand and website components
 │   ├── application/      ← Conventional SaaS UI
 │   └── operational/      ← Aerospace mission-critical UI
-├── docs/                 ← Documentation app (not published)
-│   ├── nav.js            ← Single source of truth for nav + routes
+├── docs/                 ← Legacy docs app (Vue page components reused by VitePress)
+│   ├── nav.js            ← Legacy nav config (still used by src/router)
 │   ├── pages/
 │   │   ├── gallery/      ← Multi-component showcase pages
 │   │   └── identity/     ← Brand identity pages
@@ -66,8 +69,26 @@ src/
 ├── style.css             ← Tailwind import + token imports
 ├── App.vue
 └── main.js
-docs/                      ← Design docs (not published)
-└── design-decisions.md
+docs/                      ← VitePress documentation site
+├── .vitepress/
+│   ├── config.js          ← VitePress config (Tailwind, fonts, aliases)
+│   ├── design-decisions.md ← Internal design docs (not routed)
+│   └── theme/
+│       ├── index.js       ← Custom theme entry (registers AUX components)
+│       ├── Layout.vue     ← Custom layout (sidebar, nav, theme toggle)
+│       ├── useNav.js      ← Navigation data for sidebar
+│       └── demos/         ← Demo wrapper components
+├── index.md               ← Home page
+├── brand/                 ← Brand section (01-08)
+│   ├── identity.md
+│   ├── logo.md … language.md
+│   └── gallery/
+└── system/                ← System section (09-13)
+    ├── tokens.md
+    ├── core/              ← One .md per component
+    ├── marketing/
+    ├── applications.md
+    └── operations.md
 ```
 
 ## Token Architecture
@@ -238,6 +259,30 @@ Easing: `--ease-snap` (snappy, exit-feel) and `--ease-glide` (smooth, enter-feel
 - Alert colors reserved for alert meanings only. Series use chromatic palette (non-blue, non-alert).
 - Axes/labels: `text-base-dim`. Data values: monospace. Grid: `--color-base-6` at reduced opacity.
 - Must be legible in both themes.
+
+## VitePress Documentation
+
+The documentation site uses VitePress with a fully custom theme — no default VitePress styles or layout. The custom theme lives in `docs/.vitepress/theme/` and uses AUX components and tokens for all rendering.
+
+### Architecture
+
+- **Custom theme** — `Layout.vue` is a port of the original `DocsLayout.vue` sidebar layout. All styling uses AUX tokens.
+- **`@aux` alias** — VitePress config defines `@aux` → `src/` so docs can import library components and existing page components.
+- **Component registration** — All AUX library components are registered globally in `theme/index.js` via `enhanceApp`, making them available directly in markdown.
+- **`appearance: false`** — VitePress dark mode is disabled. AUX's `data-theme` attribute system manages themes via the `useTheme` composable.
+
+### Content patterns
+
+- **Prose pages** — Pure markdown (`.md`) with optional `<script setup>` for component imports
+- **Component demo pages** — Markdown wrapping existing Vue page components: `<ButtonPage />`
+- **Heavy interactive pages** — Token reference, gallery, identity pages are kept as Vue components and embedded via `<script setup>` import
+- **Stub pages** — Markdown using `<Header>` and `<Section>` components with "Coming soon" content
+
+### Adding new pages
+
+1. Create a `.md` file in the appropriate `docs/` subdirectory
+2. Add the entry to `docs/.vitepress/theme/useNav.js` in the correct section
+3. For component demos, either write inline Vue in markdown or create a demo wrapper in `docs/.vitepress/theme/demos/`
 
 ## Component Implementation Standard
 

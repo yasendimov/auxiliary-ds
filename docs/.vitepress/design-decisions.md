@@ -1,6 +1,6 @@
 # Design Decisions — AUX
 
-> *This is the single source of truth for why AUX looks and behaves the way it does. Every token, component, and pattern in the system traces back to a principle here. When a design decision is unclear, read this first.*
+> _This is the single source of truth for why AUX looks and behaves the way it does. Every token, component, and pattern in the system traces back to a principle here. When a design decision is unclear, read this first._
 
 ---
 
@@ -83,12 +83,12 @@ Color in AUX encodes meaning. It is never decorative.
 
 The four alert levels map directly to aviation annunciator conventions:
 
-| Level | Color | Meaning | Action |
-|---|---|---|---|
-| **Alarm** | Red | Critical failure | Act immediately |
-| **Warning** | Orange | Degraded state | Act soon |
-| **Caution** | Amber | Requires monitoring | Be aware |
-| **OK** | Green | Nominal | No action needed |
+| Level       | Color  | Meaning             | Action           |
+| ----------- | ------ | ------------------- | ---------------- |
+| **Alarm**   | Red    | Critical failure    | Act immediately  |
+| **Warning** | Orange | Degraded state      | Act soon         |
+| **Caution** | Amber  | Requires monitoring | Be aware         |
+| **OK**      | Green  | Nominal             | No action needed |
 
 These are not brand colors. They are not available for UI affordances, decorative accents, or emphasis. Red does not mean "delete." Green does not mean "generic success." In AUX, these colors carry operational weight. Misusing them trains operators to ignore them — and in aerospace, that is a safety failure.
 
@@ -102,7 +102,7 @@ The visual identity of AUX comes from what is removed, not what is added.
 
 Three font weights. One typeface for language. One typeface for data. No gradients. No decorative shadows. No rounded corners on data-bearing elements. No illustrations as decoration. No icons used ornamentally.
 
-For every visual element, the test is: *what does this encode?* If the answer is "hierarchy" or "meaning," it stays. If the answer is "it looks nicer," it does not earn its place.
+For every visual element, the test is: _what does this encode?_ If the answer is "hierarchy" or "meaning," it stays. If the answer is "it looks nicer," it does not earn its place.
 
 This is not minimalism as aesthetic preference. It is the result of designing for environments where visual noise has operational cost. A gradient on a button is a decision the operator's eye has to process. A decorative shadow on a telemetry card competes with the data inside it. In application and operational contexts, every visual element must justify its existence.
 
@@ -148,7 +148,7 @@ AUX typography is Swiss precision applied to aerospace. Every rule exists becaus
 
 **Inter Variable** — all language. UI copy, navigation, headings, descriptions, labels, body text. One typeface for everything that is written by humans for humans.
 
-**IBM Plex Mono** — all data. Coordinates, telemetry, timestamps, vehicle IDs, serial numbers, callsigns, version strings, token names. When text switches to monospace, it signals: *this value came from a sensor or system, not from a person.* It is data you might need to read back, compare, or act on.
+**IBM Plex Mono** — all data. Coordinates, telemetry, timestamps, vehicle IDs, serial numbers, callsigns, version strings, token names. When text switches to monospace, it signals: _this value came from a sensor or system, not from a person._ It is data you might need to read back, compare, or act on.
 
 This typographic split is semantic, not decorative. Sans-serif is language. Monospace is truth. A trained operator reads the typeface as metadata about the content.
 
@@ -258,4 +258,4 @@ AUX earns trust the same way its influences have: by being precise, consistent, 
 
 ---
 
-*Maintained by the AUX design team. Zurich.*
+_Maintained by the AUX design team. Zurich._

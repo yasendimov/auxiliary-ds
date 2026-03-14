@@ -9,8 +9,11 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"src/**/*.{vue,js,css}\"",
-    "format:check": "prettier --check \"src/**/*.{vue,js,css}\"",
+    "format": "prettier --write \"src/**/*.{vue,js,css}\" \"docs/**/*.{vue,js,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{vue,js,css}\" \"docs/**/*.{vue,js,css,md}\"",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "postinstall": "git config core.hooksPath .githooks"
   },
   "dependencies": {
@@ -27,7 +30,8 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.8.0",
     "prettier": "^3.8.1",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitepress": "^1.6.4"
   },
   "packageManager": "pnpm@10.32.1",
   "pnpm": {

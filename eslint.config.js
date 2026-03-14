@@ -3,7 +3,7 @@ import configPrettier from 'eslint-config-prettier'
 
 export default [
   {
-    ignores: ['dist/**', 'node_modules/**', 'src/tokens/colors.css']
+    ignores: ['dist/**', 'node_modules/**', 'src/tokens/colors.css', 'docs/.vitepress/dist/**', 'docs/.vitepress/cache/**']
   },
   ...pluginVue.configs['flat/recommended'],
   configPrettier,
