@@ -216,6 +216,11 @@ export const navConfig = [
             component: () => import('./pages/AlertPage.vue')
           },
           {
+            name: 'Skeleton',
+            path: 'skeleton',
+            component: () => import('./pages/SkeletonPage.vue')
+          },
+          {
             name: 'Spinner',
             path: 'spinner',
             component: () => import('./pages/SpinnerPage.vue')
@@ -258,6 +263,11 @@ export const navConfig = [
             name: 'Badge',
             path: 'badge',
             component: () => import('./pages/BadgePage.vue')
+          },
+          {
+            name: 'Kbd',
+            path: 'kbd',
+            component: () => import('./pages/KbdPage.vue')
           },
           {
             name: 'Identicon',

@@ -36,6 +36,8 @@ export {
   FormField as AuxFormField,
   Link as AuxLink,
   VisuallyHidden as AuxVisuallyHidden,
+  Kbd as AuxKbd,
+  Skeleton as AuxSkeleton,
   ButtonGroup as AuxButtonGroup,
   IconButton as AuxIconButton
 } from './index.js'

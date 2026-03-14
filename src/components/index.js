@@ -32,6 +32,8 @@ export { default as Combobox } from './core/Combobox.vue'
 export { default as FormField } from './core/FormField.vue'
 export { default as Link } from './core/Link.vue'
 export { default as VisuallyHidden } from './core/VisuallyHidden.vue'
+export { default as Kbd } from './core/Kbd.vue'
+export { default as Skeleton } from './core/Skeleton.vue'
 export { default as ButtonGroup } from './core/ButtonGroup.vue'
 export { default as IconButton } from './core/IconButton.vue'
 
