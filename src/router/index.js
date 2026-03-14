@@ -221,9 +221,9 @@ const routes = [
         component: () => import('../docs/pages/SeparatorPage.vue')
       },
       {
-        path: 'design-system/core/insignia',
-        name: 'core-insignia',
-        component: () => import('../docs/pages/InsigniaPage.vue')
+        path: 'design-system/core/identicon',
+        name: 'core-identicon',
+        component: () => import('../docs/pages/IdenticonPage.vue')
       },
 
       // 11 Marketing
