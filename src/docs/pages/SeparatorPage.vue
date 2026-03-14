@@ -1,24 +1,18 @@
 <script setup>
 import { Separator } from '../../components'
+import DocsHeader from '../components/DocsHeader.vue'
+import DemoSection from '../components/DemoSection.vue'
+import DemoCell from '../components/DemoCell.vue'
 </script>
 
 <template>
   <div>
-    <!-- Header -->
-    <section class="px-8 lg:px-16 pt-24 pb-16">
-      <p class="type-overline text-base-dim">Foundation</p>
-      <h1 class="type-display-sb text-base-normal mt-4">Separator</h1>
-      <p class="type-lead-r text-base-dim mt-4 max-w-xl">
-        Visual divider for separating content sections. Horizontal or vertical, with optional label
-        support.
-      </p>
-    </section>
+    <DocsHeader
+      title="Separator"
+      description="Visual divider for separating content sections. Horizontal or vertical, with optional label support."
+    />
 
-    <!-- 01 Horizontal -->
-    <section class="px-8 lg:px-16">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">01</span> — Horizontal
-      </p>
+    <DemoSection :number="1" title="Horizontal">
       <div class="max-w-2xl">
         <p class="type-body-r text-base-normal">
           Mission telemetry data has been recorded and is available for review. All flight
@@ -30,13 +24,9 @@ import { Separator } from '../../components'
           and secured before departing the operations area.
         </p>
       </div>
-    </section>
+    </DemoSection>
 
-    <!-- 02 With label -->
-    <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">02</span> — With label
-      </p>
+    <DemoSection :number="2" title="With label">
       <div class="max-w-2xl">
         <p class="type-body-r text-base-normal">Sign in with your operator credentials.</p>
         <Separator label="or" />
@@ -46,29 +36,21 @@ import { Separator } from '../../components'
         <Separator label="Classified" />
         <p class="type-body-r text-base-normal">Restricted operational parameters follow.</p>
       </div>
-    </section>
+    </DemoSection>
 
-    <!-- 03 Vertical -->
-    <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12"><span class="font-mono">03</span> — Vertical</p>
-      <div class="grid grid-cols-1 border-t border-l border-base-dim">
-        <div class="border-b border-r border-base-dim p-8">
-          <div class="flex items-center h-8">
-            <span class="type-body-r text-base-normal">Altitude: 120m</span>
-            <Separator orientation="vertical" spacing="md" />
-            <span class="type-body-r text-base-normal">Speed: 14 m/s</span>
-            <Separator orientation="vertical" spacing="md" />
-            <span class="type-body-r text-base-normal">Battery: 72%</span>
-          </div>
+    <DemoSection :number="3" title="Vertical" :cols="1">
+      <DemoCell>
+        <div class="flex items-center h-8">
+          <span class="type-body-r text-base-normal">Altitude: 120m</span>
+          <Separator orientation="vertical" spacing="md" />
+          <span class="type-body-r text-base-normal">Speed: 14 m/s</span>
+          <Separator orientation="vertical" spacing="md" />
+          <span class="type-body-r text-base-normal">Battery: 72%</span>
         </div>
-      </div>
-    </section>
+      </DemoCell>
+    </DemoSection>
 
-    <!-- 04 Spacing variants -->
-    <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">04</span> — Spacing variants
-      </p>
+    <DemoSection :number="4" title="Spacing variants">
       <div class="max-w-2xl">
         <div class="grid grid-cols-1 border-t border-l border-base-dim">
           <div class="border-b border-r border-base-dim p-8">
@@ -84,13 +66,9 @@ import { Separator } from '../../components'
           </div>
         </div>
       </div>
-    </section>
+    </DemoSection>
 
-    <!-- 05 Real-world: Nav section divider -->
-    <section class="px-8 lg:px-16 mt-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">05</span> — Nav section divider
-      </p>
+    <DemoSection :number="5" title="Nav section divider">
       <div class="w-48 rounded-card bg-base-ui p-4">
         <span class="block py-1 type-body-r text-base-normal">Dashboard</span>
         <span class="block py-1 type-body-r text-base-normal">Fleet overview</span>
@@ -103,13 +81,9 @@ import { Separator } from '../../components'
         <span class="block py-1 type-body-r text-base-normal">Preferences</span>
         <span class="block py-1 type-body-r text-base-normal">Account</span>
       </div>
-    </section>
+    </DemoSection>
 
-    <!-- 06 Real-world: Form section -->
-    <section class="px-8 lg:px-16 mt-24 pb-24">
-      <p class="type-overline text-base-dim mb-12">
-        <span class="font-mono">06</span> — Form section divider
-      </p>
+    <DemoSection :number="6" title="Form section divider" last>
       <div class="max-w-md rounded-card bg-base-ui p-6">
         <p class="type-caption-m text-base-normal mb-4">Personal details</p>
         <div class="flex flex-col gap-3">
@@ -138,6 +112,6 @@ import { Separator } from '../../components'
           </div>
         </div>
       </div>
-    </section>
+    </DemoSection>
   </div>
 </template>

@@ -111,6 +111,18 @@
   }
 }
 
+@utility outline-focus-ring {
+  outline-color: var(--color-focus-ring);
+}
+
+@utility outline-focus-ring-alarm {
+  outline-color: var(--color-focus-ring-alarm);
+}
+
+@utility outline-focus-ring-ok {
+  outline-color: var(--color-focus-ring-ok);
+}
+
 html[data-theme='dark'] {
   color-scheme: dark;
 }

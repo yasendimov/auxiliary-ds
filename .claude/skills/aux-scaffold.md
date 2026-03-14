@@ -47,44 +47,62 @@ Rules for the generated component:
 - `<script setup>` only, Composition API, no TypeScript
 - All colors via AUX semantic classes (`bg-base-ui`, `border-base-dim`, `text-base-normal`)
 - All spacing via Tailwind scale (no arbitrary values)
-- Buttons/controls: global `focus-visible` outline (2px solid, 2px offset)
-- Form inputs: `focus-visible:ring-1` + border color change
+- Buttons/controls: global `focus-visible` outline (2px solid, 2px offset) — use `outline-focus-ring` utility
+- Form inputs: `focus-visible:ring-1 focus-visible:ring-focus-ring` + border color change
 - Use `focus-visible`, never bare `focus`
 - If operational category: follow OpenBridge alert hierarchy, near-zero motion
 - Reference Tailwind Plus Vue components for implementation patterns (not design)
 
 ### Step 3: Generate Docs Page
 
-Create `src/docs/pages/{Name}Page.vue`:
+Create `src/docs/pages/{Name}Page.vue` using the docs layout components:
 
 ```vue
 <script setup>
-import {Name} from '../components/{category}/{Name}.vue'
+import { Name } from '../../components'
+import DocsHeader from '../components/DocsHeader.vue'
+import DemoSection from '../components/DemoSection.vue'
+import DemoCell from '../components/DemoCell.vue'
 {# import ref/reactive if demos need state #}
 </script>
 
 <template>
-  <div class="space-y-section">
-    <!-- Header -->
-    <div>
-      <h1 class="type-heading-sb text-base-normal">{Name}</h1>
-      <p class="type-body-r text-base-dim mt-2">
-        {Brief description of the component's purpose.}
-      </p>
-    </div>
+  <div>
+    <DocsHeader
+      title="{Name}"
+      description="{Brief description of the component's purpose.}"
+    />
 
-    <!-- Demo sections -->
-    <section>
-      <h2 class="type-section-m text-base-normal mb-4">Default</h2>
-      <div class="rounded-lg border border-base-dim bg-base-subtle p-6">
-        {# Live interactive demo with semantic HTML controls #}
-      </div>
-    </section>
+    <DemoSection :number="1" title="Default" :cols="1">
+      <DemoCell label="default">
+        {# Live interactive demo #}
+      </DemoCell>
+    </DemoSection>
 
-    {# Additional demo sections for variants, states, sizes #}
+    <DemoSection :number="2" title="Variants" :cols="3">
+      <DemoCell label="variant a">
+        {# Demo #}
+      </DemoCell>
+      <DemoCell label="variant b">
+        {# Demo #}
+      </DemoCell>
+      <DemoCell label="variant c">
+        {# Demo #}
+      </DemoCell>
+    </DemoSection>
+
+    {# For freeform content (no grid), omit :cols #}
+    <DemoSection :number="3" title="Real-World Example" last>
+      {# Custom layout without DemoCell #}
+    </DemoSection>
   </div>
 </template>
 ```
+
+**Layout component usage:**
+- `DocsHeader` — always first, provides page title and description
+- `DemoSection` — wraps each numbered section. Pass `:cols="N"` for grid layout, omit for freeform. Add `last` to the final section for bottom padding.
+- `DemoCell` — grid cells inside DemoSection. Pass `label` for the overline label, `span` for multi-column cells.
 
 Rules for docs pages:
 - Import component using relative path from docs/pages/
@@ -92,16 +110,24 @@ Rules for docs pages:
 - Every demo must be keyboard-reachable
 - Show component in multiple states (default, hover, active, disabled, error)
 
-### Step 4: Add Router Entry
+### Step 4: Add Nav Entry
 
-Edit `src/router/index.js` — add route in the correct numbered section:
+Edit `src/docs/nav.js` — add a child entry in the correct numbered section:
 
-- **core** → section 10, path `system/core/{kebab-name}`, name `core-{kebab-name}`
-- **marketing** → section 11, path `system/marketing/{kebab-name}`, name `marketing-{kebab-name}`
-- **application** → section 12, path `system/applications/{kebab-name}`, name `applications-{kebab-name}`
-- **operational** → section 13, path `system/operations/{kebab-name}`, name `operations-{kebab-name}`
+- **core** → section 10, under the appropriate sub-category comment (Actions, Forms, Feedback, Overlays, Data Display, Layout)
+- **marketing** → section 11
+- **application** → section 12
+- **operational** → section 13
 
-Use lazy import: `component: () => import('../docs/pages/{Name}Page.vue')`
+```js
+{
+  name: '{Name}',
+  path: '{kebab-name}',
+  component: () => import('./pages/{Name}Page.vue')
+}
+```
+
+Routes are auto-generated from `navConfig` by `buildRoutes()` — no need to edit `router/index.js`.
 
 ### Step 5: Add Exports
 

@@ -329,6 +329,7 @@ const activeOptionId = computed(() => {
         :aria-controls="isOpen ? listboxId : undefined"
         :aria-activedescendant="activeOptionId"
         aria-autocomplete="list"
+        :aria-describedby="error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined"
         class="flex-1 min-w-0 bg-transparent outline-none text-base-normal placeholder:text-base-dim"
         :class="disabled ? 'cursor-not-allowed' : ''"
         @input="onInput"
