@@ -14,6 +14,8 @@ export { default as AvatarGroup } from './core/AvatarGroup.vue'
 export { default as Separator } from './core/Separator.vue'
 export { default as Identicon } from './core/Identicon.vue'
 export { default as Select } from './core/Select.vue'
+export { default as Tabs } from './core/Tabs.vue'
+export { default as Tab } from './core/Tab.vue'
 
 // Marketing
 export { default as Hero } from './marketing/Hero.vue'

@@ -240,6 +240,11 @@ const routes = [
         name: 'core-select',
         component: () => import('../docs/pages/SelectPage.vue')
       },
+      {
+        path: 'design-system/core/tabs',
+        name: 'core-tabs',
+        component: () => import('../docs/pages/TabsPage.vue')
+      },
 
       // 11 Marketing
       {
