@@ -18,16 +18,16 @@ const props = defineProps({
 })
 
 const colorScales = [
-  { name: 'cyan', step9: 'var(--cyan-9)', step3: 'var(--cyan-3)' },
-  { name: 'teal', step9: 'var(--teal-9)', step3: 'var(--teal-3)' },
-  { name: 'indigo', step9: 'var(--indigo-9)', step3: 'var(--indigo-3)' },
-  { name: 'violet', step9: 'var(--violet-9)', step3: 'var(--violet-3)' },
-  { name: 'iris', step9: 'var(--iris-9)', step3: 'var(--iris-3)' },
-  { name: 'purple', step9: 'var(--purple-9)', step3: 'var(--purple-3)' },
-  { name: 'crimson', step9: 'var(--crimson-9)', step3: 'var(--crimson-3)' },
-  { name: 'plum', step9: 'var(--plum-9)', step3: 'var(--plum-3)' },
-  { name: 'jade', step9: 'var(--jade-9)', step3: 'var(--jade-3)' },
-  { name: 'blue', step9: 'var(--blue-9)', step3: 'var(--blue-3)' }
+  { name: 'cyan', step9: 'var(--color-cyan-9)', step3: 'var(--color-cyan-3)' },
+  { name: 'teal', step9: 'var(--color-teal-9)', step3: 'var(--color-teal-3)' },
+  { name: 'indigo', step9: 'var(--color-indigo-9)', step3: 'var(--color-indigo-3)' },
+  { name: 'violet', step9: 'var(--color-violet-9)', step3: 'var(--color-violet-3)' },
+  { name: 'iris', step9: 'var(--color-iris-9)', step3: 'var(--color-iris-3)' },
+  { name: 'purple', step9: 'var(--color-purple-9)', step3: 'var(--color-purple-3)' },
+  { name: 'crimson', step9: 'var(--color-crimson-9)', step3: 'var(--color-crimson-3)' },
+  { name: 'plum', step9: 'var(--color-plum-9)', step3: 'var(--color-plum-3)' },
+  { name: 'jade', step9: 'var(--color-jade-9)', step3: 'var(--color-jade-3)' },
+  { name: 'blue', step9: 'var(--color-blue-9)', step3: 'var(--color-blue-3)' }
 ]
 
 const frameNames = ['shield', 'circle', 'diamond', 'pentagon', 'chevron']
