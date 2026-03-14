@@ -3,6 +3,7 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { MoonIcon } from '@heroicons/vue/16/solid'
 import { SunIcon } from '@heroicons/vue/16/solid'
+import { navConfig } from './nav.js'
 
 const route = useRoute()
 const theme = ref(document.documentElement.dataset.theme || 'dark')
@@ -13,175 +14,24 @@ function toggleTheme() {
   localStorage.setItem('aux-theme', theme.value)
 }
 
-const navSections = [
-  {
-    label: 'BRAND',
-    items: [
-      {
-        number: '01',
-        title: 'Identity',
-        to: '/brand/identity',
-        children: [
-          { name: 'Mission', hash: '#mission' },
-          { name: 'Brand Idea', hash: '#brand-idea' },
-          { name: 'Visual Language', hash: '#visual-language' }
-        ]
-      },
-      {
-        number: '02',
-        title: 'Logo',
-        to: '/brand/logo',
-        children: [
-          { name: 'Intro', hash: '#intro' },
-          { name: 'Construction', hash: '#construction' },
-          { name: 'Usage', hash: '#usage' },
-          { name: 'Color', hash: '#color' }
-        ]
-      },
-      {
-        number: '03',
-        title: 'Typography',
-        to: '/brand/typography',
-        children: [
-          { name: 'Type Scale', hash: '#type-scale' },
-          { name: 'Using Type', hash: '#using-type' },
-          { name: 'Formatting', hash: '#formatting' }
-        ]
-      },
-      {
-        number: '04',
-        title: 'Color',
-        to: '/brand/color',
-        children: [
-          { name: 'Introduction', hash: '#introduction' },
-          { name: 'Primitives', hash: '#primitives' },
-          { name: 'Semantic Tokens', hash: '#semantic-tokens' },
-          { name: 'Themes', hash: '#themes' }
-        ]
-      },
-      {
-        number: '05',
-        title: 'Iconography',
-        to: '/brand/iconography',
-        children: [
-          { name: 'Overview', hash: '#overview' },
-          { name: 'Product Symbols', hash: '#product-symbols' },
-          { name: 'Functional Icons', hash: '#functional-icons' }
-        ]
-      },
-      {
-        number: '06',
-        title: 'Photography',
-        to: '/brand/photography',
-        children: [
-          { name: 'Style', hash: '#style' },
-          { name: 'Product', hash: '#product' },
-          { name: 'People', hash: '#people' },
-          { name: 'Places', hash: '#places' }
-        ]
-      },
-      {
-        number: '07',
-        title: 'Language',
-        to: '/brand/language',
-        children: [
-          { name: 'Voice & Tone', hash: '#voice-and-tone' },
-          { name: 'Writing Style', hash: '#writing-style' },
-          { name: 'Product Names', hash: '#product-names' }
-        ]
-      },
-      {
-        number: '08',
-        title: 'Gallery',
-        to: '/brand/gallery/theme',
-        children: [
-          { name: 'Theme', to: '/brand/gallery/theme' },
-          { name: 'Marketing', to: '/brand/gallery/marketing' },
-          { name: 'Applications', to: '/brand/gallery/applications' },
-          { name: 'Operations', to: '/brand/gallery/operations' },
-          { name: 'Special', to: '/brand/gallery/special' }
-        ]
-      }
-    ]
-  },
-  {
-    label: 'SYSTEM',
-    items: [
-      {
-        number: '09',
-        title: 'Tokens',
-        to: '/system/tokens',
-        children: [
-          { name: 'Colors', hash: '#colors' },
-          { name: 'Typography', hash: '#typography' },
-          { name: 'Spacing', hash: '#spacing' },
-          { name: 'Border Radius', hash: '#border-radius' },
-          { name: 'Shadows', hash: '#shadows' },
-          { name: 'Motion', hash: '#motion' },
-          { name: 'Opacity', hash: '#opacity' },
-          { name: 'Z-Index', hash: '#z-index' }
-        ]
-      },
-      {
-        number: '10',
-        title: 'Core',
-        to: '/system/core/button',
-        children: [
-          { name: 'Button', to: '/system/core/button' },
-          { name: 'Link', to: '/system/core/link' },
-          { name: 'Checkbox', to: '/system/core/checkbox' },
-          { name: 'Combobox', to: '/system/core/combobox' },
-          { name: 'FormField', to: '/system/core/form-field' },
-          { name: 'Input', to: '/system/core/input' },
-          { name: 'Radio', to: '/system/core/radio' },
-          { name: 'Select', to: '/system/core/select' },
-          { name: 'Textarea', to: '/system/core/textarea' },
-          { name: 'Toggle', to: '/system/core/toggle' },
-          { name: 'Alert', to: '/system/core/alert' },
-          { name: 'Spinner', to: '/system/core/spinner' },
-          { name: 'Toast', to: '/system/core/toast' },
-          { name: 'Dialog', to: '/system/core/dialog' },
-          { name: 'Dropdown', to: '/system/core/dropdown' },
-          { name: 'Popover', to: '/system/core/popover' },
-          { name: 'Tooltip', to: '/system/core/tooltip' },
-          { name: 'Avatar', to: '/system/core/avatar' },
-          { name: 'Badge', to: '/system/core/badge' },
-          { name: 'Identicon', to: '/system/core/identicon' },
-          { name: 'Separator', to: '/system/core/separator' },
-          { name: 'Tabs', to: '/system/core/tabs' }
-        ]
-      },
-      {
-        number: '11',
-        title: 'Marketing',
-        to: '/system/marketing/hero',
-        children: [
-          { name: 'Hero', to: '/system/marketing/hero' },
-          { name: 'Header', to: '/system/marketing/header' },
-          { name: 'Section', to: '/system/marketing/section' }
-        ]
-      },
-      {
-        number: '12',
-        title: 'Applications',
-        to: '/system/applications',
-        children: []
-      },
-      {
-        number: '13',
-        title: 'Operations',
-        to: '/system/operations',
-        children: []
-      }
-    ]
-  }
-]
-
 const openItem = ref(null)
 
+function itemTo(item) {
+  const first = item.children?.[0]
+  if (!first) return '/' + item.path
+  if (first.hash) return '/' + item.path
+  return '/' + item.path + '/' + first.path
+}
+
 function isItemActive(item) {
-  if (route.path === item.to) return true
-  return item.children.some((child) => child.to && route.path === child.to)
+  const base = '/' + item.path
+  if (route.path === base) return true
+  return (
+    item.children?.some((child) => {
+      if (child.path) return route.path === base + '/' + child.path
+      return false
+    }) ?? false
+  )
 }
 
 function toggleItem(item) {
@@ -197,20 +47,20 @@ function isOpen(key) {
 }
 
 function childLink(item, child) {
-  // Route-based child (has its own `to`) vs hash-based child
-  return child.to || item.to + child.hash
+  if (child.hash) return '/' + item.path + '#' + child.hash
+  return '/' + item.path + '/' + child.path
 }
 
 function isChildActive(item, child) {
-  if (child.to) return route.path === child.to
-  return route.path === item.to && route.hash === child.hash
+  if (child.path) return route.path === '/' + item.path + '/' + child.path
+  return route.path === '/' + item.path && route.hash === '#' + child.hash
 }
 
 // Auto-open the section that contains the active route
 watch(
   () => route.path,
   () => {
-    for (const section of navSections) {
+    for (const section of navConfig) {
       for (const item of section.items) {
         if (isItemActive(item)) {
           openItem.value = item.number
@@ -266,7 +116,7 @@ watch(
           </router-link>
         </div>
 
-        <template v-for="section in navSections" :key="section.label">
+        <template v-for="section in navConfig" :key="section.label">
           <!-- Section label -->
           <div class="type-overline font-mono text-base-dim px-5 pt-5 pb-2">
             {{ section.label }}
@@ -276,7 +126,7 @@ watch(
           <div v-for="item in section.items" :key="item.number">
             <!-- Top-level item -->
             <router-link
-              :to="item.to"
+              :to="itemTo(item)"
               class="flex w-full items-center gap-2 px-5 py-1.5 type-caption-m transition-colors duration-instant"
               :class="
                 isItemActive(item) ? 'text-base-normal' : 'text-base-dim hover:text-base-normal'
@@ -298,7 +148,7 @@ watch(
                 <div class="pb-1">
                   <router-link
                     v-for="child in item.children"
-                    :key="child.to || child.hash"
+                    :key="child.path || child.hash"
                     :to="childLink(item, child)"
                     class="block py-1 pl-11 pr-5 type-caption-m transition-colors duration-instant"
                     :class="

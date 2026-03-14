@@ -31,7 +31,7 @@ The hook is activated by `git config core.hooksPath .githooks`, which runs autom
 - **Vue 3** — Composition API only, `<script setup>` syntax, no Options API, no TypeScript, no JSX
 - **Vite 7** — bundler and dev server
 - **Tailwind CSS v4** — CSS-first config via `@tailwindcss/vite`, no `tailwind.config.js`
-- **Vue Router** — docs app navigation, `src/router/index.js`
+- **Vue Router** — docs app navigation, config in `src/docs/nav.js`, router in `src/router/index.js`
 - **pnpm** — package manager, always use pnpm not npm or yarn
 - **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
 - **Color scales** — 32 scales in `src/tokens/colors/*.css`, CSS-first `@theme` + `@utility`, no JS plugin
@@ -58,6 +58,7 @@ src/
 │   ├── application/      ← Conventional SaaS UI
 │   └── operational/      ← Aerospace mission-critical UI
 ├── docs/                 ← Documentation app (not published)
+│   ├── nav.js            ← Single source of truth for nav + routes
 │   ├── pages/
 │   │   ├── gallery/      ← Multi-component showcase pages
 │   │   └── identity/     ← Brand identity pages
@@ -290,7 +291,7 @@ A component is not done until all of these are complete:
 1. Component `.vue` file in the correct category folder (`core/`, `marketing/`, `application/`, `operational/`)
 2. Export added to `src/components/index.js` (clean name) and `src/components/public.js` (`Aux`-prefixed)
 3. Docs page created in `src/docs/pages/{Name}Page.vue`
-4. Route added to `src/router/index.js` in the correct numbered section
+4. Entry added to `src/docs/nav.js` in the correct category (route + nav link are generated automatically)
 5. Works in both light and dark themes — tested visually
 6. Keyboard accessible with `focus-visible` styles and appropriate ARIA
 7. Formatted and lint-clean (`pnpm format && pnpm lint`)
