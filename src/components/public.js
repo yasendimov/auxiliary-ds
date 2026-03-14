@@ -16,6 +16,7 @@ export {
   AvatarGroup as AuxAvatarGroup,
   Separator as AuxSeparator,
   Identicon as AuxIdenticon,
+  Select as AuxSelect,
   Hero as AuxHero,
   Header as AuxHeader,
   Section as AuxSection

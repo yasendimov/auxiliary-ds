@@ -235,6 +235,11 @@ const routes = [
         name: 'core-identicon',
         component: () => import('../docs/pages/IdenticonPage.vue')
       },
+      {
+        path: 'design-system/core/select',
+        name: 'core-select',
+        component: () => import('../docs/pages/SelectPage.vue')
+      },
 
       // 11 Marketing
       {
