@@ -1,0 +1,74 @@
+@theme {
+  --color-plum-1: #fefcff;
+  --color-plum-2: #fdf7fd;
+  --color-plum-3: #fbebfb;
+  --color-plum-4: #f7def8;
+  --color-plum-5: #f2d1f3;
+  --color-plum-6: #e9c2ec;
+  --color-plum-7: #deade3;
+  --color-plum-8: #cf91d8;
+  --color-plum-9: #ab4aba;
+  --color-plum-10: #a144af;
+  --color-plum-11: #953ea3;
+  --color-plum-12: #53195d;
+  --color-plumdark-1: #181118;
+  --color-plumdark-2: #201320;
+  --color-plumdark-3: #351a35;
+  --color-plumdark-4: #451d47;
+  --color-plumdark-5: #512454;
+  --color-plumdark-6: #5e3061;
+  --color-plumdark-7: #734079;
+  --color-plumdark-8: #92549c;
+  --color-plumdark-9: #ab4aba;
+  --color-plumdark-10: #b658c4;
+  --color-plumdark-11: #e796f3;
+  --color-plumdark-12: #f4d4f4;
+}
+
+@utility bg-plum-app {
+  @apply bg-plum-1 dark:bg-plumdark-1;
+}
+
+@utility bg-plum-subtle {
+  @apply bg-plum-2 dark:bg-plumdark-2;
+}
+
+@utility bg-plum-ui {
+  @apply bg-plum-3 dark:bg-plumdark-3 hover:bg-plum-4 dark:hover:bg-plumdark-4 active:bg-plum-5 dark:active:bg-plumdark-5;
+}
+
+@utility bg-plum-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-plum-3 dark:hover:bg-plumdark-3 active:bg-plum-4 dark:active:bg-plumdark-4;
+}
+
+@utility bg-plum-action {
+  @apply bg-plum-4 dark:bg-plumdark-4 hover:bg-plum-5 dark:hover:bg-plumdark-5 active:bg-plum-6 dark:active:bg-plumdark-6;
+}
+
+@utility bg-plum-solid {
+  @apply bg-plum-9 dark:bg-plumdark-9 hover:bg-plum-10 dark:hover:bg-plumdark-10;
+}
+
+@utility border-plum-dim {
+  @apply border-plum-6 dark:border-plumdark-6;
+}
+
+@utility border-plum-normal {
+  @apply border-plum-7 dark:border-plumdark-7 hover:border-plum-8 dark:hover:border-plumdark-8;
+}
+
+@utility divide-plum-dim {
+  @apply divide-plum-6 dark:divide-plumdark-6;
+}
+
+@utility divide-plum-normal {
+  @apply divide-plum-7 dark:divide-plumdark-7 hover:divide-plum-8 dark:hover:divide-plumdark-8;
+}
+
+@utility text-plum-dim {
+  @apply text-plum-11 dark:text-plumdark-11;
+}
+
+@utility text-plum-normal {
+  @apply text-plum-12 dark:text-plumdark-12;
+}

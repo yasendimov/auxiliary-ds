@@ -1,0 +1,74 @@
+@theme {
+  --color-gold-1: #fdfdfc;
+  --color-gold-2: #faf9f2;
+  --color-gold-3: #f2f0e7;
+  --color-gold-4: #eae6db;
+  --color-gold-5: #e1dccf;
+  --color-gold-6: #d8d0bf;
+  --color-gold-7: #cbc0aa;
+  --color-gold-8: #b9a88d;
+  --color-gold-9: #978365;
+  --color-gold-10: #8c7a5e;
+  --color-gold-11: #71624b;
+  --color-gold-12: #3b352b;
+  --color-golddark-1: #121211;
+  --color-golddark-2: #1b1a17;
+  --color-golddark-3: #24231f;
+  --color-golddark-4: #2d2b26;
+  --color-golddark-5: #38352e;
+  --color-golddark-6: #444039;
+  --color-golddark-7: #544f46;
+  --color-golddark-8: #696256;
+  --color-golddark-9: #978365;
+  --color-golddark-10: #a39073;
+  --color-golddark-11: #cbb99f;
+  --color-golddark-12: #e8e2d9;
+}
+
+@utility bg-gold-app {
+  @apply bg-gold-1 dark:bg-golddark-1;
+}
+
+@utility bg-gold-subtle {
+  @apply bg-gold-2 dark:bg-golddark-2;
+}
+
+@utility bg-gold-ui {
+  @apply bg-gold-3 dark:bg-golddark-3 hover:bg-gold-4 dark:hover:bg-golddark-4 active:bg-gold-5 dark:active:bg-golddark-5;
+}
+
+@utility bg-gold-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-gold-3 dark:hover:bg-golddark-3 active:bg-gold-4 dark:active:bg-golddark-4;
+}
+
+@utility bg-gold-action {
+  @apply bg-gold-4 dark:bg-golddark-4 hover:bg-gold-5 dark:hover:bg-golddark-5 active:bg-gold-6 dark:active:bg-golddark-6;
+}
+
+@utility bg-gold-solid {
+  @apply bg-gold-9 dark:bg-golddark-9 hover:bg-gold-10 dark:hover:bg-golddark-10;
+}
+
+@utility border-gold-dim {
+  @apply border-gold-6 dark:border-golddark-6;
+}
+
+@utility border-gold-normal {
+  @apply border-gold-7 dark:border-golddark-7 hover:border-gold-8 dark:hover:border-golddark-8;
+}
+
+@utility divide-gold-dim {
+  @apply divide-gold-6 dark:divide-golddark-6;
+}
+
+@utility divide-gold-normal {
+  @apply divide-gold-7 dark:divide-golddark-7 hover:divide-gold-8 dark:hover:divide-golddark-8;
+}
+
+@utility text-gold-dim {
+  @apply text-gold-11 dark:text-golddark-11;
+}
+
+@utility text-gold-normal {
+  @apply text-gold-12 dark:text-golddark-12;
+}

@@ -1,0 +1,74 @@
+@theme {
+  --color-violet-1: #fdfcfe;
+  --color-violet-2: #faf8ff;
+  --color-violet-3: #f4f0fe;
+  --color-violet-4: #ebe4ff;
+  --color-violet-5: #e1d9ff;
+  --color-violet-6: #d4cafe;
+  --color-violet-7: #c2b5f5;
+  --color-violet-8: #aa99ec;
+  --color-violet-9: #6e56cf;
+  --color-violet-10: #654dc4;
+  --color-violet-11: #6550b9;
+  --color-violet-12: #2f265f;
+  --color-violetdark-1: #14121f;
+  --color-violetdark-2: #1b1525;
+  --color-violetdark-3: #291f43;
+  --color-violetdark-4: #33255b;
+  --color-violetdark-5: #3c2e69;
+  --color-violetdark-6: #473876;
+  --color-violetdark-7: #56468b;
+  --color-violetdark-8: #6958ad;
+  --color-violetdark-9: #6e56cf;
+  --color-violetdark-10: #7d66d9;
+  --color-violetdark-11: #baa7ff;
+  --color-violetdark-12: #e2ddfe;
+}
+
+@utility bg-violet-app {
+  @apply bg-violet-1 dark:bg-violetdark-1;
+}
+
+@utility bg-violet-subtle {
+  @apply bg-violet-2 dark:bg-violetdark-2;
+}
+
+@utility bg-violet-ui {
+  @apply bg-violet-3 dark:bg-violetdark-3 hover:bg-violet-4 dark:hover:bg-violetdark-4 active:bg-violet-5 dark:active:bg-violetdark-5;
+}
+
+@utility bg-violet-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-violet-3 dark:hover:bg-violetdark-3 active:bg-violet-4 dark:active:bg-violetdark-4;
+}
+
+@utility bg-violet-action {
+  @apply bg-violet-4 dark:bg-violetdark-4 hover:bg-violet-5 dark:hover:bg-violetdark-5 active:bg-violet-6 dark:active:bg-violetdark-6;
+}
+
+@utility bg-violet-solid {
+  @apply bg-violet-9 dark:bg-violetdark-9 hover:bg-violet-10 dark:hover:bg-violetdark-10;
+}
+
+@utility border-violet-dim {
+  @apply border-violet-6 dark:border-violetdark-6;
+}
+
+@utility border-violet-normal {
+  @apply border-violet-7 dark:border-violetdark-7 hover:border-violet-8 dark:hover:border-violetdark-8;
+}
+
+@utility divide-violet-dim {
+  @apply divide-violet-6 dark:divide-violetdark-6;
+}
+
+@utility divide-violet-normal {
+  @apply divide-violet-7 dark:divide-violetdark-7 hover:divide-violet-8 dark:hover:divide-violetdark-8;
+}
+
+@utility text-violet-dim {
+  @apply text-violet-11 dark:text-violetdark-11;
+}
+
+@utility text-violet-normal {
+  @apply text-violet-12 dark:text-violetdark-12;
+}

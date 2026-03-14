@@ -1,0 +1,74 @@
+@theme {
+  --color-amber-1: #fefdfb;
+  --color-amber-2: #fefbe9;
+  --color-amber-3: #fff7c2;
+  --color-amber-4: #ffee9c;
+  --color-amber-5: #fbe577;
+  --color-amber-6: #f3d673;
+  --color-amber-7: #e9c162;
+  --color-amber-8: #e2a336;
+  --color-amber-9: #ffc53d;
+  --color-amber-10: #ffba18;
+  --color-amber-11: #ab6400;
+  --color-amber-12: #4f3422;
+  --color-amberdark-1: #16120c;
+  --color-amberdark-2: #1d180f;
+  --color-amberdark-3: #302008;
+  --color-amberdark-4: #3f2700;
+  --color-amberdark-5: #4d3000;
+  --color-amberdark-6: #5c3d05;
+  --color-amberdark-7: #714f19;
+  --color-amberdark-8: #8f6424;
+  --color-amberdark-9: #ffc53d;
+  --color-amberdark-10: #ffd60a;
+  --color-amberdark-11: #ffca16;
+  --color-amberdark-12: #ffe7b3;
+}
+
+@utility bg-amber-app {
+  @apply bg-amber-1 dark:bg-amberdark-1;
+}
+
+@utility bg-amber-subtle {
+  @apply bg-amber-2 dark:bg-amberdark-2;
+}
+
+@utility bg-amber-ui {
+  @apply bg-amber-3 dark:bg-amberdark-3 hover:bg-amber-4 dark:hover:bg-amberdark-4 active:bg-amber-5 dark:active:bg-amberdark-5;
+}
+
+@utility bg-amber-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-amber-3 dark:hover:bg-amberdark-3 active:bg-amber-4 dark:active:bg-amberdark-4;
+}
+
+@utility bg-amber-action {
+  @apply bg-amber-4 dark:bg-amberdark-4 hover:bg-amber-5 dark:hover:bg-amberdark-5 active:bg-amber-6 dark:active:bg-amberdark-6;
+}
+
+@utility bg-amber-solid {
+  @apply bg-amber-9 dark:bg-amberdark-9 hover:bg-amber-10 dark:hover:bg-amberdark-10;
+}
+
+@utility border-amber-dim {
+  @apply border-amber-6 dark:border-amberdark-6;
+}
+
+@utility border-amber-normal {
+  @apply border-amber-7 dark:border-amberdark-7 hover:border-amber-8 dark:hover:border-amberdark-8;
+}
+
+@utility divide-amber-dim {
+  @apply divide-amber-6 dark:divide-amberdark-6;
+}
+
+@utility divide-amber-normal {
+  @apply divide-amber-7 dark:divide-amberdark-7 hover:divide-amber-8 dark:hover:divide-amberdark-8;
+}
+
+@utility text-amber-dim {
+  @apply text-amber-11 dark:text-amberdark-11;
+}
+
+@utility text-amber-normal {
+  @apply text-amber-12 dark:text-amberdark-12;
+}

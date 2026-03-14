@@ -1,0 +1,74 @@
+@theme {
+  --color-bronze-1: #fdfcfc;
+  --color-bronze-2: #fdf7f5;
+  --color-bronze-3: #f6edea;
+  --color-bronze-4: #efe4df;
+  --color-bronze-5: #e7d9d3;
+  --color-bronze-6: #dfcdc5;
+  --color-bronze-7: #d3bcb3;
+  --color-bronze-8: #c2a499;
+  --color-bronze-9: #a18072;
+  --color-bronze-10: #957468;
+  --color-bronze-11: #7d5e54;
+  --color-bronze-12: #43302b;
+  --color-bronzedark-1: #141110;
+  --color-bronzedark-2: #1c1917;
+  --color-bronzedark-3: #262220;
+  --color-bronzedark-4: #302a27;
+  --color-bronzedark-5: #3b3330;
+  --color-bronzedark-6: #493e3a;
+  --color-bronzedark-7: #5a4c47;
+  --color-bronzedark-8: #6f5f58;
+  --color-bronzedark-9: #a18072;
+  --color-bronzedark-10: #ae8c7e;
+  --color-bronzedark-11: #d4b3a5;
+  --color-bronzedark-12: #ede0d9;
+}
+
+@utility bg-bronze-app {
+  @apply bg-bronze-1 dark:bg-bronzedark-1;
+}
+
+@utility bg-bronze-subtle {
+  @apply bg-bronze-2 dark:bg-bronzedark-2;
+}
+
+@utility bg-bronze-ui {
+  @apply bg-bronze-3 dark:bg-bronzedark-3 hover:bg-bronze-4 dark:hover:bg-bronzedark-4 active:bg-bronze-5 dark:active:bg-bronzedark-5;
+}
+
+@utility bg-bronze-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-bronze-3 dark:hover:bg-bronzedark-3 active:bg-bronze-4 dark:active:bg-bronzedark-4;
+}
+
+@utility bg-bronze-action {
+  @apply bg-bronze-4 dark:bg-bronzedark-4 hover:bg-bronze-5 dark:hover:bg-bronzedark-5 active:bg-bronze-6 dark:active:bg-bronzedark-6;
+}
+
+@utility bg-bronze-solid {
+  @apply bg-bronze-9 dark:bg-bronzedark-9 hover:bg-bronze-10 dark:hover:bg-bronzedark-10;
+}
+
+@utility border-bronze-dim {
+  @apply border-bronze-6 dark:border-bronzedark-6;
+}
+
+@utility border-bronze-normal {
+  @apply border-bronze-7 dark:border-bronzedark-7 hover:border-bronze-8 dark:hover:border-bronzedark-8;
+}
+
+@utility divide-bronze-dim {
+  @apply divide-bronze-6 dark:divide-bronzedark-6;
+}
+
+@utility divide-bronze-normal {
+  @apply divide-bronze-7 dark:divide-bronzedark-7 hover:divide-bronze-8 dark:hover:divide-bronzedark-8;
+}
+
+@utility text-bronze-dim {
+  @apply text-bronze-11 dark:text-bronzedark-11;
+}
+
+@utility text-bronze-normal {
+  @apply text-bronze-12 dark:text-bronzedark-12;
+}

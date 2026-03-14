@@ -1,0 +1,74 @@
+@theme {
+  --color-mauve-1: #fdfcfd;
+  --color-mauve-2: #faf9fb;
+  --color-mauve-3: #f2eff3;
+  --color-mauve-4: #eae7ec;
+  --color-mauve-5: #e3dfe6;
+  --color-mauve-6: #dbd8e0;
+  --color-mauve-7: #d0cdd7;
+  --color-mauve-8: #bcbac7;
+  --color-mauve-9: #8e8c99;
+  --color-mauve-10: #84828e;
+  --color-mauve-11: #65636d;
+  --color-mauve-12: #211f26;
+  --color-mauvedark-1: #121113;
+  --color-mauvedark-2: #1a191b;
+  --color-mauvedark-3: #232225;
+  --color-mauvedark-4: #2b292d;
+  --color-mauvedark-5: #323035;
+  --color-mauvedark-6: #3c393f;
+  --color-mauvedark-7: #49474e;
+  --color-mauvedark-8: #625f69;
+  --color-mauvedark-9: #6f6d78;
+  --color-mauvedark-10: #7c7a85;
+  --color-mauvedark-11: #b5b2bc;
+  --color-mauvedark-12: #eeeef0;
+}
+
+@utility bg-mauve-app {
+  @apply bg-mauve-1 dark:bg-mauvedark-1;
+}
+
+@utility bg-mauve-subtle {
+  @apply bg-mauve-2 dark:bg-mauvedark-2;
+}
+
+@utility bg-mauve-ui {
+  @apply bg-mauve-3 dark:bg-mauvedark-3 hover:bg-mauve-4 dark:hover:bg-mauvedark-4 active:bg-mauve-5 dark:active:bg-mauvedark-5;
+}
+
+@utility bg-mauve-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-mauve-3 dark:hover:bg-mauvedark-3 active:bg-mauve-4 dark:active:bg-mauvedark-4;
+}
+
+@utility bg-mauve-action {
+  @apply bg-mauve-4 dark:bg-mauvedark-4 hover:bg-mauve-5 dark:hover:bg-mauvedark-5 active:bg-mauve-6 dark:active:bg-mauvedark-6;
+}
+
+@utility bg-mauve-solid {
+  @apply bg-mauve-9 dark:bg-mauvedark-9 hover:bg-mauve-10 dark:hover:bg-mauvedark-10;
+}
+
+@utility border-mauve-dim {
+  @apply border-mauve-6 dark:border-mauvedark-6;
+}
+
+@utility border-mauve-normal {
+  @apply border-mauve-7 dark:border-mauvedark-7 hover:border-mauve-8 dark:hover:border-mauvedark-8;
+}
+
+@utility divide-mauve-dim {
+  @apply divide-mauve-6 dark:divide-mauvedark-6;
+}
+
+@utility divide-mauve-normal {
+  @apply divide-mauve-7 dark:divide-mauvedark-7 hover:divide-mauve-8 dark:hover:divide-mauvedark-8;
+}
+
+@utility text-mauve-dim {
+  @apply text-mauve-11 dark:text-mauvedark-11;
+}
+
+@utility text-mauve-normal {
+  @apply text-mauve-12 dark:text-mauvedark-12;
+}

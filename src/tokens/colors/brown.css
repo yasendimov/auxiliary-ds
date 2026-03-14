@@ -1,0 +1,74 @@
+@theme {
+  --color-brown-1: #fefdfc;
+  --color-brown-2: #fcf9f6;
+  --color-brown-3: #f6eee7;
+  --color-brown-4: #f0e4d9;
+  --color-brown-5: #ebdaca;
+  --color-brown-6: #e4cdb7;
+  --color-brown-7: #dcbc9f;
+  --color-brown-8: #cea37e;
+  --color-brown-9: #ad7f58;
+  --color-brown-10: #a07553;
+  --color-brown-11: #815e46;
+  --color-brown-12: #3e332e;
+  --color-browndark-1: #12110f;
+  --color-browndark-2: #1c1816;
+  --color-browndark-3: #28211d;
+  --color-browndark-4: #322922;
+  --color-browndark-5: #3e3128;
+  --color-browndark-6: #4d3c2f;
+  --color-browndark-7: #614a39;
+  --color-browndark-8: #7c5f46;
+  --color-browndark-9: #ad7f58;
+  --color-browndark-10: #b88c67;
+  --color-browndark-11: #dbb594;
+  --color-browndark-12: #f2e1ca;
+}
+
+@utility bg-brown-app {
+  @apply bg-brown-1 dark:bg-browndark-1;
+}
+
+@utility bg-brown-subtle {
+  @apply bg-brown-2 dark:bg-browndark-2;
+}
+
+@utility bg-brown-ui {
+  @apply bg-brown-3 dark:bg-browndark-3 hover:bg-brown-4 dark:hover:bg-browndark-4 active:bg-brown-5 dark:active:bg-browndark-5;
+}
+
+@utility bg-brown-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-brown-3 dark:hover:bg-browndark-3 active:bg-brown-4 dark:active:bg-browndark-4;
+}
+
+@utility bg-brown-action {
+  @apply bg-brown-4 dark:bg-browndark-4 hover:bg-brown-5 dark:hover:bg-browndark-5 active:bg-brown-6 dark:active:bg-browndark-6;
+}
+
+@utility bg-brown-solid {
+  @apply bg-brown-9 dark:bg-browndark-9 hover:bg-brown-10 dark:hover:bg-browndark-10;
+}
+
+@utility border-brown-dim {
+  @apply border-brown-6 dark:border-browndark-6;
+}
+
+@utility border-brown-normal {
+  @apply border-brown-7 dark:border-browndark-7 hover:border-brown-8 dark:hover:border-browndark-8;
+}
+
+@utility divide-brown-dim {
+  @apply divide-brown-6 dark:divide-browndark-6;
+}
+
+@utility divide-brown-normal {
+  @apply divide-brown-7 dark:divide-browndark-7 hover:divide-brown-8 dark:hover:divide-browndark-8;
+}
+
+@utility text-brown-dim {
+  @apply text-brown-11 dark:text-browndark-11;
+}
+
+@utility text-brown-normal {
+  @apply text-brown-12 dark:text-browndark-12;
+}

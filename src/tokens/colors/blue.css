@@ -1,0 +1,74 @@
+@theme {
+  --color-blue-1: #fcfdff;
+  --color-blue-2: #f5f9ff;
+  --color-blue-3: #eaf3ff;
+  --color-blue-4: #daebff;
+  --color-blue-5: #c9e1ff;
+  --color-blue-6: #b4d4ff;
+  --color-blue-7: #9ac2ff;
+  --color-blue-8: #74a9fc;
+  --color-blue-9: #1475ff;
+  --color-blue-10: #0968ea;
+  --color-blue-11: #0265e6;
+  --color-blue-12: #0b3068;
+  --color-bluedark-1: #03060b;
+  --color-bluedark-2: #081120;
+  --color-bluedark-3: #092249;
+  --color-bluedark-4: #062d67;
+  --color-bluedark-5: #0e397b;
+  --color-bluedark-6: #18468d;
+  --color-bluedark-7: #2154a3;
+  --color-bluedark-8: #2863c1;
+  --color-bluedark-9: #1475ff;
+  --color-bluedark-10: #0067f0;
+  --color-bluedark-11: #7fb6ff;
+  --color-bluedark-12: #cde3ff;
+}
+
+@utility bg-blue-app {
+  @apply bg-blue-1 dark:bg-bluedark-1;
+}
+
+@utility bg-blue-subtle {
+  @apply bg-blue-2 dark:bg-bluedark-2;
+}
+
+@utility bg-blue-ui {
+  @apply bg-blue-3 dark:bg-bluedark-3 hover:bg-blue-4 dark:hover:bg-bluedark-4 active:bg-blue-5 dark:active:bg-bluedark-5;
+}
+
+@utility bg-blue-ghost {
+  @apply bg-transparent dark:bg-transparent hover:bg-blue-3 dark:hover:bg-bluedark-3 active:bg-blue-4 dark:active:bg-bluedark-4;
+}
+
+@utility bg-blue-action {
+  @apply bg-blue-4 dark:bg-bluedark-4 hover:bg-blue-5 dark:hover:bg-bluedark-5 active:bg-blue-6 dark:active:bg-bluedark-6;
+}
+
+@utility bg-blue-solid {
+  @apply bg-blue-9 dark:bg-bluedark-9 hover:bg-blue-10 dark:hover:bg-bluedark-10;
+}
+
+@utility border-blue-dim {
+  @apply border-blue-6 dark:border-bluedark-6;
+}
+
+@utility border-blue-normal {
+  @apply border-blue-7 dark:border-bluedark-7 hover:border-blue-8 dark:hover:border-bluedark-8;
+}
+
+@utility divide-blue-dim {
+  @apply divide-blue-6 dark:divide-bluedark-6;
+}
+
+@utility divide-blue-normal {
+  @apply divide-blue-7 dark:divide-bluedark-7 hover:divide-blue-8 dark:hover:divide-bluedark-8;
+}
+
+@utility text-blue-dim {
+  @apply text-blue-11 dark:text-bluedark-11;
+}
+
+@utility text-blue-normal {
+  @apply text-blue-12 dark:text-bluedark-12;
+}
