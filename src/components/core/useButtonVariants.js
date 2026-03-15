@@ -17,8 +17,8 @@ export function useButtonVariants(props, { isDisabled }) {
       soft: isRed ? 'bg-red-ui text-red-normal' : 'bg-blue-ui text-blue-normal',
 
       surface: isRed
-        ? 'bg-red-subtle border border-red-dim text-red-normal'
-        : 'bg-blue-subtle border border-blue-dim text-blue-normal',
+        ? 'bg-red-subtle hover:bg-red-3 dark:hover:bg-reddark-3 active:bg-red-4 dark:active:bg-reddark-4 border border-red-dim text-red-normal'
+        : 'bg-blue-subtle hover:bg-blue-3 dark:hover:bg-bluedark-3 active:bg-blue-4 dark:active:bg-bluedark-4 border border-blue-dim text-blue-normal',
 
       outline: isRed
         ? 'border border-red-normal text-red-normal hover:bg-red-ui'

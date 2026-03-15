@@ -122,7 +122,7 @@ Weight determines emphasis. Color determines meaning. A `solid red` Badge and a 
 
 The Button is the benchmark. Every interactive component follows the same quality bar.
 
-- **Baseline**: `transition-colors duration-fast ease-snap` on all interactive elements
+- **Baseline**: `transition-colors duration-fast ease-snap` on most interactive elements. Buttons and icon buttons use `duration-instant` for snappier direct-manipulation feedback (aligned with Carbon's 70ms transitions).
 - **Hover / active**: semantic classes handle these automatically (`bg-blue-ui` includes hover step 4, active step 5). Always prefer semantic classes over manual hover utilities
 - **Disabled**: `opacity-disabled cursor-not-allowed pointer-events-none` + `bg-action-disabled text-action-content-disabled`. Consistent across all components.
 - **Loading**: spinner replaces content, `aria-busy="true"`, interaction blocked via disabled logic
@@ -138,8 +138,8 @@ Build classes as arrays in `computed()`. Never use inline ternary chains in temp
 
 ```js
 const buttonClasses = computed(() => [
-  'rounded-panel inline-flex items-center justify-center',
-  'transition-colors duration-fast ease-snap',
+  'rounded-instrument inline-flex items-center justify-center',
+  'transition-colors duration-instant ease-snap',
   sizeClasses.value,
   variantClasses.value,
   props.block ? 'w-full' : ''
