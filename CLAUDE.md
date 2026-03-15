@@ -117,7 +117,7 @@ src/
 ├── App.vue
 └── main.js
 docs/                      ← Design docs (not published)
-└── design-decisions.md
+└── design-philosophy.md
 ```
 
 ## Token Architecture
@@ -250,9 +250,9 @@ Status colors are NEVER used decoratively — only for their designated alert le
 - Never use italic in operations interfaces
 - Uppercase only for labels and overlines — never body text
 
-## Design Decisions
+## Design Philosophy
 
-See `docs/design-decisions.md` for full rationale and decision framework.
+See `docs/design-philosophy.md` for full rationale and decision framework.
 
 Core principle: **functional authority** — looks like it controls things that fly. No decoration. Every element encodes meaning or it's removed.
 

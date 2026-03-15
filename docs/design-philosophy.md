@@ -1,4 +1,4 @@
-# Design Decisions — AUX
+# Design Philosophy — AUX
 
 > *This is the single source of truth for why AUX looks and behaves the way it does. Every token, component, and pattern in the system traces back to a principle here. When a design decision is unclear, read this first.*
 

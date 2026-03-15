@@ -78,7 +78,7 @@ Key rules:
 
 Functional authority — looks like it controls things that fly. Two typefaces, three weights, no decoration. Every visual element encodes meaning or it's removed.
 
-See [docs/design-decisions.md](docs/design-decisions.md) for the full rationale.
+See [docs/design-philosophy.md](docs/design-philosophy.md) for the full rationale.
 
 ## License
 
