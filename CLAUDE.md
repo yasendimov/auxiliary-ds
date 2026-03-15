@@ -12,6 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm dev` — Start dev server
 - `pnpm build` — Production build
 - `pnpm preview` — Preview production build locally
+- `pnpm test` — Run all tests once (Vitest)
+- `pnpm test:watch` — Run tests in watch mode (re-runs on file changes)
 - `pnpm format` — Auto-format all source files with Prettier
 - `pnpm lint` / `pnpm lint:fix` — Run ESLint / auto-fix
 - Dev server runs on **port 4747** (configured in vite.config.js)
@@ -36,6 +38,48 @@ The hook is activated by `git config core.hooksPath .githooks`, which runs autom
 - **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
 - **Color scales** — 32 scales in `src/tokens/colors/*.css`, CSS-first `@theme` + `@utility`, no JS plugin
 - **@heroicons/vue** — Icon library, import directly from size/variant paths (e.g. `@heroicons/vue/20/outline`)
+- **Vitest** — test runner, configured inline in `vite.config.js`
+- **@vue/test-utils** — Vue 3 component mounting/interaction for tests
+- **vitest-axe** — automated accessibility assertions (axe-core)
+
+## Testing
+
+Tests live in `src/components/core/__tests__/`. Vitest is configured inline in `vite.config.js` with happy-dom environment.
+
+### Key decisions
+
+- **`css: false`** — all CSS imports are stubbed. Tests assert class names, not computed styles. Tailwind `@theme`/`@utility` directives never need processing in tests.
+- **`@floating-ui/vue` is mocked** (`src/test/mocks/floating-ui.js`) — happy-dom has no layout engine, so positioning math is meaningless. Tests verify behavior (open/close, keyboard nav, selection) not pixel positions.
+- **No globals** — every test file imports `describe`, `it`, `expect` from `vitest` explicitly.
+
+### Shared helpers (`src/test/helpers.js`)
+
+- `mountWithTheme(component, options, theme)` — sets `data-theme` on document before mount
+- `mountWithProvider(component, key, value, options)` — wraps mount with provide/inject for group components
+- `expectAccessible(wrapper)` — runs axe accessibility audit, asserts zero violations
+
+### Test file structure
+
+Every component test follows this pattern:
+
+```js
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import Component from '../Component.vue'
+import { expectAccessible } from '../../../test/helpers.js'
+
+describe('Component', () => {
+  // Rendering — slot content, conditional elements
+  // Props / variants — use it.each for variant/size matrices
+  // Events — emitted events on user interaction
+  // Keyboard — keyboard interaction tests (where applicable)
+  // Accessibility — always last: axe audit via expectAccessible()
+})
+```
+
+### Writing new component tests
+
+When adding a new component, add a test file in `__tests__/` following the pattern above. Every test file must include an axe accessibility audit. Use `it.each` for prop matrices (variants × sizes × colors). For components using provide/inject (group components), use `mountWithProvider`. For components using `@floating-ui/vue` (Combobox, Dropdown, Tooltip, Popover), the mock handles positioning automatically.
 
 ## Folder Structure
 
@@ -52,8 +96,14 @@ src/
 │   └── z-index.css
 ├── assets/
 │   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
+├── test/                 ← Test infrastructure
+│   ├── setup.js          ← vitest-axe matcher registration
+│   ├── helpers.js        ← Shared test utilities
+│   └── mocks/
+│       └── floating-ui.js ← @floating-ui/vue stub for tests
 ├── components/
-│   ├── core/       ← Primitives (future @aux/components)
+│   ├── core/             ← Primitives (future @aux/components)
+│   │   └── __tests__/    ← Component and composable tests
 │   ├── marketing/        ← Brand and website components
 │   ├── applications/     ← Conventional SaaS UI
 │   └── operations/       ← Aerospace mission-critical UI
@@ -104,7 +154,7 @@ Everything else uses Tailwind's built-in spacing scale directly. Layout density 
 
 - **Marketing**: `px-6 md:px-8 lg:px-12`, `py-16 md:py-24`
 - **Application**: `px-6 py-6`
-- **Operational**: `px-2 py-2`, instruments `p-1.5`
+- **Operation**: `px-2 py-2`, instruments `p-1.5`
 
 ### Breakpoints
 
@@ -120,7 +170,7 @@ Tailwind v4 default breakpoints — no custom overrides:
 
 - **Marketing** — full responsive range (`sm` through `2xl`)
 - **Application** — `md`+ (assumes tablet-minimum viewport)
-- **Operational** — typically fixed-viewport (no breakpoints, instruments sized by container)
+- **Operation** — typically fixed-viewport (no breakpoints, instruments sized by container)
 
 ## Color System
 
@@ -229,7 +279,7 @@ Easing: `--ease-snap` (snappy, exit-feel) and `--ease-glide` (smooth, enter-feel
 
 ### Context budgets
 
-- **Operational** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operational UI is a distraction.
+- **Operation** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operation UI is a distraction.
 - **Application** — subtle, functional transitions. `--duration-fast` to `--duration-base`. No entrance animations.
 - **Marketing** — expressive transitions allowed. `--duration-base` to `--duration-slow`. Entrance animations and scroll-triggered motion OK.
 
@@ -304,7 +354,7 @@ A component is not done until all of these are complete:
 - **Core** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
 - **Marketing** — Public-facing brand components. Hero, FeatureCard, Nav, Footer, CTA, etc.
 - **Application** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
-- **Operational** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
+- **Operation** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
 
 ## Branch Naming
 
