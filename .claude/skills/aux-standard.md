@@ -8,29 +8,17 @@ user_invocable: true
 
 The design philosophy and implementation rules for every component in auxiliary-ds.
 
-## Three-Source Philosophy
+## Component Principles
 
-Every AUX component draws from three sources. None is optional.
+Every AUX component follows these rules. They are self-contained — no external reference needed to apply them.
 
-**1. Visual Identity = 100% AUX**
+**On-system visuals.** All colors from the 32-scale token system (`bg-blue-solid`, `bg-red-ui`, `border-base-normal`). Typography from the 13-step type scale (`type-caption-sb`, `type-body-r`). Spacing, radius, motion from AUX tokens. Zero arbitrary values. Semantic classes first, raw steps only for edge cases. If a token doesn't exist, flag it — don't work around it.
 
-All colors from the 32-scale token system (`bg-blue-solid`, `bg-red-ui`, `border-base-normal`). Typography from the 13-step type scale (`type-caption-sb`, `type-body-r`). Spacing, radius, motion from AUX tokens. Zero arbitrary values. Semantic classes first, raw steps only for edge cases. If a token doesn't exist, flag it — don't work around it.
+**Clear API shape.** 5 variant names (`solid`, `soft`, `surface`, `outline`, `ghost`) ordered by visual weight. 4 sizes (`sm`, `md`, `lg`, `xl`, default `md`). Separate `IconButton` component. `color` prop constrained to semantic meanings. Validators on every constrained prop.
 
-**2. API Shape = Radix Themes-Inspired**
+**Vue + Tailwind conventions.** `<script setup>` with `defineProps()` + validators. Computed class composition — arrays of strings in `computed()`, never inline ternaries. Slot-based icons with `data-slot="icon"`. `provide`/`inject` with Symbol keys for compound components. Shared composables (`useXxxVariants.js`) for variant × color logic.
 
-- 5 variant names: `solid`, `soft`, `surface`, `outline`, `ghost`
-- 4 sizes: `sm`, `md`, `lg`, `xl` (default `md`)
-- Separate `IconButton` component (not a Button prop)
-- `color` prop constrained to meaningful semantics (not Radix's 20+)
-- Validators on every constrained prop
-
-**3. Implementation = Tailwind Plus + Vue**
-
-- `<script setup>` with `defineProps()` + validators
-- Computed class composition — arrays of strings in `computed()`, never inline ternaries
-- Slot-based icons with `data-slot="icon"`
-- `provide`/`inject` with Symbol keys for compound components
-- Shared composables (`useXxxVariants.js`) for variant x color logic
+> *These principles were informed by Radix Themes (API vocabulary), Carbon Design System (visual precision), and Tailwind Plus / Catalyst (Vue implementation patterns). The standard itself is self-contained — you don't need to consult those systems to follow it.*
 
 ---
 
@@ -91,6 +79,8 @@ Weight determines emphasis. Color determines meaning. A `solid red` Badge and a 
 ---
 
 ## Per-Category Rules
+
+> For the full context model rationale, see `docs/design-decisions.md`.
 
 ### Application and Operational
 

@@ -226,21 +226,25 @@ When a design choice is unclear, apply these questions in order:
 
 ## Influences
 
-These are not aesthetic references. They are functional lineages.
+These shaped how AUX was designed. None is followed prescriptively — the principles in this document are self-contained.
 
-**Swiss International Style (Muller-Brockmann, Hofmann, Ruder)** — The philosophical foundation. Grid as organizing principle. Typography as the primary design tool. Constraint as creative method. Auterion is a Zurich company — this tradition is not borrowed, it is inherited.
+**Swiss International Style (Müller-Brockmann, Hofmann, Ruder)** — The philosophical foundation. Grid as organizing principle. Typography as the primary design tool. Constraint as creative method. Auterion is a Zurich company — this tradition is not borrowed, it is inherited.
 
-**Garmin avionics** — The operational reference. Value qualification, zero-padding, fixed-layout precision, and an alert hierarchy that has been proven in thousands of cockpits. AUX does not reinvent these conventions — it adopts them.
+**Carbon Design System (IBM)** — The closest visual relative. Carbon shares AUX's Swiss roots, uses IBM Plex (AUX uses Plex Mono for data), and brings the same engineered, no-nonsense precision to component surfaces. AUX's flat surfaces, structured borders, and disciplined spacing reflect this lineage.
 
-**OpenBridge Design System** — The safety reference. Open-source operational interface patterns for maritime and industrial workplaces, designed to reduce human error in high-consequence environments. AUX applies the same principles to aerospace.
+**Garmin avionics** — Value qualification, zero-padding, fixed-layout precision, and an alert hierarchy proven in thousands of cockpits. AUX adopts these conventions for operational interfaces.
 
-**Vercel Geist** — The application reference. Systematic component design, accessible color hierarchy, developer-grade precision in token architecture. The standard for modern SaaS application UI.
+**OpenBridge Design System** — Safety-first operational interface patterns for maritime and industrial workplaces. AUX applies the same human-factors discipline to aerospace operational contexts.
 
-**Area 17** — The craft reference. Numeric precision in design methodology, pixel-level attention to rendering, and the discipline of working within mathematical systems.
+**Vercel Geist** — Informed the application tier's approach to component consistency, accessible color hierarchy, and efficient data display. The standard for modern SaaS application UX architecture.
 
-**Bloomberg Terminal** — The density reference. Monospace data, color encoding meaning, interface designed for people who cannot afford to misread it. The proof that density and usability are not opposites.
+**Radix Themes** — Informed AUX's component API conventions: the five-variant weight ladder (solid/soft/surface/outline/ghost), semantic color props, and the separation of Button from IconButton.
 
-**MIL-STD-1472 and related standards** — The regulatory reference. Number formatting, time display, and altitude rules based on decades of human factors research. Full compliance audit is on the roadmap.
+**Area 17** — Numeric precision in design methodology, pixel-level attention to rendering, and the discipline of working within mathematical systems.
+
+**Bloomberg Terminal** — The proof that density and usability are not opposites. Monospace data, color encoding meaning, interfaces designed for people who cannot afford to misread them.
+
+**MIL-STD-1472 and related standards** — Number formatting, time display, and altitude rules based on decades of human factors research. Full compliance audit is on the roadmap.
 
 ---
 
