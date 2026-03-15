@@ -3,6 +3,8 @@ import { Button } from '../../components'
 import DocsHeader from '../components/DocsHeader.vue'
 import DemoSection from '../components/DemoSection.vue'
 import DemoCell from '../components/DemoCell.vue'
+import ApiSection from '../components/ApiSection.vue'
+import buttonDocs from '../../components/core/Button.docs.js'
 import { PlusIcon, ArrowRightIcon, ArrowDownTrayIcon } from '@heroicons/vue/20/solid'
 
 const variants = ['solid', 'soft', 'surface', 'outline', 'ghost']
@@ -66,10 +68,12 @@ const variants = ['solid', 'soft', 'surface', 'outline', 'ghost']
       </DemoCell>
     </DemoSection>
 
-    <DemoSection :number="6" title="Block" :cols="1" last>
+    <DemoSection :number="6" title="Block" :cols="1">
       <DemoCell label="full width">
         <Button block>Full Width Action</Button>
       </DemoCell>
     </DemoSection>
+
+    <ApiSection :docs="buttonDocs" :number="7" />
   </div>
 </template>
