@@ -10,6 +10,8 @@ Generate a complete component delivery: Vue component, docs page, router entry, 
 
 ## Process
 
+**Prerequisite:** Read `aux:standard` for the component design philosophy before scaffolding.
+
 ### Step 1: Gather Info
 
 Ask the user (use AskUserQuestion with options) for:
@@ -44,14 +46,8 @@ Create `src/components/{category}/{Name}.vue`:
 ```
 
 Rules for the generated component:
-- `<script setup>` only, Composition API, no TypeScript
-- All colors via AUX semantic classes (`bg-base-ui`, `border-base-dim`, `text-base-normal`)
-- All spacing via Tailwind scale (no arbitrary values)
-- Buttons/controls: global `focus-visible` outline (2px solid, 2px offset) — use `outline-focus-ring` utility
-- Form inputs: `focus-visible:ring-1 focus-visible:ring-focus-ring` + border color change
-- Use `focus-visible`, never bare `focus`
-- If operational category: follow OpenBridge alert hierarchy, near-zero motion
-- Reference Tailwind Plus Vue components for implementation patterns (not design)
+- Follow all rules in `aux:standard` — token compliance, accessibility, variant semantics
+- If operational category: additionally enforce OpenBridge alert hierarchy and near-zero motion
 
 ### Step 3: Generate Docs Page
 
