@@ -6,6 +6,8 @@ user_invocable: true
 
 # AUX Component Standard
 
+**The AUX design language in one line: modern, relaxed IBM/Carbon.** Sharp but not rigid. Systematic but not cold. IBM's discipline with more air to breathe.
+
 The design philosophy and implementation rules for every component in auxiliary-ds.
 
 ## Component Principles
@@ -30,15 +32,13 @@ Each source contributes one clearly separated concern. They do not overlap.
 
 ### Before You Build
 
-When creating, modifying, or reviewing any component, follow this sequence:
+When creating, modifying, or reviewing any component:
 
-1. **Check Carbon first.** Open `carbondesignsystem.com/components/{name}/style/` — study the spacing, padding, sizing, state treatments, and visual weight. This is the visual benchmark.
-2. **Check the AUX reference implementation.** Read the closest existing AUX component (see Reference Implementation below) to understand current patterns and token usage.
-3. **Apply the Radix API shape.** Use the variant/color/size prop vocabulary. Follow the weight ladder for variant semantics.
-4. **Build with AUX tokens.** Every color, size, duration, and radius from the token system. Zero arbitrary values. If a token doesn't exist, flag it.
-5. **Implement with Tailwind Plus patterns.** Computed class arrays, `<script setup>`, slot-based icons, provide/inject for compound components.
-
-> *The standard itself is self-contained — you don't need to consult those external systems to follow it. But Carbon is the visual benchmark, and checking it first produces better results.*
+1. **Read the AUX reference implementation.** Study the closest existing AUX component (see Reference Implementation below) — understand current patterns, token usage, and spacing decisions.
+2. **Apply the Radix API shape.** Use the variant/color/size prop vocabulary. Follow the weight ladder for variant semantics.
+3. **Build with AUX tokens.** Every color, size, duration, and radius from the token system. Zero arbitrary values. If a token doesn't exist, flag it.
+4. **Implement with Tailwind Plus patterns.** Computed class arrays, `<script setup>`, slot-based icons, provide/inject for compound components.
+5. **Verify both themes.** A component is not done until it passes both light and dark mode.
 
 ---
 
@@ -79,7 +79,7 @@ Five levels of visual emphasis. Universal across component types. Not every comp
 |---------|-----------------|---------------------|------------------------|
 | `blue` | blue / bluedark | Interactive / action | Actions + Display |
 | `red` | red / reddark | Destructive / alarm | Actions + Display |
-| `teal` | teal / tealdark | OK / success | Display only |
+| `green` | green / greendark | OK / success | Display only |
 | `amber` | amber / amberdark | Warning / caution | Display only |
 | `indigo` | indigo / indigodark | Informational | Display only |
 | `base` | base / basedark | Neutral / passive | All (default for most) |
@@ -88,7 +88,7 @@ Five levels of visual emphasis. Universal across component types. Not every comp
 
 **Actions tell you what you can do.** Button and IconButton use `blue` (interactive) and `red` (destructive) only. No teal buttons, no amber buttons — the action's color tells you its nature, not its context.
 
-**Display components tell you what's happening.** Badge, Alert, Toast get the full palette. A teal Badge saying "Active", an amber Alert for "Caution", an indigo Toast for "Info" — all clear, all semantic.
+**Display components tell you what's happening.** Badge, Alert, Toast get the full palette. A green Badge saying "Active", an amber Alert for "Caution", an indigo Toast for "Info" — all clear, all semantic.
 
 **Form components stay neutral.** Input, Select, Checkbox, Radio use `base` with `red` for error states. They don't need a color prop.
 
@@ -100,7 +100,7 @@ Weight determines emphasis. Color determines meaning. A `solid red` Badge and a 
 
 ## Per-Category Rules
 
-> For the full context model rationale, see `docs/design-philosophy.md`. For design references and benchmarks, see `docs/references.md`.
+> The full design philosophy rationale lives in `docs/design-philosophy.md`. The actionable principles are condensed in `.claude/rules/design-philosophy.md` (auto-loaded when editing components).
 
 ### Applications and Operations
 

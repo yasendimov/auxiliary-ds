@@ -1,12 +1,61 @@
 {
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(pnpm test*)",
+      "Bash(pnpm lint*)",
+      "Bash(pnpm format*)",
+      "Bash(pnpm dev*)",
+      "Bash(pnpm build*)",
+      "Bash(pnpm preview*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git fetch*)",
+      "Bash(git push origin *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git checkout .)",
+      "Bash(git clean*)",
+      "Bash(git branch -D *)"
+    ]
+  },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$(git rev-parse --show-toplevel 2>/dev/null)\" && echo \"[Branch: $(git branch --show-current)] $(git status --short | head -5)\" || true"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "file_path=$(echo \"$TOOL_INPUT\" | python3 -c \"import sys,json; print(json.load(sys.stdin).get('file_path',''))\" 2>/dev/null) && case \"$file_path\" in */pnpm-lock.yaml) echo \"BLOCKED: pnpm-lock.yaml is managed by pnpm — do not edit manually.\" >&2; exit 2 ;; */.githooks/*) echo \"BLOCKED: git hooks are infrastructure — ask the user before modifying.\" >&2; exit 2 ;; */src/tokens/colors/*.css) echo \"BLOCKED: color token files are carefully calibrated — ask the user before modifying.\" >&2; exit 2 ;; esac"
+          }
+        ]
+      },
       {
         "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "command=$(echo \"$TOOL_INPUT\" | python3 -c \"import sys,json; print(json.load(sys.stdin).get('command',''))\" 2>/dev/null) && case \"$command\" in *'git commit'*) cd \"$(git rev-parse --show-toplevel)\" && pnpm format 2>/dev/null && pnpm lint:fix 2>/dev/null && git add -u ;; esac"
+            "command": "command=$(echo \"$TOOL_INPUT\" | python3 -c \"import sys,json; print(json.load(sys.stdin).get('command',''))\" 2>/dev/null) && case \"$command\" in *'git commit'*) cd \"$(git rev-parse --show-toplevel)\" && pnpm format 2>/dev/null && pnpm lint:fix 2>/dev/null && git add -u && vue_files=$(git diff --cached --name-only | grep -E 'src/components/.*\\.vue$' || true) && if [ -n \"$vue_files\" ]; then echo '--- DELIVERY CHECKLIST ---' >&2; echo 'Component files staged. Verify:' >&2; echo '1. Exports in index.js + public.js' >&2; echo '2. Docs page + nav.js entry' >&2; echo '3. Test file in __tests__/' >&2; echo '4. Both themes tested' >&2; echo '5. Keyboard accessible' >&2; echo '---' >&2; fi ;; esac"
           }
         ]
       }

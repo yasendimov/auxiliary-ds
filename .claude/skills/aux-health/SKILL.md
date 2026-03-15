@@ -123,6 +123,16 @@ Grep all component files for class names that reference custom AUX tokens but ma
 2. Check for `.ts` or `.tsx` file extensions (project is JS-only)
 3. Check that component imports in docs pages use `../../components` barrel import, not direct paths
 
+#### Check 10: Test Coverage (warning)
+
+For each component checked:
+1. Derive the expected test file path: `src/components/core/__tests__/{Name}.test.js`
+2. Check if the test file exists
+3. If it exists, check that it contains an `expectAccessible` call (every test must include an accessibility audit)
+4. Flag components without test files
+
+In full-sweep mode, include a summary: "X of Y components have test files (Z% coverage)"
+
 ---
 
 ### Step 3: Report Results
