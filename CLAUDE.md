@@ -133,14 +133,7 @@ Colors are defined CSS-first in `src/tokens/colors/`. Each of the 32 scale files
 **Rules:**
 
 - Everything must be **on-system** — every color, size, duration, and radius must come from AUX tokens. No arbitrary values (`text-[13px]`, `duration-100`, `tracking-[0.15em]`), no Tailwind defaults, no hardcoded hex. If a token doesn't exist for what you need, flag it — don't work around it.
-- Use semantic classes when possible: `bg-red-ui`, `border-base-dim`, `text-base-normal`
-- Use raw step classes for edge cases: `border-red-9 dark:border-reddark-9`
-- Never use inline styles for colors
-- Semantic classes handle dark mode + interaction states automatically — always prefer them over raw steps
-- Raw step classes require manual dark mode pairing: `bg-red-9 dark:bg-reddark-9` (note: `{scale}dark` suffix, no hyphen)
-- Never use Tailwind's built-in color palette (`bg-gray-500`, `text-slate-400`) — only AUX scale classes
-- Never use arbitrary color values (`bg-[#1475ff]`, `text-[rgb(0,0,0)]`)
-- `text-white` and `text-black` are the only non-scale color classes allowed (for contrast on solid fills)
+- All color usage rules (semantic vs. raw steps, dark mode pairing, forbidden patterns) are in the **Color System > Color rules** section below.
 
 ### Spacing
 
@@ -192,7 +185,7 @@ Tailwind v4 default breakpoints — no custom overrides:
 
 ### Semantic utility classes
 
-Each scale's `.css` file defines semantic classes via `@utility`. These bundle dark mode and interaction states automatically:
+Each scale's `.css` file defines semantic classes via `@utility`:
 
 | Class                   | Steps           | Behavior                     |
 | ----------------------- | --------------- | ---------------------------- |
@@ -212,8 +205,6 @@ Each scale's `.css` file defines semantic classes via `@utility`. These bundle d
 Available scales: `base` (neutral), `blue` (action/accent), `red`, `orange`, `amber`, `green`, `indigo`, and 20+ additional chromatic and neutral scales.
 
 Usage: `bg-base-app`, `bg-red-ui`, `border-base-dim`, `text-base-normal`, `bg-blue-solid`, etc.
-
-For edge cases (accent borders, checked-state fills), use raw step classes: `border-red-9 dark:border-reddark-9`.
 
 ### Alert hierarchy colors (OpenBridge)
 
@@ -255,8 +246,6 @@ Status colors are NEVER used decoratively — only for their designated alert le
 See `docs/design-philosophy.md` for full rationale and decision framework.
 
 Core principle: **functional authority** — looks like it controls things that fly. No decoration. Every element encodes meaning or it's removed.
-
-Quick rules: Inter for language, IBM Plex Mono for data. No shadows or gradients unless justified. 4px grid. Alert colors only for alerts. Blue only for interactive. Test both themes.
 
 ## Icons
 
