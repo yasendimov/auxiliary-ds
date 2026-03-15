@@ -1,12 +1,12 @@
 ---
-name: aux:check
+name: aux-check
 description: Validate an AUX component against project token, theme, accessibility, and structure rules
 user_invocable: true
 ---
 
 # AUX Component Quality Gate
 
-Validate a component against all auxiliary-ds conventions. Accepts a component name or file path as an argument.
+Validate a component against all auxiliary-ds conventions. Accepts a component name or file path as argument.
 
 ## Process
 

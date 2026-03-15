@@ -1,5 +1,5 @@
 ---
-name: aux:scaffold
+name: aux-scaffold
 description: Scaffold a new AUX component with docs page, route, and exports following all project conventions
 user_invocable: true
 ---
@@ -10,7 +10,7 @@ Generate a complete component delivery: Vue component, docs page, router entry, 
 
 ## Process
 
-**Prerequisite:** Read `aux:standard` for the component design philosophy before scaffolding.
+**Prerequisite:** Read `aux-standard` for the component design philosophy before scaffolding.
 
 ### Step 1: Gather Info
 
@@ -46,7 +46,7 @@ Create `src/components/{category}/{Name}.vue`:
 ```
 
 Rules for the generated component:
-- Follow all rules in `aux:standard` — token compliance, accessibility, variant semantics
+- Follow all rules in `aux-standard` — token compliance, accessibility, variant semantics
 - If operations category: additionally enforce OpenBridge alert hierarchy and near-zero motion
 
 ### Step 3: Generate Docs Page

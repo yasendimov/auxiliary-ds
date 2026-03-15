@@ -1,5 +1,5 @@
 ---
-name: aux:health
+name: aux-health
 description: Run a codebase-wide health sweep across all AUX components to find cross-cutting issues — token violations, accessibility gaps, theme problems, missing exports, and structural inconsistencies
 user_invocable: true
 ---

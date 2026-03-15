@@ -1,5 +1,5 @@
 ---
-name: aux:standard
+name: aux-standard
 description: Use when building, modifying, or reviewing any AUX component — provides the three-source design philosophy, variant hierarchy, color semantics, and per-category implementation rules
 user_invocable: true
 ---
