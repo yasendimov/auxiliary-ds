@@ -4,9 +4,9 @@ import { buttonGroupKey } from './buttonGroupKey.js'
 
 const props = defineProps({
   size: {
-    type: [String, Number],
+    type: String,
     default: null,
-    validator: (v) => v === null || [1, 2, 3, 4, '1', '2', '3', '4'].includes(v)
+    validator: (v) => v === null || ['sm', 'md', 'lg', 'xl'].includes(v)
   },
   disabled: {
     type: Boolean,

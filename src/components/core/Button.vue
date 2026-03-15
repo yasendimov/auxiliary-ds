@@ -16,9 +16,9 @@ const props = defineProps({
     validator: (v) => ['blue', 'red'].includes(v)
   },
   size: {
-    type: [String, Number],
+    type: String,
     default: null,
-    validator: (v) => v === null || [1, 2, 3, 4, '1', '2', '3', '4'].includes(v)
+    validator: (v) => v === null || ['sm', 'md', 'lg', 'xl'].includes(v)
   },
   disabled: {
     type: Boolean,
@@ -41,7 +41,7 @@ const props = defineProps({
 const emit = defineEmits(['click'])
 
 const group = inject(buttonGroupKey, null)
-const resolvedSize = computed(() => String(props.size || group?.size?.value || '2'))
+const resolvedSize = computed(() => props.size || group?.size?.value || 'md')
 const isDisabled = computed(
   () => props.disabled || props.loading || group?.disabled?.value || false
 )
@@ -51,10 +51,10 @@ const { variantClasses } = useButtonVariants(props, { isDisabled })
 const sizeClasses = computed(
   () =>
     ({
-      1: 'h-7 px-2.5 type-agate-m gap-1',
-      2: 'h-8 px-3 type-caption-sb gap-1.5',
-      3: 'h-9 px-4 type-caption-sb gap-2',
-      4: 'h-11 px-5 type-body-sb gap-2'
+      sm: 'h-7 px-2.5 type-agate-m gap-1',
+      md: 'h-8 px-3 type-caption-sb gap-1.5',
+      lg: 'h-9 px-4 type-caption-sb gap-2',
+      xl: 'h-11 px-5 type-body-sb gap-2'
     })[resolvedSize.value]
 )
 

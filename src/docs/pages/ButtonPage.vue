@@ -28,17 +28,17 @@ const variants = ['solid', 'soft', 'surface', 'outline', 'ghost']
     </DemoSection>
 
     <DemoSection :number="3" title="Sizes" :cols="4">
-      <DemoCell label="1">
-        <Button :size="1">Label</Button>
+      <DemoCell label="sm">
+        <Button size="sm">Label</Button>
       </DemoCell>
-      <DemoCell label="2 (default)">
-        <Button :size="2">Label</Button>
+      <DemoCell label="md (default)">
+        <Button size="md">Label</Button>
       </DemoCell>
-      <DemoCell label="3">
-        <Button :size="3">Label</Button>
+      <DemoCell label="lg">
+        <Button size="lg">Label</Button>
       </DemoCell>
-      <DemoCell label="4">
-        <Button :size="4">Label</Button>
+      <DemoCell label="xl">
+        <Button size="xl">Label</Button>
       </DemoCell>
     </DemoSection>
 

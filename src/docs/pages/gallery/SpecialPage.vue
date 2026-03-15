@@ -338,13 +338,13 @@ const filteredTracks = computed(() => {
 
         <!-- Toolbar -->
         <div class="flex items-center gap-1.5">
-          <Button :size="1" variant="ghost">Measure</Button>
-          <Button :size="1" variant="ghost">Mark Point</Button>
-          <Button :size="1" variant="ghost">Draw AO</Button>
-          <Button :size="1" variant="ghost">Screenshot</Button>
+          <Button size="sm" variant="ghost">Measure</Button>
+          <Button size="sm" variant="ghost">Mark Point</Button>
+          <Button size="sm" variant="ghost">Draw AO</Button>
+          <Button size="sm" variant="ghost">Screenshot</Button>
           <div class="flex-1"></div>
-          <Button :size="1" variant="ghost">Center on AO</Button>
-          <Button :size="1" variant="ghost">Reset View</Button>
+          <Button size="sm" variant="ghost">Center on AO</Button>
+          <Button size="sm" variant="ghost">Reset View</Button>
         </div>
       </main>
 
@@ -410,9 +410,9 @@ const filteredTracks = computed(() => {
           <!-- Engagement Options -->
           <div class="px-2 py-2 flex flex-col gap-1.5">
             <span class="type-overline text-base-dim block mb-0.5">ENGAGEMENT</span>
-            <Button :size="1" variant="ghost" block>Request ISR Tasking</Button>
-            <Button :size="1" variant="ghost" block>Nominate Target</Button>
-            <Button :size="1" color="red" block>Initiate Track Prosecution</Button>
+            <Button size="sm" variant="ghost" block>Request ISR Tasking</Button>
+            <Button size="sm" variant="ghost" block>Nominate Target</Button>
+            <Button size="sm" color="red" block>Initiate Track Prosecution</Button>
           </div>
         </template>
 
