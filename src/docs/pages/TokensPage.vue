@@ -246,7 +246,7 @@ const radiusTokens = [
     utility: 'rounded-instrument',
     token: '--radius-instrument',
     value: '2px',
-    use: 'Operational instruments'
+    use: 'Operations instruments'
   },
   { utility: 'rounded-badge', token: '--radius-badge', value: '3px', use: 'Badges and tags' },
   {
@@ -363,7 +363,7 @@ const zIndexTokens = [
     utility: 'z-alert',
     token: '--z-alert',
     value: '700',
-    use: 'Operational alerts — highest layer'
+    use: 'Operations alerts — highest layer'
   }
 ]
 </script>

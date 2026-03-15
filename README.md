@@ -1,6 +1,6 @@
 # AUX — Auxiliary Design System
 
-The official design system for [Auterion](https://auterion.com). A Vue 3 component library serving four UI contexts: core primitives, marketing, application, and aerospace mission-critical operational interfaces.
+The official design system for [Auterion](https://auterion.com). A Vue 3 component library serving four UI contexts: core primitives, marketing, applications, and operations interfaces.
 
 Built for products that control things that fly.
 
@@ -59,7 +59,7 @@ Button, IconButton, ButtonGroup, Badge, Input, Select, Combobox, Textarea, Check
 
 Header, Hero, Section
 
-### Application & Operational
+### Applications & Operations
 
 Planned — see the component roadmap for details.
 

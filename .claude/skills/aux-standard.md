@@ -82,12 +82,12 @@ Weight determines emphasis. Color determines meaning. A `solid red` Badge and a 
 
 > For the full context model rationale, see `docs/design-decisions.md`.
 
-### Application and Operation
+### Applications and Operations
 
 - Radix-caliber spacing precision: tight padding ratios, optical icon alignment, strict 4px grid
 - Type from AUX scale, spacing from Tailwind scale — everything on-system
 - State transitions: `transition-colors duration-fast ease-snap` as baseline for all interactive elements
-- **Operation additions**: near-zero motion (`duration-instant` only for state feedback), maximum density, `radius-instrument` for data-bearing elements, OpenBridge alert hierarchy strictly enforced
+- **Operations additions**: near-zero motion (`duration-instant` only for state feedback), maximum density, `radius-instrument` for data-bearing elements, OpenBridge alert hierarchy strictly enforced
 
 ### Marketing
 

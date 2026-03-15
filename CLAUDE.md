@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: core primitives, marketing/brand, conventional application UI, and aerospace mission-critical operational interfaces.
+**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: core primitives, marketing/brand, conventional applications UI, and aerospace mission-critical operations interfaces.
 
 ## Commands
 
@@ -153,8 +153,8 @@ Three page-level constants in `src/tokens/spacing.css`, registered in `@theme` s
 Everything else uses Tailwind's built-in spacing scale directly. Layout density varies by context:
 
 - **Marketing**: `px-6 md:px-8 lg:px-12`, `py-16 md:py-24`
-- **Application**: `px-6 py-6`
-- **Operation**: `px-2 py-2`, instruments `p-1.5`
+- **Applications**: `px-6 py-6`
+- **Operations**: `px-2 py-2`, instruments `p-1.5`
 
 ### Breakpoints
 
@@ -162,15 +162,15 @@ Tailwind v4 default breakpoints — no custom overrides:
 
 | Prefix | Min-width | Usage |
 | ------ | --------- | ----- |
-| `sm`   | 640px     | Marketing only |
-| `md`   | 768px     | Marketing + Application |
-| `lg`   | 1024px    | Marketing + Application |
-| `xl`   | 1280px    | Marketing only |
-| `2xl`  | 1536px    | Marketing only |
+| `sm`   | 640px     | Marketing only              |
+| `md`   | 768px     | Marketing + Applications    |
+| `lg`   | 1024px    | Marketing + Applications    |
+| `xl`   | 1280px    | Marketing only              |
+| `2xl`  | 1536px    | Marketing only              |
 
 - **Marketing** — full responsive range (`sm` through `2xl`)
-- **Application** — `md`+ (assumes tablet-minimum viewport)
-- **Operation** — typically fixed-viewport (no breakpoints, instruments sized by container)
+- **Applications** — `md`+ (assumes tablet-minimum viewport)
+- **Operations** — typically fixed-viewport (no breakpoints, instruments sized by container)
 
 ## Color System
 
@@ -247,7 +247,7 @@ Status colors are NEVER used decoratively — only for their designated alert le
 - OpenType features enabled by default: tabular figures, contextual alternates
 - Tracking tightens as size increases: -2% body, -3% heading, -4% display
 - Regular weight gets looser tracking than SemiBold/Medium at large display sizes (optical correction)
-- Never use italic in operational interfaces
+- Never use italic in operations interfaces
 - Uppercase only for labels and overlines — never body text
 
 ## Design Decisions
@@ -279,8 +279,8 @@ Easing: `--ease-snap` (snappy, exit-feel) and `--ease-glide` (smooth, enter-feel
 
 ### Context budgets
 
-- **Operation** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operation UI is a distraction.
-- **Application** — subtle, functional transitions. `--duration-fast` to `--duration-base`. No entrance animations.
+- **Operations** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operations UI is a distraction.
+- **Applications** — subtle, functional transitions. `--duration-fast` to `--duration-base`. No entrance animations.
 - **Marketing** — expressive transitions allowed. `--duration-base` to `--duration-slow`. Entrance animations and scroll-triggered motion OK.
 
 ## Data Visualization Rules
@@ -307,6 +307,19 @@ conventions for:
 Do not copy their visual design, spacing, colors, or radius decisions.
 AUX tokens and design philosophy govern all visual decisions.
 
+### Radix-Inspired API Patterns
+
+Components with visual variants follow the Button rebuild template:
+
+- **`variant`** — visual weight: `solid` | `soft` | `surface` | `outline` | `ghost`
+- **`size`** — Tailwind-native: `sm` | `md` | `lg` | `xl`
+- **`color`** — semantic switching: `blue` (default, interactive) | `red` (destructive)
+- **Icons** — slot-based via `data-slot="icon"` children, not icon props
+- **`IconButton`** — separate square component for icon-only actions
+- **`useButtonVariants`** — shared composable for variant × color × size class resolution
+
+This pattern applies to every component with visual variants. Current: Button, IconButton, ButtonGroup. Next: Badge, Alert, Input, Toggle, Dialog.
+
 ## Component Rules
 
 - Every component uses `<script setup>` and Composition API
@@ -316,7 +329,7 @@ AUX tokens and design philosophy govern all visual decisions.
 - Components in `core/` are the only ones allowed to use raw Tailwind utilities
 - Components in `marketing/`, `applications/`, `operations/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
-- Operational components must strictly follow OpenBridge conventions
+- Operations components must strictly follow OpenBridge conventions
 - Every component must include: keyboard interaction support, focus-visible styles,
   appropriate ARIA attributes, and sufficient color contrast in both themes.
   Accessibility is structural — not a post-build checklist.
@@ -353,8 +366,8 @@ A component is not done until all of these are complete:
 
 - **Core** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
 - **Marketing** — Public-facing brand components. Hero, FeatureCard, Nav, Footer, CTA, etc.
-- **Application** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
-- **Operation** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
+- **Applications** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
+- **Operations** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
 
 ## Branch Naming
 

@@ -73,7 +73,7 @@ import DemoCell from '../components/DemoCell.vue'
         <span class="block py-1 type-body-r text-base-normal">Dashboard</span>
         <span class="block py-1 type-body-r text-base-normal">Fleet overview</span>
         <span class="block py-1 type-body-r text-base-normal">Mission log</span>
-        <Separator label="Operational" spacing="sm" />
+        <Separator label="Operations" spacing="sm" />
         <span class="block py-1 type-body-r text-base-normal">Live telemetry</span>
         <span class="block py-1 type-body-r text-base-normal">Swarm control</span>
         <span class="block py-1 type-body-r text-base-normal">Geofence editor</span>
