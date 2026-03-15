@@ -17,7 +17,7 @@ Generate a complete component delivery: Vue component, docs page, router entry, 
 Ask the user (use AskUserQuestion with options) for:
 
 1. **Component name** — PascalCase (e.g., "Accordion", "StatusBar")
-2. **Category** — core / marketing / application / operation
+2. **Category** — core / marketing / applications / operations
 3. **Features** (multiSelect):
    - Has props (beyond default slot)
    - Has named slots
@@ -47,7 +47,7 @@ Create `src/components/{category}/{Name}.vue`:
 
 Rules for the generated component:
 - Follow all rules in `aux:standard` — token compliance, accessibility, variant semantics
-- If operation category: additionally enforce OpenBridge alert hierarchy and near-zero motion
+- If operations category: additionally enforce OpenBridge alert hierarchy and near-zero motion
 
 ### Step 3: Generate Docs Page
 
@@ -112,8 +112,8 @@ Edit `src/docs/nav.js` — add a child entry in the correct numbered section:
 
 - **core** → section 10, under the appropriate sub-category comment (Actions, Forms, Feedback, Overlays, Data Display, Layout)
 - **marketing** → section 11
-- **application** → section 12
-- **operation** → section 13
+- **applications** → section 12
+- **operations** → section 13
 
 ```js
 {

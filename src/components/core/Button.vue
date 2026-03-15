@@ -51,15 +51,15 @@ const { variantClasses } = useButtonVariants(props, { isDisabled })
 const sizeClasses = computed(
   () =>
     ({
-      sm: 'h-7 px-2.5 type-agate-m gap-1',
-      md: 'h-8 px-3 type-caption-sb gap-1.5',
-      lg: 'h-9 px-4 type-caption-sb gap-2',
-      xl: 'h-11 px-5 type-body-sb gap-2'
+      sm: 'h-8 px-3 type-caption-m gap-1.5',
+      md: 'h-9 px-3.5 type-caption-m gap-1.5',
+      lg: 'h-10 px-4 type-caption-m gap-2',
+      xl: 'h-12 px-4 type-body-m gap-2'
     })[resolvedSize.value]
 )
 
 const buttonClasses = computed(() => [
-  'rounded-panel inline-flex items-center justify-center transition-colors duration-fast ease-snap',
+  'rounded-instrument inline-flex items-center justify-center transition-colors duration-instant ease-snap',
   '[&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0',
   sizeClasses.value,
   variantClasses.value,
