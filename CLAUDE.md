@@ -241,6 +241,9 @@ Easing: `--ease-snap` (snappy, exit-feel) and `--ease-glide` (smooth, enter-feel
 
 ## Component Implementation Standard
 
+For the full component design philosophy, three-source methodology, and visual hierarchy
+framework, see the `aux:standard` skill (`.claude/skills/aux-standard.md`).
+
 When building any new component, reference Tailwind Plus Vue components
 for implementation patterns — not design. Specifically follow their
 conventions for:

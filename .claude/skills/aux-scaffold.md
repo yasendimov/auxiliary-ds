@@ -10,6 +10,8 @@ Generate a complete component delivery: Vue component, docs page, router entry, 
 
 ## Process
 
+**Prerequisite:** Read `aux:standard` for the component design philosophy before scaffolding.
+
 ### Step 1: Gather Info
 
 Ask the user (use AskUserQuestion with options) for:
