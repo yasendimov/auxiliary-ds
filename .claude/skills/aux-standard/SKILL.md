@@ -32,13 +32,14 @@ Each source contributes one clearly separated concern. They do not overlap.
 
 ### Before You Build
 
-When creating, modifying, or reviewing any component:
+When creating or significantly modifying a component:
 
-1. **Read the AUX reference implementation.** Study the closest existing AUX component (see Reference Implementation below) — understand current patterns, token usage, and spacing decisions.
-2. **Apply the Radix API shape.** Use the variant/color/size prop vocabulary. Follow the weight ladder for variant semantics.
-3. **Build with AUX tokens.** Every color, size, duration, and radius from the token system. Zero arbitrary values. If a token doesn't exist, flag it.
-4. **Implement with Tailwind Plus patterns.** Computed class arrays, `<script setup>`, slot-based icons, provide/inject for compound components.
-5. **Verify both themes.** A component is not done until it passes both light and dark mode.
+1. **Check Carbon first.** Fetch `carbondesignsystem.com/components/{name}/style/` — study the spacing, padding, sizing, state treatments, and visual weight. Carbon is AUX's closest visual relative. Adapt what you see through AUX's "relaxed IBM" lens — same precision, more breathing room. If the page can't be fetched, proceed with the AUX reference implementation as your benchmark.
+2. **Read the AUX reference implementation.** Study the closest existing AUX component (see Reference Implementation below) — understand current patterns, token usage, and spacing decisions.
+3. **Apply the Radix API shape.** Use the variant/color/size prop vocabulary. Follow the weight ladder for variant semantics.
+4. **Build with AUX tokens.** Every color, size, duration, and radius from the token system. Zero arbitrary values. If a token doesn't exist, flag it.
+5. **Implement with Tailwind Plus patterns.** Computed class arrays, `<script setup>`, slot-based icons, provide/inject for compound components.
+6. **Verify both themes.** A component is not done until it passes both light and dark mode.
 
 ---
 
