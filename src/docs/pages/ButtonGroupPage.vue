@@ -24,29 +24,29 @@ import { ListBulletIcon, Squares2X2Icon, TableCellsIcon } from '@heroicons/vue/2
     </DemoSection>
 
     <DemoSection :number="2" title="Sizes" :cols="4">
-      <DemoCell label="1">
-        <ButtonGroup label="View" :size="1">
+      <DemoCell label="sm">
+        <ButtonGroup label="View" size="sm">
           <Button variant="outline">Day</Button>
           <Button variant="outline">Week</Button>
           <Button variant="outline">Month</Button>
         </ButtonGroup>
       </DemoCell>
-      <DemoCell label="2">
-        <ButtonGroup label="View" :size="2">
+      <DemoCell label="md">
+        <ButtonGroup label="View" size="md">
           <Button variant="outline">Day</Button>
           <Button variant="outline">Week</Button>
           <Button variant="outline">Month</Button>
         </ButtonGroup>
       </DemoCell>
-      <DemoCell label="3">
-        <ButtonGroup label="View" :size="3">
+      <DemoCell label="lg">
+        <ButtonGroup label="View" size="lg">
           <Button variant="outline">Day</Button>
           <Button variant="outline">Week</Button>
           <Button variant="outline">Month</Button>
         </ButtonGroup>
       </DemoCell>
-      <DemoCell label="4">
-        <ButtonGroup label="View" :size="4">
+      <DemoCell label="xl">
+        <ButtonGroup label="View" size="xl">
           <Button variant="outline">Day</Button>
           <Button variant="outline">Week</Button>
           <Button variant="outline">Month</Button>
