@@ -1,4 +1,4 @@
-# Design Decisions — AUX
+# Design Philosophy — AUX
 
 > *This is the single source of truth for why AUX looks and behaves the way it does. Every token, component, and pattern in the system traces back to a principle here. When a design decision is unclear, read this first.*
 
@@ -8,7 +8,7 @@
 
 Auterion builds autonomous systems for aerospace and defense. The same platform powers a mission operator tracking five drones in real time and a procurement executive evaluating the product in a boardroom. A ground station operator needs density, precision, and zero ambiguity. A buyer needs to feel that this product is built by people who understand the domain. A website visitor needs to understand in five seconds what Auterion does and why it matters.
 
-Most design systems serve one of these audiences. AUX serves all three through a single token foundation and three clearly defined contexts — **operational**, **application**, and **marketing** — each expressing the same principles at different densities, for different stakes.
+Most design systems serve one of these audiences. AUX serves all three through a single token foundation and three clearly defined contexts — **operations**, **applications**, and **marketing** — each expressing the same principles at different densities, for different stakes.
 
 The unifying quality is **functional authority**. AUX looks like it controls things that fly — even when it is selling to someone who has never seen a drone.
 
@@ -16,9 +16,9 @@ The unifying quality is **functional authority**. AUX looks like it controls thi
 
 ## Foundations
 
-### Zurich Precision
+### Swiss Precision
 
-Auterion is a Zurich-based company. This is not incidental to the design language — it is central to it.
+Auterion's R&D is in Zurich. This is not incidental to the design language — it is central to it.
 
 The Swiss International Style (Internationale Typographische Stil) established that constraint produces clarity. Grid discipline. Typographic hierarchy without decoration. Content over form. Mathematical spacing systems. The rejection of ornament in favor of structure.
 
@@ -28,30 +28,42 @@ Where Swiss design used Helvetica and Univers, AUX uses Inter Variable — a typ
 
 The connection is functional, not aesthetic. Swiss design succeeded because it eliminated ambiguity. In aerospace, eliminating ambiguity saves lives.
 
-### Aerospace Discipline
+### Robotics & Autonomy Discipline
 
-AUX borrows directly from aviation instrumentation and human factors research — not as visual references, but as operational requirements.
+AUX serves a company that builds autonomous systems — swarm control stations, fleet management, mission planning, edge computing on vehicles across air, land, and sea. The interface discipline comes from human factors research for multi-vehicle autonomy, not consumer avionics.
 
-**From Garmin avionics and cockpit annunciator design:**
+**From autonomous systems HMI:**
 
 - Every value is qualified with its reference frame (AGL, MSL, FL)
 - Leading zeros eliminate misreading (`045°` not `45°`)
-- Fixed-layout instruments do not reflow or resize
+- Fixed-layout instruments do not reflow or resize — operators build spatial memory of where data lives
 - Alert hierarchy uses color to encode severity, never decoration
+- Multi-vehicle state must be scannable at a glance — one operator, many vehicles
 
-**From OpenBridge (maritime/industrial operational design):**
+**From OpenBridge (maritime and industrial operational design):**
 
 - Safety-first interface patterns where operator error carries real consequences
 - Standardized UI reduces training costs and cross-system cognitive load
 - Components designed for fatigue resistance over extended watch periods
 - Regulatory alignment built in, not retrofitted
 
-**From military human factors standards (MIL-STD-1472, referenced):**
+**From mission control paradigms (NASA, SCADA, maritime bridge):**
 
-- Number formatting, time display, and altitude rules based on decades of research into errors under pressure
-- These are not style preferences. They are the documented result of what causes humans to misread data in high-stakes environments
+- Dense, structured displays that prioritize data legibility over visual appeal
+- Status hierarchies that map to action urgency, not aesthetic preference
+- Layouts designed for defined hardware — not responsive, not adaptive
 
-> **Standards roadmap:** Full compliance audit against MIL-STD-1472, NATO STANAG HMI guidelines, and EU EASA human factors requirements is planned. These standards will formalize rules that AUX already follows by convention. Until the audit is complete, the principles in this document govern.
+### IBM Design Heritage
+
+In 1956, Thomas J. Watson Jr. commissioned Eliot Noyes to build IBM's corporate design program — with Paul Rand and Charles Eames, it became the first comprehensive design program in American business. The core insight was not aesthetic: it was that **brand is character, built through curation**. "Good design is good business" was not a tagline — it was an operating principle.
+
+Rand's position applies directly to AUX: "Without aesthetic, the computer is but a mindless speed machine, producing effects without substance, form without relevant content, or content without meaningful form." Restraint is not anti-aesthetic — it is the aesthetic. Every element that survives the curation process earns its place.
+
+Carbon Design System inherits this legacy in component form. Its **Productive/Expressive duality** — productive motion for task-focused work, expressive motion for engagement — maps directly to AUX's context model: operations interfaces are productive (near-zero motion, maximum density), marketing interfaces are expressive (full motion budget, generous spacing). AUX did not borrow this split from Carbon — both systems arrived at the same conclusion from the same Swiss-modernist roots.
+
+The 1960s thread runs through all three foundations. Swiss International Style peaked in the late 1950s. IBM's design program launched in 1956. Aviation human factors standards were codified in the same era. These were not coincidental — they shared a conviction that systematic discipline produces better outcomes than individual expression. AUX inherits from all three.
+
+What AUX takes from this lineage: flat surfaces over gradients, structured borders over shadows, disciplined spacing over decoration, and the conviction that a well-curated system earns more trust than a visually rich one.
 
 ---
 
@@ -69,9 +81,9 @@ What this means in practice: **every component must be validated across all them
 
 Density is the most important variable in AUX, and it is entirely context-dependent.
 
-**Operational** — density is mandatory. Twelve telemetry values must be scannable in a single glance. Every pixel of whitespace is a pixel that could carry data. Components use the smallest padding tier, fixed sizes, and zero decorative spacing. This is Bloomberg Terminal territory — the interface exists to display maximum information with minimum eye movement.
+**Operations** — density is mandatory. Twelve telemetry values must be scannable in a single glance. Every pixel of whitespace is a pixel that could carry data. Components use the smallest padding tier, fixed sizes, and zero decorative spacing. The interface exists to display maximum information with minimum eye movement — density and usability are not opposites.
 
-**Application** — density is balanced. Users spend hours in fleet management, mission planning, and settings interfaces. They need enough structure to navigate without fatigue and enough density to stay productive. This follows the same philosophy as Vercel's Geist system: clarity through consistent hierarchy, efficient input mechanisms, and information density that never overwhelms.
+**Applications** — density is balanced. Users spend hours in fleet management, mission planning, and settings interfaces. They need enough structure to navigate without fatigue and enough density to stay productive. Clarity through consistent hierarchy, efficient input mechanisms, and information density that never overwhelms.
 
 **Marketing** — density is inverted. Generous whitespace signals confidence. A landing page with tight, information-dense layout looks anxious — it tries too hard. Marketing contexts use the largest spacing tier, the most expressive typographic scale, and give content room to breathe. The editorial pacing of a well-designed brand site (the rhythm of image, type, and space) is the reference here.
 
@@ -112,11 +124,11 @@ The corollary: **restraint is contextual.** Marketing interfaces operate under d
 
 Accessibility in AUX is an engineering requirement, not a post-hoc audit.
 
-**Application interfaces:** WCAG AA minimum for all text and interactive elements.
+**Applications interfaces:** WCAG AA minimum for all text and interactive elements.
 
-**Operational interfaces:** WCAG AAA for critical data — altitude, heading, speed, alert status. A pilot reading these values cannot afford a contrast failure.
+**Operations interfaces:** WCAG AAA for critical data — altitude, heading, speed, alert status. A pilot reading these values cannot afford a contrast failure.
 
-**Motion:** Respects `prefers-reduced-motion` unconditionally. Every animation has a zero-motion fallback. Operational interfaces default to near-zero motion even without the preference — a telemetry value that pulses while the operator is deciding is a liability.
+**Motion:** Respects `prefers-reduced-motion` unconditionally. Every animation has a zero-motion fallback. Operations interfaces default to near-zero motion even without the preference — a telemetry value that pulses while the operator is deciding is a liability.
 
 **Focus states:** Visible and consistent across all themes via `--color-focus-ring`. Never suppressed.
 
@@ -132,8 +144,8 @@ All spatial decisions in AUX derive from a base grid. This is borrowed directly 
 
 **The column grid is context-dependent:**
 
-- Operational: Fixed column layouts tuned to specific hardware resolutions
-- Application: 12-column fluid grid with defined breakpoints
+- Operations: Fixed column layouts tuned to specific hardware resolutions
+- Applications: 12-column fluid grid with defined breakpoints
 - Marketing: 12-column grid with wider gutters and more generous margins
 
 Pixel-level precision matters. A component that is "close enough" to the grid is not on the grid. Snap to pixel is mandatory. Half-pixel values are only acceptable for stroke centering.
@@ -176,17 +188,17 @@ Leading zeros are mandatory: `045°`, not `45°`. `007`, not `7`. Zero-padding e
 
 ## Context Model
 
-### Operational
+### Operations
 
 Ground control stations, instrument panels, telemetry displays, map overlays, mission timelines.
 
-These are instruments, not interfaces. They display what they display at the size they are, without animation or adaptation. An altitude readout does not have a hover state. It shows the altitude. The reference is Garmin avionics — qualification on every value, fixed layout, zero ornamentation. OpenBridge's safety-first patterns apply here: consistency reduces training time, and predictable layouts reduce errors under fatigue. Operational interfaces are not responsive — they are built for defined hardware.
+These are instruments, not interfaces. They display what they display at the size they are, without animation or adaptation. An altitude readout does not have a hover state. It shows the altitude. Qualification on every value, fixed layout, zero ornamentation. Consistency reduces training time, and predictable layouts reduce errors under fatigue. Operations interfaces are not responsive — they are built for defined hardware.
 
-### Application
+### Applications
 
 Fleet management, mission planning, settings, dashboards, user management, analytics.
 
-These are workday tools. Users spend hours in them. They need clear hierarchy for navigation, moderate density for productivity, and purposeful motion to orient spatial transitions. The reference is Geist — consistent component behavior, accessible color hierarchy, efficient data display without overwhelming the user. Every component has clear states: default, hover, active, focused, disabled. Application interfaces are viewport-adaptive — navigation collapses, panels reflow, tables simplify.
+These are workday tools. Users spend hours in them. They need clear hierarchy for navigation, moderate density for productivity, and purposeful motion to orient spatial transitions. Consistent component behavior, accessible color hierarchy, efficient data display without overwhelming the user. Every component has clear states: default, hover, active, focused, disabled. Applications interfaces are viewport-adaptive — navigation collapses, panels reflow, tables simplify.
 
 ### Marketing
 
@@ -214,7 +226,7 @@ Charts, graphs, and maps follow the same color-as-signal principle:
 
 When a design choice is unclear, apply these questions in order:
 
-1. **Which context is this?** Operational, application, or marketing? The answer governs density, motion, radius, and shadow.
+1. **Which context is this?** Operations, applications, or marketing? The answer governs density, motion, radius, and shadow.
 2. **Does this element encode meaning?** If yes, it stays. If it is purely decorative, remove it.
 3. **Does this work across all themes?** If it fails in any theme, it is not finished.
 4. **Does this follow the grid?** Every measurement should resolve to the base unit. If it does not, justify why.
@@ -228,23 +240,37 @@ When a design choice is unclear, apply these questions in order:
 
 These shaped how AUX was designed. None is followed prescriptively — the principles in this document are self-contained.
 
-**Swiss International Style (Müller-Brockmann, Hofmann, Ruder)** — The philosophical foundation. Grid as organizing principle. Typography as the primary design tool. Constraint as creative method. Auterion is a Zurich company — this tradition is not borrowed, it is inherited.
+### Lineage
 
-**Carbon Design System (IBM)** — The closest visual relative. Carbon shares AUX's Swiss roots, uses IBM Plex (AUX uses Plex Mono for data), and brings the same engineered, no-nonsense precision to component surfaces. AUX's flat surfaces, structured borders, and disciplined spacing reflect this lineage.
+**Swiss International Style (Müller-Brockmann, Hofmann, Ruder)** — see Swiss Precision above.
 
-**Garmin avionics** — Value qualification, zero-padding, fixed-layout precision, and an alert hierarchy proven in thousands of cockpits. AUX adopts these conventions for operational interfaces.
+**IBM Design Program (Noyes, Rand, Eames) / Carbon Design System** — see IBM Design Heritage above.
 
-**OpenBridge Design System** — Safety-first operational interface patterns for maritime and industrial workplaces. AUX applies the same human-factors discipline to aerospace operational contexts.
+**Autonomous systems human factors (OpenBridge, NASA mission control, SCADA)** — see Robotics & Autonomy Discipline above.
 
-**Vercel Geist** — Informed the application tier's approach to component consistency, accessible color hierarchy, and efficient data display. The standard for modern SaaS application UX architecture.
+### Design notes
 
-**Radix Themes** — Informed AUX's component API conventions: the five-variant weight ladder (solid/soft/surface/outline/ghost), semantic color props, and the separation of Button from IconButton.
+**Radix Themes** — Component API vocabulary: the five-variant weight ladder (solid/soft/surface/outline/ghost), semantic color props, and the separation of Button from IconButton.
+
+**Vercel Geist** — Applications-tier UX architecture: component consistency, accessible color hierarchy, efficient data display.
 
 **Area 17** — Numeric precision in design methodology, pixel-level attention to rendering, and the discipline of working within mathematical systems.
 
-**Bloomberg Terminal** — The proof that density and usability are not opposites. Monospace data, color encoding meaning, interfaces designed for people who cannot afford to misread them.
+**Bloomberg Terminal** — Proof that density and usability coexist. Monospace data, color encoding meaning, interfaces designed for people who cannot afford to misread them.
 
-**MIL-STD-1472 and related standards** — Number formatting, time display, and altitude rules based on decades of human factors research. Full compliance audit is on the roadmap.
+> For a broader list of design references, inspirations, and benchmarks, see `docs/references.md`.
+
+---
+
+## Standards & Compliance
+
+These are not design influences — they are regulatory and formatting requirements with useful conventions that AUX adopts.
+
+- **MIL-STD-1472** — Human factors engineering. Number formatting, time display, altitude rules based on decades of research into errors under pressure. These are not style preferences — they are the documented result of what causes humans to misread data in high-stakes environments.
+- **NATO STANAG** — HMI interoperability guidelines for allied systems. Relevant as Auterion works with NATO-aligned democracies.
+- **EU EASA** — European aviation safety human factors requirements.
+
+> **Standards roadmap:** Full compliance audit against MIL-STD-1472, NATO STANAG HMI guidelines, and EU EASA human factors requirements is planned. These standards will formalize rules that AUX already follows by convention. Until the audit is complete, the principles in this document govern.
 
 ---
 
@@ -254,11 +280,11 @@ These shaped how AUX was designed. None is followed prescriptively — the princ
 - AUX is not dark-mode-only or dark-mode-first — it is theme-aware
 - AUX is not minimalist for aesthetic reasons — it is restrained for operational ones
 - AUX is not a single-density system — density varies by context
-- AUX is not responsive everywhere — operational interfaces are fixed-layout by design
+- AUX is not responsive everywhere — operations interfaces are fixed-layout by design
 - AUX does not use color for decoration — ever
-- AUX does not prioritize visual trends over functional clarity
+- AUX does not follow trends — it follows principles
 
-AUX earns trust the same way its influences have: by being precise, consistent, and impossible to misread.
+AUX earns trust the same way its foundations have: by being precise, consistent, and impossible to misread.
 
 ---
 

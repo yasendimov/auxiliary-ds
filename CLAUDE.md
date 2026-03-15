@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: core primitives, marketing/brand, conventional application UI, and aerospace mission-critical operational interfaces.
+**auxiliary-ds (AUX)** is the official design system for Auterion — an aerospace company building autonomous drone swarm systems. AUX is an installable Vue 3 component library published as an npm package. It serves four distinct UI contexts: core primitives, marketing/brand, conventional applications UI, and aerospace mission-critical operations interfaces.
 
 ## Commands
 
@@ -12,6 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm dev` — Start dev server
 - `pnpm build` — Production build
 - `pnpm preview` — Preview production build locally
+- `pnpm test` — Run all tests once (Vitest)
+- `pnpm test:watch` — Run tests in watch mode (re-runs on file changes)
 - `pnpm format` — Auto-format all source files with Prettier
 - `pnpm lint` / `pnpm lint:fix` — Run ESLint / auto-fix
 - Dev server runs on **port 4747** (configured in vite.config.js)
@@ -36,6 +38,48 @@ The hook is activated by `git config core.hooksPath .githooks`, which runs autom
 - **Fonts** — Inter Variable (UI), IBM Plex Mono (data/code) via Google Fonts
 - **Color scales** — 32 scales in `src/tokens/colors/*.css`, CSS-first `@theme` + `@utility`, no JS plugin
 - **@heroicons/vue** — Icon library, import directly from size/variant paths (e.g. `@heroicons/vue/20/outline`)
+- **Vitest** — test runner, configured inline in `vite.config.js`
+- **@vue/test-utils** — Vue 3 component mounting/interaction for tests
+- **vitest-axe** — automated accessibility assertions (axe-core)
+
+## Testing
+
+Tests live in `src/components/core/__tests__/`. Vitest is configured inline in `vite.config.js` with happy-dom environment.
+
+### Key decisions
+
+- **`css: false`** — all CSS imports are stubbed. Tests assert class names, not computed styles. Tailwind `@theme`/`@utility` directives never need processing in tests.
+- **`@floating-ui/vue` is mocked** (`src/test/mocks/floating-ui.js`) — happy-dom has no layout engine, so positioning math is meaningless. Tests verify behavior (open/close, keyboard nav, selection) not pixel positions.
+- **No globals** — every test file imports `describe`, `it`, `expect` from `vitest` explicitly.
+
+### Shared helpers (`src/test/helpers.js`)
+
+- `mountWithTheme(component, options, theme)` — sets `data-theme` on document before mount
+- `mountWithProvider(component, key, value, options)` — wraps mount with provide/inject for group components
+- `expectAccessible(wrapper)` — runs axe accessibility audit, asserts zero violations
+
+### Test file structure
+
+Every component test follows this pattern:
+
+```js
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import Component from '../Component.vue'
+import { expectAccessible } from '../../../test/helpers.js'
+
+describe('Component', () => {
+  // Rendering — slot content, conditional elements
+  // Props / variants — use it.each for variant/size matrices
+  // Events — emitted events on user interaction
+  // Keyboard — keyboard interaction tests (where applicable)
+  // Accessibility — always last: axe audit via expectAccessible()
+})
+```
+
+### Writing new component tests
+
+When adding a new component, add a test file in `__tests__/` following the pattern above. Every test file must include an axe accessibility audit. Use `it.each` for prop matrices (variants × sizes × colors). For components using provide/inject (group components), use `mountWithProvider`. For components using `@floating-ui/vue` (Combobox, Dropdown, Tooltip, Popover), the mock handles positioning automatically.
 
 ## Folder Structure
 
@@ -52,8 +96,14 @@ src/
 │   └── z-index.css
 ├── assets/
 │   └── logos/            ← Auterion brand SVGs (symbol + wordmark)
+├── test/                 ← Test infrastructure
+│   ├── setup.js          ← vitest-axe matcher registration
+│   ├── helpers.js        ← Shared test utilities
+│   └── mocks/
+│       └── floating-ui.js ← @floating-ui/vue stub for tests
 ├── components/
-│   ├── core/       ← Primitives (future @aux/components)
+│   ├── core/             ← Primitives (future @aux/components)
+│   │   └── __tests__/    ← Component and composable tests
 │   ├── marketing/        ← Brand and website components
 │   ├── applications/     ← Conventional SaaS UI
 │   └── operations/       ← Aerospace mission-critical UI
@@ -67,7 +117,7 @@ src/
 ├── App.vue
 └── main.js
 docs/                      ← Design docs (not published)
-└── design-decisions.md
+└── design-philosophy.md
 ```
 
 ## Token Architecture
@@ -103,8 +153,8 @@ Three page-level constants in `src/tokens/spacing.css`, registered in `@theme` s
 Everything else uses Tailwind's built-in spacing scale directly. Layout density varies by context:
 
 - **Marketing**: `px-6 md:px-8 lg:px-12`, `py-16 md:py-24`
-- **Application**: `px-6 py-6`
-- **Operational**: `px-2 py-2`, instruments `p-1.5`
+- **Applications**: `px-6 py-6`
+- **Operations**: `px-2 py-2`, instruments `p-1.5`
 
 ### Breakpoints
 
@@ -112,15 +162,15 @@ Tailwind v4 default breakpoints — no custom overrides:
 
 | Prefix | Min-width | Usage |
 | ------ | --------- | ----- |
-| `sm`   | 640px     | Marketing only |
-| `md`   | 768px     | Marketing + Application |
-| `lg`   | 1024px    | Marketing + Application |
-| `xl`   | 1280px    | Marketing only |
-| `2xl`  | 1536px    | Marketing only |
+| `sm`   | 640px     | Marketing only              |
+| `md`   | 768px     | Marketing + Applications    |
+| `lg`   | 1024px    | Marketing + Applications    |
+| `xl`   | 1280px    | Marketing only              |
+| `2xl`  | 1536px    | Marketing only              |
 
 - **Marketing** — full responsive range (`sm` through `2xl`)
-- **Application** — `md`+ (assumes tablet-minimum viewport)
-- **Operational** — typically fixed-viewport (no breakpoints, instruments sized by container)
+- **Applications** — `md`+ (assumes tablet-minimum viewport)
+- **Operations** — typically fixed-viewport (no breakpoints, instruments sized by container)
 
 ## Color System
 
@@ -197,12 +247,12 @@ Status colors are NEVER used decoratively — only for their designated alert le
 - OpenType features enabled by default: tabular figures, contextual alternates
 - Tracking tightens as size increases: -2% body, -3% heading, -4% display
 - Regular weight gets looser tracking than SemiBold/Medium at large display sizes (optical correction)
-- Never use italic in operational interfaces
+- Never use italic in operations interfaces
 - Uppercase only for labels and overlines — never body text
 
-## Design Decisions
+## Design Philosophy
 
-See `docs/design-decisions.md` for full rationale and decision framework.
+See `docs/design-philosophy.md` for full rationale and decision framework.
 
 Core principle: **functional authority** — looks like it controls things that fly. No decoration. Every element encodes meaning or it's removed.
 
@@ -229,8 +279,8 @@ Easing: `--ease-snap` (snappy, exit-feel) and `--ease-glide` (smooth, enter-feel
 
 ### Context budgets
 
-- **Operational** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operational UI is a distraction.
-- **Application** — subtle, functional transitions. `--duration-fast` to `--duration-base`. No entrance animations.
+- **Operations** — near-zero motion. Only `--duration-instant` for state feedback. No decorative animation — motion in operations UI is a distraction.
+- **Applications** — subtle, functional transitions. `--duration-fast` to `--duration-base`. No entrance animations.
 - **Marketing** — expressive transitions allowed. `--duration-base` to `--duration-slow`. Entrance animations and scroll-triggered motion OK.
 
 ## Data Visualization Rules
@@ -257,6 +307,19 @@ conventions for:
 Do not copy their visual design, spacing, colors, or radius decisions.
 AUX tokens and design philosophy govern all visual decisions.
 
+### Radix-Inspired API Patterns
+
+Components with visual variants follow the Button rebuild template:
+
+- **`variant`** — visual weight: `solid` | `soft` | `surface` | `outline` | `ghost`
+- **`size`** — Tailwind-native: `sm` | `md` | `lg` | `xl`
+- **`color`** — semantic switching: `blue` (default, interactive) | `red` (destructive)
+- **Icons** — slot-based via `data-slot="icon"` children, not icon props
+- **`IconButton`** — separate square component for icon-only actions
+- **`useButtonVariants`** — shared composable for variant × color × size class resolution
+
+This pattern applies to every component with visual variants. Current: Button, IconButton, ButtonGroup. Next: Badge, Alert, Input, Toggle, Dialog.
+
 ## Component Rules
 
 - Every component uses `<script setup>` and Composition API
@@ -266,7 +329,7 @@ AUX tokens and design philosophy govern all visual decisions.
 - Components in `core/` are the only ones allowed to use raw Tailwind utilities
 - Components in `marketing/`, `applications/`, `operations/` must compose from `core/` primitives
 - Every component must work in both light and dark mode
-- Operational components must strictly follow OpenBridge conventions
+- Operations components must strictly follow OpenBridge conventions
 - Every component must include: keyboard interaction support, focus-visible styles,
   appropriate ARIA attributes, and sufficient color contrast in both themes.
   Accessibility is structural — not a post-build checklist.
@@ -303,8 +366,8 @@ A component is not done until all of these are complete:
 
 - **Core** — Primitives shared across all categories. Button, Input, Badge, Typography, Icon, etc.
 - **Marketing** — Public-facing brand components. Hero, FeatureCard, Nav, Footer, CTA, etc.
-- **Application** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
-- **Operational** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
+- **Applications** — Conventional SaaS UI. Tables, Forms, Modals, Dashboards, Navigation, etc.
+- **Operations** — Aerospace mission-critical UI. Telemetry cards, Status bars, Alert panels, Mission timeline, Fleet lists, Map overlays. Must follow OpenBridge alert hierarchy.
 
 ## Branch Naming
 

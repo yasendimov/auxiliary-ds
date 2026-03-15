@@ -44,7 +44,7 @@ const contexts = [
     desc: 'Ground control stations, instrument panels, real-time telemetry. Fixed layout. Maximum density. No decoration.'
   },
   {
-    title: 'Application',
+    title: 'Applications',
     desc: 'Fleet management, mission planning, dashboards. Balanced density. Purposeful motion. Workday tools.'
   },
   {

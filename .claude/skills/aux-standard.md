@@ -18,7 +18,27 @@ Every AUX component follows these rules. They are self-contained — no external
 
 **Vue + Tailwind conventions.** `<script setup>` with `defineProps()` + validators. Computed class composition — arrays of strings in `computed()`, never inline ternaries. Slot-based icons with `data-slot="icon"`. `provide`/`inject` with Symbol keys for compound components. Shared composables (`useXxxVariants.js`) for variant × color logic.
 
-> *These principles were informed by Radix Themes (API vocabulary), Carbon Design System (visual precision), and Tailwind Plus / Catalyst (Vue implementation patterns). The standard itself is self-contained — you don't need to consult those systems to follow it.*
+### The Three Sources
+
+Each source contributes one clearly separated concern. They do not overlap.
+
+| Concern | Source | What AUX takes |
+|---------|--------|----------------|
+| **Visual design** | Carbon Design System | The look: sharp corners, tight asymmetric padding, near-instant transitions, Productive/Expressive duality. Carbon is the closest visual relative — Swiss-modernist heritage applied to component UI. The precision standard comes from Area 17's Pixel School methodology: mathematical grid systems, pixel-perfect rendering, vector-based positioning. |
+| **API shape** | Radix Themes + Radix Colors | The developer surface: five-variant weight ladder, semantic `color` prop, `size` prop, component separation (Button / IconButton). Radix Colors inspired the 12-step color scale architecture. |
+| **Vue patterns** | Tailwind Plus / Catalyst | The implementation: `<script setup>`, computed class composition, slot structure, accessibility attributes. Implementation conventions only — not visual design. |
+
+### Before You Build
+
+When creating, modifying, or reviewing any component, follow this sequence:
+
+1. **Check Carbon first.** Open `carbondesignsystem.com/components/{name}/style/` — study the spacing, padding, sizing, state treatments, and visual weight. This is the visual benchmark.
+2. **Check the AUX reference implementation.** Read the closest existing AUX component (see Reference Implementation below) to understand current patterns and token usage.
+3. **Apply the Radix API shape.** Use the variant/color/size prop vocabulary. Follow the weight ladder for variant semantics.
+4. **Build with AUX tokens.** Every color, size, duration, and radius from the token system. Zero arbitrary values. If a token doesn't exist, flag it.
+5. **Implement with Tailwind Plus patterns.** Computed class arrays, `<script setup>`, slot-based icons, provide/inject for compound components.
+
+> *The standard itself is self-contained — you don't need to consult those external systems to follow it. But Carbon is the visual benchmark, and checking it first produces better results.*
 
 ---
 
@@ -80,14 +100,14 @@ Weight determines emphasis. Color determines meaning. A `solid red` Badge and a 
 
 ## Per-Category Rules
 
-> For the full context model rationale, see `docs/design-decisions.md`.
+> For the full context model rationale, see `docs/design-philosophy.md`. For design references and benchmarks, see `docs/references.md`.
 
-### Application and Operational
+### Applications and Operations
 
 - Radix-caliber spacing precision: tight padding ratios, optical icon alignment, strict 4px grid
 - Type from AUX scale, spacing from Tailwind scale — everything on-system
 - State transitions: `transition-colors duration-fast ease-snap` as baseline for all interactive elements
-- **Operational additions**: near-zero motion (`duration-instant` only for state feedback), maximum density, `radius-instrument` for data-bearing elements, OpenBridge alert hierarchy strictly enforced
+- **Operations additions**: near-zero motion (`duration-instant` only for state feedback), maximum density, `radius-instrument` for data-bearing elements, OpenBridge alert hierarchy strictly enforced
 
 ### Marketing
 
@@ -148,7 +168,7 @@ Semantic HTML elements always (`button`, `a`, `input` — never `div` with click
 
 The Button family is the gold standard. Study these files before building any new component:
 
-- `src/components/core/Button.vue` — three-source philosophy in action: Radix variant/color/size props, Tailwind Plus computed class composition, AUX token classes throughout
+- `src/components/core/Button.vue` — three-source philosophy in action: Carbon's visual precision (spacing, states), Radix's API shape (variant/color/size props), Tailwind Plus's Vue patterns (computed class composition), AUX token classes throughout
 - `src/components/core/useButtonVariants.js` — shared composable pattern: variant x color matrix with disabled state handling
 - `src/components/core/ButtonGroup.vue` — compound component pattern: provide/inject with Symbol key, reactive size/disabled propagation
 - `src/components/core/IconButton.vue` — sibling component pattern: shares composable with Button, differs only in size classes (square) and slot structure (icon-only)
