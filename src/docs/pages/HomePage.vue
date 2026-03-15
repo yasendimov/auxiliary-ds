@@ -26,7 +26,7 @@ const visualLanguage = [
   },
   {
     title: 'Typography',
-    desc: 'Swiss precision. Negative tracking. Monospace as truth. Three weights. One typeface.'
+    desc: 'Swiss precision. Inter Dynamic Metrics tracking. Monospace as truth. Three weights. One typeface.'
   },
   {
     title: 'Spacing',
@@ -66,8 +66,8 @@ const colophon = [
     <!-- Hero -->
     <section class="px-8 lg:px-16 pt-24 pb-16">
       <p class="type-overline text-base-dim">AUX Design System — v0.2.0</p>
-      <h1 class="type-display-sb text-base-normal mt-4">Auxiliary</h1>
-      <p class="type-heading-sb text-base-dim mt-4 max-w-xl">
+      <h1 class="type-hero-sb md:type-broadsheet-sb text-base-normal mt-4">Auxiliary</h1>
+      <p class="type-lead-r md:type-subheading-r text-base-dim mt-4 max-w-2xl leading-relaxed">
         The official design system for Auterion products. Built for operators, designed in Zurich.
       </p>
     </section>
@@ -77,7 +77,7 @@ const colophon = [
       <div class="grid grid-cols-3 lg:grid-cols-6 border-t border-l border-base-dim">
         <div v-for="spec in specs" :key="spec.label" class="border-b border-r border-base-dim p-8">
           <span class="type-overline text-base-dim">{{ spec.label }}</span>
-          <p class="type-caption-m text-base-normal mt-1">{{ spec.value }}</p>
+          <p class="type-intro-m text-base-normal mt-2">{{ spec.value }}</p>
         </div>
       </div>
     </section>
@@ -93,8 +93,8 @@ const colophon = [
           :key="card.title"
           class="border-b border-r border-base-dim p-8"
         >
-          <h3 class="type-subheading-sb text-base-normal">{{ card.title }}</h3>
-          <p class="type-body-r text-base-dim mt-2 max-w-md">{{ card.desc }}</p>
+          <h3 class="type-section-sb text-base-normal">{{ card.title }}</h3>
+          <p class="type-intro-r text-base-dim mt-3 max-w-md leading-relaxed">{{ card.desc }}</p>
         </div>
       </div>
     </section>
@@ -110,8 +110,8 @@ const colophon = [
           :key="card.title"
           class="border-b border-r border-base-dim p-8 flex flex-col justify-between min-h-56"
         >
-          <h3 class="type-subheading-sb text-base-normal">{{ card.title }}</h3>
-          <p class="type-body-r text-base-dim max-w-xs">{{ card.desc }}</p>
+          <h3 class="type-lead-sb text-base-normal">{{ card.title }}</h3>
+          <p class="type-caption-r text-base-dim max-w-xs leading-relaxed">{{ card.desc }}</p>
         </div>
       </div>
     </section>
@@ -125,14 +125,14 @@ const colophon = [
           :key="card.title"
           class="border-b border-r border-base-dim p-8 flex flex-col justify-between min-h-52"
         >
-          <h3 class="type-subheading-sb text-base-normal">{{ card.title }}</h3>
-          <p class="type-body-r text-base-dim">{{ card.desc }}</p>
+          <h3 class="type-section-m text-base-normal">{{ card.title }}</h3>
+          <p class="type-caption-r text-base-dim leading-relaxed">{{ card.desc }}</p>
         </div>
       </div>
     </section>
 
     <!-- Colophon -->
-    <section class="px-8 lg:px-16 mt-24">
+    <section class="px-8 lg:px-16 mt-24 pb-24">
       <div class="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-base-dim">
         <div
           v-for="item in colophon"
@@ -140,7 +140,7 @@ const colophon = [
           class="border-b border-r border-base-dim p-8"
         >
           <span class="type-overline text-base-dim">{{ item.label }}</span>
-          <p :class="[item.mono ? 'font-mono' : '', 'type-caption-m text-base-normal mt-1']">
+          <p :class="[item.mono ? 'font-mono' : '', 'type-intro-m text-base-normal mt-2']">
             {{ item.value }}
           </p>
         </div>

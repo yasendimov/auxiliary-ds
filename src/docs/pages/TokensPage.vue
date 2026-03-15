@@ -214,10 +214,14 @@ const typeWeights = [
 ]
 
 const trackingTokens = [
-  { utility: 'tracking-body', value: '-0.02em', use: 'body through intro' },
-  { utility: 'tracking-section', value: '-0.03em', use: 'lead through subheading' },
-  { utility: 'tracking-display', value: '-0.04em', use: 'heading through broadsheet (sb/m)' },
-  { utility: 'tracking-display-loose', value: '-0.05em', use: 'heading through broadsheet (r)' },
+  { utility: 'tracking-xs', value: '0em', use: 'agate (12px) — no adjustment' },
+  { utility: 'tracking-sm', value: '-0.006em', use: 'caption (14px)' },
+  { utility: 'tracking-base', value: '-0.011em', use: 'body (16px)' },
+  { utility: 'tracking-lg', value: '-0.014em', use: 'intro (18px)' },
+  { utility: 'tracking-xl', value: '-0.017em', use: 'lead (20px)' },
+  { utility: 'tracking-2xl', value: '-0.019em', use: 'section (24px)' },
+  { utility: 'tracking-3xl', value: '-0.021em', use: 'subheading (30px)' },
+  { utility: 'tracking-display', value: '-0.022em', use: 'heading through broadsheet (40px+)' },
   { utility: 'tracking-overline', value: '0.06em', use: 'overline only — wide spaced' }
 ]
 

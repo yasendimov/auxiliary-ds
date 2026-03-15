@@ -39,11 +39,16 @@ Search component template and script for:
 - Tailwind default colors: `bg-gray-*`, `text-slate-*`, `border-zinc-*`, etc. (any Tailwind built-in palette)
 - Inline color styles: `style="color:..."`, `style="background:..."`, `:style="{ color: ... }"`
 - Hardcoded durations: `duration-100`, `duration-200`, `duration-300`, `duration-500`, `duration-700`, `duration-1000` (should use motion tokens: `duration-instant`, `duration-fast`, `duration-base`, `duration-slow`)
-- Hardcoded tracking: `tracking-tight`, `tracking-wide` (should use type classes)
+- Hardcoded tracking: `tracking-tight`, `tracking-wide`, `tracking-tighter`, `tracking-wider`, `tracking-widest` (should use type classes)
+- Bare text sizing: `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`…`text-9xl` — must use AUX type classes (`type-caption-r`, `type-body-m`, etc.) which bundle size + weight + tracking + line-height. Match exact class only — `text-base-dim` is a color class, not sizing.
+- Bare font-weight: `font-semibold`, `font-medium`, `font-normal` — weight should be bundled in the type class, not applied separately
 
 Allowed exceptions:
 - `text-white` and `text-black` (for contrast on solid fills)
-- Docs pages rendering dynamic token previews may use inline styles
+- Color semantic classes: `text-{scale}-dim`, `text-{scale}-normal` (these are color, not sizing)
+- `font-mono` (font family, not weight)
+- Docs pages rendering dynamic token previews may use inline styles and bare utilities
+- See replacement mapping in `.claude/rules/tokens.md` → "No bare Tailwind typography" section
 
 #### Check 2: Dark Mode Compliance (error)
 

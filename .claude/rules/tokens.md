@@ -81,9 +81,60 @@ Available scales: `base` (neutral), `blue` (action/accent), `red`, `orange`, `am
 - `agate` has no `-sb` variant (SemiBold at 12px is too heavy)
 - `.type-overline` (11px) — special formatting class, no weight suffix, includes `text-transform: uppercase`
 - No bare class names — always use the weight suffix (e.g., `type-body-r` not `type-body`)
-- Tracking tightens as size increases: -2% body, -3% heading, -4% display
+- Tracking follows **Inter Dynamic Metrics** — per-step values from 0em (12px) to −0.022em (40px+). One value per size step, no weight-based split.
 - Never use italic in operations interfaces
 - Uppercase only for labels and overlines — never body text
+
+### No bare Tailwind typography in components
+
+AUX type classes bundle size + weight + tracking + line-height into one predictable class. Never use bare Tailwind text sizing, font-weight, or tracking utilities in component files — always use the AUX type system.
+
+**Forbidden in `src/components/**/*.vue`:**
+- Bare text sizing: `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`…`text-9xl`
+- Bare font-weight: `font-semibold`, `font-medium`, `font-normal` (bundled in type class)
+- Bare tracking: `tracking-tight`, `tracking-wide`, etc. (bundled in type class)
+
+**Not flagged** (these are fine):
+- Color classes: `text-base-dim`, `text-base-normal`, `text-red-dim` — these are AUX semantic color utilities, not text sizing
+- `font-mono` — font family, not weight
+- `leading-compact`, `leading-normal`, `leading-relaxed` — AUX context line-height utilities
+- Docs pages (`src/docs/`) may use bare utilities for token display
+
+**Replacement mapping:**
+
+| Bare size | px | AUX type class | Semantic alternatives |
+| --------- | -- | -------------- | -------------------- |
+| `text-xs` | 12 | `type-agate-{w}` | `type-label-sm`, `type-code-sm`, `type-helper-sm` |
+| `text-sm` | 14 | `type-caption-{w}` | `type-label-md`, `type-code-md`, `type-helper-md` |
+| `text-base` | 16 | `type-body-{w}` | `type-label-lg`, `type-code-lg` |
+| `text-lg` | 18 | `type-intro-{w}` | — |
+| `text-xl` | 20 | `type-lead-{w}` | — |
+| `text-2xl` | 24 | `type-section-{w}` | — |
+| `text-3xl` | 30 | `type-subheading-{w}` | — |
+| `text-4xl`+ | 40+ | `type-heading-{w}`…`type-broadsheet-{w}` | — |
+
+Weight suffixes: `font-semibold` → `-sb`, `font-medium` → `-m`, `font-normal` or absent → `-r`.
+
+### Context line-heights
+
+Three density modes mapped to UI contexts:
+
+- `leading-compact` (1.25) — Operations: dense data panels
+- `leading-normal` (1.4) — Applications: standard UI (default)
+- `leading-relaxed` (1.6) — Marketing: long-form reading
+
+### Compact variants
+
+Body-size classes with compact line-height for operations density:
+`.type-body-compact-r`, `.type-body-compact-m`, `.type-caption-compact-r`, `.type-caption-compact-m`, `.type-agate-compact-r`, `.type-agate-compact-m`
+
+### Semantic role tokens
+
+Color-neutral `@utility` aliases for common UI text roles (compose color separately):
+
+- **Labels**: `type-label-sm` (12px) · `type-label-md` (14px) · `type-label-lg` (16px) — medium weight, compact leading
+- **Code**: `type-code-sm` (12px) · `type-code-md` (14px) · `type-code-lg` (16px) — mono font, normal leading
+- **Helper text**: `type-helper-sm` (12px) · `type-helper-md` (14px) — regular weight, normal leading
 
 ## Spacing
 
